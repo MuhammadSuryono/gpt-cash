@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	                    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!-- Receive Response using this queue, NOTE: each server in the cluster should use different queue name -->
+    <bean id="This_Server_Response_Queue_Name" class="java.lang.String">
+        <!-- Just alter the name after the last dot (.) , otherwise you'll need to alter hazelcast.xml to match the queue name -->
+        <constructor-arg value="gpcash.server.server1"/>
+    </bean>
+
+    <!-- 
+        This server is listening to incoming request 
+        In the future, this listener might be splitted into: 
+            trxServiceListener, inquiryServiceListener, idmServiceListener, reportingServiceListener, etc...
+    -->
+    <bean id="ServiceListener" class="com.gpt.component.common.spring.server.ServiceBeanInvokerListener">
+        <!-- Handle Requests coming in from this queue -->
+        <constructor-arg value="gpcash.module.main"/>
+        <!-- Set handler for local response -->
+        <property name="localResponseQueueName" ref="This_Server_Response_Queue_Name"/>
+        <property name="localResponseHandler" value="#{T(com.gpt.component.common.invoker.QueueInvoker).getDefaultHandler()}"/>
+    </bean>
+
+    <!-- 
+        This server will request service using this invoker 
+        In the future, this invoker might be splitted into: 
+            trxServiceInvoker, inquiryServiceInvoker, idmServiceInvoker, reportingServiceInvoker, etc...
+    -->
+    <bean id="ServiceInvoker" class="com.gpt.component.common.spring.invoker.HazelcastDistributedQueueInvoker">
+        <!-- Send Request to this queue -->
+        <constructor-arg value="gpcash.module.main"/>
+        <!-- This value must be the same for all requester of this server -->
+        <constructor-arg ref="This_Server_Response_Queue_Name" />
+    </bean>
+
+    <util:map id="PriorityMap" 
+           map-class="java.util.HashMap" 
+           key-type="java.lang.String" 
+           value-type="java.lang.Long">
+        <!-- We need the response queue to have much much more priority over request queue, for now 1:5 should be enough -->
+        <entry key="IncomingReqQueue"    value="1"/>
+        <entry key="IncomingRespQueue"   value="5"/>
+    </util:map>     
+
+    <bean
+        class="com.gpt.component.common.invoker.queue.consumer.MultiQueuesConsumer">
+        <property name="name" value="ServerThreadPool" />
+        <property name="prioritizer">
+            <bean class="com.gpt.component.common.queue.group.prioritizer.LoadBalancedGroupPrioritizer">
+		        <constructor-arg>
+		            <bean class="com.gpt.component.common.queue.group.prioritizer.CustomPrioritizer">
+		                <constructor-arg ref="PriorityMap"/>
+		            </bean>
+		        </constructor-arg>
+            </bean>
+        </property>
+        <property name="queueProviders">
+            <map>
+                <entry key="IncomingReqQueue"  value-ref="ServiceListener"/>
+                <entry key="IncomingRespQueue" value-ref="ServiceInvoker"/>
+            </map>
+        </property>
+    </bean>
+    
+</beans>

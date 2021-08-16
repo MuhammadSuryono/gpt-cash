@@ -1,0 +1,6 @@
+dependencies {
+    compile project(':platform-cash')
+    compile project(':calendar')
+
+    compile configurations.modularConfiguration.allDependencies
+}

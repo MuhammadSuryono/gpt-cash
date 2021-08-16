@@ -1,0 +1,7 @@
+dependencies {
+    compile project(':gp-cash:corporate')
+    compile project(':gp-cash:corporate:inquiry')
+    compile project(':gp-cash:corporate:transaction')
+    compile project(':gp-cash:corporate:report')
+    compile project(':calendar')
+}

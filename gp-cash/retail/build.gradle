@@ -1,0 +1,5 @@
+dependencies {
+	compile project(':gp-cash')
+    compile project(':gp-cash:biller')
+    compile project(':gp-cash:cot')
+}

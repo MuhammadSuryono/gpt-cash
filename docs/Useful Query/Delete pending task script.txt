@@ -1,0 +1,26 @@
+delete WF_PENDING_TASK_VALUE;
+commit;
+
+delete WF_PENDING_TASK_OLD_VALUE;
+commit;
+
+delete WF_PENDING_TASK;
+commit;
+
+delete CORPADM_WF_PENDING_VALUE;
+commit;
+
+delete CORPADM_WF_PENDING_OLD_VALUE;
+commit;
+
+delete CORPADM_WF_PENDING;
+commit;
+
+delete CORPUSR_WF_PENDING_VALUE;
+commit;
+
+delete CORPUSR_WF_PENDING_OLD_VALUE;
+commit;
+
+delete CORPUSR_WF_PENDING;
+commit;

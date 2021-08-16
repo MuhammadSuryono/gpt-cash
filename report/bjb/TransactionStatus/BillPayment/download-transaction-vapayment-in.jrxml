@@ -1,0 +1,1065 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="download-transaction" pageWidth="595" pageHeight="900" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Key" isIgnorePagination="true" uuid="aabe85ad-aba3-41b4-9f62-416c38fef25e">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="pageHeader" fontName="Arial" fontSize="9"/>
+	<subDataset name="transactionDataSet" uuid="4c4b11aa-33ae-4d42-8e99-964d28e466a8">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="no" class="java.lang.String"/>
+		<field name="description" class="java.lang.String"/>
+		<field name="postDate" class="java.lang.String"/>
+		<field name="effectiveDate" class="java.lang.String"/>
+		<field name="debitAmount" class="java.lang.String"/>
+		<field name="creditAmount" class="java.lang.String"/>
+		<field name="balance" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="transactionDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="refNo" class="java.lang.String"/>
+	<parameter name="title" class="java.lang.String"/>
+	<parameter name="bankLogo" class="java.lang.Object"/>
+	<parameter name="trxDate" class="java.lang.String"/>
+	<parameter name="todayDate" class="java.lang.String"/>
+	<parameter name="trxTime" class="java.lang.String"/>
+	<parameter name="sequenceNo" class="java.lang.String"/>
+	<parameter name="transactionStatus" class="java.lang.String"/>
+	<parameter name="sourceAccount" class="java.lang.String"/>
+	<parameter name="sourceAccountName" class="java.lang.String"/>
+	<parameter name="noBayar" class="java.lang.String"/>
+	<parameter name="tahunBuat" class="java.lang.String"/>
+	<parameter name="namaPemilik" class="java.lang.String"/>
+	<parameter name="milikKenama" class="java.lang.String"/>
+	<parameter name="warnaPlat" class="java.lang.String"/>
+	<parameter name="alamatPemilik" class="java.lang.String"/>
+	<parameter name="noPolisi" class="java.lang.String"/>
+	<parameter name="merekKB" class="java.lang.String"/>
+	<parameter name="jenisKB" class="java.lang.String"/>
+	<parameter name="modelKB" class="java.lang.String"/>
+	<parameter name="transactionCurrency" class="java.lang.String"/>
+	<parameter name="chargeType1" class="java.lang.String"/>
+	<parameter name="chargeType2" class="java.lang.String"/>
+	<parameter name="chargeType3" class="java.lang.String"/>
+	<parameter name="chargeType4" class="java.lang.String"/>
+	<parameter name="chargeType5" class="java.lang.String"/>
+	<parameter name="chargeAmount1" class="java.lang.String"/>
+	<parameter name="chargeAmount2" class="java.lang.String"/>
+	<parameter name="chargeAmount3" class="java.lang.String"/>
+	<parameter name="chargeAmount4" class="java.lang.String"/>
+	<parameter name="chargeAmount5" class="java.lang.String"/>
+	<parameter name="chargeCurrency1" class="java.lang.String"/>
+	<parameter name="chargeCurrency2" class="java.lang.String"/>
+	<parameter name="chargeCurrency3" class="java.lang.String"/>
+	<parameter name="chargeCurrency4" class="java.lang.String"/>
+	<parameter name="chargeCurrency5" class="java.lang.String"/>
+	<parameter name="totalCharge" class="java.lang.String"/>
+	<parameter name="totalDebited" class="java.lang.String"/>
+	<parameter name="ntp" class="java.lang.String"/>
+	<parameter name="errorDscp" class="java.lang.String"/>
+	<parameter name="address" class="java.lang.String"/>
+	<parameter name="taxPeriod" class="java.lang.String"/>
+	<parameter name="dendaPKB" class="java.lang.String"/>
+	<parameter name="pokokSWD" class="java.lang.String"/>
+	<parameter name="totalAmount" class="java.lang.String"/>
+	<parameter name="ntb" class="java.lang.String"/>
+	<parameter name="dendaSWD" class="java.lang.String"/>
+	<parameter name="COPYRIGHT_REPORT" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="printDate" class="java.lang.String"/>
+	<parameter name="akhirPajakBaru" class="java.lang.String"/>
+	<parameter name="pokokPKB" class="java.lang.String"/>
+	<parameter name="adminFee" class="java.lang.String"/>
+	<parameter name="period" class="java.lang.String"/>
+	<parameter name="SUSPECT_TRX_REPORT" class="net.sf.jasperreports.engine.JasperReport"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="billLabel" class="java.lang.String"/>
+	<field name="billValue" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="809">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="156" y="146" width="395" height="20" uuid="a08b557d-9ad5-48fe-a497-d5ea4acc6a64"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{sequenceNo}]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center">
+				<reportElement x="1" y="8" width="120" height="42" uuid="108e014d-4cd4-495b-b742-46dcfb0865ed"/>
+				<imageExpression><![CDATA[$P{bankLogo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="pageHeader" x="0" y="146" width="140" height="20" uuid="c94458c7-6d40-4ea4-9db5-3c1fa23807fd"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[Trace No]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-20" y="80" width="595" height="1" forecolor="#D1D1D1" uuid="0396f646-0cef-495b-b630-ba9f2e370240"/>
+			</line>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="146" width="15" height="20" uuid="281c6963-60cd-483e-831b-2e030bdfd1d7"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="pageHeader" x="0" y="649" width="140" height="20" isRemoveLineWhenBlank="true" uuid="36f70646-a63c-46be-8cd8-c5fe19a974f0">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$P{totalCharge}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<text><![CDATA[Total Fee]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="180" y="649" width="110" height="20" isRemoveLineWhenBlank="true" uuid="94b111e0-46a6-4f7b-9440-9df33757aee5">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{totalCharge}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="649" width="15" height="20" isRemoveLineWhenBlank="true" uuid="3199f6f6-dfa0-4b75-b9e8-20136d1b6307">
+					<printWhenExpression><![CDATA[$P{totalCharge}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="0" y="548" width="140" height="20" isRemoveLineWhenBlank="true" uuid="f60e8172-28ee-4f56-a008-915cc2d880ad"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{chargeType1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="548" width="15" height="20" isRemoveLineWhenBlank="true" uuid="7d873a9b-c687-4b91-a66f-6d153b9f435a">
+					<printWhenExpression><![CDATA[$P{chargeType1} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="180" y="548" width="110" height="20" isRemoveLineWhenBlank="true" uuid="40e4a058-c3f8-450e-9bac-b06942d62d39">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{chargeAmount1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="180" y="568" width="110" height="20" isRemoveLineWhenBlank="true" uuid="0cf4d592-6f65-4573-ac0d-edb6fec5d05a">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{chargeAmount2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="568" width="15" height="20" isRemoveLineWhenBlank="true" uuid="fcdeeb0f-af5c-4d93-8cbb-fc090e647433">
+					<printWhenExpression><![CDATA[$P{chargeType2} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="0" y="568" width="140" height="20" isRemoveLineWhenBlank="true" uuid="49a5e679-ed38-4d6c-9a27-4aa360ab6cd0"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{chargeType2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="180" y="589" width="110" height="20" isRemoveLineWhenBlank="true" uuid="2049ef76-8546-4c92-9f7b-6853f7e47faf">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{chargeAmount3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="180" y="609" width="110" height="20" isRemoveLineWhenBlank="true" uuid="ae06eb9a-a9d1-4010-b050-435190fe6491">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{chargeAmount4}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="609" width="15" height="20" isRemoveLineWhenBlank="true" uuid="7c7e496b-62cb-46b5-9786-4222aff80f38">
+					<printWhenExpression><![CDATA[$P{chargeType4} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="589" width="15" height="20" isRemoveLineWhenBlank="true" uuid="eb1bc97d-5f62-4b50-bb44-bdb4693c6196">
+					<printWhenExpression><![CDATA[$P{chargeType3} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="0" y="609" width="140" height="20" isRemoveLineWhenBlank="true" uuid="d10c3437-e37c-4fbf-ae8d-faecaa21ec33"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{chargeType4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="0" y="589" width="140" height="20" isRemoveLineWhenBlank="true" uuid="414306cf-6084-4586-ae4d-956601b3e8cd"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{chargeType3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="0" y="629" width="140" height="20" isRemoveLineWhenBlank="true" uuid="f5a05868-3b4d-43de-aebb-f25278fefa72"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{chargeType5}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="629" width="15" height="20" isRemoveLineWhenBlank="true" uuid="1a39bb3e-5660-4fb0-b7aa-00c6bbd5b58c">
+					<printWhenExpression><![CDATA[$P{chargeType5} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="180" y="629" width="110" height="20" isRemoveLineWhenBlank="true" uuid="e3f43aed-0ef0-428e-9164-087e16173fd0">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{chargeAmount5}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="pageHeader" x="0" y="669" width="140" height="20" uuid="5492986d-82c5-44a1-b2a6-033eb40659fd">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<text><![CDATA[Total Debit Amount]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="pageHeader" x="180" y="669" width="110" height="20" uuid="6d599068-c030-48db-93a0-32ada8e62fe9">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{totalDebited}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="669" width="15" height="20" uuid="a01497e7-866c-48a4-a287-06da05a8bf78"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="125" width="15" height="20" uuid="3a18d334-b8f9-4046-a323-95d9448472d4"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="pageHeader" x="0" y="125" width="140" height="20" uuid="00379bd3-5fcd-42c4-a456-17366d50f712"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[Transaction Date]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="156" y="125" width="395" height="20" uuid="8685fe92-9bd9-4f05-9095-b33824c57073"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{trxDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="186" width="15" height="20" uuid="8ea5a229-4a0a-434d-bde4-29f1edba6357"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="pageHeader" x="0" y="186" width="140" height="20" uuid="a62d0e4a-e949-4682-88f9-1270c2bc85b5"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[Source Account]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="156" y="186" width="394" height="20" uuid="0aa9d0ae-24ab-45e1-8279-5502ad56f953"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{sourceAccount}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="206" width="15" height="20" uuid="3cd96a94-cc7c-4ff8-9a1a-35a46639a93c"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="pageHeader" x="0" y="206" width="140" height="20" uuid="42edf767-bc4b-44ff-8761-5d3956574d8b"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[Kode Bayar]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="156" y="206" width="394" height="20" uuid="1bb36792-eb3c-4400-b089-605d3d204961"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{noBayar}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="pageHeader" x="0" y="226" width="140" height="20" isRemoveLineWhenBlank="true" uuid="0a55cfb7-0874-46b4-92fd-9f9db9ae1cc9"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[No Polisi]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="156" y="226" width="394" height="20" isRemoveLineWhenBlank="true" uuid="e3fd8170-8e94-43df-bc50-6b53fdc7e2d9"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{noPolisi}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="226" width="15" height="20" isRemoveLineWhenBlank="true" uuid="d9f54624-d944-4928-937c-061993c683d6"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="pageHeader" x="0" y="246" width="140" height="20" isRemoveLineWhenBlank="true" uuid="13448b5d-5a34-4702-b204-3aceae4fd338"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[Warna TNKB]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="156" y="246" width="394" height="20" isRemoveLineWhenBlank="true" uuid="975007f6-5300-42c7-8bd7-ce8de1076f7b"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{warnaPlat}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="246" width="15" height="20" isRemoveLineWhenBlank="true" uuid="40177b63-648c-4e55-8fbb-6ed694b045e8"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="156" y="548" width="24" height="20" isRemoveLineWhenBlank="true" uuid="9890e1a9-bac9-4a6d-bd1e-3b7e2bb2cd56">
+					<printWhenExpression><![CDATA[$P{chargeType1}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{chargeCurrency1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="156" y="568" width="24" height="20" isRemoveLineWhenBlank="true" uuid="647af788-2ca4-4961-879e-add834bfe691">
+					<printWhenExpression><![CDATA[$P{chargeType2}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{chargeCurrency2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="156" y="589" width="24" height="20" isRemoveLineWhenBlank="true" uuid="c50b0876-bb81-47d1-8b9b-fbb9ec7f747d">
+					<printWhenExpression><![CDATA[$P{chargeType3}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{chargeCurrency3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="156" y="609" width="24" height="20" uuid="a09e4f9a-13a4-4169-b9be-eef2fdb73fd4">
+					<printWhenExpression><![CDATA[$P{chargeType4}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{chargeCurrency4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="156" y="629" width="24" height="20" isRemoveLineWhenBlank="true" uuid="74902ff9-e115-4066-9959-7ed3c8bf968f">
+					<printWhenExpression><![CDATA[$P{chargeType5}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{chargeCurrency5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="156" y="649" width="24" height="20" isRemoveLineWhenBlank="true" uuid="d80956ab-a96c-4951-989a-25eeb97a9a30">
+					<printWhenExpression><![CDATA[$P{totalCharge}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{transactionCurrency}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="156" y="669" width="24" height="20" isRemoveLineWhenBlank="true" uuid="2b978b12-1759-4220-9431-35f89b14c63b">
+					<printWhenExpression><![CDATA[$P{totalDebited}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{transactionCurrency}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="140" y="732" width="15" height="20" uuid="2ec87a4b-6999-49c9-98f8-38238968f5b7"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="pageHeader" x="0" y="732" width="140" height="20" uuid="63affdd6-930c-4c66-a9b7-a1e90eb0ab30"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[Transaction Reference Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="166" width="15" height="20" uuid="082828dd-68a9-4ff4-903c-ee82167ec214"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="156" y="166" width="394" height="20" uuid="cf663acd-c1aa-414f-84cf-35fb9c02805e"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{transactionStatus}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="pageHeader" x="0" y="166" width="140" height="20" uuid="3410c8c4-9404-4426-9949-d5fbc96dbef9"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[Transaction Status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="266" width="15" height="20" isRemoveLineWhenBlank="true" uuid="cb8a2892-456e-4d9f-8f57-750cffad2baa"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="pageHeader" x="0" y="266" width="140" height="20" isRemoveLineWhenBlank="true" uuid="f0b16a98-c218-4ce1-8722-158a2fee4b8b"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[Tahun Pembuatan]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="156" y="266" width="394" height="20" isRemoveLineWhenBlank="true" uuid="6890eef3-139a-4461-a093-9bee83f7eecb"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tahunBuat}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="286" width="15" height="20" isRemoveLineWhenBlank="true" uuid="7103e3f9-e3cd-4776-a055-10c03f73b563"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="pageHeader" x="0" y="286" width="140" height="20" isRemoveLineWhenBlank="true" uuid="fb59731d-02c1-4cc3-8c1e-3afd31a36349"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[Nama Pemilik]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="156" y="286" width="394" height="20" isRemoveLineWhenBlank="true" uuid="401cddf5-1a4c-41b0-938a-5f10f8941111"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{namaPemilik}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="306" width="15" height="20" isRemoveLineWhenBlank="true" uuid="79fdbf22-ce30-4a6f-bb9c-b639f6395e15"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="pageHeader" x="0" y="306" width="140" height="20" isRemoveLineWhenBlank="true" uuid="15a4f432-6ef0-430c-abbb-d72be9d60982"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[Milik Ke ]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="156" y="306" width="394" height="20" isRemoveLineWhenBlank="true" uuid="8e7faf2d-5685-478c-a3ca-1324b6e20c7c"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{milikKenama}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="326" width="15" height="20" isRemoveLineWhenBlank="true" uuid="c496787e-3ce2-4e26-8a75-a4ebe745a7a0"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="pageHeader" x="0" y="326" width="140" height="20" isRemoveLineWhenBlank="true" uuid="92bba893-6632-4608-be5c-3af06bbe320f"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[Alamat]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="156" y="326" width="394" height="20" isRemoveLineWhenBlank="true" uuid="6e46173e-b99d-43cd-83c2-074eda2edbe9"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{alamatPemilik}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="346" width="15" height="20" isRemoveLineWhenBlank="true" uuid="91d86238-d5ab-4db5-8ba7-630d7628749e"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="pageHeader" x="0" y="346" width="140" height="20" isRemoveLineWhenBlank="true" uuid="4c7dc8da-e0f1-4ad6-9b67-e47301d11efd"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[Merk Kendaraan]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="156" y="346" width="394" height="20" isRemoveLineWhenBlank="true" uuid="11a90fa0-7fde-4300-bc4f-4515d82b30a3"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{merekKB}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="448" width="15" height="20" isRemoveLineWhenBlank="true" uuid="fbc4e3b1-839b-4e04-a540-b39626db86da"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="pageHeader" x="0" y="448" width="140" height="20" isRemoveLineWhenBlank="true" uuid="bf1c74f4-9044-46df-8a5d-7cf141e1fc06"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[PKB Denda]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="180" y="448" width="110" height="20" isRemoveLineWhenBlank="true" uuid="003a543c-1355-4dce-bf9f-93535aa6b32a">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dendaPKB}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="156" y="448" width="24" height="20" isRemoveLineWhenBlank="true" uuid="6583e1d3-cbce-4b62-922e-5e4efe5c7062">
+					<printWhenExpression><![CDATA[$P{dendaPKB}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{transactionCurrency}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="pageHeader" x="0" y="468" width="140" height="20" isRemoveLineWhenBlank="true" uuid="19ae37a6-7032-438b-944f-2369a733de46"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[SWDKLLJ Pokok]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="156" y="468" width="24" height="20" isRemoveLineWhenBlank="true" uuid="4217bed0-8565-40e0-9293-191f279e48fa">
+					<printWhenExpression><![CDATA[$P{pokokSWD}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{transactionCurrency}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="468" width="15" height="20" isRemoveLineWhenBlank="true" uuid="c069eb6e-893a-4aaf-97ad-9b0d961d594e"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="180" y="468" width="110" height="20" isRemoveLineWhenBlank="true" uuid="e7316ec2-c1cf-4338-acb6-4ce5d4f0f12b">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pokokSWD}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="689" width="15" height="20" isRemoveLineWhenBlank="true" uuid="e93c550a-fbc6-4559-a2c4-1fd0bf5e73b2"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="156" y="689" width="394" height="20" isRemoveLineWhenBlank="true" uuid="658aeb2c-e421-4e31-a831-82170bee186a"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ntb}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="pageHeader" x="0" y="689" width="140" height="20" isRemoveLineWhenBlank="true" uuid="a41437d7-142c-43e3-b5f0-b6348a9b7566"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[NTB]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="pageHeader" x="155" y="732" width="394" height="20" uuid="73767c40-0819-468c-a345-8633860cb986"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{refNo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="366" width="15" height="20" isRemoveLineWhenBlank="true" uuid="3519cc7c-e502-4307-b840-ae657f043e7b"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="156" y="366" width="394" height="20" isRemoveLineWhenBlank="true" uuid="6cff86a0-45cb-4e3b-a6c7-cf3a93258cff"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{jenisKB}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="pageHeader" x="0" y="366" width="140" height="20" isRemoveLineWhenBlank="true" uuid="ec6eb16a-ecf1-4501-a925-ba372d20cf0a"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[Jenis Kendaraan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="pageHeader" x="0" y="386" width="140" height="20" isRemoveLineWhenBlank="true" uuid="df2866a5-5f8c-492c-ad81-a6df7b3097a4"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[Type]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="156" y="386" width="394" height="20" isRemoveLineWhenBlank="true" uuid="feae856a-126f-4bdd-971c-243237918f33"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{modelKB}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="386" width="15" height="20" isRemoveLineWhenBlank="true" uuid="ce7aff68-052a-4b1d-9537-7072860975d8"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="pageHeader" x="1" y="768" width="548" height="13" uuid="1a590905-92e1-4ec5-8b83-ddbbfe455dcc"/>
+				<textElement textAlignment="Center" markup="html">
+					<font fontName="Arial" size="9" isBold="true"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[Telah dilakukan regident kendaraan bermotor STNK tahunan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="pageHeader" x="1" y="781" width="548" height="13" uuid="e23cf882-4c76-44d3-bdf9-e571b10828c5"/>
+				<textElement textAlignment="Center" markup="html">
+					<font fontName="Arial" size="9" isBold="true"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[Struk ini sebagai dokumen lain yang dipersamakan dengan SKPD]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="156" y="508" width="24" height="20" isRemoveLineWhenBlank="true" uuid="5c28974a-8dff-440b-bcff-42326e800f31">
+					<printWhenExpression><![CDATA[$P{totalAmount}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{transactionCurrency}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="508" width="15" height="20" isRemoveLineWhenBlank="true" uuid="aa92e59a-a721-4928-9eca-eb5a568fd273"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="180" y="508" width="110" height="20" isRemoveLineWhenBlank="true" uuid="ebfb8df8-e88d-48bd-bf1e-92ea4be35452">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{totalAmount}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="pageHeader" x="0" y="508" width="140" height="20" isRemoveLineWhenBlank="true" uuid="8a364f31-6bf9-44f7-a89c-33ec9c7dd104"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[Jumlah Tagihan]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="156" y="488" width="24" height="20" isRemoveLineWhenBlank="true" uuid="2b2e81ec-03fd-47eb-9701-2cef95083869">
+					<printWhenExpression><![CDATA[$P{dendaSWD}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{transactionCurrency}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="488" width="15" height="20" isRemoveLineWhenBlank="true" uuid="6dcbfd7a-f1dd-4dec-8405-6e17ac75427e"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="180" y="488" width="110" height="20" isRemoveLineWhenBlank="true" uuid="c804f198-97aa-40bf-8fb1-8326a3537377">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dendaSWD}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="pageHeader" x="0" y="488" width="140" height="20" isRemoveLineWhenBlank="true" uuid="96b0364f-a952-4459-bf04-f96f9ee84963"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[SWDKLLJ Denda]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="1" y="42" width="540" height="30" uuid="449a5838-70dc-4a04-840f-02a1d1322981">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{title}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="pageHeader" x="156" y="20" width="224" height="20" uuid="0aa02c79-4bd0-4078-9564-4d0b9554e245"/>
+				<textElement textAlignment="Center" markup="html">
+					<font fontName="Arial" size="12" isBold="true"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[BUKTI PEMBAYARAN]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="156" y="104" width="395" height="20" uuid="223491b5-373a-4b88-9e90-e54e37a111bf"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{printDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="pageHeader" x="0" y="104" width="140" height="20" uuid="bcc57b52-3877-4d52-bb40-ee18ed1113d3"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[Print Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="104" width="15" height="20" uuid="df9f56a9-1da9-4436-9a87-a13c0c10f84a"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="156" y="407" width="394" height="20" isRemoveLineWhenBlank="true" uuid="f53c8cbd-dabf-4978-9f7d-508555e31574"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{akhirPajakBaru}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="407" width="15" height="20" isRemoveLineWhenBlank="true" uuid="4a92211d-3ce8-4dfd-95ba-e57d690dac7a"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="pageHeader" x="0" y="407" width="140" height="20" isRemoveLineWhenBlank="true" uuid="44c28dc5-0499-42f2-a6b6-23540c5d494d"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[Masa Berlaku]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="427" width="15" height="20" isRemoveLineWhenBlank="true" uuid="1556bdd9-face-4982-bf40-63d147a6f9b2"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="pageHeader" x="0" y="427" width="140" height="20" isRemoveLineWhenBlank="true" uuid="e7d8593c-c326-4b3f-8a96-2ec08ee34f9f"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[PKB Pokok]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="180" y="427" width="110" height="20" isRemoveLineWhenBlank="true" uuid="7dd77436-c19d-4fc4-b7f2-0daf0e6fc375">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pokokPKB}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="156" y="427" width="24" height="20" isRemoveLineWhenBlank="true" uuid="7bdb04b8-a17e-4407-95c4-17e202c0b009">
+					<printWhenExpression><![CDATA[$P{dendaPKB}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{transactionCurrency}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="pageHeader" x="0" y="528" width="140" height="20" isRemoveLineWhenBlank="true" uuid="32f819c0-78d7-49bc-aad0-56a4e1e2bbcf"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[Biaya Administrasi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="" style="pageHeader" x="141" y="528" width="15" height="20" isRemoveLineWhenBlank="true" uuid="173afaff-d185-4e5a-99cd-6353265d9e1f"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="156" y="528" width="24" height="20" isRemoveLineWhenBlank="true" uuid="fc3565d1-339f-4ae0-abd6-375c42f01367">
+					<printWhenExpression><![CDATA[$P{totalAmount}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{transactionCurrency}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="180" y="528" width="110" height="20" isRemoveLineWhenBlank="true" uuid="05aae87e-092d-483c-a279-26a50fefcc03">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{adminFee}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="pageHeader" x="0" y="795" width="548" height="13" isRemoveLineWhenBlank="true" uuid="7d5fbb50-02a4-48b8-8b39-6c4f52145a9f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Tukarkan struk dengan SKPD/SKKP sekaligus pengesahan STNK paling lambat ".concat($P{period}).concat(" hari setelah pembayaran")]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement stretchType="ContainerBottom" x="0" y="84" width="551" height="20" isRemoveLineWhenBlank="true" uuid="2a75b334-cf2c-44bd-ba65-d3daef99467f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new JREmptyDataSource()]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUSPECT_TRX_REPORT}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="51">
+			<subreport>
+				<reportElement x="0" y="2" width="551" height="45" uuid="9d52e28f-7007-4737-8077-eac70983a879">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new JREmptyDataSource()]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{COPYRIGHT_REPORT}]]></subreportExpression>
+			</subreport>
+		</band>
+	</pageFooter>
+</jasperReport>

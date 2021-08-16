@@ -1,0 +1,40 @@
+solaris apache
+http://www.logiqwest.com/dataCenter/Demos/RunBooks/qStatus/Docs/ApacheSolaris.html
+
+login as root
+cd /usr/apache2/2.4/bin
+./apachectl start
+./apachectl restart
+./apachectl stop
+
+//install apache 64 bit
+pkg install web/server/apache-24
+edit httpd.conf in /etc/apache2/2.4
+LoadModule alias_module libexec/libphp5.so
+
+/var/apache2/2.4/logs
+
+install php in solaris
+pkg install php-56
+
+enable module below for proxy:
+mod_proxy.so
+mod_proxy_ajp.so
+mod_proxy_connect.so
+mod_proxy_ftp.so
+mod_proxy_http.so
+
+For reverse proxy add below in httpd.conf :
+<Proxy *>
+  Order Deny,Allow
+  #Deny from all
+  Allow from all
+</Proxy>
+
+<VirtualHost *:8080>
+	ProxyPass /corp/ http://103.58.101.227:8080/corp/
+	ProxyPassReverse /corp/ http://103.58.101.227:8080/corp/
+	
+	ProxyPass /bank/ http://103.58.101.227:8080/bank/
+	ProxyPassReverse /bank/ http://103.58.101.227:8080/bank/
+</VirtualHost>

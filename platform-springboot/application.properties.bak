@@ -1,0 +1,109 @@
+server.name = server1
+server.port = 8080
+server.session.timeout = 60
+server.session.persistent=false
+
+# actuator end point
+management.security.enabled = true
+security.user.name = sbtclient
+security.user.password = p@ssw0rd
+
+#server.ssl.key-store = classpath:ssl.jks
+#server.ssl.key-store-password = 123456
+#server.ssl.key-password = 123456
+
+## size of each buffer in bytes
+server.undertow.buffer-size=16000
+## number of buffer per region
+server.undertow.buffers-per-region=20
+## number of I/O threads to create for the worker
+server.undertow.io-threads=20
+## number of worker threads = io * 8
+server.undertow.worker-threads=100 
+
+#spring.datasource.url = jdbc:oracle:thin:@103.58.101.227:1521:GPT
+#spring.datasource.username = CASH_PRODUCT
+#spring.datasource.password = CASH_PRODUCT
+spring.datasource.url = jdbc:mysql://localhost:3306/cash
+spring.datasource.username = user
+spring.datasource.password = password
+
+spring.datasource.hikari.maximum-pool-size = 150
+
+spring.jpa.show-sql = true
+spring.jpa.hibernate.ddl-auto = none
+spring.jpa.properties.hibernate.jdbc.batch_size=50
+spring.jpa.properties.javax.persistence.sharedCache.mode=NONE
+
+## for dev only
+#spring.devtools.restart.trigger-file = reloadTrigger
+
+#spring.boot.admin.client.enabled = true
+spring.boot.admin.url = http://localhost:9090
+# remote admin user and password to connect to
+spring.boot.admin.username = sbtadmin
+spring.boot.admin.password = secretP@ss
+
+#preload message true only for production
+gpcash.messages.preload = true
+eai.server.url = http://biznetcloud:10008/EAI
+
+#avatar
+gpcash.avatar.upload.path=./avatar/temp
+gpcash.avatar.domain.images.path=./avatar
+
+#payroll
+gpcash.payroll.upload.path = ./payroll/upload
+gpcash.payroll.download.sample.path=./payroll/downloadSample
+gpcash.payroll.download.sample.filename=SamplePayroll
+
+#direct debit
+gpcash.directdebit.upload.path=./directDebit/upload
+gpcash.directdebit.download.sample.path=./directDebit/downloadSample
+gpcash.directdebit.download.sample.filename=SampleDirectDebit
+
+#va account
+gpcash.vaaccountlistupload.upload.path=./va/upload
+gpcash.vaaccountlistupload.download.sample.path=./va/downloadSample
+gpcash.vaaccountlistupload.download.sample.filename=SampleVirtualAccount
+
+#trx history temp download path
+gpcash.trxhistory.download.path=./temp/trxhistory
+
+#trx status temp download path
+gpcash.trxstatus.download.path=./temp/trxstatus
+
+#global used for temp folder
+gpcash.temp.download.path=./temp/global
+
+#report path
+gpcash.report.folder=./report/corporate
+
+#bank logo path
+gpcash.report.bank.logo=./front-line/static/images/bank-logo.png
+
+gpcash.circuit-breaker.enable = true
+
+#email setup
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+spring.mail.username=
+spring.mail.password=
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+
+#key for encrypt / decrypt
+encrytion.key=1dAhq2VENRAdGjSD
+
+#access log setup
+server.tomcat.accesslog.enabled = true
+server.tomcat.accesslog.buffered = false
+server.tomcat.accesslog.pattern = %h %l %u %t [%S] "%r" %s %b (%D ms)
+server.tomcat.accesslog.directory = access_log
+server.tomcat.basedir = logs
+
+#Retail
+gpcash.retail.trxhistory.download.path=./download/trxhistory
+
+#active application (GPCASHIB|GPCASHIB_R)
+gpcash.active.application.code=GPCASHIB

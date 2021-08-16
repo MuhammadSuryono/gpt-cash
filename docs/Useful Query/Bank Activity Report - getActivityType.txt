@@ -1,0 +1,7 @@
+select distinct action_type from LOG_ACTV
+where menu_cd in (
+    select cd from idm_menu where menu_type_cd in ('I')
+    and cd in (
+        select menu_cd from idm_menu_tree where app_cd in ('GPCASHBO')
+    )
+) order by action_type

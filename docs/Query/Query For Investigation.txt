@@ -1,0 +1,132 @@
+-----------------TOKEN----------------------------------------------------
+--delete token berdasarkan corporateId
+delete token_user where corp_id in ('CORP003', 'CORP004');
+commit;
+
+--delete token berdasarkan tokenNo
+delete token_user where token_no in('');
+commit;
+
+--find token by tokenNo
+select * from token_user where token_no = '1531900258';
+-----------------END TOKEN----------------------------------------------------
+
+-----------------BACK OFFICE USER----------------------------------------------------
+
+--find user by user code
+select cd, nm, user_id from idm_user
+where cd = 'YB02';
+
+--find user by user id
+select cd, nm, user_id from idm_user
+where user_id = 'YB02';
+
+-----------------END BACK OFFICE USER----------------------------------------------------
+
+-----------------WORKFLOW----------------------------------------------------
+
+--for back office
+select task_.id, user_ from WE_PROCESS_INSTANCE pro
+left join WE_TASK_INSTANCE task_ on task_.process_instance = pro.id
+left join WF_PENDING_TASK pending on pending.id = pro.id
+where pending.reference_no = 'B201710071556249797' and task_.end_dt is null;
+
+--for front office admin
+select task_.id, user_ from WE_PROCESS_INSTANCE pro
+left join WE_TASK_INSTANCE task_ on task_.process_instance = pro.id
+left join CORPADM_WF_PENDING pending on pending.id = pro.id
+where pending.reference_no = 'C201705251590398645'  and task_.end_dt is null;
+
+--for front user
+select task_.id, user_ from WE_PROCESS_INSTANCE pro
+left join WE_TASK_INSTANCE task_ on task_.process_instance = pro.id
+left join CORPUSR_WF_PENDING pending on pending.id = pro.id
+where pending.reference_no = 'C20170615733619630' and task_.end_dt is null;
+
+-----------------WORKFLOW----------------------------------------------------
+
+
+-----------------PENDING TASK----------------------------------------------------
+
+--query ke pending task (BANK)
+select * from WF_PENDING_TASK a
+inner join WF_PENDING_TASK_VALUE b on a.id = b.parent_id
+where reference_no = 'B201710071874335276'
+order by reference_no, b.idx;
+
+--query ke pending task (CORP ADMIN)
+select * from CORPADM_WF_PENDING a
+inner join CORPADM_WF_PENDING_VALUE b on a.id = b.parent_id
+where reference_no = 'C20170615733619630'
+order by reference_no, b.idx;
+
+--query ke pending task (CORP USER)
+select * from CORPUSR_WF_PENDING a
+inner join CORPUSR_WF_PENDING_VALUE b on a.id = b.parent_id
+where reference_no = 'C20170615733619630'
+order by reference_no, b.idx;
+
+
+-----------------END PENDING TASK----------------------------------------------------
+
+-----------------LOG ACTIVITY----------------------------------------------------
+
+--find bank activity
+select * from log_actv actv
+inner join log_error err_ on actv.id = err_.id
+where actv.is_error = 'Y'
+order by actv.actv_dt desc;
+
+--find corp activity
+select * from corp_log_actv actv
+inner join corp_log_error err_ on actv.id = err_.id
+where actv.is_error = 'Y'
+order by actv.actv_dt desc;
+
+-----------------END LOG ACTIVITY----------------------------------------------------
+
+
+-----------------ERROR MAPPING----------------------------------------------------
+--find error mapping
+select * from mt_error_mapping
+where cd = 'EAI-VL-1350';
+-----------------END ERROR MAPPING----------------------------------------------------
+
+
+----------------------REJECT PENDINGTASK--------------------------------------------
+
+UPDATE WE_TASK_INSTANCE task_
+SET task_.IS_CANCELED = '1' , task_.END_DT = sysdate
+WHERE task_.process_instance IN (SELECT pt.id 
+                                 FROM CORPADM_WF_PENDING pt 
+                                 WHERE pt.reference_no = 'C201710071388978276');
+
+UPDATE CORPADM_WF_PENDING pt
+SET pt.STATUS = 'REJECTED'
+WHERE pt.reference_no = 'C201710071388978276';
+
+commit;
+
+----------------------REJECT PENDINGTASK--------------------------------------------
+
+
+----------------------EXECUTE INHOUSE FUTURE SESSION TIME 2--------------------------------------------
+
+update SCHEDULER_TASK
+set parameter = '2|futureDate=13/10/2017 00:00:00'
+where cd = 'INHOUSE_FUTURE_2';
+commit;
+
+commit;
+
+--cek proses status di table fisik
+select a.is_processed, a.IS_ERROR, a.ERROR_CD, a.status, a.* from trx_domestic a where REF_NO = 'C20171012483844776';
+
+--cek status di pending task
+select a.status, a.* from corpusr_wf_pending a where REFERENCE_NO = 'C20171012483844776';
+
+--cek transaction status berdasarkan pending task id
+select * from corp_transaction_sts where pending_task_id = 'cc867ce4-4b23-4278-a957-b29e1822c914';
+
+
+----------------------EXECUTE INHOUSE FUTURE SESSION TIME 2--------------------------------------------

@@ -1,0 +1,27 @@
+package com.gpt.product.gpcash.corporate.transaction.report.domtrxreport.services;
+
+import java.util.Map;
+
+import com.gpt.component.common.exceptions.ApplicationException;
+import com.gpt.component.common.exceptions.BusinessException;
+import com.gpt.component.common.invoker.discovery.AutoDiscoveryImpl;
+
+@AutoDiscoveryImpl
+public interface DomesticReportSC {
+	String menuCode = "MNU_GPCASH_BO_RPT_DOM_TRX";
+	
+	public Map<String, Object> searchSourceAccount(Map<String, Object> map) throws ApplicationException, BusinessException;
+
+	public Map<String, Object> searchCorporate(Map<String, Object> map) throws ApplicationException, BusinessException;
+	
+	public Map<String, Object> searchDomServiceList(Map<String, Object> map) throws ApplicationException, BusinessException;
+	
+	Map<String, Object> search(Map<String, Object> map) throws ApplicationException, BusinessException;
+	
+	Map<String, Object> submit(Map<String, Object> map) throws ApplicationException, BusinessException;
+	
+	Map<String, Object> downloadReport(Map<String, Object> map) throws ApplicationException, BusinessException;
+
+	void doGenerateReport(Map<String, Object> map) throws ApplicationException, BusinessException;
+
+}

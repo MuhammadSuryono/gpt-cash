@@ -1,0 +1,4 @@
+select * from CORP_USR_GRP_DTL
+where corp_usr_grp_id in (
+select id from corp_usr_grp
+where corp_id = 'GG1')

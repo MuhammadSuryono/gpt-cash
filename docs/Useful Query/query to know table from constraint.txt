@@ -1,0 +1,3 @@
+select * from all_constraints
+where owner = 'CASH_PRODUCT'
+and constraint_name = 'FKKUJL0QVO7PRT3G8II7EVPM1F7'

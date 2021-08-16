@@ -1,0 +1,49 @@
+install wls master:
+=======================
+java -jar /gpt/installer/wls/fmw_12.2.1.2.0_wls.jar -invPtrLoc /gpt/installer/wls/oraInst.loc -responseFile /gpt/installer/wls/wls_install.rsp
+
+create domains:
+=======================
+- cd /gpt/oracle/wls/oracle_common/common/bin
+- ./wlst.sh /gpt/installer/wls/create_domain_input.py
+- Please Enter Admin ServerName: -> AdminServer
+- Please Enter Admin Listen Address: -> 
+- Please enter Admin listen Port: -> 10001
+- Please Enter AdminUser Name: -> weblogic
+- Please enter Admin password: -> p@ssw0rdgpt
+- Enter the domain path: -> /gpt/oracle/wls/domains
+- Enter domain name: -> gdbank
+
+Note: Memang agak lama nunggu selesai.
+
+start node manager:
+=======================
+- cd /gpt/oracle/wls/domains/gdbank/bin
+- nohup ./startNodeManager.sh &
+- cd /gpt/oracle/wls/domains/gdbank/nodemanager
+- edit nodemanager.properties
+	- SecureListener=false
+- stop node manager 
+- start node manager
+
+start adminserver:
+=======================
+- cd /gpt/oracle/wls/domains/gdbank
+- nohup ./startWeblogic.sh &
+- http://ip:10001/console
+- create machine (machine-0) with type PLAIN and make sure listen address is localhost and listen port is 5556
+- create manage server (gibserver01) with machine that has been created (machine-0)
+	- edit server start: (sesuaikan jdk version, folder gib/cash dan sesuaikan server native di argumentnya utk solaris)
+		- java home : /gpt/jdk1.8.0_121
+		- classpath: /gpt/app/gib/configs
+		- argument: -d64 -server -Xms2048m -Xmx2048m -XX:MaxMetaspaceSize=512M -Djava.library.path=/gpt/oracle/wls/wlserver/server/native/linux/x86_64
+- start the server
+- tail -f gibserver01.out (make sure no errors)
+		
+create datasource:
+=======================
+- jndi name : jdbc/gib   (nama harus sesuai dgn yg ada di application.properties)
+- target server: gibserver01
+
+deploy the war file:
+- target to gibserver01

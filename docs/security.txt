@@ -1,0 +1,26 @@
+Login with userId (+corpId) and password:
+1. User must enter userId (+corpId) and password first.
+2. Request randomKey to server, passing userId (+corpId).
+3. Send Login Request, passing userId (+corpId) and (Password + randomKey).hash() as the password.
+
+Change password:
+1. User must enter userId (+corpId), old password, new password and confirm new password first.
+2. Request randomKey to server, passing userId (+corpId).
+3. (Old Password + randomKey).hash() and use the result as AES key. 
+4. Send Change Password Request, passing userId (+corpId) and encrypted New Password (using the AES128) and (Old Password + Confirm Password + randomKey).hash() as the Confirm Password.
+   Notice: we never send old password.
+
+Register Finger Print:
+1. User must be authenticated or login first.
+2. Request randomKey to server, passing userId (+corpId).
+3. Generate a set of public private key.
+4. Store userId (+corpId) privateKey into keychain / keystore protected by Finger Print.
+   Android will use security hardware and requires user to authenticate himself before the private key can be used.
+5. (Password + randomKey).hash() and use the result as AES key to encrypt the public key.
+6. Register to server for Finger Print access, sending the encrypted public key.
+
+Login with Finger Print:
+1. Retrieve the userId (+corpId) and private key using the Finger Print.
+2. Request randomKey to server by passing userId (+corpId).
+3. Sign the randomKey by using the private key.
+4. Send Login Request, passing userId (+corpId) and the signature of the randomKey.

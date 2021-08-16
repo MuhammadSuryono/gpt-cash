@@ -1,0 +1,22 @@
+syntax: glob
+.gradle
+.settings
+.classpath
+.project
+build
+bin
+gradle
+gradlew
+gradlew.bat
+platform-springboot/logs
+platform-springboot/test_deployment
+*.gitignore
+test_deployment
+syntax: regexp
+^application\.properties$
+syntax: regexp
+^platform-springboot/application\.properties$
+syntax: regexp
+^platform-springboot/application\.pid$
+syntax: regexp
+^configs/mobile-application\.properties$

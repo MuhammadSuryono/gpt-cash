@@ -1,0 +1,13 @@
+--query untuk liat role mana yg berhak di assign
+select * from idm_role_menu roleMenu
+left join idm_role role_ on role_.cd = roleMenu.ROLE_CD
+left join idm_role_type type_ on type_.cd = role_.ROLE_TYPE_CD
+left join idm_menu menu on roleMenu.MENU_CD = menu.cd
+where menu.cd = 'MNU_GPCASH_IDM_ROLE' and type_.cd = 'AP'
+
+
+--query dari hibernate yg generated
+select idmusermod1_.cd as cd1_35_, idmusermod1_.active_fr as active_fr2_35_, idmusermod1_.active_to as active_to3_35_, idmusermod1_.branch_cd as branch_cd20_35_, idmusermod1_.created_by as created_by4_35_, idmusermod1_.created_dt as created_dt5_35_, idmusermod1_.is_delete as is_delete6_35_, idmusermod1_.email as email7_35_, idmusermod1_.is_pwd_never_expire as is_pwd_never_expir8_35_, idmusermod1_.last_change_passwd_dt as last_change_passwd9_35_, idmusermod1_.last_login_dt as last_login_dt10_35_, idmusermod1_.login_count as login_count11_35_, idmusermod1_.nm as nm12_35_, idmusermod1_.password as password13_35_, idmusermod1_.status as status14_35_, idmusermod1_.is_still_login as is_still_login15_35_, idmusermod1_.updated_by as updated_by16_35_, idmusermod1_.updated_dt as updated_dt17_35_, idmusermod1_.user_id as user_id18_35_, idmusermod1_.version as version19_35_ from idm_user_role idmuserrol0_ left outer join idm_user idmusermod1_ on idmuserrol0_.user_cd=idmusermod1_.cd 
+where (idmuserrol0_.role_cd in (select idmrolemen2_.role_cd from idm_role_menu idmrolemen2_ cross join idm_role idmrolemod3_ where idmrolemen2_.role_cd=idmrolemod3_.cd and 
+idmrolemen2_.menu_cd='MNU_GPCASH_PRO_MNU_PC' and idmrolemod3_.role_type_cd='AP')) 
+and idmusermod1_.is_delete='N'

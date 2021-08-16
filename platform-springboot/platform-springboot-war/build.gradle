@@ -1,0 +1,68 @@
+apply plugin: 'org.springframework.boot'
+apply plugin: "io.spring.dependency-management"
+apply plugin: 'war' 
+
+project.webAppDirName = 'webapp'
+uploadArchives.enabled = false
+
+def parentProject = project(':platform-springboot')
+
+configurations {
+    runtime.exclude group: 'stax'
+    runtime.exclude group: 'javax.xml.stream', module: 'stax-api'
+}
+
+dependencies {
+    compile parentProject.configurations.runtime.allDependencies
+    
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+    
+    runtime 'com.querydsl:querydsl-jpa:4.1.4'
+}
+
+war {
+    baseName = parentProject.jar.baseName
+    manifest.attributes  'Implementation-Title': "GPCash"
+    manifest.attributes  'Implementation-Version': version
+
+    from(parentProject.sourceSets.main.output.classesDir) {
+        into 'WEB-INF/classes'
+    }
+    
+    from(parentProject.sourceSets.main.resources) {
+        into 'WEB-INF/classes'
+    }
+
+    parentProject.configurations.jarOnly.each {
+        classpath -= it
+    }
+
+    parentProject.configurations.provided.each {
+        classpath -= it
+    }
+
+    def webUI = project(':gp-cash:corporate:web-ui')
+    (rootProject.subprojects + rootProject).each { thisProject ->
+        thisProject.configurations.provided.each {
+            if(!it.name.endsWith(".jar")){
+                classpath -= it 
+            }
+        }
+        
+        if(thisProject == webUI) {
+            thisProject.configurations.archives.allArtifacts.each { artifact ->
+                classpath -= artifact.file
+            }
+        }
+    }
+
+}
+
+springBoot {
+    buildInfo()
+}
+
+bootRepackage {
+    enabled = false
+}
+

@@ -1,0 +1,97 @@
+server:
+  use-forward-headers: true
+  undertow:
+    direct-buffers: true
+  session:
+    persistent: false
+    cookie:
+      http-only: true
+      secure: true
+    timeout: 600
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain,text/css,application/javascript
+
+management:
+  context-path: /management
+    
+spring:
+  application:
+    name: GPCash
+  datasource:
+    name: dataSource
+  jpa:
+    properties:
+      javax:
+        persistence:
+          sharedCache:
+            mode: ENABLE_SELECTIVE
+      hibernate:
+        cache:
+          use_second_level_cache: true
+          region:
+            factory_class: com.hazelcast.hibernate.HazelcastLocalCacheRegionFactory
+          hazelcast:
+            instance_name: gpCash-Hazelcast
+  jta:
+    enabled: true
+    transaction-manager-id: transactionManager
+  mvc:
+    async:
+      request-timeout: -1
+  session:
+    store-type: hazelcast
+  boot:
+    admin:
+      client:
+        enabled: false
+        metadata:
+          user.name: ${security.user.name}
+          user.password: ${security.user.password}
+  mail:
+    default-encoding: UTF-8
+    host: localhost
+    port: 25
+  security:
+    cors:
+      allowed-origins: "*"  
+  
+gpcash:
+  string-block-size: 1024
+  messages:
+    preload: true
+  circuit-breaker:
+    enable: true
+  activity-log:
+    thread-name: ActivityLog
+    thread-core: 4
+    thread-max: 16
+  currency:
+    local: IDR
+  batch:
+    transations:
+      timeout-invoker: 1800000
+      concurrencies: 20
+      timeout-job: 60000
+    sot:
+      timeout: 3600000
+      batch-size: 1000
+
+#circuit-breaker properties    
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: SEMAPHORE
+          semaphore:
+            maxConcurrentRequests: 1000
+        timeout:
+          enabled: false
+          
+#password encryption key
+encrytion:
+  key: 2dAhq2VENRAdGjSD
+
+
+    

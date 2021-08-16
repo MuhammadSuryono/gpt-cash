@@ -1,0 +1,50 @@
+set ip laptop ke 10.0.0.100
+ssh ke 10.0.0.89
+
+Id : eis-installer
+
+showdomainstatus -a
+
+poweron -p
+
+XSCF>console -p 0
+jika di pakai oleh user lain maka:
+XSCF>console -p 0 -f
+
+
+login gpt
+su root
+
+ldm ls
+
+ldm start ldom-bjbsitdb01
+ldm start ldom-bjbsitapp01
+
+ldm start ldom-bjbuatdb01
+ldm start ldom-bjbuatweb01
+ldm start ldom-bjbuatapp01
+
+klo ldm start gagal maka perlu bind dl
+ldm bind ldom-bjbsitapp01
+
+jika ldm berhasil tetapi ga bisa ping dari luar maka :
+telnet localhost <port tujuan>
+contoh port sitdb01 5003
+
+lalu ketik
+boot
+tunggu sampai muncul login
+
+===============================================================
+cara masuk dari primary UAT
+
+Ip 10.6.226.32
+User : gpt
+P@ssw0rd
+
+Telnet localhost 5000 buat masuk web
+Telnet localhost 5002 buat masuk app
+
+Cek ipnya
+Ifconfig net0
+Ifconfig  net1

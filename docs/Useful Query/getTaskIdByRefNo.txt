@@ -1,0 +1,17 @@
+--for back office
+select task_.id, user_ from WE_PROCESS_INSTANCE pro
+left join WE_TASK_INSTANCE task_ on task_.process_instance = pro.id
+left join WF_PENDING_TASK pending on pending.id = pro.id
+where pending.reference_no = 'B201705151201398926'
+
+--for front office admin
+select task_.id, user_ from WE_PROCESS_INSTANCE pro
+left join WE_TASK_INSTANCE task_ on task_.process_instance = pro.id
+left join CORPADM_WF_PENDING pending on pending.id = pro.id
+where pending.reference_no = 'C201705251590398645'
+
+--for front user
+select task_.id, user_ from WE_PROCESS_INSTANCE pro
+left join WE_TASK_INSTANCE task_ on task_.process_instance = pro.id
+left join CORPUSR_WF_PENDING pending on pending.id = pro.id
+where pending.reference_no = 'C20170615733619630'

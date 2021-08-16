@@ -1,0 +1,80 @@
+#!/bin/sh
+JARFile="cash-springboot-0.0.1.jar"
+PIDFile="application.pid"
+SPRING_OPTS="-DLOG_FILE=application.log"
+function check_if_pid_file_exists {
+if [ ! -f $PIDFile ]
+then
+echo "PID file not found: $PIDFile"
+exit 1
+else
+PID=$(<"$PIDFile")
+fi
+}
+function check_if_process_is_running {
+if ps -p $PID > /dev/null
+then
+return 0
+else
+return 1
+fi
+}
+case "$1" in
+status)
+check_if_pid_file_exists
+if check_if_process_is_running
+then
+echo $PID" is running"
+else
+echo "Process not running: $PID"
+fi
+;;
+stop)
+check_if_pid_file_exists
+if ! check_if_process_is_running
+then
+echo "Process $PID already stopped"
+exit 0
+fi
+kill -TERM $PID
+echo "Waiting for process to stop"
+NOT_KILLED=1
+for i in {1..120}; do
+if check_if_process_is_running
+then
+echo "."
+sleep 1
+else
+NOT_KILLED=0
+fi
+done
+echo
+if [ $NOT_KILLED = 1 ]
+then
+echo "Cannot kill process $PID"
+exit 1
+fi
+echo "Process stopped"
+;;
+start)
+if [ -f $PIDFile ] && check_if_process_is_running
+then
+echo "Process $PID already running"
+exit 1
+fi
+nohup java $SPRING_OPTS -jar $JARFile &
+echo "Process started"
+;;
+restart)
+$0 stop
+if [ $? = 1 ]
+then
+exit 1
+fi
+$0 start
+;;
+*)
+echo "Usage: $0 {start|stop|restart|status}"
+exit 1
+esac
+exit 0

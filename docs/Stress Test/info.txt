@@ -1,0 +1,15 @@
+find in java class >> //remark if stress test
+
+===================================================
+
+Application.properties as below :
+spring.jpa.show-sql = false
+
+spring.datasource.hikari.maximum-pool-size = 1000
+server.thread-pool.initial-concurrent = 100
+server.thread-pool.max-concurrent = 100
+
+server.tomcat.accesslog.enabled = false
+===================================================
+LogBack.xml
+Change DEBUG to ERROR

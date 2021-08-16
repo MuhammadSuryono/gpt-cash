@@ -1,0 +1,3 @@
+Insert into MT_ERROR_MAPPING(CD, CREATED_BY, CREATED_DT, IS_DELETE, IDX,IS_INACTIVE, NM, NM_ID, IS_ROLLBACK, IS_SYSTEM, IS_ERROR, VERSION) Values ('SEPARATED', 'SYSTEM', sysdate, 'N', 999, 'N', 'Separated (1 account 1 file) ', 'Terpisah (1 rekening 1 dokumen)', 'Y', 'Y','N', 0);
+Insert into MT_ERROR_MAPPING(CD, CREATED_BY, CREATED_DT, IS_DELETE, IDX,IS_INACTIVE, NM, NM_ID, IS_ROLLBACK, IS_SYSTEM, IS_ERROR, VERSION) Values ('CONSOLIDATED', 'SYSTEM', sysdate, 'N', 999, 'N', 'Consolidated (all account 1 file)', 'Konsolidasi (semua rekening dalam 1 dokumen)', 'Y', 'Y','N', 0);
+commit;

@@ -1,0 +1,20 @@
+--limit add
+select a.cd, a.nm as service_name, c.nm  as curr_mtrx_name, b.id from pro_srvc a
+left join pro_srvc_ccy_mtrx b on a.cd = b.SRVC_CD
+left join PRO_CCY_MTRX c  on c.cd = b.CCY_MTRX_CD
+where a.is_delete = 'N' and a.srvc_typ_cd = 'TRX'
+order by a.idx
+
+--charge/fee add
+select a.nm as service_name, b.nm  as fee_name from pro_srvc a
+left join pro_srvc_ch b on a.cd = b.SRVC_CD
+where a.is_delete = 'N' and a.srvc_typ_cd = 'TRX'
+order by a.idx
+
+--bank transaction limit query
+select a.id, a.srvc_cd, b.nm, a.min_amt_lmt, a.max_amt_lmt, a.ccy_cd, c.nm, e.cd, e.nm  from PRO_BANK_TRX_LMT a
+left join PRO_SRVC b on a.SRVC_CD = b.cd
+left join MT_CURRENCY c on c.cd = a.ccy_cd
+left join PRO_SRVC_CCY_MTRX d on d.ID = a.SRVC_CCY_MTRX_ID
+left join PRO_CCY_MTRX e on e.cd = d.CCY_MTRX_CD
+order by b.idx

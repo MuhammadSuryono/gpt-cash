@@ -1,0 +1,1 @@
+copy font to JDK_HOME\\jre\\lib\\fonts

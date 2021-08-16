@@ -1,0 +1,2 @@
+Insert into MT_ERROR_MAPPING (CD,CREATED_BY,CREATED_DT,IS_DELETE,IS_ERROR,IDX,IS_INACTIVE,NM,NM_ID,IS_ROLLBACK,IS_SYSTEM,UPDATED_BY,UPDATED_DT,VERSION) 
+    values ('GPT-0200019','SYSTEM',sysdate,'N','Y','999','N','Invalid Tax Period','Masa Pajak tidak valid','N','Y',null,null,'0');

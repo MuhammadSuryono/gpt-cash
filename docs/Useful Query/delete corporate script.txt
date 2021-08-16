@@ -1,0 +1,150 @@
+--delete corp approval matrix
+delete CORP_APRV_MTRX_DTL a
+where a.CORP_APRV_MTRX_SUB_ID in
+(
+select a.id from CORP_APRV_MTRX_SUB a
+inner join CORP_APRV_MTRX_MSTR b on a.CORP_APRV_MTRX_MSTR_ID = b.id
+inner join CORP c on c.id = b.CORP_ID
+where c.is_delete = 'Y'
+);
+commit;
+
+delete CORP_APRV_MTRX_SUB where id in(
+select a.id from CORP_APRV_MTRX_SUB a
+inner join CORP_APRV_MTRX_MSTR b on a.CORP_APRV_MTRX_MSTR_ID = b.id
+inner join CORP c on c.id = b.CORP_ID
+where c.is_delete = 'Y'
+);
+commit;
+
+delete CORP_APRV_MTRX_MSTR b where id in(
+select b.id from CORP_APRV_MTRX_MSTR b
+inner join CORP c on c.id = b.CORP_ID
+where c.is_delete = 'Y'
+);
+commit;
+
+--delete corp authorize limit scheme
+delete AUTH_LMT_SCHEME
+where corp_id in (
+select id from corp where is_delete = 'Y'
+);
+commit;
+
+--delete corp user
+delete HELPDESK_MAIL where cust_usr_id in (
+select a.id from corp_usr a left join CORP_USR_GRP b on b.id = a.CORP_USR_GRP_ID
+left join CORP c on c.id = b.corp_id
+where c.is_delete = 'Y');
+commit;
+
+delete AUTH_DEVICE where cust_id in (
+select id from CORP 
+where is_delete = 'Y');
+commit;
+
+
+delete CORP_USR where corp_usr_grp_id in (
+select b.id from CORP_USR_GRP b 
+left join CORP c on c.id = b.corp_id
+where c.is_delete = 'Y');
+commit;
+
+
+--delete corp user group
+delete CORP_USR_GRP_LMT where corp_usr_grp_id in (
+select b.id from CORP_USR_GRP b 
+left join CORP c on c.id = b.corp_id
+where c.is_delete = 'Y');
+commit;
+
+delete BASE_FT_BEN where CORP_USR_GRP_ID in (
+select b.id from CORP_USR_GRP b 
+left join CORP c on c.id = b.corp_id
+where c.is_delete = 'Y');
+commit;
+
+delete BASE_FT_BEN where CORP_ID in (
+select id from CORP 
+where is_delete = 'Y');
+commit;
+
+
+delete CORP_USR_GRP where id in (
+select b.id from CORP_USR_GRP b 
+left join CORP c on c.id = b.corp_id
+where c.is_delete = 'Y');
+commit;
+
+--delete corp account group
+delete CORP_ACCT_GRP_DTL where id in (
+select a.id from CORP_ACCT_GRP_DTL a
+left join CORP_ACCT_GRP b on a.corp_acct_grp_id = b.id
+left join CORP c on c.id = b.corp_id
+where c.is_delete = 'Y');
+commit;
+
+delete CORP_ACCT_GRP where id in (
+select b.id from CORP_ACCT_GRP b 
+left join CORP c on c.id = b.corp_id
+where c.is_delete = 'Y');
+commit;
+
+--delete corp account
+delete CORP_ACCT where corp_id in(
+select id from CORP where is_delete = 'Y');
+commit;
+
+--delete corporate limit
+delete CORP_LMT_PC_DTL
+where corp_id in (
+select id from corp where is_delete = 'Y'
+);
+commit;
+
+--delete corporate package
+delete CORP_CH_PC_DTL
+where corp_id in (
+select id from corp where is_delete = 'Y'
+);
+commit;
+
+--delete corporate forex limit
+delete CORP_FRX_BUY_LMT
+where corp in (
+select id from corp where is_delete = 'Y'
+);
+commit;
+
+--delete contact
+delete CONTACT
+where corp_id in (
+select id from corp where is_delete = 'Y'
+);
+commit;
+
+--delete periodical charges account
+delete PRD_CH_ACCT
+where cust_id in (
+select id from corp where is_delete = 'Y'
+);
+commit;
+
+--delete grant debit
+ delete GRANT_DEBIT
+ where corp_id in (
+ select id from corp where is_delete = 'Y'
+ );
+commit;
+
+--delete payee
+delete PAYEE
+where corp_id in (
+select id from corp where is_delete = 'Y'
+);
+commit;
+
+
+--delete corp
+delete corp where is_delete = 'Y';
+commit;

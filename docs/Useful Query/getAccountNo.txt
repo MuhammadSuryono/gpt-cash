@@ -1,0 +1,2 @@
+select corp_acct.acct_no, corp_acct.* from CORP_ACCT_GRP_DTL grp_dtl
+left join corp_acct corp_acct on grp_dtl.CORP_ACCT_NO = corp_acct.id

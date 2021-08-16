@@ -1,0 +1,3 @@
+select count(*) from LOG_ACTV
+where to_char(actv_dt, 'dd/mm/yyyy') = '23/05/2017'
+and menu_cd in ('MNU_GPCASH_PRO_LMT_PC', 'MNU_GPCASH_PENDING_TASK')

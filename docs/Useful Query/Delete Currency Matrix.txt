@@ -1,0 +1,19 @@
+delete CORP_LMT_PC_DTL
+where srvc_ccy_mtrx_id = '3288995A840906A4E0440003BA783393';
+commit;
+
+delete CORP_USR_GRP_LMT
+where srvc_ccy_mtrx_id = '3288995A840906A4E0440003BA783393';
+commit;
+
+delete BANK_TRX_LMT
+where srvc_ccy_mtrx_id = '3288995A840906A4E0440003BA783393';
+commit;
+
+delete COM_LMT_PC_DTL
+where srvc_ccy_mtrx_id = '3288995A840906A4E0440003BA783393';
+commit;
+
+delete COM_ST_SRVC_CCY_MTRX
+where id = '3288995A840906A4E0440003BA783393';
+commit;
