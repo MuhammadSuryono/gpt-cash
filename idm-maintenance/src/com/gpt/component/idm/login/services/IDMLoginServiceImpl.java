@@ -342,7 +342,9 @@ public class IDMLoginServiceImpl implements IDMLoginService {
 		
 		
 		//validate password already expired
+		if(ApplicationConstants.NO.equals(user.getIsPwdNeverExpired())) {
 		validateUserPasswordExpired(user);
+		}
 		
 		return user;
 	}

@@ -523,10 +523,10 @@ public class PendingUploadServiceImpl implements PendingUploadService {
 						detailModel.setBenRefNo((String)dtl.get("benRefNo"));
 						detailModel.setParent(pm);
 						
-//						detailModel.setVaNo((String)dtl.get("vaNo"));
-//						detailModel.setVaName((String)dtl.get("vaName"));
-//						detailModel.setVaType((String)dtl.get("vaType"));
-//						detailModel.setVaAmount((BigDecimal)dtl.get("vaAmount"));
+						detailModel.setVaNo((String)dtl.get("vaNo"));
+						detailModel.setVaName((String)dtl.get("vaName"));
+						detailModel.setVaType((String)dtl.get("vaType"));
+						detailModel.setVaAmount((BigDecimal)dtl.get("vaAmount"));
 //						
 						detailModel.setBenBankCode((String) dtl.get("benBankCode"));
 						detailModel.setLldIsBenResidence((String) dtl.get("isBenResident"));
