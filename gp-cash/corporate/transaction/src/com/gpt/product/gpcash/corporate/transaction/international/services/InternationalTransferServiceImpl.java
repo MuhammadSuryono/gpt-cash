@@ -1315,11 +1315,11 @@ public class InternationalTransferServiceImpl implements InternationalTransferSe
 			TransactionStatusModel trxStatus = trxStatusRepo.findOne(transactionStatusId);
 			
 			//jika success ambil ke model nya, jika tidak maka ambil dr pending task krn blm masuk table
-			if(trxStatus.getStatus().equals(TransactionStatus.EXECUTE_SUCCESS)) {
-				InternationalTransferModel model = internationalTransferRepo.findOne(trxStatus.getEaiRefNo());
+			if(trxStatus.getStatus().equals(TransactionStatus.EXECUTE_SUCCESS) || (trxStatus.getStatus().equals(TransactionStatus.EXECUTE_FAIL) && trxStatus.getActionType().equals(TransactionActivityType.EXECUTE_TO_HOST))) {
+				InternationalTransferModel model = internationalTransferRepo.findOne(trxStatus.getPendingTaskId());
 				resultMap.put("executedResult", prepareDetailTransactionMap(model, trxStatus));
 			} else {
-				CorporateUserPendingTaskModel model = pendingTaskRepo.findOne(trxStatus.getEaiRefNo());
+				CorporateUserPendingTaskModel model = pendingTaskRepo.findOne(trxStatus.getPendingTaskId());
 				resultMap.put("executedResult", globalTransactionService.prepareDetailTransactionMapFromPendingTask(model, trxStatus));
 			}
 		} catch (Exception e) {
@@ -1339,13 +1339,13 @@ public class InternationalTransferServiceImpl implements InternationalTransferSe
 		modelMap.put("systemReferenceNo", model.getId());
 		modelMap.put("debitAccount", sourceAccount.getAccountNo());
 		modelMap.put("debitAccountName", sourceAccount.getAccountName());
-		modelMap.put("debitAccountCurrency", sourceAccount.getCurrency().getCode());
+//		modelMap.put("debitAccountCurrency", sourceAccount.getCurrency().getCode());
 		modelMap.put("debitAccountCurrencyName", sourceAccount.getCurrency().getName());
 		modelMap.put("transactionCurrency", model.getTransactionCurrency());
 		modelMap.put("transactionAmount", model.getTransactionAmount());
 		modelMap.put("creditAccount", ValueUtils.getValue(model.getBenAccountNo()));
 		modelMap.put("creditAccountName", ValueUtils.getValue(model.getBenAccountName()));
-		modelMap.put("creditAccountCurrency", ValueUtils.getValue(model.getBenAccountCurrency()));
+//		modelMap.put("creditAccountCurrency", ValueUtils.getValue(model.getBenAccountCurrency()));
 		modelMap.put("senderRefNo", ValueUtils.getValue(model.getSenderRefNo()));
 		modelMap.put("benRefNo", ValueUtils.getValue(model.getBenRefNo()));
 		
@@ -1353,8 +1353,10 @@ public class InternationalTransferServiceImpl implements InternationalTransferSe
 		modelMap.put("debitTransactionCurrency", model.getTransactionCurrency());
 		modelMap.put("debitEquivalentAmount", model.getTransactionAmount());
 		modelMap.put("debitExchangeRate", ApplicationConstants.ZERO);
+		modelMap.put("debitAccountCurrency", model.getTransactionCurrency());
 		modelMap.put("creditTransactionCurrency", model.getTransactionCurrency());
-		modelMap.put("creditEquivalentAmount", model.getTransactionAmount());
+		modelMap.put("creditAccountCurrency", model.getTransactionCurrency());
+		modelMap.put("creditEquivalentAmount", model.getTotalDebitedEquivalentAmount());
 		modelMap.put("creditExchangeRate", ApplicationConstants.ZERO);
 		//--------------------------------------------
 		
@@ -1425,60 +1427,6 @@ CorporateUserPendingTaskModel pt = pendingTaskRepo.findByReferenceNo(model.getRe
 				e.printStackTrace();
 			} 
 		}
-		/*if(model.getChargeType1() != null) {
-			chargeMap = new HashMap<>();
-			CorporateChargeModel corporateCharge = corporateChargeRepo.findOne(model.getChargeType1());
-			ServiceChargeModel serviceCharge = corporateCharge.getServiceCharge();
-			chargeMap.put("chargeType", serviceCharge.getName());
-			chargeMap.put("chargeCurrency", model.getChargeTypeCurrency1());
-			chargeMap.put("chargeEquivalentAmount", model.getChargeTypeAmount1());
-			chargeMap.put("chargeExchangeRate", ApplicationConstants.ZERO);
-			chargeList.add(chargeMap);
-		}
-		
-		if(model.getChargeType2() != null) {
-			chargeMap = new HashMap<>();
-			CorporateChargeModel corporateCharge = corporateChargeRepo.findOne(model.getChargeType2());
-			ServiceChargeModel serviceCharge = corporateCharge.getServiceCharge();
-			chargeMap.put("chargeType", serviceCharge.getName());
-			chargeMap.put("chargeCurrency", model.getChargeTypeCurrency2());
-			chargeMap.put("chargeEquivalentAmount", model.getChargeTypeAmount2());
-			chargeMap.put("chargeExchangeRate", ApplicationConstants.ZERO);
-			chargeList.add(chargeMap);
-		}
-		
-		if(model.getChargeType3() != null) {
-			chargeMap = new HashMap<>();
-			CorporateChargeModel corporateCharge = corporateChargeRepo.findOne(model.getChargeType3());
-			ServiceChargeModel serviceCharge = corporateCharge.getServiceCharge();
-			chargeMap.put("chargeType", serviceCharge.getName());
-			chargeMap.put("chargeCurrency", model.getChargeTypeCurrency3());
-			chargeMap.put("chargeEquivalentAmount", model.getChargeTypeAmount3());
-			chargeMap.put("chargeExchangeRate", ApplicationConstants.ZERO);
-			chargeList.add(chargeMap);
-		}
-		
-		if(model.getChargeType4() != null) {
-			chargeMap = new HashMap<>();
-			CorporateChargeModel corporateCharge = corporateChargeRepo.findOne(model.getChargeType4());
-			ServiceChargeModel serviceCharge = corporateCharge.getServiceCharge();
-			chargeMap.put("chargeType", serviceCharge.getName());
-			chargeMap.put("chargeCurrency", model.getChargeTypeCurrency4());
-			chargeMap.put("chargeEquivalentAmount", model.getChargeTypeAmount4());
-			chargeMap.put("chargeExchangeRate", ApplicationConstants.ZERO);
-			chargeList.add(chargeMap);
-		}
-		
-		if(model.getChargeType5() != null) {
-			chargeMap = new HashMap<>();
-			CorporateChargeModel corporateCharge = corporateChargeRepo.findOne(model.getChargeType5());
-			ServiceChargeModel serviceCharge = corporateCharge.getServiceCharge();
-			chargeMap.put("chargeType", serviceCharge.getName());
-			chargeMap.put("chargeCurrency", model.getChargeTypeCurrency5());
-			chargeMap.put("chargeEquivalentAmount", model.getChargeTypeAmount5());
-			chargeMap.put("chargeExchangeRate", ApplicationConstants.ZERO);
-			chargeList.add(chargeMap);
-		}*/
 		
 		modelMap.put("chargeList", chargeList);
 		
@@ -1551,7 +1499,7 @@ CorporateUserPendingTaskModel pt = pendingTaskRepo.findByReferenceNo(model.getRe
 			BufferedImage bankLogo = ImageIO.read(bankLogoPath.toFile());
 			reportParams.put("bankLogo", bankLogo);
 			
-			InternationalTransferModel model = internationalTransferRepo.findOne(trxStatus.getEaiRefNo());
+			InternationalTransferModel model = internationalTransferRepo.findOne(trxStatus.getPendingTaskId());
 			setParamForDownloadTrxStatus(reportParams, model);
 			
 			String masterReportFile = reportFolder + File.separator + "TransactionStatus" + 
@@ -1595,8 +1543,11 @@ CorporateUserPendingTaskModel pt = pendingTaskRepo.findByReferenceNo(model.getRe
 		if(model != null) {
 			InternationalBankModel internationalBank = model.getBenInternationalBankCode();
 			reportParams.put("destinationBank", internationalBank.getName());
+			reportParams.put("branchName", internationalBank.getOrganizationUnitName());
+			reportParams.put("countryName", internationalBank.getCountry().getName());
+			reportParams.put("swiftCode", internationalBank.getCode());
 			
-			reportParams.put("service", ValueUtils.getValue(model.getService().getDscp()));
+			reportParams.put("transactionPurpose", model.getTransactionPurposeModel().getCode().concat(" - ").concat(model.getTransactionPurposeModel().getName()));
 			
 			AccountModel sourceAccount = model.getSourceAccount();
 			reportParams.put("sourceAccount", sourceAccount.getAccountNo());
@@ -1605,12 +1556,10 @@ CorporateUserPendingTaskModel pt = pendingTaskRepo.findByReferenceNo(model.getRe
 			reportParams.put("benAccount", model.getBenAccountNo());
 			reportParams.put("benAccountName", model.getBenAccountName());
 			
-			reportParams.put("branchName", internationalBank.getOrganizationUnitName());
-			
 			reportParams.put("transactionCurrency", model.getTransactionCurrency());
 			reportParams.put("transactionAmount", df.format(model.getTransactionAmount()));
 			
-			if(model.getChargeTypeAmount1() != null && model.getChargeTypeAmount1().compareTo(BigDecimal.ZERO) > 0) {
+			/*if(model.getChargeTypeAmount1() != null && model.getChargeTypeAmount1().compareTo(BigDecimal.ZERO) > 0) {
 				CorporateChargeModel corporateCharge = corporateChargeRepo.findOne(model.getChargeType1());
 				ServiceChargeModel serviceCharge = corporateCharge.getServiceCharge();
 				reportParams.put("chargeCurrency1", model.getChargeTypeCurrency1());
@@ -1648,6 +1597,48 @@ CorporateUserPendingTaskModel pt = pendingTaskRepo.findByReferenceNo(model.getRe
 				reportParams.put("chargeCurrency5", model.getChargeTypeCurrency5());
 				reportParams.put("chargeType5", serviceCharge.getName());
 				reportParams.put("chargeAmount5", df.format(model.getChargeTypeAmount5()));
+			}*/
+			
+			CorporateUserPendingTaskModel pt = pendingTaskRepo.findByReferenceNo(model.getReferenceNo());
+			
+			String strValues = pt.getValuesStr();
+			if (strValues != null) {
+				try {
+					Map<String, Object> valueMap = (Map<String, Object>) objectMapper.readValue(strValues, Class.forName(pt.getModel()));
+					List<Map<String,Object>> listCharge = (List<Map<String,Object>>)valueMap.get("chargeList");
+					
+					for (int i = 0; i < listCharge.size(); i++) {
+						Map<String, Object> mapCharge = listCharge.get(i);
+						if (model.getChargeType1() != null && model.getChargeType1().equals(mapCharge.get("id"))) {
+							reportParams.put("chargeType1", mapCharge.get("serviceChargeName"));
+							reportParams.put("chargeCurrency1", model.getChargeTypeCurrency1());
+							reportParams.put("chargeAmount1", df.format(model.getChargeTypeAmount1()));
+						}
+						if (model.getChargeType2() != null && model.getChargeType2().equals(mapCharge.get("id"))) {
+							reportParams.put("chargeType2", mapCharge.get("serviceChargeName"));
+							reportParams.put("chargeCurrency2", model.getChargeTypeCurrency2());
+							reportParams.put("chargeAmount2", df.format(model.getChargeTypeAmount2()));
+						}
+						if (model.getChargeType3() != null && model.getChargeType3().equals(mapCharge.get("id"))) {
+							reportParams.put("chargeType3", mapCharge.get("serviceChargeName"));
+							reportParams.put("chargeCurrency3", model.getChargeTypeCurrency3());
+							reportParams.put("chargeAmount3", df.format(model.getChargeTypeAmount3()));
+						}
+						if (model.getChargeType4() != null && model.getChargeType4().equals(mapCharge.get("id"))) {
+							reportParams.put("chargeType4", mapCharge.get("serviceChargeName"));
+							reportParams.put("chargeCurrency4", model.getChargeTypeCurrency4());
+							reportParams.put("chargeAmount4", df.format(model.getChargeTypeAmount4()));
+						}
+						if (model.getChargeType5() != null && model.getChargeType5().equals(mapCharge.get("id"))) {
+							reportParams.put("chargeType5", mapCharge.get("serviceChargeName"));
+							reportParams.put("chargeCurrency5", model.getChargeTypeCurrency5());
+							reportParams.put("chargeAmount5", df.format(model.getChargeTypeAmount5()));
+						}
+					}
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				} 
 			}
 			
 			if(model.getTotalChargeEquivalentAmount().compareTo(BigDecimal.ZERO) > 0)
@@ -1656,8 +1647,9 @@ CorporateUserPendingTaskModel pt = pendingTaskRepo.findByReferenceNo(model.getRe
 			
 			reportParams.put("totalDebited", df.format(model.getTotalDebitedEquivalentAmount()));
 			
-			reportParams.put("remark1", ValueUtils.getValue(model.getRemark1()));
+			reportParams.put("remark1", ValueUtils.getValue(model.getTransactionDescription()));
 			reportParams.put("refNo", model.getReferenceNo());
+			reportParams.put("retrievalRefNo", model.getProcessRefNo());
 		}
 	}
 

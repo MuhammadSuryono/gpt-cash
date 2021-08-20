@@ -454,7 +454,11 @@ public class CorporateUserPendingTaskServiceImpl implements CorporateUserPending
 						}
 						
 					}else {
+						if ("MNU_GPCASH_F_FUND_INT".equals(vo.getMenuCode())) { // International Transfer
+							pendingTaskRepo.updatePendingTask(pendingTask.getId(), ApplicationConstants.WF_STATUS_APPROVED, executedDate, userId, TransactionStatus.IN_PROGRESS_OFFLINE);
+						} else {
 						pendingTaskRepo.updatePendingTask(pendingTask.getId(), ApplicationConstants.WF_STATUS_APPROVED, executedDate, userId, TransactionStatus.EXECUTE_SUCCESS);
+					}
 					}
 				} else {
 					pendingTaskRepo.updatePendingTask(pendingTask.getId(), ApplicationConstants.WF_STATUS_APPROVED, executedDate, userId, TransactionStatus.PENDING_EXECUTE);
@@ -508,9 +512,11 @@ public class CorporateUserPendingTaskServiceImpl implements CorporateUserPending
 								}
 														
 							} else {
+								if (!"MNU_GPCASH_F_FUND_INT".equals(vo.getMenuCode())) {
 								//insert into trx status EXECUTE_SUCCESS
 								trxStatusService.addTransactionStatus(pendingTaskId, executedDate, TransactionActivityType.EXECUTE_TO_HOST, ApplicationConstants.CREATED_BY_SYSTEM, TransactionStatus.EXECUTE_SUCCESS, pendingTaskId, false, null);										
 							}
+						}
 						}
 					} else {
 						//insert into trx status EXECUTE_FAIL
