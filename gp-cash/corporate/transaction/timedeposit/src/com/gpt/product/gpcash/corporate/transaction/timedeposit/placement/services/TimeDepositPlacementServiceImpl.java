@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -186,10 +187,16 @@ public class TimeDepositPlacementServiceImpl implements TimeDepositPlacementServ
 	
 	private void checkCustomValidation(Map<String, Object> map) throws BusinessException, Exception {
 		try {
-			String corporateId = (String) map.get(ApplicationConstants.LOGIN_CORP_ID);
+//			String corporateId = (String) map.get(ApplicationConstants.LOGIN_CORP_ID);
 			//------------------------------------------------------
+			Timestamp placementDate = (Timestamp) map.get("placementDate");
+			Date datePlace = DateUtils.getSQLDate(placementDate);
 			
-			String mainAccount = corporateUtilsRepo.getCorporateAccountGroupRepo().findAccountNoByAccountGroupDetailId(corporateId, (String) map.get(ApplicationConstants.ACCOUNT_GRP_DTL_ID));
+			if(datePlace.compareTo(DateUtils.getCurrentDate()) < 0){
+				throw new BusinessException("GPT-0100239");
+			}
+			
+//			String mainAccount = corporateUtilsRepo.getCorporateAccountGroupRepo().findAccountNoByAccountGroupDetailId(corporateId, (String) map.get(ApplicationConstants.ACCOUNT_GRP_DTL_ID));
 		
 			// TODO implement calculate equivalent amount in future if implement
 			// cross currency transaction
@@ -352,19 +359,19 @@ public class TimeDepositPlacementServiceImpl implements TimeDepositPlacementServ
 	public Map<String, Object> confirm(Map<String, Object> map) throws ApplicationException, BusinessException {
 		Map<String, Object> resultMap = new HashMap<>();
 
-		/*try {
-//			checkCustomValidation(map);
+		try {
+			checkCustomValidation(map);
 			
-			resultMap.putAll(corporateChargeService.getCorporateCharges((String) map.get(ApplicationConstants.APP_CODE),
+			/*resultMap.putAll(corporateChargeService.getCorporateCharges((String) map.get(ApplicationConstants.APP_CODE),
 					(String) map.get(ApplicationConstants.TRANS_SERVICE_CODE),
 					(String) map.get(ApplicationConstants.LOGIN_CORP_ID)));
 			
-			resultMap.put("totalRecord", map.get("totalRecord"));
+			resultMap.put("totalRecord", map.get("totalRecord"));*/
 		} catch (BusinessException e) {
 			throw e;
 		} catch (Exception e) {
 			throw new ApplicationException(e);
-		}*/
+		}
 
 		return resultMap;
 	}

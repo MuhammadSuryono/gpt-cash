@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -200,13 +201,17 @@ public class TimeDepositWithdrawServiceImpl implements TimeDepositWithdrawServic
 	
 	private void checkCustomValidation(Map<String, Object> map) throws BusinessException, Exception {
 		try {
-			String corporateId = (String) map.get(ApplicationConstants.LOGIN_CORP_ID);
-			String accountGroupDetaiId = (String) map.get(ApplicationConstants.ACCOUNT_GRP_DTL_ID);
+//			String corporateId = (String) map.get(ApplicationConstants.LOGIN_CORP_ID);
+//			String accountGroupDetaiId = (String) map.get(ApplicationConstants.ACCOUNT_GRP_DTL_ID);
 			Timestamp withdrawalDate = (Timestamp) map.get("withdrawalDate");
-			//------------------------------------------------------
-			CorporateAccountGroupDetailModel accountGroupDetail = corporateUtilsRepo.isCorporateAccountGroupDetailIdValid(corporateId, accountGroupDetaiId);
+			Date dateWithdraw = DateUtils.getSQLDate(withdrawalDate);
 			
+			if(dateWithdraw.compareTo(DateUtils.getCurrentDate()) < 0){
+				throw new BusinessException("GPT-0100240");
+			}
 		
+			//------------------------------------------------------
+//			CorporateAccountGroupDetailModel accountGroupDetail = corporateUtilsRepo.isCorporateAccountGroupDetailIdValid(corporateId, accountGroupDetaiId);
 			// TODO implement calculate equivalent amount in future if implement
 			// cross currency transaction
 		} catch (BusinessException e) {
@@ -363,19 +368,19 @@ public class TimeDepositWithdrawServiceImpl implements TimeDepositWithdrawServic
 	public Map<String, Object> confirm(Map<String, Object> map) throws ApplicationException, BusinessException {
 		Map<String, Object> resultMap = new HashMap<>();
 
-		/*try {
+		try {
 			checkCustomValidation(map);
 			
-			resultMap.putAll(corporateChargeService.getCorporateCharges((String) map.get(ApplicationConstants.APP_CODE),
+			/*resultMap.putAll(corporateChargeService.getCorporateCharges((String) map.get(ApplicationConstants.APP_CODE),
 					(String) map.get(ApplicationConstants.TRANS_SERVICE_CODE),
 					(String) map.get(ApplicationConstants.LOGIN_CORP_ID)));
 			
-			resultMap.put("totalRecord", map.get("totalRecord"));
+			resultMap.put("totalRecord", map.get("totalRecord"));*/
 		} catch (BusinessException e) {
 			throw e;
 		} catch (Exception e) {
 			throw new ApplicationException(e);
-		}*/
+		}
 
 		return resultMap;
 	}
