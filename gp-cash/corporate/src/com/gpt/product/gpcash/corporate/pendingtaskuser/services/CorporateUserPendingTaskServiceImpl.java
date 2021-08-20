@@ -513,10 +513,12 @@ public class CorporateUserPendingTaskServiceImpl implements CorporateUserPending
 														
 							} else {
 								if (!"MNU_GPCASH_F_FUND_INT".equals(vo.getMenuCode())) {
-								//insert into trx status EXECUTE_SUCCESS
-								trxStatusService.addTransactionStatus(pendingTaskId, executedDate, TransactionActivityType.EXECUTE_TO_HOST, ApplicationConstants.CREATED_BY_SYSTEM, TransactionStatus.EXECUTE_SUCCESS, pendingTaskId, false, null);										
+									//insert into trx status EXECUTE_SUCCESS
+									trxStatusService.addTransactionStatus(pendingTaskId, executedDate, TransactionActivityType.EXECUTE_TO_HOST, ApplicationConstants.CREATED_BY_SYSTEM, TransactionStatus.EXECUTE_SUCCESS, pendingTaskId, false, null);										
+								}else {
+									trxStatusService.addTransactionStatus(pendingTaskId, executedDate, TransactionActivityType.RELEASE, ApplicationConstants.CREATED_BY_SYSTEM, TransactionStatus.IN_PROGRESS_OFFLINE, pendingTaskId, false, null);
+								}
 							}
-						}
 						}
 					} else {
 						//insert into trx status EXECUTE_FAIL

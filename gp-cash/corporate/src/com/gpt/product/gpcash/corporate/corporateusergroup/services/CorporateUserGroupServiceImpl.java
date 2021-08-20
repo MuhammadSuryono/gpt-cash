@@ -729,8 +729,10 @@ public class CorporateUserGroupServiceImpl implements CorporateUserGroupService,
 				
 				ServiceModel service = model.getService();
 				CurrencyModel currency = model.getCurrency();
+				ServiceCurrencyMatrixModel currencyMatrixModel = model.getServiceCurrencyMatrix();
 				
 				modelMap.put("serviceName", service.getName());
+				modelMap.put("currencyMatrixName", currencyMatrixModel.getCurrencyMatrix().getName());
 				modelMap.put("currencyCode", currency.getCode());
 				modelMap.put("currencyName", currency.getName());
 				modelMap.put("maxAmountLimit", model.getMaxAmountLimit());

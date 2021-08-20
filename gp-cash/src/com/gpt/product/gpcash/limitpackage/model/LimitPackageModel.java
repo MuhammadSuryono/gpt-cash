@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
@@ -49,6 +50,7 @@ public class LimitPackageModel implements Serializable {
 	protected IDMApplicationModel application;
 	
 	@OneToMany(mappedBy = "limitPackage", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OrderBy("service ASC")
 	protected List<LimitPackageDetailModel> limitPackageDetail;
 	
 	@Column(name="CREATED_BY")
