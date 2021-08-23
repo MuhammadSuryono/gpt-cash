@@ -1,0 +1,3 @@
+[10692] 06:24:40.132 D -                      SchedulerHelper(47) [            Scheduler_Worker-1] [-2046174776288588192] : [DOMESTIC_FUTURE_2] Scheduled Fire Time : Sun Aug 15 11:00:00 ICT 2021
+[10692] 06:24:40.133 D -                      SchedulerHelper(48) [            Scheduler_Worker-1] [-2046174776288588192] : [DOMESTIC_FUTURE_2] Next Fire Time      : Mon Aug 16 11:00:00 ICT 2021
+[10692] 06:24:40.273 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-1] [-2046174776288588192] : [DOMESTIC_FUTURE_2] Next Fire Time (New): Mon Aug 16 11:00:00 ICT 2021

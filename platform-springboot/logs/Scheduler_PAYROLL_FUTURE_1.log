@@ -1,0 +1,235 @@
+[12848] 17:30:00.853 D -                      SchedulerHelper(47) [            Scheduler_Worker-5] [-7592792127299367380] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Mon Feb 22 02:15:00 ICT 2021
+[12848] 17:30:00.853 D -                      SchedulerHelper(48) [            Scheduler_Worker-5] [-7592792127299367380] : [PAYROLL_FUTURE_1] Next Fire Time      : Mon Feb 22 02:15:00 ICT 2021
+[12848] 17:30:01.942 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-5] [-7592792127299367380] : Future start : 2021-02-23 00:00:00.0
+[12848] 17:30:01.942 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-5] [-7592792127299367380] : Future end : 2021-02-23 07:00:00.0
+[12848] 17:30:03.476 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-5] [-7592792127299367380] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 17:35:00 ICT 2021
+[12848] 17:35:00.020 D -                      SchedulerHelper(47) [           Scheduler_Worker-10] [-5506931894073606107] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 17:35:00 ICT 2021
+[12848] 17:35:00.021 D -                      SchedulerHelper(48) [           Scheduler_Worker-10] [-5506931894073606107] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 17:35:00 ICT 2021
+[12848] 17:35:00.205 D -                  PayrollServiceImpl(626) [           Scheduler_Worker-10] [-5506931894073606107] : Future start : 2021-02-23 00:00:00.0
+[12848] 17:35:00.223 D -                  PayrollServiceImpl(627) [           Scheduler_Worker-10] [-5506931894073606107] : Future end : 2021-02-23 07:00:00.0
+[12848] 17:35:00.394 D -                SchedulerServiceImpl(313) [           Scheduler_Worker-10] [-5506931894073606107] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 17:40:00 ICT 2021
+[12848] 17:40:00.241 D -                      SchedulerHelper(47) [            Scheduler_Worker-3] [ 3066180163156459635] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 17:40:00 ICT 2021
+[12848] 17:40:00.241 D -                      SchedulerHelper(48) [            Scheduler_Worker-3] [ 3066180163156459635] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 17:40:00 ICT 2021
+[12848] 17:40:00.250 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-3] [ 3066180163156459635] : Future start : 2021-02-23 00:00:00.0
+[12848] 17:40:00.252 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-3] [ 3066180163156459635] : Future end : 2021-02-23 07:00:00.0
+[12848] 17:40:01.097 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-3] [ 3066180163156459635] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 17:45:00 ICT 2021
+[12848] 17:45:00.079 D -                      SchedulerHelper(47) [            Scheduler_Worker-7] [ 3460496222758257508] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 17:45:00 ICT 2021
+[12848] 17:45:00.080 D -                      SchedulerHelper(48) [            Scheduler_Worker-7] [ 3460496222758257508] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 17:45:00 ICT 2021
+[12848] 17:45:00.086 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-7] [ 3460496222758257508] : Future start : 2021-02-23 00:00:00.0
+[12848] 17:45:00.430 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-7] [ 3460496222758257508] : Future end : 2021-02-23 07:00:00.0
+[12848] 17:45:00.665 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-7] [ 3460496222758257508] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 17:50:00 ICT 2021
+[12848] 17:50:00.018 D -                      SchedulerHelper(47) [            Scheduler_Worker-4] [-5029574246359609400] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 17:50:00 ICT 2021
+[12848] 17:50:00.019 D -                      SchedulerHelper(48) [            Scheduler_Worker-4] [-5029574246359609400] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 17:50:00 ICT 2021
+[12848] 17:50:00.027 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-4] [-5029574246359609400] : Future start : 2021-02-23 00:00:00.0
+[12848] 17:50:00.039 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-4] [-5029574246359609400] : Future end : 2021-02-23 07:00:00.0
+[12848] 17:50:00.128 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-4] [-5029574246359609400] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 17:55:00 ICT 2021
+[12848] 17:55:01.969 D -                      SchedulerHelper(47) [            Scheduler_Worker-7] [ 1176836541187178636] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 17:55:00 ICT 2021
+[12848] 17:55:02.035 D -                      SchedulerHelper(48) [            Scheduler_Worker-7] [ 1176836541187178636] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 17:55:00 ICT 2021
+[12848] 17:55:03.985 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-7] [ 1176836541187178636] : Future start : 2021-02-23 00:00:00.0
+[12848] 17:55:03.986 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-7] [ 1176836541187178636] : Future end : 2021-02-23 07:00:00.0
+[12848] 17:55:05.329 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-7] [ 1176836541187178636] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 18:00:00 ICT 2021
+[12848] 18:00:00.496 D -                      SchedulerHelper(47) [            Scheduler_Worker-1] [-5187281176149015633] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 18:00:00 ICT 2021
+[12848] 18:00:00.497 D -                      SchedulerHelper(48) [            Scheduler_Worker-1] [-5187281176149015633] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 18:00:00 ICT 2021
+[12848] 18:00:00.503 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-1] [-5187281176149015633] : Future start : 2021-02-23 00:00:00.0
+[12848] 18:00:00.503 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-1] [-5187281176149015633] : Future end : 2021-02-23 07:00:00.0
+[12848] 18:00:01.178 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-1] [-5187281176149015633] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 18:05:00 ICT 2021
+[12848] 18:05:00.301 D -                      SchedulerHelper(47) [            Scheduler_Worker-7] [ 1706872012864767523] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 18:05:00 ICT 2021
+[12848] 18:05:00.302 D -                      SchedulerHelper(48) [            Scheduler_Worker-7] [ 1706872012864767523] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 18:05:00 ICT 2021
+[12848] 18:05:00.460 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-7] [ 1706872012864767523] : Future start : 2021-02-23 00:00:00.0
+[12848] 18:05:00.461 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-7] [ 1706872012864767523] : Future end : 2021-02-23 07:00:00.0
+[12848] 18:05:01.207 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-7] [ 1706872012864767523] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 18:10:00 ICT 2021
+[12848] 18:10:00.039 D -                      SchedulerHelper(47) [            Scheduler_Worker-2] [-3317907069405282166] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 18:10:00 ICT 2021
+[12848] 18:10:00.039 D -                      SchedulerHelper(48) [            Scheduler_Worker-2] [-3317907069405282166] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 18:10:00 ICT 2021
+[12848] 18:10:00.349 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-2] [-3317907069405282166] : Future start : 2021-02-23 00:00:00.0
+[12848] 18:10:00.444 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-2] [-3317907069405282166] : Future end : 2021-02-23 07:00:00.0
+[12848] 18:10:01.106 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-2] [-3317907069405282166] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 18:15:00 ICT 2021
+[12848] 18:15:00.128 D -                      SchedulerHelper(47) [            Scheduler_Worker-8] [ 1920345393721067881] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 18:15:00 ICT 2021
+[12848] 18:15:00.129 D -                      SchedulerHelper(48) [            Scheduler_Worker-8] [ 1920345393721067881] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 18:15:00 ICT 2021
+[12848] 18:15:00.135 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-8] [ 1920345393721067881] : Future start : 2021-02-23 00:00:00.0
+[12848] 18:15:00.138 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-8] [ 1920345393721067881] : Future end : 2021-02-23 07:00:00.0
+[12848] 18:15:00.200 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-8] [ 1920345393721067881] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 18:20:00 ICT 2021
+[12848] 18:20:00.091 D -                      SchedulerHelper(47) [            Scheduler_Worker-9] [ 5951619113533394799] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 18:20:00 ICT 2021
+[12848] 18:20:00.097 D -                      SchedulerHelper(48) [            Scheduler_Worker-9] [ 5951619113533394799] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 18:20:00 ICT 2021
+[12848] 18:20:00.108 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-9] [ 5951619113533394799] : Future start : 2021-02-23 00:00:00.0
+[12848] 18:20:00.108 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-9] [ 5951619113533394799] : Future end : 2021-02-23 07:00:00.0
+[12848] 18:20:00.171 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-9] [ 5951619113533394799] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 18:25:00 ICT 2021
+[12848] 18:25:00.063 D -                      SchedulerHelper(47) [            Scheduler_Worker-2] [  207280441028724071] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 18:25:00 ICT 2021
+[12848] 18:25:00.064 D -                      SchedulerHelper(48) [            Scheduler_Worker-2] [  207280441028724071] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 18:25:00 ICT 2021
+[12848] 18:25:00.077 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-2] [  207280441028724071] : Future start : 2021-02-23 00:00:00.0
+[12848] 18:25:00.078 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-2] [  207280441028724071] : Future end : 2021-02-23 07:00:00.0
+[12848] 18:25:00.131 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-2] [  207280441028724071] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 18:30:00 ICT 2021
+[12848] 18:30:00.067 D -                      SchedulerHelper(47) [            Scheduler_Worker-6] [ 4131722700478433504] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 18:30:00 ICT 2021
+[12848] 18:30:00.069 D -                      SchedulerHelper(48) [            Scheduler_Worker-6] [ 4131722700478433504] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 18:30:00 ICT 2021
+[12848] 18:30:00.077 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-6] [ 4131722700478433504] : Future start : 2021-02-23 00:00:00.0
+[12848] 18:30:00.078 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-6] [ 4131722700478433504] : Future end : 2021-02-23 07:00:00.0
+[12848] 18:30:00.257 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-6] [ 4131722700478433504] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 18:35:00 ICT 2021
+[12848] 18:35:00.044 D -                      SchedulerHelper(47) [            Scheduler_Worker-8] [ 1280425738013396468] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 18:35:00 ICT 2021
+[12848] 18:35:00.045 D -                      SchedulerHelper(48) [            Scheduler_Worker-8] [ 1280425738013396468] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 18:35:00 ICT 2021
+[12848] 18:35:00.051 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-8] [ 1280425738013396468] : Future start : 2021-02-23 00:00:00.0
+[12848] 18:35:00.051 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-8] [ 1280425738013396468] : Future end : 2021-02-23 07:00:00.0
+[12848] 18:35:00.097 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-8] [ 1280425738013396468] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 18:40:00 ICT 2021
+[12848] 18:40:00.053 D -                      SchedulerHelper(47) [            Scheduler_Worker-6] [-9079798350161948859] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 18:40:00 ICT 2021
+[12848] 18:40:00.083 D -                      SchedulerHelper(48) [            Scheduler_Worker-6] [-9079798350161948859] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 18:40:00 ICT 2021
+[12848] 18:40:00.105 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-6] [-9079798350161948859] : Future start : 2021-02-23 00:00:00.0
+[12848] 18:40:00.106 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-6] [-9079798350161948859] : Future end : 2021-02-23 07:00:00.0
+[12848] 18:40:00.158 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-6] [-9079798350161948859] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 18:45:00 ICT 2021
+[12848] 18:45:12.490 D -                      SchedulerHelper(47) [            Scheduler_Worker-3] [ 3540335918615187116] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 18:45:00 ICT 2021
+[12848] 18:45:12.490 D -                      SchedulerHelper(48) [            Scheduler_Worker-3] [ 3540335918615187116] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 18:45:00 ICT 2021
+[12848] 18:45:12.500 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-3] [ 3540335918615187116] : Future start : 2021-02-23 00:00:00.0
+[12848] 18:45:12.500 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-3] [ 3540335918615187116] : Future end : 2021-02-23 07:00:00.0
+[12848] 18:45:12.572 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-3] [ 3540335918615187116] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 18:50:00 ICT 2021
+[12848] 18:50:00.084 D -                      SchedulerHelper(47) [            Scheduler_Worker-4] [ 7100536294297783969] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 18:50:00 ICT 2021
+[12848] 18:50:00.084 D -                      SchedulerHelper(48) [            Scheduler_Worker-4] [ 7100536294297783969] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 18:50:00 ICT 2021
+[12848] 18:50:00.092 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-4] [ 7100536294297783969] : Future start : 2021-02-23 00:00:00.0
+[12848] 18:50:00.093 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-4] [ 7100536294297783969] : Future end : 2021-02-23 07:00:00.0
+[12848] 18:50:00.257 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-4] [ 7100536294297783969] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 18:55:00 ICT 2021
+[12848] 18:55:00.047 D -                      SchedulerHelper(47) [            Scheduler_Worker-8] [-6431884830906628121] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 18:55:00 ICT 2021
+[12848] 18:55:00.047 D -                      SchedulerHelper(48) [            Scheduler_Worker-8] [-6431884830906628121] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 18:55:00 ICT 2021
+[12848] 18:55:00.056 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-8] [-6431884830906628121] : Future start : 2021-02-23 00:00:00.0
+[12848] 18:55:00.063 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-8] [-6431884830906628121] : Future end : 2021-02-23 07:00:00.0
+[12848] 18:55:00.118 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-8] [-6431884830906628121] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 19:00:00 ICT 2021
+[13488] 19:05:00.122 D -                      SchedulerHelper(47) [            Scheduler_Worker-4] [-7635044108468728881] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 19:00:00 ICT 2021
+[13488] 19:05:00.123 D -                      SchedulerHelper(48) [            Scheduler_Worker-4] [-7635044108468728881] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 19:00:00 ICT 2021
+[13488] 19:05:00.265 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-4] [-7635044108468728881] : Future start : 2021-02-23 00:00:00.0
+[13488] 19:05:00.265 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-4] [-7635044108468728881] : Future end : 2021-02-23 07:00:00.0
+[13488] 19:05:00.667 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-4] [-7635044108468728881] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 19:10:00 ICT 2021
+[13488] 19:10:00.029 D -                      SchedulerHelper(47) [            Scheduler_Worker-9] [-8012941121898659060] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 19:10:00 ICT 2021
+[13488] 19:10:00.030 D -                      SchedulerHelper(48) [            Scheduler_Worker-9] [-8012941121898659060] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 19:10:00 ICT 2021
+[13488] 19:10:00.061 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-9] [-8012941121898659060] : Future start : 2021-02-23 00:00:00.0
+[13488] 19:10:00.066 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-9] [-8012941121898659060] : Future end : 2021-02-23 07:00:00.0
+[13488] 19:10:00.393 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-9] [-8012941121898659060] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 19:15:00 ICT 2021
+[13488] 19:15:00.036 D -                      SchedulerHelper(47) [            Scheduler_Worker-4] [-1897723989832613641] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 19:15:00 ICT 2021
+[13488] 19:15:00.036 D -                      SchedulerHelper(48) [            Scheduler_Worker-4] [-1897723989832613641] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 19:15:00 ICT 2021
+[13488] 19:15:00.063 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-4] [-1897723989832613641] : Future start : 2021-02-23 00:00:00.0
+[13488] 19:15:00.080 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-4] [-1897723989832613641] : Future end : 2021-02-23 07:00:00.0
+[13488] 19:15:00.206 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-4] [-1897723989832613641] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 19:20:00 ICT 2021
+[13488] 19:20:00.051 D -                      SchedulerHelper(47) [            Scheduler_Worker-6] [-6432254203897034081] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 19:20:00 ICT 2021
+[13488] 19:20:00.053 D -                      SchedulerHelper(48) [            Scheduler_Worker-6] [-6432254203897034081] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 19:20:00 ICT 2021
+[13488] 19:20:00.298 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-6] [-6432254203897034081] : Future start : 2021-02-23 00:00:00.0
+[13488] 19:20:00.299 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-6] [-6432254203897034081] : Future end : 2021-02-23 07:00:00.0
+[13488] 19:20:00.326 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-6] [-6432254203897034081] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 19:25:00 ICT 2021
+[13488] 19:25:00.059 D -                      SchedulerHelper(47) [           Scheduler_Worker-10] [-5017365853523523530] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 19:25:00 ICT 2021
+[13488] 19:25:00.060 D -                      SchedulerHelper(48) [           Scheduler_Worker-10] [-5017365853523523530] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 19:25:00 ICT 2021
+[13488] 19:25:00.068 D -                  PayrollServiceImpl(626) [           Scheduler_Worker-10] [-5017365853523523530] : Future start : 2021-02-23 00:00:00.0
+[13488] 19:25:00.069 D -                  PayrollServiceImpl(627) [           Scheduler_Worker-10] [-5017365853523523530] : Future end : 2021-02-23 07:00:00.0
+[13488] 19:25:00.087 D -                SchedulerServiceImpl(313) [           Scheduler_Worker-10] [-5017365853523523530] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 19:30:00 ICT 2021
+[13488] 19:30:00.050 D -                      SchedulerHelper(47) [            Scheduler_Worker-8] [-4050042062718677204] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 19:30:00 ICT 2021
+[13488] 19:30:00.051 D -                      SchedulerHelper(48) [            Scheduler_Worker-8] [-4050042062718677204] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 19:30:00 ICT 2021
+[13488] 19:30:00.073 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-8] [-4050042062718677204] : Future start : 2021-02-23 00:00:00.0
+[13488] 19:30:00.074 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-8] [-4050042062718677204] : Future end : 2021-02-23 07:00:00.0
+[13488] 19:30:00.124 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-8] [-4050042062718677204] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 19:35:00 ICT 2021
+[13488] 19:35:00.060 D -                      SchedulerHelper(47) [            Scheduler_Worker-1] [ 6461208623009909255] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 19:35:00 ICT 2021
+[13488] 19:35:00.061 D -                      SchedulerHelper(48) [            Scheduler_Worker-1] [ 6461208623009909255] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 19:35:00 ICT 2021
+[13488] 19:35:00.071 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-1] [ 6461208623009909255] : Future start : 2021-02-23 00:00:00.0
+[13488] 19:35:00.071 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-1] [ 6461208623009909255] : Future end : 2021-02-23 07:00:00.0
+[13488] 19:35:00.138 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-1] [ 6461208623009909255] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 19:40:00 ICT 2021
+[13488] 19:40:00.064 D -                      SchedulerHelper(47) [            Scheduler_Worker-5] [  431374869495761321] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 19:40:00 ICT 2021
+[13488] 19:40:00.065 D -                      SchedulerHelper(48) [            Scheduler_Worker-5] [  431374869495761321] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 19:40:00 ICT 2021
+[13488] 19:40:00.072 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-5] [  431374869495761321] : Future start : 2021-02-23 00:00:00.0
+[13488] 19:40:00.072 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-5] [  431374869495761321] : Future end : 2021-02-23 07:00:00.0
+[13488] 19:40:00.091 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-5] [  431374869495761321] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 19:45:00 ICT 2021
+[13488] 19:45:00.065 D -                      SchedulerHelper(47) [            Scheduler_Worker-1] [-8532819945061725653] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 19:45:00 ICT 2021
+[13488] 19:45:00.066 D -                      SchedulerHelper(48) [            Scheduler_Worker-1] [-8532819945061725653] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 19:45:00 ICT 2021
+[13488] 19:45:00.070 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-1] [-8532819945061725653] : Future start : 2021-02-23 00:00:00.0
+[13488] 19:45:00.070 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-1] [-8532819945061725653] : Future end : 2021-02-23 07:00:00.0
+[13488] 19:45:00.321 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-1] [-8532819945061725653] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 19:50:00 ICT 2021
+[13488] 19:50:00.044 D -                      SchedulerHelper(47) [            Scheduler_Worker-8] [-4493212019121306403] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 19:50:00 ICT 2021
+[13488] 19:50:00.045 D -                      SchedulerHelper(48) [            Scheduler_Worker-8] [-4493212019121306403] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 19:50:00 ICT 2021
+[13488] 19:50:00.049 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-8] [-4493212019121306403] : Future start : 2021-02-23 00:00:00.0
+[13488] 19:50:00.050 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-8] [-4493212019121306403] : Future end : 2021-02-23 07:00:00.0
+[13488] 19:50:00.104 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-8] [-4493212019121306403] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 19:55:00 ICT 2021
+[13488] 19:55:00.064 D -                      SchedulerHelper(47) [            Scheduler_Worker-5] [ 2668819957074119266] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 19:55:00 ICT 2021
+[13488] 19:55:00.065 D -                      SchedulerHelper(48) [            Scheduler_Worker-5] [ 2668819957074119266] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 19:55:00 ICT 2021
+[13488] 19:55:00.073 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-5] [ 2668819957074119266] : Future start : 2021-02-23 00:00:00.0
+[13488] 19:55:00.073 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-5] [ 2668819957074119266] : Future end : 2021-02-23 07:00:00.0
+[13488] 19:55:00.138 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-5] [ 2668819957074119266] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 20:00:00 ICT 2021
+[13488] 20:00:00.109 D -                      SchedulerHelper(47) [            Scheduler_Worker-9] [ 7968603646431477960] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 20:00:00 ICT 2021
+[13488] 20:00:00.115 D -                      SchedulerHelper(48) [            Scheduler_Worker-9] [ 7968603646431477960] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 20:00:00 ICT 2021
+[13488] 20:00:00.122 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-9] [ 7968603646431477960] : Future start : 2021-02-23 00:00:00.0
+[13488] 20:00:00.123 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-9] [ 7968603646431477960] : Future end : 2021-02-23 07:00:00.0
+[13488] 20:00:00.168 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-9] [ 7968603646431477960] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 20:05:00 ICT 2021
+[13488] 20:05:00.079 D -                      SchedulerHelper(47) [           Scheduler_Worker-10] [ 5538258887255804225] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 20:05:00 ICT 2021
+[13488] 20:05:00.082 D -                      SchedulerHelper(48) [           Scheduler_Worker-10] [ 5538258887255804225] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 20:05:00 ICT 2021
+[13488] 20:05:00.087 D -                  PayrollServiceImpl(626) [           Scheduler_Worker-10] [ 5538258887255804225] : Future start : 2021-02-23 00:00:00.0
+[13488] 20:05:00.088 D -                  PayrollServiceImpl(627) [           Scheduler_Worker-10] [ 5538258887255804225] : Future end : 2021-02-23 07:00:00.0
+[13488] 20:05:00.145 D -                SchedulerServiceImpl(313) [           Scheduler_Worker-10] [ 5538258887255804225] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 20:10:00 ICT 2021
+[13488] 20:10:00.061 D -                      SchedulerHelper(47) [            Scheduler_Worker-4] [ 8253487000392716276] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 20:10:00 ICT 2021
+[13488] 20:10:00.061 D -                      SchedulerHelper(48) [            Scheduler_Worker-4] [ 8253487000392716276] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 20:10:00 ICT 2021
+[13488] 20:10:00.065 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-4] [ 8253487000392716276] : Future start : 2021-02-23 00:00:00.0
+[13488] 20:10:00.070 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-4] [ 8253487000392716276] : Future end : 2021-02-23 07:00:00.0
+[13488] 20:10:00.106 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-4] [ 8253487000392716276] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 20:15:00 ICT 2021
+[13488] 20:15:00.021 D -                      SchedulerHelper(47) [            Scheduler_Worker-5] [-1932131389531536067] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 20:15:00 ICT 2021
+[13488] 20:15:00.033 D -                      SchedulerHelper(48) [            Scheduler_Worker-5] [-1932131389531536067] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 20:15:00 ICT 2021
+[13488] 20:15:00.043 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-5] [-1932131389531536067] : Future start : 2021-02-23 00:00:00.0
+[13488] 20:15:00.043 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-5] [-1932131389531536067] : Future end : 2021-02-23 07:00:00.0
+[13488] 20:15:00.052 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-5] [-1932131389531536067] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 20:20:00 ICT 2021
+[13488] 20:20:00.068 D -                      SchedulerHelper(47) [            Scheduler_Worker-6] [-1407221187545381081] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 20:20:00 ICT 2021
+[13488] 20:20:00.069 D -                      SchedulerHelper(48) [            Scheduler_Worker-6] [-1407221187545381081] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 20:20:00 ICT 2021
+[13488] 20:20:00.080 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-6] [-1407221187545381081] : Future start : 2021-02-23 00:00:00.0
+[13488] 20:20:00.080 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-6] [-1407221187545381081] : Future end : 2021-02-23 07:00:00.0
+[13488] 20:20:00.115 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-6] [-1407221187545381081] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 20:25:00 ICT 2021
+[13488] 20:25:00.024 D -                      SchedulerHelper(47) [            Scheduler_Worker-7] [ 4829135418691108901] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 20:25:00 ICT 2021
+[13488] 20:25:00.038 D -                      SchedulerHelper(48) [            Scheduler_Worker-7] [ 4829135418691108901] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 20:25:00 ICT 2021
+[13488] 20:25:00.043 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-7] [ 4829135418691108901] : Future start : 2021-02-23 00:00:00.0
+[13488] 20:25:00.045 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-7] [ 4829135418691108901] : Future end : 2021-02-23 07:00:00.0
+[13488] 20:25:00.084 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-7] [ 4829135418691108901] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 20:30:00 ICT 2021
+[13488] 20:30:00.050 D -                      SchedulerHelper(47) [            Scheduler_Worker-9] [-1796012496826055401] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 20:30:00 ICT 2021
+[13488] 20:30:00.052 D -                      SchedulerHelper(48) [            Scheduler_Worker-9] [-1796012496826055401] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 20:30:00 ICT 2021
+[13488] 20:30:00.059 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-9] [-1796012496826055401] : Future start : 2021-02-23 00:00:00.0
+[13488] 20:30:00.061 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-9] [-1796012496826055401] : Future end : 2021-02-23 07:00:00.0
+[13488] 20:30:00.141 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-9] [-1796012496826055401] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 20:35:00 ICT 2021
+[13488] 20:35:00.042 D -                      SchedulerHelper(47) [            Scheduler_Worker-2] [ 2130882282441820988] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 20:35:00 ICT 2021
+[13488] 20:35:00.050 D -                      SchedulerHelper(48) [            Scheduler_Worker-2] [ 2130882282441820988] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 20:35:00 ICT 2021
+[13488] 20:35:00.055 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-2] [ 2130882282441820988] : Future start : 2021-02-23 00:00:00.0
+[13488] 20:35:00.055 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-2] [ 2130882282441820988] : Future end : 2021-02-23 07:00:00.0
+[13488] 20:35:00.120 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-2] [ 2130882282441820988] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 20:40:00 ICT 2021
+[13488] 20:40:00.090 D -                      SchedulerHelper(47) [            Scheduler_Worker-3] [ 2604959650673543613] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 20:40:00 ICT 2021
+[13488] 20:40:00.091 D -                      SchedulerHelper(48) [            Scheduler_Worker-3] [ 2604959650673543613] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 20:40:00 ICT 2021
+[13488] 20:40:00.096 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-3] [ 2604959650673543613] : Future start : 2021-02-23 00:00:00.0
+[13488] 20:40:00.096 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-3] [ 2604959650673543613] : Future end : 2021-02-23 07:00:00.0
+[13488] 20:40:00.145 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-3] [ 2604959650673543613] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 20:45:00 ICT 2021
+[13488] 20:45:00.032 D -                      SchedulerHelper(47) [            Scheduler_Worker-5] [-2039504874537860762] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 20:45:00 ICT 2021
+[13488] 20:45:00.037 D -                      SchedulerHelper(48) [            Scheduler_Worker-5] [-2039504874537860762] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 20:45:00 ICT 2021
+[13488] 20:45:00.047 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-5] [-2039504874537860762] : Future start : 2021-02-23 00:00:00.0
+[13488] 20:45:00.048 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-5] [-2039504874537860762] : Future end : 2021-02-23 07:00:00.0
+[13488] 20:45:00.131 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-5] [-2039504874537860762] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 20:50:00 ICT 2021
+[13488] 20:50:00.048 D -                      SchedulerHelper(47) [            Scheduler_Worker-4] [ 5459680749015420271] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 20:50:00 ICT 2021
+[13488] 20:50:00.054 D -                      SchedulerHelper(48) [            Scheduler_Worker-4] [ 5459680749015420271] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 20:50:00 ICT 2021
+[13488] 20:50:00.061 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-4] [ 5459680749015420271] : Future start : 2021-02-23 00:00:00.0
+[13488] 20:50:00.063 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-4] [ 5459680749015420271] : Future end : 2021-02-23 07:00:00.0
+[13488] 20:50:00.073 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-4] [ 5459680749015420271] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 20:55:00 ICT 2021
+[13488] 20:55:00.076 D -                      SchedulerHelper(47) [            Scheduler_Worker-7] [ -170720370158711554] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 20:55:00 ICT 2021
+[13488] 20:55:00.076 D -                      SchedulerHelper(48) [            Scheduler_Worker-7] [ -170720370158711554] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 20:55:00 ICT 2021
+[13488] 20:55:00.087 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-7] [ -170720370158711554] : Future start : 2021-02-23 00:00:00.0
+[13488] 20:55:00.089 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-7] [ -170720370158711554] : Future end : 2021-02-23 07:00:00.0
+[13488] 20:55:00.193 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-7] [ -170720370158711554] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 21:00:00 ICT 2021
+[13488] 21:00:00.048 D -                      SchedulerHelper(47) [            Scheduler_Worker-6] [-7427275307140296845] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 21:00:00 ICT 2021
+[13488] 21:00:00.048 D -                      SchedulerHelper(48) [            Scheduler_Worker-6] [-7427275307140296845] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 21:00:00 ICT 2021
+[13488] 21:00:00.059 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-6] [-7427275307140296845] : Future start : 2021-02-23 00:00:00.0
+[13488] 21:00:00.061 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-6] [-7427275307140296845] : Future end : 2021-02-23 07:00:00.0
+[13488] 21:00:00.071 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-6] [-7427275307140296845] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 21:05:00 ICT 2021
+[13488] 21:05:00.024 D -                      SchedulerHelper(47) [            Scheduler_Worker-7] [-6330539549765579449] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 21:05:00 ICT 2021
+[13488] 21:05:00.024 D -                      SchedulerHelper(48) [            Scheduler_Worker-7] [-6330539549765579449] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 21:05:00 ICT 2021
+[13488] 21:05:00.032 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-7] [-6330539549765579449] : Future start : 2021-02-23 00:00:00.0
+[13488] 21:05:00.034 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-7] [-6330539549765579449] : Future end : 2021-02-23 07:00:00.0
+[13488] 21:05:00.187 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-7] [-6330539549765579449] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 21:10:00 ICT 2021
+[13488] 21:10:00.061 D -                      SchedulerHelper(47) [            Scheduler_Worker-3] [-7026113266347521848] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 21:10:00 ICT 2021
+[13488] 21:10:00.061 D -                      SchedulerHelper(48) [            Scheduler_Worker-3] [-7026113266347521848] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 21:10:00 ICT 2021
+[13488] 21:10:00.069 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-3] [-7026113266347521848] : Future start : 2021-02-23 00:00:00.0
+[13488] 21:10:00.069 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-3] [-7026113266347521848] : Future end : 2021-02-23 07:00:00.0
+[13488] 21:10:00.076 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-3] [-7026113266347521848] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 21:15:00 ICT 2021
+[13488] 21:15:00.073 D -                      SchedulerHelper(47) [           Scheduler_Worker-10] [-3871284045663615256] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 21:15:00 ICT 2021
+[13488] 21:15:00.074 D -                      SchedulerHelper(48) [           Scheduler_Worker-10] [-3871284045663615256] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 21:15:00 ICT 2021
+[13488] 21:15:00.082 D -                  PayrollServiceImpl(626) [           Scheduler_Worker-10] [-3871284045663615256] : Future start : 2021-02-23 00:00:00.0
+[13488] 21:15:00.082 D -                  PayrollServiceImpl(627) [           Scheduler_Worker-10] [-3871284045663615256] : Future end : 2021-02-23 07:00:00.0
+[13488] 21:15:00.111 D -                SchedulerServiceImpl(313) [           Scheduler_Worker-10] [-3871284045663615256] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 21:20:00 ICT 2021
+[13488] 21:20:00.027 D -                      SchedulerHelper(47) [            Scheduler_Worker-8] [ 8860770965694989567] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 21:20:00 ICT 2021
+[13488] 21:20:00.030 D -                      SchedulerHelper(48) [            Scheduler_Worker-8] [ 8860770965694989567] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 21:20:00 ICT 2021
+[13488] 21:20:00.040 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-8] [ 8860770965694989567] : Future start : 2021-02-23 00:00:00.0
+[13488] 21:20:00.051 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-8] [ 8860770965694989567] : Future end : 2021-02-23 07:00:00.0
+[13488] 21:20:00.139 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-8] [ 8860770965694989567] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 21:25:00 ICT 2021
+[13488] 21:25:00.185 D -                      SchedulerHelper(47) [            Scheduler_Worker-1] [-1057393181126537226] : [PAYROLL_FUTURE_1] Scheduled Fire Time : Tue Feb 23 21:25:00 ICT 2021
+[13488] 21:25:00.186 D -                      SchedulerHelper(48) [            Scheduler_Worker-1] [-1057393181126537226] : [PAYROLL_FUTURE_1] Next Fire Time      : Tue Feb 23 21:25:00 ICT 2021
+[13488] 21:25:00.192 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-1] [-1057393181126537226] : Future start : 2021-02-23 00:00:00.0
+[13488] 21:25:00.192 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-1] [-1057393181126537226] : Future end : 2021-02-23 07:00:00.0
+[13488] 21:25:00.264 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-1] [-1057393181126537226] : [PAYROLL_FUTURE_1] Next Fire Time (New): Tue Feb 23 21:30:00 ICT 2021

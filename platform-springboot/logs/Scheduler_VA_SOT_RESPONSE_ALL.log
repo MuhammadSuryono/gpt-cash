@@ -1,0 +1,3 @@
+[17856] 17:11:28.196 D -                      SchedulerHelper(47) [            Scheduler_Worker-8] [-8222750657813068200] : [VA_SOT_RESPONSE_ALL] Scheduled Fire Time : Fri Feb 26 06:30:00 ICT 2021
+[17856] 17:11:28.197 D -                      SchedulerHelper(48) [            Scheduler_Worker-8] [-8222750657813068200] : [VA_SOT_RESPONSE_ALL] Next Fire Time      : Sat Feb 27 06:30:00 ICT 2021
+[17856] 17:11:28.235 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-8] [-8222750657813068200] : [VA_SOT_RESPONSE_ALL] Next Fire Time (New): Sat Feb 27 06:30:00 ICT 2021

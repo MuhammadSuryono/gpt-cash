@@ -1,0 +1,30 @@
+[9404] 14:00:00.228 D -                      SchedulerHelper(47) [            Scheduler_Worker-4] [-2170755222342645194] : [PAYROLL_UPDATE_HEADER_STATUS] Scheduled Fire Time : Fri Aug 13 03:30:00 ICT 2021
+[9404] 14:00:00.229 D -                      SchedulerHelper(48) [            Scheduler_Worker-4] [-2170755222342645194] : [PAYROLL_UPDATE_HEADER_STATUS] Next Fire Time      : Fri Aug 13 03:30:00 ICT 2021
+[9404] 14:00:00.484 D -                 PayrollServiceImpl(1405) [            Scheduler_Worker-4] [-2170755222342645194] : executePayrollUpdateHeaderScheduler inputs : {batchSizeThreshold=1000, timeout=3600000}
+[9404] 14:00:01.107 D -                        QueueInvoker(126) [            Scheduler_Worker-4] [-2170755222342645194] : [AutoDiscoveryQueueInvoker] - EAIEngine#invokeService(DoPayrollUpdateHeaderStatus, {batchSizeThreshold=1000, timeout=3600000})
+[9404] 14:00:02.391 D -                        QueueInvoker(201) [     ServiceInvoker-Response-1] [-2170755222342645194] : Execution Time: 1280 ms
+[9404] 14:00:02.476 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-4] [-2170755222342645194] : [PAYROLL_UPDATE_HEADER_STATUS] Next Fire Time (New): Fri Aug 13 14:10:00 ICT 2021
+[9404] 14:10:00.046 D -                      SchedulerHelper(47) [            Scheduler_Worker-9] [ 2647900838173100020] : [PAYROLL_UPDATE_HEADER_STATUS] Scheduled Fire Time : Fri Aug 13 14:10:00 ICT 2021
+[9404] 14:10:00.047 D -                      SchedulerHelper(48) [            Scheduler_Worker-9] [ 2647900838173100020] : [PAYROLL_UPDATE_HEADER_STATUS] Next Fire Time      : Fri Aug 13 14:10:00 ICT 2021
+[9404] 14:10:00.093 D -                 PayrollServiceImpl(1405) [            Scheduler_Worker-9] [ 2647900838173100020] : executePayrollUpdateHeaderScheduler inputs : {batchSizeThreshold=1000, timeout=3600000}
+[9404] 14:10:00.093 D -                        QueueInvoker(126) [            Scheduler_Worker-9] [ 2647900838173100020] : [AutoDiscoveryQueueInvoker] - EAIEngine#invokeService(DoPayrollUpdateHeaderStatus, {batchSizeThreshold=1000, timeout=3600000})
+[9404] 14:10:00.134 D -                        QueueInvoker(201) [     ServiceInvoker-Response-1] [ 2647900838173100020] : Execution Time: 40 ms
+[9404] 14:10:00.164 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-9] [ 2647900838173100020] : [PAYROLL_UPDATE_HEADER_STATUS] Next Fire Time (New): Fri Aug 13 14:20:00 ICT 2021
+[9404] 14:20:00.046 D -                      SchedulerHelper(47) [            Scheduler_Worker-2] [ 4263133858059143495] : [PAYROLL_UPDATE_HEADER_STATUS] Scheduled Fire Time : Fri Aug 13 14:20:00 ICT 2021
+[9404] 14:20:00.047 D -                      SchedulerHelper(48) [            Scheduler_Worker-2] [ 4263133858059143495] : [PAYROLL_UPDATE_HEADER_STATUS] Next Fire Time      : Fri Aug 13 14:20:00 ICT 2021
+[9404] 14:20:00.086 D -                 PayrollServiceImpl(1405) [            Scheduler_Worker-2] [ 4263133858059143495] : executePayrollUpdateHeaderScheduler inputs : {batchSizeThreshold=1000, timeout=3600000}
+[9404] 14:20:00.087 D -                        QueueInvoker(126) [            Scheduler_Worker-2] [ 4263133858059143495] : [AutoDiscoveryQueueInvoker] - EAIEngine#invokeService(DoPayrollUpdateHeaderStatus, {batchSizeThreshold=1000, timeout=3600000})
+[9404] 14:20:00.115 D -                        QueueInvoker(201) [     ServiceInvoker-Response-1] [ 4263133858059143495] : Execution Time: 28 ms
+[9404] 14:20:00.153 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-2] [ 4263133858059143495] : [PAYROLL_UPDATE_HEADER_STATUS] Next Fire Time (New): Fri Aug 13 14:30:00 ICT 2021
+[17888] 14:40:00.031 D -                      SchedulerHelper(47) [            Scheduler_Worker-2] [ 2030248431536524766] : [PAYROLL_UPDATE_HEADER_STATUS] Scheduled Fire Time : Fri Aug 13 14:30:00 ICT 2021
+[17888] 14:40:00.031 D -                      SchedulerHelper(48) [            Scheduler_Worker-2] [ 2030248431536524766] : [PAYROLL_UPDATE_HEADER_STATUS] Next Fire Time      : Fri Aug 13 14:30:00 ICT 2021
+[17888] 14:40:00.088 D -                 PayrollServiceImpl(1405) [            Scheduler_Worker-2] [ 2030248431536524766] : executePayrollUpdateHeaderScheduler inputs : {batchSizeThreshold=1000, timeout=3600000}
+[17888] 14:40:00.435 D -                        QueueInvoker(126) [            Scheduler_Worker-2] [ 2030248431536524766] : [AutoDiscoveryQueueInvoker] - EAIEngine#invokeService(DoPayrollUpdateHeaderStatus, {batchSizeThreshold=1000, timeout=3600000})
+[17888] 14:40:00.659 D -                        QueueInvoker(201) [     ServiceInvoker-Response-1] [ 2030248431536524766] : Execution Time: 220 ms
+[17888] 14:40:00.696 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-2] [ 2030248431536524766] : [PAYROLL_UPDATE_HEADER_STATUS] Next Fire Time (New): Fri Aug 13 14:50:00 ICT 2021
+[17888] 14:50:00.049 D -                      SchedulerHelper(47) [           Scheduler_Worker-10] [ 3849444797571877348] : [PAYROLL_UPDATE_HEADER_STATUS] Scheduled Fire Time : Fri Aug 13 14:50:00 ICT 2021
+[17888] 14:50:00.049 D -                      SchedulerHelper(48) [           Scheduler_Worker-10] [ 3849444797571877348] : [PAYROLL_UPDATE_HEADER_STATUS] Next Fire Time      : Fri Aug 13 14:50:00 ICT 2021
+[17888] 14:50:00.104 D -                 PayrollServiceImpl(1405) [           Scheduler_Worker-10] [ 3849444797571877348] : executePayrollUpdateHeaderScheduler inputs : {batchSizeThreshold=1000, timeout=3600000}
+[17888] 14:50:00.104 D -                        QueueInvoker(126) [           Scheduler_Worker-10] [ 3849444797571877348] : [AutoDiscoveryQueueInvoker] - EAIEngine#invokeService(DoPayrollUpdateHeaderStatus, {batchSizeThreshold=1000, timeout=3600000})
+[17888] 14:50:00.117 D -                        QueueInvoker(201) [     ServiceInvoker-Response-1] [ 3849444797571877348] : Execution Time: 12 ms
+[17888] 14:50:00.156 D -                SchedulerServiceImpl(313) [           Scheduler_Worker-10] [ 3849444797571877348] : [PAYROLL_UPDATE_HEADER_STATUS] Next Fire Time (New): Fri Aug 13 15:00:00 ICT 2021

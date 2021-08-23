@@ -1,0 +1,267 @@
+[20336] 01:36:00.587 D -         TransactionHistoryController(65) [          http-nio-8005-exec-9] [-6405045092293590825] : [preInvoke] - [a010e5d7-72e1-4ad3-9a3a-3d5494b801bd] - TransactionHistorySC#searchCorporateAccountGroupForInquiry({action=SEARCH, loginId=EWANG|EWANGTRX, loginCorporateId=EWANG, menuCode=MNU_GPCASH_F_TRX_HISTORY, appCode=GPCASHIB, loginUserCode=EWANG|EWANGTRX})
+[20336] 01:36:00.591 D -                        QueueInvoker(126) [          http-nio-8005-exec-9] [-6405045092293590825] : [AutoDiscoveryQueueInvoker] - TransactionHistorySC#searchCorporateAccountGroupForInquiry({action=SEARCH, loginId=EWANG|EWANGTRX, loginCorporateId=EWANG, menuCode=MNU_GPCASH_F_TRX_HISTORY, appCode=GPCASHIB, loginUserCode=EWANG|EWANGTRX})
+[20336] 01:36:00.596 D -                    ValidationAspect(266) [            ServerThreadPool-2] [-6405045092293590825] : [Validation - Input] - TransactionHistorySCImpl#searchCorporateAccountGroupForInquiry({action=SEARCH, loginId=EWANG|EWANGTRX, loginCorporateId=EWANG, menuCode=MNU_GPCASH_F_TRX_HISTORY, appCode=GPCASHIB, loginUserCode=EWANG|EWANGTRX})
+[20336] 01:36:00.613 D -                        QueueInvoker(126) [            ServerThreadPool-2] [-6405045092293590825] : [AutoDiscoveryQueueInvoker] - EAIEngine#invokeService(DoAccountInquiry, {accountNo=0000757772001})
+[20336] 01:36:00.624 I -                SystemCOTServiceImpl(295) [            ServerThreadPool-1] [-6405045092293590825] : COT Code : HOST_COT
+[20336] 01:36:00.624 I -                SystemCOTServiceImpl(296) [            ServerThreadPool-1] [-6405045092293590825] : COT Application Code : GPCASHIB
+[20336] 01:36:00.624 D -                SystemCOTServiceImpl(320) [            ServerThreadPool-1] [-6405045092293590825] : 
+
+
+
+
+
+
+[20336] 01:36:00.624 D -                SystemCOTServiceImpl(321) [            ServerThreadPool-1] [-6405045092293590825] : code: HOST_COT
+[20336] 01:36:00.624 D -                SystemCOTServiceImpl(322) [            ServerThreadPool-1] [-6405045092293590825] : applicationCode: GPCASHIB
+[20336] 01:36:00.624 D -                SystemCOTServiceImpl(323) [            ServerThreadPool-1] [-6405045092293590825] : COT start : Thu Dec 31 00:01:00 SGT 2020
+[20336] 01:36:00.625 D -                SystemCOTServiceImpl(324) [            ServerThreadPool-1] [-6405045092293590825] : COT end : Thu Dec 31 23:59:00 SGT 2020
+[20336] 01:36:00.625 D -                SystemCOTServiceImpl(325) [            ServerThreadPool-1] [-6405045092293590825] : Today Date : Thu Dec 31 01:36:00 SGT 2020
+[20336] 01:36:00.625 D -                SystemCOTServiceImpl(326) [            ServerThreadPool-1] [-6405045092293590825] : 
+
+
+
+
+
+
+[20336] 01:36:00.693 D -                        QueueInvoker(201) [     ServiceInvoker-Response-1] [-6405045092293590825] : Execution Time: 80 ms
+[20336] 01:36:00.694 E -    CorporateAccountGroupServiceImpl(674) [            ServerThreadPool-2] [-6405045092293590825] : Error while doAccountInquiry
+[20336] 01:36:00.694 D -                        QueueInvoker(126) [            ServerThreadPool-2] [-6405045092293590825] : [AutoDiscoveryQueueInvoker] - EAIEngine#invokeService(DoAccountInquiry, {accountNo=0001900331001})
+[20336] 01:36:00.701 I -                SystemCOTServiceImpl(295) [            ServerThreadPool-4] [-6405045092293590825] : COT Code : HOST_COT
+[20336] 01:36:00.702 I -                SystemCOTServiceImpl(296) [            ServerThreadPool-4] [-6405045092293590825] : COT Application Code : GPCASHIB
+[20336] 01:36:00.702 D -                SystemCOTServiceImpl(320) [            ServerThreadPool-4] [-6405045092293590825] : 
+
+
+
+
+
+
+[20336] 01:36:00.702 D -                SystemCOTServiceImpl(321) [            ServerThreadPool-4] [-6405045092293590825] : code: HOST_COT
+[20336] 01:36:00.702 D -                SystemCOTServiceImpl(322) [            ServerThreadPool-4] [-6405045092293590825] : applicationCode: GPCASHIB
+[20336] 01:36:00.703 D -                SystemCOTServiceImpl(323) [            ServerThreadPool-4] [-6405045092293590825] : COT start : Thu Dec 31 00:01:00 SGT 2020
+[20336] 01:36:00.703 D -                SystemCOTServiceImpl(324) [            ServerThreadPool-4] [-6405045092293590825] : COT end : Thu Dec 31 23:59:00 SGT 2020
+[20336] 01:36:00.703 D -                SystemCOTServiceImpl(325) [            ServerThreadPool-4] [-6405045092293590825] : Today Date : Thu Dec 31 01:36:00 SGT 2020
+[20336] 01:36:00.703 D -                SystemCOTServiceImpl(326) [            ServerThreadPool-4] [-6405045092293590825] : 
+
+
+
+
+
+
+[20336] 01:36:00.770 D -                        QueueInvoker(201) [     ServiceInvoker-Response-3] [-6405045092293590825] : Execution Time: 75 ms
+[20336] 01:36:00.771 E -    CorporateAccountGroupServiceImpl(674) [            ServerThreadPool-2] [-6405045092293590825] : Error while doAccountInquiry
+[20336] 01:36:00.772 D -                        QueueInvoker(126) [            ServerThreadPool-2] [-6405045092293590825] : [AutoDiscoveryQueueInvoker] - EAIEngine#invokeService(DoAccountInquiry, {accountNo=0004307240001})
+[20336] 01:36:00.777 I -                SystemCOTServiceImpl(295) [            ServerThreadPool-5] [-6405045092293590825] : COT Code : HOST_COT
+[20336] 01:36:00.777 I -                SystemCOTServiceImpl(296) [            ServerThreadPool-5] [-6405045092293590825] : COT Application Code : GPCASHIB
+[20336] 01:36:00.777 D -                SystemCOTServiceImpl(320) [            ServerThreadPool-5] [-6405045092293590825] : 
+
+
+
+
+
+
+[20336] 01:36:00.777 D -                SystemCOTServiceImpl(321) [            ServerThreadPool-5] [-6405045092293590825] : code: HOST_COT
+[20336] 01:36:00.777 D -                SystemCOTServiceImpl(322) [            ServerThreadPool-5] [-6405045092293590825] : applicationCode: GPCASHIB
+[20336] 01:36:00.778 D -                SystemCOTServiceImpl(323) [            ServerThreadPool-5] [-6405045092293590825] : COT start : Thu Dec 31 00:01:00 SGT 2020
+[20336] 01:36:00.778 D -                SystemCOTServiceImpl(324) [            ServerThreadPool-5] [-6405045092293590825] : COT end : Thu Dec 31 23:59:00 SGT 2020
+[20336] 01:36:00.778 D -                SystemCOTServiceImpl(325) [            ServerThreadPool-5] [-6405045092293590825] : Today Date : Thu Dec 31 01:36:00 SGT 2020
+[20336] 01:36:00.778 D -                SystemCOTServiceImpl(326) [            ServerThreadPool-5] [-6405045092293590825] : 
+
+
+
+
+
+
+[20336] 01:36:00.852 D -                        QueueInvoker(201) [     ServiceInvoker-Response-4] [-6405045092293590825] : Execution Time: 80 ms
+[20336] 01:36:00.853 E -    CorporateAccountGroupServiceImpl(674) [            ServerThreadPool-2] [-6405045092293590825] : Error while doAccountInquiry
+[20336] 01:36:00.854 D -                        QueueInvoker(126) [            ServerThreadPool-2] [-6405045092293590825] : [AutoDiscoveryQueueInvoker] - EAIEngine#invokeService(DoAccountInquiry, {accountNo=0010020248239})
+[20336] 01:36:00.859 I -                SystemCOTServiceImpl(295) [            ServerThreadPool-3] [-6405045092293590825] : COT Code : HOST_COT
+[20336] 01:36:00.859 I -                SystemCOTServiceImpl(296) [            ServerThreadPool-3] [-6405045092293590825] : COT Application Code : GPCASHIB
+[20336] 01:36:00.859 D -                SystemCOTServiceImpl(320) [            ServerThreadPool-3] [-6405045092293590825] : 
+
+
+
+
+
+
+[20336] 01:36:00.859 D -                SystemCOTServiceImpl(321) [            ServerThreadPool-3] [-6405045092293590825] : code: HOST_COT
+[20336] 01:36:00.859 D -                SystemCOTServiceImpl(322) [            ServerThreadPool-3] [-6405045092293590825] : applicationCode: GPCASHIB
+[20336] 01:36:00.859 D -                SystemCOTServiceImpl(323) [            ServerThreadPool-3] [-6405045092293590825] : COT start : Thu Dec 31 00:01:00 SGT 2020
+[20336] 01:36:00.859 D -                SystemCOTServiceImpl(324) [            ServerThreadPool-3] [-6405045092293590825] : COT end : Thu Dec 31 23:59:00 SGT 2020
+[20336] 01:36:00.859 D -                SystemCOTServiceImpl(325) [            ServerThreadPool-3] [-6405045092293590825] : Today Date : Thu Dec 31 01:36:00 SGT 2020
+[20336] 01:36:00.860 D -                SystemCOTServiceImpl(326) [            ServerThreadPool-3] [-6405045092293590825] : 
+
+
+
+
+
+
+[20336] 01:36:00.927 D -                        QueueInvoker(201) [     ServiceInvoker-Response-2] [-6405045092293590825] : Execution Time: 73 ms
+[20336] 01:36:00.928 D -                        QueueInvoker(126) [            ServerThreadPool-2] [-6405045092293590825] : [AutoDiscoveryQueueInvoker] - EAIEngine#invokeService(DoAccountInquiry, {accountNo=0010020248999})
+[20336] 01:36:00.934 I -                SystemCOTServiceImpl(295) [            ServerThreadPool-1] [-6405045092293590825] : COT Code : HOST_COT
+[20336] 01:36:00.934 I -                SystemCOTServiceImpl(296) [            ServerThreadPool-1] [-6405045092293590825] : COT Application Code : GPCASHIB
+[20336] 01:36:00.935 D -                SystemCOTServiceImpl(320) [            ServerThreadPool-1] [-6405045092293590825] : 
+
+
+
+
+
+
+[20336] 01:36:00.935 D -                SystemCOTServiceImpl(321) [            ServerThreadPool-1] [-6405045092293590825] : code: HOST_COT
+[20336] 01:36:00.935 D -                SystemCOTServiceImpl(322) [            ServerThreadPool-1] [-6405045092293590825] : applicationCode: GPCASHIB
+[20336] 01:36:00.935 D -                SystemCOTServiceImpl(323) [            ServerThreadPool-1] [-6405045092293590825] : COT start : Thu Dec 31 00:01:00 SGT 2020
+[20336] 01:36:00.935 D -                SystemCOTServiceImpl(324) [            ServerThreadPool-1] [-6405045092293590825] : COT end : Thu Dec 31 23:59:00 SGT 2020
+[20336] 01:36:00.935 D -                SystemCOTServiceImpl(325) [            ServerThreadPool-1] [-6405045092293590825] : Today Date : Thu Dec 31 01:36:00 SGT 2020
+[20336] 01:36:00.935 D -                SystemCOTServiceImpl(326) [            ServerThreadPool-1] [-6405045092293590825] : 
+
+
+
+
+
+
+[20336] 01:36:01.002 D -                        QueueInvoker(201) [     ServiceInvoker-Response-1] [-6405045092293590825] : Execution Time: 74 ms
+[20336] 01:36:01.003 D -                        QueueInvoker(126) [            ServerThreadPool-2] [-6405045092293590825] : [AutoDiscoveryQueueInvoker] - EAIEngine#invokeService(DoAccountInquiry, {accountNo=0015077931100})
+[20336] 01:36:01.007 I -                SystemCOTServiceImpl(295) [            ServerThreadPool-4] [-6405045092293590825] : COT Code : HOST_COT
+[20336] 01:36:01.007 I -                SystemCOTServiceImpl(296) [            ServerThreadPool-4] [-6405045092293590825] : COT Application Code : GPCASHIB
+[20336] 01:36:01.007 D -                SystemCOTServiceImpl(320) [            ServerThreadPool-4] [-6405045092293590825] : 
+
+
+
+
+
+
+[20336] 01:36:01.007 D -                SystemCOTServiceImpl(321) [            ServerThreadPool-4] [-6405045092293590825] : code: HOST_COT
+[20336] 01:36:01.007 D -                SystemCOTServiceImpl(322) [            ServerThreadPool-4] [-6405045092293590825] : applicationCode: GPCASHIB
+[20336] 01:36:01.007 D -                SystemCOTServiceImpl(323) [            ServerThreadPool-4] [-6405045092293590825] : COT start : Thu Dec 31 00:01:00 SGT 2020
+[20336] 01:36:01.007 D -                SystemCOTServiceImpl(324) [            ServerThreadPool-4] [-6405045092293590825] : COT end : Thu Dec 31 23:59:00 SGT 2020
+[20336] 01:36:01.007 D -                SystemCOTServiceImpl(325) [            ServerThreadPool-4] [-6405045092293590825] : Today Date : Thu Dec 31 01:36:01 SGT 2020
+[20336] 01:36:01.008 D -                SystemCOTServiceImpl(326) [            ServerThreadPool-4] [-6405045092293590825] : 
+
+
+
+
+
+
+[20336] 01:36:01.077 D -                        QueueInvoker(201) [     ServiceInvoker-Response-3] [-6405045092293590825] : Execution Time: 73 ms
+[20336] 01:36:01.078 D -                        QueueInvoker(126) [            ServerThreadPool-2] [-6405045092293590825] : [AutoDiscoveryQueueInvoker] - EAIEngine#invokeService(DoAccountInquiry, {accountNo=0059740091100})
+[20336] 01:36:01.084 I -                SystemCOTServiceImpl(295) [            ServerThreadPool-5] [-6405045092293590825] : COT Code : HOST_COT
+[20336] 01:36:01.084 I -                SystemCOTServiceImpl(296) [            ServerThreadPool-5] [-6405045092293590825] : COT Application Code : GPCASHIB
+[20336] 01:36:01.085 D -                SystemCOTServiceImpl(320) [            ServerThreadPool-5] [-6405045092293590825] : 
+
+
+
+
+
+
+[20336] 01:36:01.085 D -                SystemCOTServiceImpl(321) [            ServerThreadPool-5] [-6405045092293590825] : code: HOST_COT
+[20336] 01:36:01.085 D -                SystemCOTServiceImpl(322) [            ServerThreadPool-5] [-6405045092293590825] : applicationCode: GPCASHIB
+[20336] 01:36:01.085 D -                SystemCOTServiceImpl(323) [            ServerThreadPool-5] [-6405045092293590825] : COT start : Thu Dec 31 00:01:00 SGT 2020
+[20336] 01:36:01.085 D -                SystemCOTServiceImpl(324) [            ServerThreadPool-5] [-6405045092293590825] : COT end : Thu Dec 31 23:59:00 SGT 2020
+[20336] 01:36:01.086 D -                SystemCOTServiceImpl(325) [            ServerThreadPool-5] [-6405045092293590825] : Today Date : Thu Dec 31 01:36:01 SGT 2020
+[20336] 01:36:01.086 D -                SystemCOTServiceImpl(326) [            ServerThreadPool-5] [-6405045092293590825] : 
+
+
+
+
+
+
+[20336] 01:36:01.143 D -                        QueueInvoker(201) [     ServiceInvoker-Response-4] [-6405045092293590825] : Execution Time: 65 ms
+[20336] 01:36:01.144 E -    CorporateAccountGroupServiceImpl(674) [            ServerThreadPool-2] [-6405045092293590825] : Error while doAccountInquiry
+[20336] 01:36:01.145 D -                        QueueInvoker(126) [            ServerThreadPool-2] [-6405045092293590825] : [AutoDiscoveryQueueInvoker] - EAIEngine#invokeService(DoAccountInquiry, {accountNo=0071529381100})
+[20336] 01:36:01.152 I -                SystemCOTServiceImpl(295) [            ServerThreadPool-3] [-6405045092293590825] : COT Code : HOST_COT
+[20336] 01:36:01.152 I -                SystemCOTServiceImpl(296) [            ServerThreadPool-3] [-6405045092293590825] : COT Application Code : GPCASHIB
+[20336] 01:36:01.152 D -                SystemCOTServiceImpl(320) [            ServerThreadPool-3] [-6405045092293590825] : 
+
+
+
+
+
+
+[20336] 01:36:01.152 D -                SystemCOTServiceImpl(321) [            ServerThreadPool-3] [-6405045092293590825] : code: HOST_COT
+[20336] 01:36:01.153 D -                SystemCOTServiceImpl(322) [            ServerThreadPool-3] [-6405045092293590825] : applicationCode: GPCASHIB
+[20336] 01:36:01.153 D -                SystemCOTServiceImpl(323) [            ServerThreadPool-3] [-6405045092293590825] : COT start : Thu Dec 31 00:01:00 SGT 2020
+[20336] 01:36:01.153 D -                SystemCOTServiceImpl(324) [            ServerThreadPool-3] [-6405045092293590825] : COT end : Thu Dec 31 23:59:00 SGT 2020
+[20336] 01:36:01.153 D -                SystemCOTServiceImpl(325) [            ServerThreadPool-3] [-6405045092293590825] : Today Date : Thu Dec 31 01:36:01 SGT 2020
+[20336] 01:36:01.153 D -                SystemCOTServiceImpl(326) [            ServerThreadPool-3] [-6405045092293590825] : 
+
+
+
+
+
+
+[20336] 01:36:01.213 D -                        QueueInvoker(201) [     ServiceInvoker-Response-2] [-6405045092293590825] : Execution Time: 67 ms
+[20336] 01:36:01.216 E -    CorporateAccountGroupServiceImpl(674) [            ServerThreadPool-2] [-6405045092293590825] : Error while doAccountInquiry
+[20336] 01:36:01.218 D -                        QueueInvoker(126) [            ServerThreadPool-2] [-6405045092293590825] : [AutoDiscoveryQueueInvoker] - EAIEngine#invokeService(DoAccountInquiry, {accountNo=0078661682002})
+[20336] 01:36:01.223 I -                SystemCOTServiceImpl(295) [            ServerThreadPool-1] [-6405045092293590825] : COT Code : HOST_COT
+[20336] 01:36:01.223 I -                SystemCOTServiceImpl(296) [            ServerThreadPool-1] [-6405045092293590825] : COT Application Code : GPCASHIB
+[20336] 01:36:01.224 D -                SystemCOTServiceImpl(320) [            ServerThreadPool-1] [-6405045092293590825] : 
+
+
+
+
+
+
+[20336] 01:36:01.224 D -                SystemCOTServiceImpl(321) [            ServerThreadPool-1] [-6405045092293590825] : code: HOST_COT
+[20336] 01:36:01.224 D -                SystemCOTServiceImpl(322) [            ServerThreadPool-1] [-6405045092293590825] : applicationCode: GPCASHIB
+[20336] 01:36:01.224 D -                SystemCOTServiceImpl(323) [            ServerThreadPool-1] [-6405045092293590825] : COT start : Thu Dec 31 00:01:00 SGT 2020
+[20336] 01:36:01.224 D -                SystemCOTServiceImpl(324) [            ServerThreadPool-1] [-6405045092293590825] : COT end : Thu Dec 31 23:59:00 SGT 2020
+[20336] 01:36:01.225 D -                SystemCOTServiceImpl(325) [            ServerThreadPool-1] [-6405045092293590825] : Today Date : Thu Dec 31 01:36:01 SGT 2020
+[20336] 01:36:01.225 D -                SystemCOTServiceImpl(326) [            ServerThreadPool-1] [-6405045092293590825] : 
+
+
+
+
+
+
+[20336] 01:36:01.286 D -                        QueueInvoker(201) [     ServiceInvoker-Response-1] [-6405045092293590825] : Execution Time: 68 ms
+[20336] 01:36:01.288 E -    CorporateAccountGroupServiceImpl(674) [            ServerThreadPool-2] [-6405045092293590825] : Error while doAccountInquiry
+[20336] 01:36:01.290 D -                        QueueInvoker(126) [            ServerThreadPool-2] [-6405045092293590825] : [AutoDiscoveryQueueInvoker] - EAIEngine#invokeService(DoAccountInquiry, {accountNo=9996031293001991})
+[20336] 01:36:01.295 I -                SystemCOTServiceImpl(295) [            ServerThreadPool-4] [-6405045092293590825] : COT Code : HOST_COT
+[20336] 01:36:01.295 I -                SystemCOTServiceImpl(296) [            ServerThreadPool-4] [-6405045092293590825] : COT Application Code : GPCASHIB
+[20336] 01:36:01.295 D -                SystemCOTServiceImpl(320) [            ServerThreadPool-4] [-6405045092293590825] : 
+
+
+
+
+
+
+[20336] 01:36:01.296 D -                SystemCOTServiceImpl(321) [            ServerThreadPool-4] [-6405045092293590825] : code: HOST_COT
+[20336] 01:36:01.296 D -                SystemCOTServiceImpl(322) [            ServerThreadPool-4] [-6405045092293590825] : applicationCode: GPCASHIB
+[20336] 01:36:01.296 D -                SystemCOTServiceImpl(323) [            ServerThreadPool-4] [-6405045092293590825] : COT start : Thu Dec 31 00:01:00 SGT 2020
+[20336] 01:36:01.297 D -                SystemCOTServiceImpl(324) [            ServerThreadPool-4] [-6405045092293590825] : COT end : Thu Dec 31 23:59:00 SGT 2020
+[20336] 01:36:01.297 D -                SystemCOTServiceImpl(325) [            ServerThreadPool-4] [-6405045092293590825] : Today Date : Thu Dec 31 01:36:01 SGT 2020
+[20336] 01:36:01.298 D -                SystemCOTServiceImpl(326) [            ServerThreadPool-4] [-6405045092293590825] : 
+
+
+
+
+
+
+[20336] 01:36:01.363 D -                        QueueInvoker(201) [     ServiceInvoker-Response-3] [-6405045092293590825] : Execution Time: 73 ms
+[20336] 01:36:01.368 E -    CorporateAccountGroupServiceImpl(674) [            ServerThreadPool-2] [-6405045092293590825] : Error while doAccountInquiry
+[20336] 01:36:01.369 D -                        QueueInvoker(126) [            ServerThreadPool-2] [-6405045092293590825] : [AutoDiscoveryQueueInvoker] - EAIEngine#invokeService(DoAccountInquiry, {accountNo=9996089992001992})
+[20336] 01:36:01.376 I -                SystemCOTServiceImpl(295) [            ServerThreadPool-5] [-6405045092293590825] : COT Code : HOST_COT
+[20336] 01:36:01.376 I -                SystemCOTServiceImpl(296) [            ServerThreadPool-5] [-6405045092293590825] : COT Application Code : GPCASHIB
+[20336] 01:36:01.376 D -                SystemCOTServiceImpl(320) [            ServerThreadPool-5] [-6405045092293590825] : 
+
+
+
+
+
+
+[20336] 01:36:01.377 D -                SystemCOTServiceImpl(321) [            ServerThreadPool-5] [-6405045092293590825] : code: HOST_COT
+[20336] 01:36:01.377 D -                SystemCOTServiceImpl(322) [            ServerThreadPool-5] [-6405045092293590825] : applicationCode: GPCASHIB
+[20336] 01:36:01.377 D -                SystemCOTServiceImpl(323) [            ServerThreadPool-5] [-6405045092293590825] : COT start : Thu Dec 31 00:01:00 SGT 2020
+[20336] 01:36:01.377 D -                SystemCOTServiceImpl(324) [            ServerThreadPool-5] [-6405045092293590825] : COT end : Thu Dec 31 23:59:00 SGT 2020
+[20336] 01:36:01.377 D -                SystemCOTServiceImpl(325) [            ServerThreadPool-5] [-6405045092293590825] : Today Date : Thu Dec 31 01:36:01 SGT 2020
+[20336] 01:36:01.377 D -                SystemCOTServiceImpl(326) [            ServerThreadPool-5] [-6405045092293590825] : 
+
+
+
+
+
+
+[20336] 01:36:01.452 D -                        QueueInvoker(201) [     ServiceInvoker-Response-4] [-6405045092293590825] : Execution Time: 83 ms
+[20336] 01:36:01.453 E -    CorporateAccountGroupServiceImpl(674) [            ServerThreadPool-2] [-6405045092293590825] : Error while doAccountInquiry
+[20336] 01:36:01.455 D -                    ValidationAspect(280) [            ServerThreadPool-2] [-6405045092293590825] : [Validation - Output] - TransactionHistorySCImpl#searchCorporateAccountGroupForInquiry({accounts=[{accountCurrencyCode=IDR, accountName=BPG 095 DINAS P, accountNo=0000757772001, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=1fed6c6c-0db6-4f28-8816-beb89bb53304}, {accountCurrencyCode=IDR, accountName=BPg 095 DINAS, accountNo=0001900331001, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=9f94bd14-39a2-4d5e-b3b1-5c3c93114ca9}, {accountCurrencyCode=IDR, accountName=RPL175.LPDB-KUM, accountNo=0004307240001, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=7670cae0-720b-4700-aba1-7ab9699be1f6}, {accountCurrencyCode=IDR, accountName=SLTP NEGERI 41, accountNo=0010020248239, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=0335c0a0-638b-4d99-b240-a0fc222e02e4, productDescription=bjb Tandamata (TKI)}, {accountCurrencyCode=USD, accountName=TEST ACCOUNT USD, accountNo=0010020248999, accountTypeCode=002, accountCurrencyName=USD, accountTypeName=Current Account, accountGroupDtlId=95c28f8c-463b-4fee-aa32-e05901a443fa, productDescription=bjb Tandamata (TKI)}, {accountCurrencyCode=IDR, accountName=FARIDL MA'RUF, accountNo=0015077931100, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountGroupDtlId=b32d1404-908c-4aba-988e-afb9dbf75eed, productDescription=bjb Tandamata (TKI)}, {accountCurrencyCode=IDR, accountName=LUTFIAN GALIH P, accountNo=0059740091100, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountGroupDtlId=2bd0b2c2-12e1-444d-9626-98c983f93e8d}, {accountCurrencyCode=IDR, accountBranchName=KCP CIBADUYUT, accountName=JUZANDA HASNOMO, accountNo=0071529381100, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountGroupDtlId=6a6b9be8-753f-4e31-ac25-acbf3dde7223, accountBranchCode=0322}, {accountCurrencyCode=USD, accountBranchName=CABANG SOREANG, accountName=PT ABC123 TEST, accountNo=0078661682002, accountTypeCode=002, accountCurrencyName=USD, accountTypeName=Current Account, accountGroupDtlId=30e09227-43d5-4f06-a375-0e58cb021417, accountBranchCode=0022}, {accountCurrencyCode=IDR, accountBranchName=CABANG UTAMA BANDUNG, accountName=BADAN KEPEGAWAI, accountNo=9996031293001991, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=9c2e8851-d8e8-4af8-bab8-bde0c81ca86c, accountBranchCode=0001}, {accountCurrencyCode=IDR, accountName=DP3AKB, accountNo=9996089992001992, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=5f2d1943-4476-4536-b304-6c20ff5ca91c}]})
+[20336] 01:36:01.456 D -        TransactionHistoryController(156) [            ServerThreadPool-2] [-6405045092293590825] : onSuccess : {accounts=[{accountCurrencyCode=IDR, accountBranchName=, accountName=BPG 095 DINAS P, accountNo=0000757772001, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=1fed6c6c-0db6-4f28-8816-beb89bb53304, accountBranchCode=}, {accountCurrencyCode=IDR, accountBranchName=, accountName=BPg 095 DINAS, accountNo=0001900331001, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=9f94bd14-39a2-4d5e-b3b1-5c3c93114ca9, accountBranchCode=}, {accountCurrencyCode=IDR, accountBranchName=, accountName=RPL175.LPDB-KUM, accountNo=0004307240001, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=7670cae0-720b-4700-aba1-7ab9699be1f6, accountBranchCode=}, {accountCurrencyCode=IDR, accountBranchName=, accountName=SLTP NEGERI 41, accountNo=0010020248239, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=0335c0a0-638b-4d99-b240-a0fc222e02e4, productDescription=bjb Tandamata (TKI), accountBranchCode=}, {accountCurrencyCode=USD, accountBranchName=, accountName=TEST ACCOUNT USD, accountNo=0010020248999, accountTypeCode=002, accountCurrencyName=USD, accountTypeName=Current Account, accountGroupDtlId=95c28f8c-463b-4fee-aa32-e05901a443fa, productDescription=bjb Tandamata (TKI), accountBranchCode=}, {accountCurrencyCode=IDR, accountBranchName=, accountName=FARIDL MA'RUF, accountNo=0015077931100, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountGroupDtlId=b32d1404-908c-4aba-988e-afb9dbf75eed, productDescription=bjb Tandamata (TKI), accountBranchCode=}, {accountCurrencyCode=IDR, accountBranchName=, accountName=LUTFIAN GALIH P, accountNo=0059740091100, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountGroupDtlId=2bd0b2c2-12e1-444d-9626-98c983f93e8d, accountBranchCode=}, {accountCurrencyCode=IDR, accountBranchName=KCP CIBADUYUT, accountName=JUZANDA HASNOMO, accountNo=0071529381100, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountGroupDtlId=6a6b9be8-753f-4e31-ac25-acbf3dde7223, accountBranchCode=0322}, {accountCurrencyCode=USD, accountBranchName=CABANG SOREANG, accountName=PT ABC123 TEST, accountNo=0078661682002, accountTypeCode=002, accountCurrencyName=USD, accountTypeName=Current Account, accountGroupDtlId=30e09227-43d5-4f06-a375-0e58cb021417, accountBranchCode=0022}, {accountCurrencyCode=IDR, accountBranchName=CABANG UTAMA BANDUNG, accountName=BADAN KEPEGAWAI, accountNo=9996031293001991, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=9c2e8851-d8e8-4af8-bab8-bde0c81ca86c, accountBranchCode=0001}, {accountCurrencyCode=IDR, accountBranchName=, accountName=DP3AKB, accountNo=9996089992001992, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=5f2d1943-4476-4536-b304-6c20ff5ca91c, accountBranchCode=}]}
+[20336] 01:36:01.456 D -                        QueueInvoker(201) [            ServerThreadPool-2] [-6405045092293590825] : Execution Time: 864 ms

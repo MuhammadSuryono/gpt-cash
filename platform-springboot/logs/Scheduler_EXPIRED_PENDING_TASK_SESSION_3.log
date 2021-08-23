@@ -1,0 +1,5 @@
+[9820] 13:00:00.308 D -                      SchedulerHelper(47) [            Scheduler_Worker-5] [-2546393278924436941] : [EXPIRED_PENDING_TASK_SESSION_3] Scheduled Fire Time : Sat Jun 05 13:00:00 ICT 2021
+[9820] 13:00:00.309 D -                      SchedulerHelper(48) [            Scheduler_Worker-5] [-2546393278924436941] : [EXPIRED_PENDING_TASK_SESSION_3] Next Fire Time      : Sat Jun 05 13:00:00 ICT 2021
+[9820] 13:00:00.323 D - orporateUserPendingTaskServiceImpl(1101) [            Scheduler_Worker-5] [-2546393278924436941] : calFrom : Tue Jul 27 00:00:00 ICT 2021
+[9820] 13:00:00.324 D - orporateUserPendingTaskServiceImpl(1102) [            Scheduler_Worker-5] [-2546393278924436941] : calTo : Tue Jul 27 13:00:00 ICT 2021
+[9820] 13:00:00.354 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-5] [-2546393278924436941] : [EXPIRED_PENDING_TASK_SESSION_3] Next Fire Time (New): Wed Jul 28 13:00:00 ICT 2021

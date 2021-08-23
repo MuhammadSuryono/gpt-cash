@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+    
+    <property name="FILE_LOG_PATTERN" value="[${PID:- }] %d{HH:mm:ss.SSS} %.-1p - %40.40(%50logger{0}\\(%L\\)) [%30.30thread] [%20(%X{mdc-TraceId})] : %m%n"/>
+    <property name="CONSOLE_LOG_PATTERN" value="%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %.-1p %clr(-){faint} %70.70(%50class{39}\\(%M:%L\\)) [%20.20thread] [%20(%X{mdc-TraceId})] %clr(:){faint} %m%n"/>
+    
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+    
+    <appender name="FILE" class="ch.qos.logback.classic.sift.SiftingAppender">
+        <discriminator>
+            <key>controller</key>
+            <defaultValue>GPCash</defaultValue>
+        </discriminator>
+        <sift>
+            <appender name="FILE-${controller}" class="ch.qos.logback.core.rolling.RollingFileAppender">
+                <encoder>
+                    <pattern>${FILE_LOG_PATTERN}</pattern>
+                </encoder>
+                <file>logs/${controller}.log</file>
+                
+                <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                    <!-- daily rollover -->
+                    <fileNamePattern>logs/backup/%d{yyyy-MM-dd}/${controller}.%i.zip</fileNamePattern>
+        
+                    <timeBasedFileNamingAndTriggeringPolicy
+                        class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                        <!-- or whenever the file size reaches 10MB -->
+                        <maxFileSize>10MB</maxFileSize>
+                    </timeBasedFileNamingAndTriggeringPolicy>
+        
+                    <!-- keep 30 days' worth of history -->
+                    <maxHistory>30</maxHistory>
+                </rollingPolicy>
+            </appender>
+        </sift>
+    </appender>
+    
+    <appender name="ASYNC-FILE" class="ch.qos.logback.classic.AsyncAppender">
+        <queueSize>1000</queueSize>
+        <discardingThreshold>0</discardingThreshold>
+        <appender-ref ref="FILE" />
+    </appender>    
+     
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="ASYNC-FILE" />
+    </root>
+
+    <logger name="com.gpt" level="DEBUG"/>
+<!--     <logger name="org.hibernate.SQL" level="DEBUG" /> -->
+<!--     <logger name="org.hibernate.type" level="TRACE" /> -->
+    <logger name="org.springframework.aop.framework.CglibAopProxy" level="ERROR"/>
+    <!-- 
+    <logger name="com.gpt.component.common" level="ERROR"/>
+    <logger name="com.gpt.platform.eai" level="ERROR"/>
+    <logger name="org.springframework.web.servlet.DispatcherServlet" level="DEBUG"/>
+     -->
+    
+    <!-- EAI --> 
+    <logger name="org.springframework.ws.client.MessageTracing.sent" level="TRACE"/>
+    <logger name="org.springframework.ws.client.MessageTracing.received" level="TRACE"/>
+     
+    
+</configuration>

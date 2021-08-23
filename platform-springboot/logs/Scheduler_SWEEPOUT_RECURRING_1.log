@@ -1,0 +1,5 @@
+[9820] 10:06:06.893 D -                      SchedulerHelper(47) [            Scheduler_Worker-5] [-7960455430135659385] : [SWEEPOUT_RECURRING_1] Scheduled Fire Time : Mon Jun 07 07:00:00 ICT 2021
+[9820] 10:06:06.894 D -                      SchedulerHelper(48) [            Scheduler_Worker-5] [-7960455430135659385] : [SWEEPOUT_RECURRING_1] Next Fire Time      : Mon Jun 07 07:00:00 ICT 2021
+[9820] 10:06:07.436 D -                SweepOutServiceImpl(1008) [            Scheduler_Worker-5] [-7960455430135659385] : Recurring start : 2021-07-27 00:00:00.0
+[9820] 10:06:07.437 D -                SweepOutServiceImpl(1009) [            Scheduler_Worker-5] [-7960455430135659385] : Recurring end : 2021-07-27 07:00:00.0
+[9820] 10:06:10.721 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-5] [-7960455430135659385] : [SWEEPOUT_RECURRING_1] Next Fire Time (New): Wed Jul 28 07:00:00 ICT 2021

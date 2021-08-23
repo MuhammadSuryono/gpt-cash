@@ -1,0 +1,16 @@
+[16700] 05:00:00.831 D -                      SchedulerHelper(47) [            Scheduler_Worker-4] [ 8710217201043393114] : [VA_SOT_REQUEST_NEW_CORPORATE_ACCOUNT] Scheduled Fire Time : Sat May 08 05:00:00 ICT 2021
+[16700] 05:00:00.831 D -                      SchedulerHelper(48) [            Scheduler_Worker-4] [ 8710217201043393114] : [VA_SOT_REQUEST_NEW_CORPORATE_ACCOUNT] Next Fire Time      : Sat May 08 05:00:00 ICT 2021
+[16700] 05:00:01.044 E -                SchedulerServiceImpl(296) [            Scheduler_Worker-4] [ 8710217201043393114] : Bean ID: VATransactionHistorySC, Method: executeVASOTRequestScheduler
+java.lang.NoSuchMethodException: Bean ID: VATransactionHistorySC, Method: executeVASOTRequestScheduler
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:58)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:85)
+	at com.gpt.component.scheduler.services.SchedulerServiceImpl.execute(SchedulerServiceImpl.java:291)
+	at com.gpt.component.scheduler.services.SchedulerServiceImpl.executeJob(SchedulerServiceImpl.java:308)
+	at com.gpt.component.scheduler.services.SchedulerServiceImpl$$FastClassBySpringCGLIB$$12cd3956.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:669)
+	at com.gpt.component.scheduler.services.SchedulerServiceImpl$$EnhancerBySpringCGLIB$$19e8fd5b.executeJob(<generated>)
+	at com.gpt.component.scheduler.JobExecutor.execute(JobExecutor.java:29)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+[16700] 05:00:01.204 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-4] [ 8710217201043393114] : [VA_SOT_REQUEST_NEW_CORPORATE_ACCOUNT] Next Fire Time (New): Sun May 09 05:00:00 ICT 2021

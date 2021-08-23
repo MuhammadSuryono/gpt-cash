@@ -1,0 +1,12 @@
+[9404] 14:00:00.228 D -                      SchedulerHelper(47) [            Scheduler_Worker-5] [ 2459864091146535861] : [DIRECT_DEBIT_IMMEDIATE] Scheduled Fire Time : Fri Aug 13 03:30:00 ICT 2021
+[9404] 14:00:00.229 D -                      SchedulerHelper(48) [            Scheduler_Worker-5] [ 2459864091146535861] : [DIRECT_DEBIT_IMMEDIATE] Next Fire Time      : Fri Aug 13 03:30:00 ICT 2021
+[9404] 14:00:00.485 D -              DirectDebitServiceImpl(589) [            Scheduler_Worker-5] [ 2459864091146535861] : Immediate date : 2021-08-13 00:00:00.0
+[9404] 14:00:00.720 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-5] [ 2459864091146535861] : [DIRECT_DEBIT_IMMEDIATE] Next Fire Time (New): Fri Aug 13 14:15:00 ICT 2021
+[9404] 14:15:00.077 D -                      SchedulerHelper(47) [            Scheduler_Worker-4] [ 8432361350056135416] : [DIRECT_DEBIT_IMMEDIATE] Scheduled Fire Time : Fri Aug 13 14:15:00 ICT 2021
+[9404] 14:15:00.080 D -                      SchedulerHelper(48) [            Scheduler_Worker-4] [ 8432361350056135416] : [DIRECT_DEBIT_IMMEDIATE] Next Fire Time      : Fri Aug 13 14:15:00 ICT 2021
+[9404] 14:15:00.129 D -              DirectDebitServiceImpl(589) [            Scheduler_Worker-4] [ 8432361350056135416] : Immediate date : 2021-08-13 00:00:00.0
+[9404] 14:15:00.235 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-4] [ 8432361350056135416] : [DIRECT_DEBIT_IMMEDIATE] Next Fire Time (New): Fri Aug 13 14:30:00 ICT 2021
+[17888] 14:45:00.073 D -                      SchedulerHelper(47) [            Scheduler_Worker-7] [-3517273221081641006] : [DIRECT_DEBIT_IMMEDIATE] Scheduled Fire Time : Fri Aug 13 14:30:00 ICT 2021
+[17888] 14:45:00.079 D -                      SchedulerHelper(48) [            Scheduler_Worker-7] [-3517273221081641006] : [DIRECT_DEBIT_IMMEDIATE] Next Fire Time      : Fri Aug 13 14:30:00 ICT 2021
+[17888] 14:45:00.358 D -              DirectDebitServiceImpl(589) [            Scheduler_Worker-7] [-3517273221081641006] : Immediate date : 2021-08-13 00:00:00.0
+[17888] 14:45:00.458 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-7] [-3517273221081641006] : [DIRECT_DEBIT_IMMEDIATE] Next Fire Time (New): Fri Aug 13 15:00:00 ICT 2021

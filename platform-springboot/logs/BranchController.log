@@ -1,0 +1,30 @@
+[9820] 01:12:28.147 D -                     BranchController(33) [          http-nio-8005-exec-6] [-7963620680293726110] : [preInvoke] - [e65363a4-7869-4ba9-ae16-caf0998f354c] - BranchSC#searchLevelForDroplist({action=SEARCH, loginId=USER1, menuCode=MNU_GPCASH_MT_BRANCH, appCode=GPCASHBO})
+[9820] 01:12:28.147 D -                     BranchController(33) [          http-nio-8005-exec-2] [ 3110494468605822043] : [preInvoke] - [e65363a4-7869-4ba9-ae16-caf0998f354c] - BranchSC#searchCityForDroplist({action=SEARCH, loginId=USER1, menuCode=MNU_GPCASH_MT_BRANCH, appCode=GPCASHBO})
+[9820] 01:12:28.154 D -                        QueueInvoker(126) [          http-nio-8005-exec-6] [-7963620680293726110] : [AutoDiscoveryQueueInvoker] - BranchSC#searchLevelForDroplist({action=SEARCH, loginId=USER1, menuCode=MNU_GPCASH_MT_BRANCH, appCode=GPCASHBO})
+[9820] 01:12:28.157 D -                        QueueInvoker(126) [          http-nio-8005-exec-2] [ 3110494468605822043] : [AutoDiscoveryQueueInvoker] - BranchSC#searchCityForDroplist({action=SEARCH, loginId=USER1, menuCode=MNU_GPCASH_MT_BRANCH, appCode=GPCASHBO})
+[9820] 01:13:38.428 D -                    BranchController(163) [r-ActionResponseEvictionThread] [-7963620680293726110] : onException : java.util.concurrent.TimeoutException
+[9820] 01:13:38.428 D -                    BranchController(163) [r-ActionResponseEvictionThread] [ 3110494468605822043] : onException : java.util.concurrent.TimeoutException
+[9820] 01:14:28.640 D -                    BranchController(163) [          http-nio-8005-exec-2] [ 3110494468605822043] : onException : com.hazelcast.core.OperationTimeoutException: GetOperation invocation failed to complete due to operation-heartbeat-timeout. Current time: 2021-07-27 01:14:28.639. Start time: 2021-07-27 01:12:28.157. Total elapsed time: 120482 ms. Last operation heartbeat: never. Last operation heartbeat from member: 2021-07-27 01:14:19.977. Invocation{op=com.hazelcast.map.impl.operation.GetOperation{serviceName='hz:impl:mapService', identityHash=1240187289, partitionId=86, replicaIndex=0, callId=-3630, invocationTime=1627323148157 (2021-07-27 01:12:28.157), waitTimeout=-1, callTimeout=60000, name=autodiscovery.service-registry.map}, tryCount=250, tryPauseMillis=500, invokeCount=1, callTimeoutMillis=60000, firstInvocationTimeMs=1627323148157, firstInvocationTime='2021-07-27 01:12:28.157', lastHeartbeatMillis=0, lastHeartbeatTime='1970-01-01 07:00:00.000', target=[127.0.0.1]:5102, pendingResponse={VOID}, backupsAcksExpected=0, backupsAcksReceived=0, connection=Connection[id=1, /127.0.0.1:5101->/127.0.0.1:61353, endpoint=[127.0.0.1]:5102, alive=true, type=MEMBER]}
+[9820] 01:14:28.640 D -                    BranchController(163) [          http-nio-8005-exec-6] [-7963620680293726110] : onException : com.hazelcast.core.OperationTimeoutException: GetOperation invocation failed to complete due to operation-heartbeat-timeout. Current time: 2021-07-27 01:14:28.639. Start time: 2021-07-27 01:12:28.155. Total elapsed time: 120484 ms. Last operation heartbeat: never. Last operation heartbeat from member: 2021-07-27 01:14:19.977. Invocation{op=com.hazelcast.map.impl.operation.GetOperation{serviceName='hz:impl:mapService', identityHash=548479355, partitionId=86, replicaIndex=0, callId=-3629, invocationTime=1627323148155 (2021-07-27 01:12:28.155), waitTimeout=-1, callTimeout=60000, name=autodiscovery.service-registry.map}, tryCount=250, tryPauseMillis=500, invokeCount=1, callTimeoutMillis=60000, firstInvocationTimeMs=1627323148155, firstInvocationTime='2021-07-27 01:12:28.155', lastHeartbeatMillis=0, lastHeartbeatTime='1970-01-01 07:00:00.000', target=[127.0.0.1]:5102, pendingResponse={VOID}, backupsAcksExpected=0, backupsAcksReceived=0, connection=Connection[id=1, /127.0.0.1:5101->/127.0.0.1:61353, endpoint=[127.0.0.1]:5102, alive=true, type=MEMBER]}
+[9820] 01:14:28.648 E -        GlobalDefaultExceptionHandler(68) [          http-nio-8005-exec-6] [-7963620680293726110] : java.util.concurrent.TimeoutException
+java.util.concurrent.TimeoutException: null
+	at com.gpt.component.common.invoker.QueueInvoker$ActionResponseEvictionThread.lambda$run$34(QueueInvoker.java:273)
+	at java.util.concurrent.ConcurrentHashMap$ForEachMappingTask.compute(Unknown Source)
+	at java.util.concurrent.CountedCompleter.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doInvoke(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.invoke(Unknown Source)
+	at java.util.concurrent.ConcurrentHashMap.forEach(Unknown Source)
+	at com.gpt.component.common.invoker.QueueInvoker$ActionResponseEvictionThread.run(QueueInvoker.java:257)
+[9820] 01:14:28.649 E -        GlobalDefaultExceptionHandler(68) [          http-nio-8005-exec-2] [ 3110494468605822043] : java.util.concurrent.TimeoutException
+java.util.concurrent.TimeoutException: null
+	at com.gpt.component.common.invoker.QueueInvoker$ActionResponseEvictionThread.lambda$run$34(QueueInvoker.java:273)
+	at java.util.concurrent.ConcurrentHashMap$ForEachMappingTask.compute(Unknown Source)
+	at java.util.concurrent.CountedCompleter.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doInvoke(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.invoke(Unknown Source)
+	at java.util.concurrent.ConcurrentHashMap.forEach(Unknown Source)
+	at com.gpt.component.common.invoker.QueueInvoker$ActionResponseEvictionThread.run(QueueInvoker.java:257)
+[9820] 01:14:28.652 W -   ExceptionHandlerExceptionResolver(189) [          http-nio-8005-exec-6] [-7963620680293726110] : Resolved exception caused by Handler execution: java.util.concurrent.TimeoutException
+[9820] 01:14:28.652 W -   ExceptionHandlerExceptionResolver(189) [          http-nio-8005-exec-2] [ 3110494468605822043] : Resolved exception caused by Handler execution: java.util.concurrent.TimeoutException

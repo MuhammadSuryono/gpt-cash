@@ -1,0 +1,5 @@
+[14716] 16:00:02.433 D -                      SchedulerHelper(47) [            Scheduler_Worker-5] [-8334102606123154087] : [PAYROLL_FUTURE_4] Scheduled Fire Time : Fri Feb 19 16:00:00 ICT 2021
+[14716] 16:00:02.433 D -                      SchedulerHelper(48) [            Scheduler_Worker-5] [-8334102606123154087] : [PAYROLL_FUTURE_4] Next Fire Time      : Fri Feb 19 16:00:00 ICT 2021
+[14716] 16:00:02.451 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-5] [-8334102606123154087] : Future start : 2021-02-19 00:00:00.0
+[14716] 16:00:02.452 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-5] [-8334102606123154087] : Future end : 2021-02-19 16:00:00.0
+[14716] 16:00:03.769 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-5] [-8334102606123154087] : [PAYROLL_FUTURE_4] Next Fire Time (New): Sat Feb 20 16:00:00 ICT 2021

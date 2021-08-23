@@ -1,0 +1,12 @@
+[9820] 00:59:25.007 D -        BankForexLimitUsageController(33) [          http-nio-8005-exec-5] [ 1139432085702003711] : [preInvoke] - [e65363a4-7869-4ba9-ae16-caf0998f354c] - BankForexLimitUsageSC#search({action=SEARCH, loginId=USER1, appCode=GPCASHBO, menuCode=MNU_GPCASH_BNK_FOREX_LMT_USAGE})
+[9820] 00:59:25.013 D -                        QueueInvoker(126) [          http-nio-8005-exec-5] [ 1139432085702003711] : [AutoDiscoveryQueueInvoker] - BankForexLimitUsageSC#search({action=SEARCH, loginId=USER1, appCode=GPCASHBO, menuCode=MNU_GPCASH_BNK_FOREX_LMT_USAGE})
+[9820] 00:59:25.021 D -                    ValidationAspect(266) [            ServerThreadPool-5] [ 1139432085702003711] : [Validation - Input] - BankForexLimitUsageSCImpl#search({action=SEARCH, loginId=USER1, appCode=GPCASHBO, menuCode=MNU_GPCASH_BNK_FOREX_LMT_USAGE})
+[9820] 00:59:25.035 D -        BankForexLimitRepositoryImpl(111) [            ServerThreadPool-5] [ 1139432085702003711] : order : [currency: ASC]
+[9820] 00:59:25.044 D -       BankForexLimitUsageController(156) [            ServerThreadPool-5] [ 1139432085702003711] : onSuccess : {result=[]}
+[9820] 00:59:25.046 D -                        QueueInvoker(201) [            ServerThreadPool-5] [ 1139432085702003711] : Execution Time: 32 ms
+[9820] 01:04:48.461 D -        BankForexLimitUsageController(33) [          http-nio-8005-exec-8] [ 6757684477591439264] : [preInvoke] - [e65363a4-7869-4ba9-ae16-caf0998f354c] - BankForexLimitUsageSC#search({action=SEARCH, loginId=USER1, appCode=GPCASHBO, menuCode=MNU_GPCASH_BNK_FOREX_LMT_USAGE})
+[9820] 01:04:48.461 D -                        QueueInvoker(126) [          http-nio-8005-exec-8] [ 6757684477591439264] : [AutoDiscoveryQueueInvoker] - BankForexLimitUsageSC#search({action=SEARCH, loginId=USER1, appCode=GPCASHBO, menuCode=MNU_GPCASH_BNK_FOREX_LMT_USAGE})
+[9820] 01:04:48.467 D -                    ValidationAspect(266) [            ServerThreadPool-4] [ 6757684477591439264] : [Validation - Input] - BankForexLimitUsageSCImpl#search({action=SEARCH, loginId=USER1, appCode=GPCASHBO, menuCode=MNU_GPCASH_BNK_FOREX_LMT_USAGE})
+[9820] 01:04:48.468 D -        BankForexLimitRepositoryImpl(111) [            ServerThreadPool-4] [ 6757684477591439264] : order : [currency: ASC]
+[9820] 01:04:48.470 D -       BankForexLimitUsageController(156) [            ServerThreadPool-4] [ 6757684477591439264] : onSuccess : {result=[]}
+[9820] 01:04:48.470 D -                        QueueInvoker(201) [            ServerThreadPool-4] [ 6757684477591439264] : Execution Time: 8 ms

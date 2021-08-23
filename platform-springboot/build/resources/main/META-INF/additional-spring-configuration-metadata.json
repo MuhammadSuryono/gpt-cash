@@ -1,0 +1,22 @@
+{"properties": [
+  {
+    "name": "gpcash.server.thread-pool.name",
+    "type": "java.lang.String",
+    "description": "Name of the threads for this server thread pool, default is ServerThreadPool"
+  },
+  {
+    "name": "gpcash.server.thread-pool.initial-concurrent",
+    "type": "java.lang.Integer",
+    "description": "Initial size of available threads in the pool, default is 5"
+  },
+  {
+    "name": "gpcash.server.thread-pool.max-concurrent",
+    "type": "java.lang.Integer",
+    "description": "Maximum size of available threads in the pool, default is 100"
+  },
+  {
+    "name": "gpcash.string-block-size",
+    "type": "java.lang.Integer",
+    "description": "Size of each record when a very large string value needs to be broken down"
+  }
+]}

@@ -1,0 +1,5 @@
+[9820] 13:00:00.242 D -                      SchedulerHelper(47) [           Scheduler_Worker-10] [ 6685410373354340732] : [DIRECT_DEBIT_FUTURE_3] Scheduled Fire Time : Sat Jun 05 13:00:00 ICT 2021
+[9820] 13:00:00.242 D -                      SchedulerHelper(48) [           Scheduler_Worker-10] [ 6685410373354340732] : [DIRECT_DEBIT_FUTURE_3] Next Fire Time      : Sat Jun 05 13:00:00 ICT 2021
+[9820] 13:00:00.250 D -              DirectDebitServiceImpl(626) [           Scheduler_Worker-10] [ 6685410373354340732] : Future start : 2021-07-27 00:00:00.0
+[9820] 13:00:00.250 D -              DirectDebitServiceImpl(627) [           Scheduler_Worker-10] [ 6685410373354340732] : Future end : 2021-07-27 13:00:00.0
+[9820] 13:00:00.326 D -                SchedulerServiceImpl(313) [           Scheduler_Worker-10] [ 6685410373354340732] : [DIRECT_DEBIT_FUTURE_3] Next Fire Time (New): Wed Jul 28 13:00:00 ICT 2021

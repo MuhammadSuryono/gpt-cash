@@ -1,0 +1,3 @@
+[16184] 14:36:09.628 D -                      SchedulerHelper(47) [            Scheduler_Worker-7] [  620731966933977943] : [USER_TRX_MAPPNG_RESET_EXECUTED] Scheduled Fire Time : Sun Sep 01 01:00:00 ICT 2019
+[16184] 14:36:09.748 D -                      SchedulerHelper(48) [            Scheduler_Worker-7] [  620731966933977943] : [USER_TRX_MAPPNG_RESET_EXECUTED] Next Fire Time      : Sun Sep 01 01:00:00 ICT 2019
+[16184] 14:36:21.821 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-7] [  620731966933977943] : [USER_TRX_MAPPNG_RESET_EXECUTED] Next Fire Time (New): Thu Jul 01 01:00:00 ICT 2021

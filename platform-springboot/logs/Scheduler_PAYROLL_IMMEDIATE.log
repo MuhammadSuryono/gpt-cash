@@ -1,0 +1,12 @@
+[9404] 14:00:00.228 D -                      SchedulerHelper(47) [            Scheduler_Worker-1] [ -271149814796169960] : [PAYROLL_IMMEDIATE] Scheduled Fire Time : Fri Aug 13 03:30:00 ICT 2021
+[9404] 14:00:00.229 D -                      SchedulerHelper(48) [            Scheduler_Worker-1] [ -271149814796169960] : [PAYROLL_IMMEDIATE] Next Fire Time      : Fri Aug 13 03:30:00 ICT 2021
+[9404] 14:00:00.485 D -                  PayrollServiceImpl(588) [            Scheduler_Worker-1] [ -271149814796169960] : Immediate date : 2021-08-13 00:00:00.0
+[9404] 14:00:00.720 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-1] [ -271149814796169960] : [PAYROLL_IMMEDIATE] Next Fire Time (New): Fri Aug 13 14:15:00 ICT 2021
+[9404] 14:15:00.328 D -                      SchedulerHelper(47) [            Scheduler_Worker-1] [ 6005563100462597438] : [PAYROLL_IMMEDIATE] Scheduled Fire Time : Fri Aug 13 14:15:00 ICT 2021
+[9404] 14:15:00.328 D -                      SchedulerHelper(48) [            Scheduler_Worker-1] [ 6005563100462597438] : [PAYROLL_IMMEDIATE] Next Fire Time      : Fri Aug 13 14:15:00 ICT 2021
+[9404] 14:15:00.370 D -                  PayrollServiceImpl(588) [            Scheduler_Worker-1] [ 6005563100462597438] : Immediate date : 2021-08-13 00:00:00.0
+[9404] 14:15:00.464 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-1] [ 6005563100462597438] : [PAYROLL_IMMEDIATE] Next Fire Time (New): Fri Aug 13 14:30:00 ICT 2021
+[17888] 14:45:00.063 D -                      SchedulerHelper(47) [            Scheduler_Worker-4] [ 1215995486976036828] : [PAYROLL_IMMEDIATE] Scheduled Fire Time : Fri Aug 13 14:30:00 ICT 2021
+[17888] 14:45:00.063 D -                      SchedulerHelper(48) [            Scheduler_Worker-4] [ 1215995486976036828] : [PAYROLL_IMMEDIATE] Next Fire Time      : Fri Aug 13 14:30:00 ICT 2021
+[17888] 14:45:00.104 D -                  PayrollServiceImpl(588) [            Scheduler_Worker-4] [ 1215995486976036828] : Immediate date : 2021-08-13 00:00:00.0
+[17888] 14:45:00.289 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-4] [ 1215995486976036828] : [PAYROLL_IMMEDIATE] Next Fire Time (New): Fri Aug 13 15:00:00 ICT 2021

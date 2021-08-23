@@ -1,0 +1,6 @@
+[9820] 10:06:00.283 D -                      SchedulerHelper(47) [            Scheduler_Worker-5] [ 7066961283171369611] : [SWEEPIN_SWEEPBACK] Scheduled Fire Time : Mon Jun 07 04:00:00 ICT 2021
+[9820] 10:06:00.283 D -                      SchedulerHelper(48) [            Scheduler_Worker-5] [ 7066961283171369611] : [SWEEPIN_SWEEPBACK] Next Fire Time      : Mon Jun 07 04:00:00 ICT 2021
+[9820] 10:06:01.017 D -                 SweepInServiceImpl(1534) [            Scheduler_Worker-5] [ 7066961283171369611] : SweepBackDate start : 2021-07-26 00:00:00.0
+[9820] 10:06:01.018 D -                 SweepInServiceImpl(1535) [            Scheduler_Worker-5] [ 7066961283171369611] : SweepBackDate end : 2021-07-27 00:00:00.0
+[9820] 10:06:03.959 D -                 SweepInServiceImpl(1543) [            Scheduler_Worker-5] [ 7066961283171369611] : sweepInList size : 0
+[9820] 10:06:05.307 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-5] [ 7066961283171369611] : [SWEEPIN_SWEEPBACK] Next Fire Time (New): Wed Jul 28 04:00:00 ICT 2021

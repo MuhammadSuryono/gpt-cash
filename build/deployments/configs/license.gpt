@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<licenses>
+    <product name="gp-platform">
+        <component
+            name="common"
+            expiration="never"
+            ip="any"
+            signature="MDwCHCqa4kotw9emQRy0wNRF65+XvIaODu67lNUrgsUCHAYJUhB9jPm3BuFJXaqcQ09cG3BB2QtsClGWa9c="
+        />
+    </product>
+    <product name="gp-cash">
+        <component
+            name="core"
+            expiration="never"
+            ip="any"
+            signature="MDwCHFunIrRF+lWx7Afmg58LVzeOEWuWz2VuEh43WlYCHHO1nH89D/Zp6lI36jZMIAgaBVkzKEdfyI2fIhM="
+        />
+    </product>
+</licenses>

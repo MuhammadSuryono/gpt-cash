@@ -1,0 +1,5 @@
+[14716] 16:00:03.893 D -                      SchedulerHelper(47) [            Scheduler_Worker-2] [-8000835790746664139] : [DOMESTIC_ONLINE_RECURRING_4] Scheduled Fire Time : Fri Feb 19 16:00:00 ICT 2021
+[14716] 16:00:04.635 D -                      SchedulerHelper(48) [            Scheduler_Worker-2] [-8000835790746664139] : [DOMESTIC_ONLINE_RECURRING_4] Next Fire Time      : Fri Feb 19 16:00:00 ICT 2021
+[14716] 16:00:08.655 D -        DomesticTransferServiceImpl(2017) [            Scheduler_Worker-2] [-8000835790746664139] : Recurring Online start : 2021-02-19 00:00:00.0
+[14716] 16:00:08.655 D -        DomesticTransferServiceImpl(2018) [            Scheduler_Worker-2] [-8000835790746664139] : Recurring Online end : 2021-02-19 16:00:00.0
+[14716] 16:00:09.927 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-2] [-8000835790746664139] : [DOMESTIC_ONLINE_RECURRING_4] Next Fire Time (New): Sat Feb 20 16:00:00 ICT 2021

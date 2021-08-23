@@ -1,0 +1,5 @@
+[5332] 16:00:00.141 D -                      SchedulerHelper(47) [            Scheduler_Worker-8] [-5981379329060616734] : [DIRECT_DEBIT_FUTURE_4] Scheduled Fire Time : Sat Jun 05 16:00:00 ICT 2021
+[5332] 16:00:00.146 D -                      SchedulerHelper(48) [            Scheduler_Worker-8] [-5981379329060616734] : [DIRECT_DEBIT_FUTURE_4] Next Fire Time      : Sat Jun 05 16:00:00 ICT 2021
+[5332] 16:00:00.161 D -              DirectDebitServiceImpl(626) [            Scheduler_Worker-8] [-5981379329060616734] : Future start : 2021-06-05 00:00:00.0
+[5332] 16:00:00.179 D -              DirectDebitServiceImpl(627) [            Scheduler_Worker-8] [-5981379329060616734] : Future end : 2021-06-05 16:00:00.0
+[5332] 16:00:00.330 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-8] [-5981379329060616734] : [DIRECT_DEBIT_FUTURE_4] Next Fire Time (New): Sun Jun 06 16:00:00 ICT 2021

@@ -1,0 +1,5 @@
+[9820] 10:06:00.866 D -                      SchedulerHelper(47) [            Scheduler_Worker-6] [-7348002662781400239] : [BILL_PAYMENT_FUTURE_1] Scheduled Fire Time : Mon Jun 07 07:00:00 ICT 2021
+[9820] 10:06:00.867 D -                      SchedulerHelper(48) [            Scheduler_Worker-6] [-7348002662781400239] : [BILL_PAYMENT_FUTURE_1] Next Fire Time      : Mon Jun 07 07:00:00 ICT 2021
+[9820] 10:06:02.906 D -             BillPaymentServiceImpl(1092) [            Scheduler_Worker-6] [-7348002662781400239] : Future start : 2017-10-19 00:00:00.0
+[9820] 10:06:02.906 D -             BillPaymentServiceImpl(1093) [            Scheduler_Worker-6] [-7348002662781400239] : Future end : 2017-10-19 07:00:00.0
+[9820] 10:06:11.721 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-6] [-7348002662781400239] : [BILL_PAYMENT_FUTURE_1] Next Fire Time (New): Wed Jul 28 07:00:00 ICT 2021

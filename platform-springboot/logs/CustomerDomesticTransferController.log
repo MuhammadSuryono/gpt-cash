@@ -1,0 +1,683 @@
+[6904] 22:02:10.088 D -   CustomerDomesticTransferController(58) [          http-nio-8005-exec-2] [ -354533640013919634] : [preInvoke] - [9d674a22-22f1-4e95-a89e-8f4a7efec293] - CustomerDomesticTransferSC#searchSourceAccount({action=SEARCH, menuCode=MNU_R_GPCASH_F_FUND_DOMESTIC, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999, loginTokenNo=123456})
+[6904] 22:02:10.253 D -                        QueueInvoker(126) [          http-nio-8005-exec-2] [ -354533640013919634] : [AutoDiscoveryQueueInvoker] - CustomerDomesticTransferSC#searchSourceAccount({action=SEARCH, menuCode=MNU_R_GPCASH_F_FUND_DOMESTIC, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999, loginTokenNo=123456})
+[6904] 22:02:10.318 D -                    ValidationAspect(266) [            ServerThreadPool-1] [ -354533640013919634] : [Validation - Input] - CustomerDomesticTransferSCImpl#searchSourceAccount({action=SEARCH, menuCode=MNU_R_GPCASH_F_FUND_DOMESTIC, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999, loginTokenNo=123456})
+[6904] 22:02:10.959 D -                    ValidationAspect(280) [            ServerThreadPool-1] [ -354533640013919634] : [Validation - Output] - CustomerDomesticTransferSCImpl#searchSourceAccount({accounts=[{accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=Test1, accountNo=3826389037, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountDtlId=8f6ae101-3867-42a9-9f0f-70b1f58cf1e6, accountBranchCode=0000}, {accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=Test1, accountNo=4455057936, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountDtlId=a5aaa3ed-faf3-4cb4-9a08-17616401128c, accountBranchCode=0000}, {accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=Test1, accountNo=8291726572, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountDtlId=fcf0827d-fcd0-40b7-9877-a0f83dd0779f, accountBranchCode=0000}]})
+[6904] 22:02:11.002 D -  CustomerDomesticTransferController(156) [            ServerThreadPool-1] [ -354533640013919634] : onSuccess : {accounts=[{accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=Test1, accountNo=3826389037, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountDtlId=8f6ae101-3867-42a9-9f0f-70b1f58cf1e6, accountBranchCode=0000}, {accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=Test1, accountNo=4455057936, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountDtlId=a5aaa3ed-faf3-4cb4-9a08-17616401128c, accountBranchCode=0000}, {accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=Test1, accountNo=8291726572, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountDtlId=fcf0827d-fcd0-40b7-9877-a0f83dd0779f, accountBranchCode=0000}]}
+[6904] 22:02:11.040 D -                        QueueInvoker(201) [            ServerThreadPool-1] [ -354533640013919634] : Execution Time: 786 ms
+[6904] 22:02:11.118 D -   CustomerDomesticTransferController(58) [          http-nio-8005-exec-5] [  800356224218845090] : [preInvoke] - [9d674a22-22f1-4e95-a89e-8f4a7efec293] - CustomerDomesticTransferSC#searchBeneficiary({action=SEARCH, menuCode=MNU_R_GPCASH_F_FUND_DOMESTIC, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999, loginTokenNo=123456})
+[6904] 22:02:11.195 D -                        QueueInvoker(126) [          http-nio-8005-exec-5] [  800356224218845090] : [AutoDiscoveryQueueInvoker] - CustomerDomesticTransferSC#searchBeneficiary({action=SEARCH, menuCode=MNU_R_GPCASH_F_FUND_DOMESTIC, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999, loginTokenNo=123456})
+[6904] 22:02:12.000 D - neficiaryListDomesticRepositoryImpl(111) [            ServerThreadPool-2] [  800356224218845090] : order : [benAccountNo: ASC]
+[6904] 22:02:14.771 D -  CustomerDomesticTransferController(156) [            ServerThreadPool-2] [  800356224218845090] : onSuccess : {result=[{bankName=PT. BANK MANDIRI (PERSERO) TBK, benCitizenCountryName=ANTARCTICA, beneficiaryTypeName=Individual, benResidentCountryCode=ID, benId=a80e4de3-0891-4b99-b713-cac2fba9fcef, benAccountNo=5555555555555, bankCountryName=INDONESIA, email=, memberCode=BMRIIDJA, bankCode=008, benCitizenCountryCode=AQ, address3=address3 LALA, address2=address2 LALA, address1=address1 LALA, benAccountCurrency=IDR, benAliasName=TEST ALIAS ALLA, isNotify=N, branchName=KANTOR PUSAT OPERASIONAL, isBenCitizen=N, branchCode=0081, benAccountName=LALALALA, benResidentCountryName=INDONESIA, beneficiaryTypeCode=1, onlineBankCode=008, isBenResident=Y}, {bankName=PT. BANK BUKOPIN Tbk., benCitizenCountryName=AUSTRALIA, beneficiaryTypeName=Government, benResidentCountryCode=ID, benId=ca0b08c8-91f7-4f9e-ae02-e0e6e8928346, benAccountNo=77777777777777, bankCountryName=INDONESIA, email=mail@gmail.com, memberCode=BBUKIDJA, bankCode=441, benCitizenCountryCode=AU, address3=beneficiary Address3, address2=beneficiary Address2, address1=beneficairy Address1, benAccountCurrency=IDR, benAliasName=testAlias, isNotify=Y, branchName=KANTOR PUSAT OPERASI, isBenCitizen=N, branchCode=4411, benAccountName=AccountName 777, benResidentCountryName=INDONESIA, beneficiaryTypeCode=3, onlineBankCode=441, isBenResident=Y}, {bankName=CITIBANK, NA, benCitizenCountryName=AUSTRIA, beneficiaryTypeName=Company, benResidentCountryCode=AU, benId=45217fe5-8ae2-4a46-930d-6ab6f486d8b6, benAccountNo=777777777777777, bankCountryName=INDONESIA, email=, memberCode=CITIIDJX, bankCode=031, benCitizenCountryCode=AT, address3=, address2=, address1=, benAccountCurrency=IDR, benAliasName=null, isNotify=N, branchName=KC JAKARTA, isBenCitizen=N, branchCode=0311, benAccountName=TEST ACCOUNT NAME, benResidentCountryName=AUSTRALIA, beneficiaryTypeCode=2, onlineBankCode=031, isBenResident=N}, {bankName=PT. BANK ARTHA GRAHA INTERNASIONAL, TBK, benCitizenCountryName=INDONESIA, beneficiaryTypeName=Company, benResidentCountryCode=ID, benId=5d612946-97e3-48b2-bad1-4d8e3f4817be, benAccountNo=9898989898, bankCountryName=INDONESIA, email=, memberCode=ARTGIDJA, bankCode=037, benCitizenCountryCode=ID, address3=Address3, address2=Address2, address1=Address1, benAccountCurrency=IDR, benAliasName=benAlias, isNotify=N, branchName=KPO SUDIRMAN, isBenCitizen=Y, branchCode=0371, benAccountName=TEST ACCOUNT LALALA, benResidentCountryName=INDONESIA, beneficiaryTypeCode=2, onlineBankCode=037, isBenResident=Y}]}
+[6904] 22:02:14.771 D -                        QueueInvoker(201) [            ServerThreadPool-2] [  800356224218845090] : Execution Time: 3575 ms
+[6904] 22:02:14.817 D -   CustomerDomesticTransferController(58) [          http-nio-8005-exec-4] [ 3445433380932503687] : [preInvoke] - [9d674a22-22f1-4e95-a89e-8f4a7efec293] - CustomerDomesticTransferSC#getTransactionSessionTime({action=SEARCH, menuCode=MNU_R_GPCASH_F_FUND_DOMESTIC, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999, loginTokenNo=123456})
+[6904] 22:02:14.836 D -                        QueueInvoker(126) [          http-nio-8005-exec-4] [ 3445433380932503687] : [AutoDiscoveryQueueInvoker] - CustomerDomesticTransferSC#getTransactionSessionTime({action=SEARCH, menuCode=MNU_R_GPCASH_F_FUND_DOMESTIC, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999, loginTokenNo=123456})
+[6904] 22:02:14.838 D -                    ValidationAspect(266) [            ServerThreadPool-5] [ 3445433380932503687] : [Validation - Input] - CustomerDomesticTransferSCImpl#getTransactionSessionTime({action=SEARCH, menuCode=MNU_R_GPCASH_F_FUND_DOMESTIC, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999, loginTokenNo=123456})
+[6904] 22:02:14.883 D -                    ValidationAspect(280) [            ServerThreadPool-5] [ 3445433380932503687] : [Validation - Output] - CustomerDomesticTransferSCImpl#getTransactionSessionTime({sessionTime=[07:00, 11:00, 13:00, 16:00]})
+[6904] 22:02:14.883 D -  CustomerDomesticTransferController(156) [            ServerThreadPool-5] [ 3445433380932503687] : onSuccess : {sessionTime=[07:00, 11:00, 13:00, 16:00]}
+[6904] 22:02:14.884 D -                        QueueInvoker(201) [            ServerThreadPool-5] [ 3445433380932503687] : Execution Time: 47 ms
+[6904] 22:04:04.264 D -   CustomerDomesticTransferController(42) [          http-nio-8005-exec-8] [-5765483185584387661] : param : {accountDtlId=a5aaa3ed-faf3-4cb4-9a08-17616401128c, benId=ca0b08c8-91f7-4f9e-ae02-e0e6e8928346, bankCode=441, benAccountName=AccountName 777, benAccountCurrency=IDR, isBeneficiaryFlag=Y, transactionCurrency=IDR, transactionAmount=300000, transactionServiceCode=GPT_FTR_DOM_LLG, instructionMode=I, instructionDate=03/08/2020 23:04:04, sessionTime=00:00, recurringParamType=, recurringParam=, recurringStartDate=, recurringEndDate=, isSaveBenFlag=N, isNotify=Y, notifyBenValue=mail@gmail.com, isBenResident=Y, benResidentCountryCode=ID, isBenCitizen=N, benCitizenCountryCode=AU, beneficiaryTypeCode=3, benAliasName=testAlias, address1=beneficairy Address1, address2=beneficiary Address2, address3=beneficiary Address3, action=CONFIRM}
+[6904] 22:04:04.310 D -   CustomerDomesticTransferController(58) [          http-nio-8005-exec-8] [-5765483185584387661] : [preInvoke] - [9d674a22-22f1-4e95-a89e-8f4a7efec293] - CustomerDomesticTransferSC#confirm({accountDtlId=a5aaa3ed-faf3-4cb4-9a08-17616401128c, benId=ca0b08c8-91f7-4f9e-ae02-e0e6e8928346, bankCode=441, benAccountName=AccountName 777, benAccountCurrency=IDR, isBeneficiaryFlag=Y, transactionCurrency=IDR, transactionAmount=300000, transactionServiceCode=GPT_FTR_DOM_LLG, instructionMode=I, instructionDate=03/08/2020 23:04:04, sessionTime=00:00, recurringParamType=, recurringParam=, recurringStartDate=, recurringEndDate=, isSaveBenFlag=N, isNotify=Y, notifyBenValue=mail@gmail.com, isBenResident=Y, benResidentCountryCode=ID, isBenCitizen=N, benCitizenCountryCode=AU, beneficiaryTypeCode=3, benAliasName=testAlias, address1=beneficairy Address1, address2=beneficiary Address2, address3=beneficiary Address3, action=CONFIRM, menuCode=MNU_R_GPCASH_F_FUND_DOMESTIC, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999, loginTokenNo=123456})
+[6904] 22:04:04.313 D -                        QueueInvoker(126) [          http-nio-8005-exec-8] [-5765483185584387661] : [AutoDiscoveryQueueInvoker] - CustomerDomesticTransferSC#confirm({accountDtlId=a5aaa3ed-faf3-4cb4-9a08-17616401128c, benId=ca0b08c8-91f7-4f9e-ae02-e0e6e8928346, bankCode=441, benAccountName=AccountName 777, benAccountCurrency=IDR, isBeneficiaryFlag=Y, transactionCurrency=IDR, transactionAmount=300000, transactionServiceCode=GPT_FTR_DOM_LLG, instructionMode=I, instructionDate=03/08/2020 23:04:04, sessionTime=00:00, recurringParamType=, recurringParam=, recurringStartDate=, recurringEndDate=, isSaveBenFlag=N, isNotify=Y, notifyBenValue=mail@gmail.com, isBenResident=Y, benResidentCountryCode=ID, isBenCitizen=N, benCitizenCountryCode=AU, beneficiaryTypeCode=3, benAliasName=testAlias, address1=beneficairy Address1, address2=beneficiary Address2, address3=beneficiary Address3, action=CONFIRM, menuCode=MNU_R_GPCASH_F_FUND_DOMESTIC, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999, loginTokenNo=123456})
+[6904] 22:04:04.316 D -                    ValidationAspect(266) [            ServerThreadPool-3] [-5765483185584387661] : [Validation - Input] - CustomerDomesticTransferSCImpl#confirm({accountDtlId=a5aaa3ed-faf3-4cb4-9a08-17616401128c, benId=ca0b08c8-91f7-4f9e-ae02-e0e6e8928346, bankCode=441, benAccountName=AccountName 777, benAccountCurrency=IDR, isBeneficiaryFlag=Y, transactionCurrency=IDR, transactionAmount=300000, transactionServiceCode=GPT_FTR_DOM_LLG, instructionMode=I, instructionDate=03/08/2020 23:04:04, sessionTime=00:00, recurringParamType=, recurringParam=, recurringStartDate=, recurringEndDate=, isSaveBenFlag=N, isNotify=Y, notifyBenValue=mail@gmail.com, isBenResident=Y, benResidentCountryCode=ID, isBenCitizen=N, benCitizenCountryCode=AU, beneficiaryTypeCode=3, benAliasName=testAlias, address1=beneficairy Address1, address2=beneficiary Address2, address3=beneficiary Address3, action=CONFIRM, menuCode=MNU_R_GPCASH_F_FUND_DOMESTIC, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999, loginTokenNo=123456})
+[6904] 22:04:05.407 D - merTransactionValidationServiceImpl(426) [            ServerThreadPool-3] [-5765483185584387661] : 
+
+
+
+
+
+[6904] 22:04:05.407 D - merTransactionValidationServiceImpl(427) [            ServerThreadPool-3] [-5765483185584387661] : instructionMode : I
+[6904] 22:04:05.407 D - merTransactionValidationServiceImpl(428) [            ServerThreadPool-3] [-5765483185584387661] : serviceCode : GPT_FTR_DOM_LLG
+[6904] 22:04:05.407 D - merTransactionValidationServiceImpl(429) [            ServerThreadPool-3] [-5765483185584387661] : currencyCode : IDR
+[6904] 22:04:05.407 D - merTransactionValidationServiceImpl(430) [            ServerThreadPool-3] [-5765483185584387661] : applicationCode : GPCASHIB_R
+[6904] 22:04:05.407 D - merTransactionValidationServiceImpl(431) [            ServerThreadPool-3] [-5765483185584387661] : sessionTime : 00:00
+[6904] 22:04:05.407 D - merTransactionValidationServiceImpl(432) [            ServerThreadPool-3] [-5765483185584387661] : isReleaseTrx : false
+[6904] 22:04:05.407 D - merTransactionValidationServiceImpl(433) [            ServerThreadPool-3] [-5765483185584387661] : 
+
+
+
+
+
+[6904] 22:04:05.476 I -                SystemCOTServiceImpl(295) [            ServerThreadPool-3] [-5765483185584387661] : COT Code : GPT_FTR_DOM_LLG
+[6904] 22:04:05.476 I -                SystemCOTServiceImpl(296) [            ServerThreadPool-3] [-5765483185584387661] : COT Application Code : GPCASHIB_R
+[6904] 22:04:05.476 D -                SystemCOTServiceImpl(320) [            ServerThreadPool-3] [-5765483185584387661] : 
+
+
+
+
+
+
+[6904] 22:04:05.476 D -                SystemCOTServiceImpl(321) [            ServerThreadPool-3] [-5765483185584387661] : code: GPT_FTR_DOM_LLG
+[6904] 22:04:05.477 D -                SystemCOTServiceImpl(322) [            ServerThreadPool-3] [-5765483185584387661] : applicationCode: GPCASHIB_R
+[6904] 22:04:05.477 D -                SystemCOTServiceImpl(323) [            ServerThreadPool-3] [-5765483185584387661] : COT start : Mon Aug 03 00:00:00 ICT 2020
+[6904] 22:04:05.477 D -                SystemCOTServiceImpl(324) [            ServerThreadPool-3] [-5765483185584387661] : COT end : Mon Aug 03 23:59:00 ICT 2020
+[6904] 22:04:05.477 D -                SystemCOTServiceImpl(325) [            ServerThreadPool-3] [-5765483185584387661] : Today Date : Mon Aug 03 22:04:05 ICT 2020
+[6904] 22:04:05.478 D -                SystemCOTServiceImpl(326) [            ServerThreadPool-3] [-5765483185584387661] : 
+
+
+
+
+
+
+[6904] 22:04:06.265 D -               CurrencyCOTServiceImpl(49) [            ServerThreadPool-3] [-5765483185584387661] : COT start : Mon Aug 03 00:01:00 ICT 2020
+[6904] 22:04:06.265 D -               CurrencyCOTServiceImpl(50) [            ServerThreadPool-3] [-5765483185584387661] : COT end : Mon Aug 03 23:59:00 ICT 2020
+[6904] 22:04:06.266 D -               CurrencyCOTServiceImpl(51) [            ServerThreadPool-3] [-5765483185584387661] : Today Date : Mon Aug 03 22:04:06 ICT 2020
+[6904] 22:04:06.622 D - merTransactionValidationServiceImpl(126) [            ServerThreadPool-3] [-5765483185584387661] : 
+
+
+
+
+
+[6904] 22:04:06.622 D - merTransactionValidationServiceImpl(127) [            ServerThreadPool-3] [-5765483185584387661] : serviceCode : GPT_FTR_DOM_LLG
+[6904] 22:04:06.622 D - merTransactionValidationServiceImpl(128) [            ServerThreadPool-3] [-5765483185584387661] : currencyMatrixCode : LL
+[6904] 22:04:06.622 D - merTransactionValidationServiceImpl(129) [            ServerThreadPool-3] [-5765483185584387661] : transactionCurrency : IDR
+[6904] 22:04:06.623 D - merTransactionValidationServiceImpl(130) [            ServerThreadPool-3] [-5765483185584387661] : transactionAmount : 300000
+[6904] 22:04:06.623 D - merTransactionValidationServiceImpl(131) [            ServerThreadPool-3] [-5765483185584387661] : bankTransactionLimit.getMinAmountLimit() : 10000
+[6904] 22:04:06.623 D - merTransactionValidationServiceImpl(132) [            ServerThreadPool-3] [-5765483185584387661] : bankTransactionLimit.getMaxAmountLimit() : 999999999999999
+[6904] 22:04:06.624 D - merTransactionValidationServiceImpl(133) [            ServerThreadPool-3] [-5765483185584387661] : 
+
+
+
+
+
+[6904] 22:04:06.625 D - merTransactionValidationServiceImpl(156) [            ServerThreadPool-3] [-5765483185584387661] : 
+
+
+
+
+
+[6904] 22:04:06.626 D - merTransactionValidationServiceImpl(157) [            ServerThreadPool-3] [-5765483185584387661] : customerId : WHYRETAIL|DEMO0999
+[6904] 22:04:06.626 D - merTransactionValidationServiceImpl(158) [            ServerThreadPool-3] [-5765483185584387661] : serviceCode : GPT_FTR_DOM_LLG
+[6904] 22:04:06.626 D - merTransactionValidationServiceImpl(159) [            ServerThreadPool-3] [-5765483185584387661] : currencyMatrixCode : LL
+[6904] 22:04:06.626 D - merTransactionValidationServiceImpl(160) [            ServerThreadPool-3] [-5765483185584387661] : transactionCurrency : IDR
+[6904] 22:04:06.626 D - merTransactionValidationServiceImpl(161) [            ServerThreadPool-3] [-5765483185584387661] : transactionAmount : 300000
+[6904] 22:04:06.627 D - merTransactionValidationServiceImpl(162) [            ServerThreadPool-3] [-5765483185584387661] : totalPendingTaskTrxOccurence : 0
+[6904] 22:04:06.627 D - merTransactionValidationServiceImpl(163) [            ServerThreadPool-3] [-5765483185584387661] : totalPendingTaskDebitedAmount : 0
+[6904] 22:04:06.627 D - merTransactionValidationServiceImpl(164) [            ServerThreadPool-3] [-5765483185584387661] : totalOccurence : 2
+[6904] 22:04:06.627 D - merTransactionValidationServiceImpl(165) [            ServerThreadPool-3] [-5765483185584387661] : customerLimit.getMaxOccurrenceLimit() : 999999999
+[6904] 22:04:06.627 D - merTransactionValidationServiceImpl(166) [            ServerThreadPool-3] [-5765483185584387661] : customerLimit.getAmountLimitUsage() : 486400
+[6904] 22:04:06.628 D - merTransactionValidationServiceImpl(167) [            ServerThreadPool-3] [-5765483185584387661] : totalDebitedAmount : 486400
+[6904] 22:04:06.628 D - merTransactionValidationServiceImpl(168) [            ServerThreadPool-3] [-5765483185584387661] : customerLimit.getMaxAmountLimit( : 99999999999
+[6904] 22:04:06.628 D - merTransactionValidationServiceImpl(169) [            ServerThreadPool-3] [-5765483185584387661] : 
+
+
+
+
+
+[6904] 22:04:08.173 D -                        QueueInvoker(126) [            ServerThreadPool-3] [-5765483185584387661] : [AutoDiscoveryQueueInvoker] - EAIEngine#invokeService(DoGenerateTokenChallengeNo, {tokenNo=123456, tokenType=TKN})
+[6904] 22:04:08.183 I -                SystemCOTServiceImpl(295) [            ServerThreadPool-1] [-5765483185584387661] : COT Code : HOST_COT
+[6904] 22:04:08.183 I -                SystemCOTServiceImpl(296) [            ServerThreadPool-1] [-5765483185584387661] : COT Application Code : GPCASHIB
+[6904] 22:04:08.184 D -                SystemCOTServiceImpl(320) [            ServerThreadPool-1] [-5765483185584387661] : 
+
+
+
+
+
+
+[6904] 22:04:08.185 D -                SystemCOTServiceImpl(321) [            ServerThreadPool-1] [-5765483185584387661] : code: HOST_COT
+[6904] 22:04:08.185 D -                SystemCOTServiceImpl(322) [            ServerThreadPool-1] [-5765483185584387661] : applicationCode: GPCASHIB
+[6904] 22:04:08.185 D -                SystemCOTServiceImpl(323) [            ServerThreadPool-1] [-5765483185584387661] : COT start : Mon Aug 03 00:00:00 ICT 2020
+[6904] 22:04:08.185 D -                SystemCOTServiceImpl(324) [            ServerThreadPool-1] [-5765483185584387661] : COT end : Mon Aug 03 23:59:00 ICT 2020
+[6904] 22:04:08.186 D -                SystemCOTServiceImpl(325) [            ServerThreadPool-1] [-5765483185584387661] : Today Date : Mon Aug 03 22:04:08 ICT 2020
+[6904] 22:04:08.186 D -                SystemCOTServiceImpl(326) [            ServerThreadPool-1] [-5765483185584387661] : 
+
+
+
+
+
+
+[6904] 22:04:08.290 D -                        QueueInvoker(201) [     ServiceInvoker-Response-1] [-5765483185584387661] : Execution Time: 116 ms
+[6904] 22:04:08.290 D -                    ValidationAspect(280) [            ServerThreadPool-3] [-5765483185584387661] : [Validation - Output] - CustomerDomesticTransferSCImpl#confirm({memberCode=BBUKIDJA, chargeList=[{currencyName=IDR, serviceChargeName=SKN Fee, id=c5ab90b7-2911-4f20-ad76-bc925ee8b341, currencyCode=IDR, value=9200}, {currencyName=IDR, serviceChargeName=Transfer Fee, id=54a59d0d-a1b9-4b41-a747-dec4e0631779, currencyCode=IDR, value=0}], bankCode=441, benAccountInfo={benCitizenCountryCode=AU, address3=beneficiary Address3, address2=beneficiary Address2, benAccountCurrencyName=IDR, address1=beneficairy Address1, isBenCitizen=N, benCitizenCountryName=AUSTRALIA, beneficiaryTypeName=Government, benResidentCountryCode=ID, benId=ca0b08c8-91f7-4f9e-ae02-e0e6e8928346, benAccountCurrencyCode=IDR, benAccountNo=77777777777777, benAccountName=AccountName 777, benResidentCountryName=INDONESIA, beneficiaryTypeCode=3, isBenResident=Y}, totalCharge=9200, name=PT. BANK BUKOPIN Tbk., challengeNo=77416591, onlineBankCode=441, totalChargeCurrency=IDR})
+[6904] 22:04:08.296 D -   CustomerDomesticTransferController(56) [            ServerThreadPool-3] [-5765483185584387661] : confirmDataMap : {accountDtlId=a5aaa3ed-faf3-4cb4-9a08-17616401128c, benId=ca0b08c8-91f7-4f9e-ae02-e0e6e8928346, bankCode=441, benAccountName=AccountName 777, benAccountCurrency=IDR, isBeneficiaryFlag=Y, transactionCurrency=IDR, transactionAmount=300000, transactionServiceCode=GPT_FTR_DOM_LLG, instructionMode=I, instructionDate=03/08/2020 23:04:04, sessionTime=00:00, recurringParamType=, recurringParam=, recurringStartDate=, recurringEndDate=, isSaveBenFlag=N, isNotify=Y, notifyBenValue=mail@gmail.com, isBenResident=Y, benResidentCountryCode=ID, isBenCitizen=N, benCitizenCountryCode=AU, beneficiaryTypeCode=3, benAliasName=testAlias, address1=beneficairy Address1, address2=beneficiary Address2, address3=beneficiary Address3, menuCode=MNU_R_GPCASH_F_FUND_DOMESTIC, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999, loginTokenNo=123456, memberCode=BBUKIDJA, chargeList=[{currencyName=IDR, serviceChargeName=SKN Fee, id=c5ab90b7-2911-4f20-ad76-bc925ee8b341, currencyCode=IDR, value=9200}, {currencyName=IDR, serviceChargeName=Transfer Fee, id=54a59d0d-a1b9-4b41-a747-dec4e0631779, currencyCode=IDR, value=0}], totalCharge=9200, name=PT. BANK BUKOPIN Tbk., challengeNo=77416591, onlineBankCode=441, message=, totalChargeCurrency=IDR, benAccountCurrencyName=IDR, benCitizenCountryName=AUSTRALIA, beneficiaryTypeName=Government, benAccountCurrencyCode=IDR, benAccountNo=77777777777777, benResidentCountryName=INDONESIA}
+[6904] 22:04:08.297 D -                        QueueInvoker(201) [            ServerThreadPool-3] [-5765483185584387661] : Execution Time: 3983 ms
+[6904] 22:06:39.421 D -   CustomerDomesticTransferController(58) [          http-nio-8005-exec-1] [ 5773967082162765842] : [preInvoke] - [fef1951d-050e-4d45-a18c-66c690662a8d] - CustomerDomesticTransferSC#searchSourceAccount({action=SEARCH, menuCode=MNU_R_GPCASH_F_FUND_DOMESTIC, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999, loginTokenNo=123456})
+[6904] 22:06:39.452 D -                        QueueInvoker(126) [          http-nio-8005-exec-1] [ 5773967082162765842] : [AutoDiscoveryQueueInvoker] - CustomerDomesticTransferSC#searchSourceAccount({action=SEARCH, menuCode=MNU_R_GPCASH_F_FUND_DOMESTIC, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999, loginTokenNo=123456})
+[6904] 22:06:39.453 D -                    ValidationAspect(266) [            ServerThreadPool-3] [ 5773967082162765842] : [Validation - Input] - CustomerDomesticTransferSCImpl#searchSourceAccount({action=SEARCH, menuCode=MNU_R_GPCASH_F_FUND_DOMESTIC, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999, loginTokenNo=123456})
+[6904] 22:06:39.469 D -                    ValidationAspect(280) [            ServerThreadPool-3] [ 5773967082162765842] : [Validation - Output] - CustomerDomesticTransferSCImpl#searchSourceAccount({accounts=[{accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=Test1, accountNo=3826389037, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountDtlId=8f6ae101-3867-42a9-9f0f-70b1f58cf1e6, accountBranchCode=0000}, {accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=Test1, accountNo=4455057936, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountDtlId=a5aaa3ed-faf3-4cb4-9a08-17616401128c, accountBranchCode=0000}, {accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=Test1, accountNo=8291726572, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountDtlId=fcf0827d-fcd0-40b7-9877-a0f83dd0779f, accountBranchCode=0000}]})
+[6904] 22:06:39.469 D -  CustomerDomesticTransferController(156) [            ServerThreadPool-3] [ 5773967082162765842] : onSuccess : {accounts=[{accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=Test1, accountNo=3826389037, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountDtlId=8f6ae101-3867-42a9-9f0f-70b1f58cf1e6, accountBranchCode=0000}, {accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=Test1, accountNo=4455057936, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountDtlId=a5aaa3ed-faf3-4cb4-9a08-17616401128c, accountBranchCode=0000}, {accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=Test1, accountNo=8291726572, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountDtlId=fcf0827d-fcd0-40b7-9877-a0f83dd0779f, accountBranchCode=0000}]}
+[6904] 22:06:39.494 D -                        QueueInvoker(201) [            ServerThreadPool-3] [ 5773967082162765842] : Execution Time: 42 ms
+[6904] 22:06:39.522 D -   CustomerDomesticTransferController(58) [          http-nio-8005-exec-7] [ 8743386089813919360] : [preInvoke] - [fef1951d-050e-4d45-a18c-66c690662a8d] - CustomerDomesticTransferSC#searchBeneficiary({action=SEARCH, menuCode=MNU_R_GPCASH_F_FUND_DOMESTIC, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999, loginTokenNo=123456})
+[6904] 22:06:39.523 D -                        QueueInvoker(126) [          http-nio-8005-exec-7] [ 8743386089813919360] : [AutoDiscoveryQueueInvoker] - CustomerDomesticTransferSC#searchBeneficiary({action=SEARCH, menuCode=MNU_R_GPCASH_F_FUND_DOMESTIC, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999, loginTokenNo=123456})
+[6904] 22:06:39.525 D - neficiaryListDomesticRepositoryImpl(111) [            ServerThreadPool-2] [ 8743386089813919360] : order : [benAccountNo: ASC]
+[6904] 22:06:39.542 D -  CustomerDomesticTransferController(156) [            ServerThreadPool-2] [ 8743386089813919360] : onSuccess : {result=[{bankName=PT. BANK MANDIRI (PERSERO) TBK, benCitizenCountryName=ANTARCTICA, beneficiaryTypeName=Individual, benResidentCountryCode=ID, benId=a80e4de3-0891-4b99-b713-cac2fba9fcef, benAccountNo=5555555555555, bankCountryName=INDONESIA, email=, memberCode=BMRIIDJA, bankCode=008, benCitizenCountryCode=AQ, address3=address3 LALA, address2=address2 LALA, address1=address1 LALA, benAccountCurrency=IDR, benAliasName=TEST ALIAS ALLA, isNotify=N, branchName=KANTOR PUSAT OPERASIONAL, isBenCitizen=N, branchCode=0081, benAccountName=LALALALA, benResidentCountryName=INDONESIA, beneficiaryTypeCode=1, onlineBankCode=008, isBenResident=Y}, {bankName=PT. BANK BUKOPIN Tbk., benCitizenCountryName=AUSTRALIA, beneficiaryTypeName=Government, benResidentCountryCode=ID, benId=ca0b08c8-91f7-4f9e-ae02-e0e6e8928346, benAccountNo=77777777777777, bankCountryName=INDONESIA, email=mail@gmail.com, memberCode=BBUKIDJA, bankCode=441, benCitizenCountryCode=AU, address3=beneficiary Address3, address2=beneficiary Address2, address1=beneficairy Address1, benAccountCurrency=IDR, benAliasName=testAlias, isNotify=Y, branchName=KANTOR PUSAT OPERASI, isBenCitizen=N, branchCode=4411, benAccountName=AccountName 777, benResidentCountryName=INDONESIA, beneficiaryTypeCode=3, onlineBankCode=441, isBenResident=Y}, {bankName=CITIBANK, NA, benCitizenCountryName=AUSTRIA, beneficiaryTypeName=Company, benResidentCountryCode=AU, benId=45217fe5-8ae2-4a46-930d-6ab6f486d8b6, benAccountNo=777777777777777, bankCountryName=INDONESIA, email=, memberCode=CITIIDJX, bankCode=031, benCitizenCountryCode=AT, address3=, address2=, address1=, benAccountCurrency=IDR, benAliasName=null, isNotify=N, branchName=KC JAKARTA, isBenCitizen=N, branchCode=0311, benAccountName=TEST ACCOUNT NAME, benResidentCountryName=AUSTRALIA, beneficiaryTypeCode=2, onlineBankCode=031, isBenResident=N}, {bankName=PT. BANK ARTHA GRAHA INTERNASIONAL, TBK, benCitizenCountryName=INDONESIA, beneficiaryTypeName=Company, benResidentCountryCode=ID, benId=5d612946-97e3-48b2-bad1-4d8e3f4817be, benAccountNo=9898989898, bankCountryName=INDONESIA, email=, memberCode=ARTGIDJA, bankCode=037, benCitizenCountryCode=ID, address3=Address3, address2=Address2, address1=Address1, benAccountCurrency=IDR, benAliasName=benAlias, isNotify=N, branchName=KPO SUDIRMAN, isBenCitizen=Y, branchCode=0371, benAccountName=TEST ACCOUNT LALALA, benResidentCountryName=INDONESIA, beneficiaryTypeCode=2, onlineBankCode=037, isBenResident=Y}]}
+[6904] 22:06:39.560 D -                        QueueInvoker(201) [            ServerThreadPool-2] [ 8743386089813919360] : Execution Time: 37 ms
+[6904] 22:06:39.588 D -   CustomerDomesticTransferController(58) [          http-nio-8005-exec-3] [ 1431996318988452595] : [preInvoke] - [fef1951d-050e-4d45-a18c-66c690662a8d] - CustomerDomesticTransferSC#getTransactionSessionTime({action=SEARCH, menuCode=MNU_R_GPCASH_F_FUND_DOMESTIC, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999, loginTokenNo=123456})
+[6904] 22:06:39.625 D -                        QueueInvoker(126) [          http-nio-8005-exec-3] [ 1431996318988452595] : [AutoDiscoveryQueueInvoker] - CustomerDomesticTransferSC#getTransactionSessionTime({action=SEARCH, menuCode=MNU_R_GPCASH_F_FUND_DOMESTIC, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999, loginTokenNo=123456})
+[6904] 22:06:39.625 D -                    ValidationAspect(266) [            ServerThreadPool-5] [ 1431996318988452595] : [Validation - Input] - CustomerDomesticTransferSCImpl#getTransactionSessionTime({action=SEARCH, menuCode=MNU_R_GPCASH_F_FUND_DOMESTIC, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999, loginTokenNo=123456})
+[6904] 22:06:39.643 D -                    ValidationAspect(280) [            ServerThreadPool-5] [ 1431996318988452595] : [Validation - Output] - CustomerDomesticTransferSCImpl#getTransactionSessionTime({sessionTime=[07:00, 11:00, 13:00, 16:00]})
+[6904] 22:06:39.643 D -  CustomerDomesticTransferController(156) [            ServerThreadPool-5] [ 1431996318988452595] : onSuccess : {sessionTime=[07:00, 11:00, 13:00, 16:00]}
+[6904] 22:06:39.644 D -                        QueueInvoker(201) [            ServerThreadPool-5] [ 1431996318988452595] : Execution Time: 19 ms
+[6904] 22:07:12.527 D -   CustomerDomesticTransferController(42) [          http-nio-8005-exec-6] [-5737485804463636058] : param : {accountDtlId=a5aaa3ed-faf3-4cb4-9a08-17616401128c, benId=45217fe5-8ae2-4a46-930d-6ab6f486d8b6, bankCode=031, benAccountName=TEST ACCOUNT NAME, benAccountCurrency=IDR, isBeneficiaryFlag=Y, transactionCurrency=IDR, transactionAmount=123000, transactionServiceCode=GPT_FTR_DOM_LLG, instructionMode=I, instructionDate=03/08/2020 23:07:12, sessionTime=00:00, recurringParamType=, recurringParam=, recurringStartDate=, recurringEndDate=, isSaveBenFlag=N, isNotify=N, notifyBenValue=, isBenResident=N, benResidentCountryCode=AU, isBenCitizen=N, benCitizenCountryCode=AT, beneficiaryTypeCode=2, benAliasName=null, address1=, address2=, address3=, remark1=TEST LALALALA DESC, action=CONFIRM}
+[6904] 22:07:12.529 D -   CustomerDomesticTransferController(58) [          http-nio-8005-exec-6] [-5737485804463636058] : [preInvoke] - [fef1951d-050e-4d45-a18c-66c690662a8d] - CustomerDomesticTransferSC#confirm({accountDtlId=a5aaa3ed-faf3-4cb4-9a08-17616401128c, benId=45217fe5-8ae2-4a46-930d-6ab6f486d8b6, bankCode=031, benAccountName=TEST ACCOUNT NAME, benAccountCurrency=IDR, isBeneficiaryFlag=Y, transactionCurrency=IDR, transactionAmount=123000, transactionServiceCode=GPT_FTR_DOM_LLG, instructionMode=I, instructionDate=03/08/2020 23:07:12, sessionTime=00:00, recurringParamType=, recurringParam=, recurringStartDate=, recurringEndDate=, isSaveBenFlag=N, isNotify=N, notifyBenValue=, isBenResident=N, benResidentCountryCode=AU, isBenCitizen=N, benCitizenCountryCode=AT, beneficiaryTypeCode=2, benAliasName=null, address1=, address2=, address3=, remark1=TEST LALALALA DESC, action=CONFIRM, menuCode=MNU_R_GPCASH_F_FUND_DOMESTIC, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999, loginTokenNo=123456})
+[6904] 22:07:12.531 D -                        QueueInvoker(126) [          http-nio-8005-exec-6] [-5737485804463636058] : [AutoDiscoveryQueueInvoker] - CustomerDomesticTransferSC#confirm({accountDtlId=a5aaa3ed-faf3-4cb4-9a08-17616401128c, benId=45217fe5-8ae2-4a46-930d-6ab6f486d8b6, bankCode=031, benAccountName=TEST ACCOUNT NAME, benAccountCurrency=IDR, isBeneficiaryFlag=Y, transactionCurrency=IDR, transactionAmount=123000, transactionServiceCode=GPT_FTR_DOM_LLG, instructionMode=I, instructionDate=03/08/2020 23:07:12, sessionTime=00:00, recurringParamType=, recurringParam=, recurringStartDate=, recurringEndDate=, isSaveBenFlag=N, isNotify=N, notifyBenValue=, isBenResident=N, benResidentCountryCode=AU, isBenCitizen=N, benCitizenCountryCode=AT, beneficiaryTypeCode=2, benAliasName=null, address1=, address2=, address3=, remark1=TEST LALALALA DESC, action=CONFIRM, menuCode=MNU_R_GPCASH_F_FUND_DOMESTIC, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999, loginTokenNo=123456})
+[6904] 22:07:12.534 D -                    ValidationAspect(266) [            ServerThreadPool-1] [-5737485804463636058] : [Validation - Input] - CustomerDomesticTransferSCImpl#confirm({accountDtlId=a5aaa3ed-faf3-4cb4-9a08-17616401128c, benId=45217fe5-8ae2-4a46-930d-6ab6f486d8b6, bankCode=031, benAccountName=TEST ACCOUNT NAME, benAccountCurrency=IDR, isBeneficiaryFlag=Y, transactionCurrency=IDR, transactionAmount=123000, transactionServiceCode=GPT_FTR_DOM_LLG, instructionMode=I, instructionDate=03/08/2020 23:07:12, sessionTime=00:00, recurringParamType=, recurringParam=, recurringStartDate=, recurringEndDate=, isSaveBenFlag=N, isNotify=N, notifyBenValue=, isBenResident=N, benResidentCountryCode=AU, isBenCitizen=N, benCitizenCountryCode=AT, beneficiaryTypeCode=2, benAliasName=null, address1=, address2=, address3=, remark1=TEST LALALALA DESC, action=CONFIRM, menuCode=MNU_R_GPCASH_F_FUND_DOMESTIC, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999, loginTokenNo=123456})
+[6904] 22:07:12.537 D - merTransactionValidationServiceImpl(426) [            ServerThreadPool-1] [-5737485804463636058] : 
+
+
+
+
+
+[6904] 22:07:12.537 D - merTransactionValidationServiceImpl(427) [            ServerThreadPool-1] [-5737485804463636058] : instructionMode : I
+[6904] 22:07:12.537 D - merTransactionValidationServiceImpl(428) [            ServerThreadPool-1] [-5737485804463636058] : serviceCode : GPT_FTR_DOM_LLG
+[6904] 22:07:12.537 D - merTransactionValidationServiceImpl(429) [            ServerThreadPool-1] [-5737485804463636058] : currencyCode : IDR
+[6904] 22:07:12.538 D - merTransactionValidationServiceImpl(430) [            ServerThreadPool-1] [-5737485804463636058] : applicationCode : GPCASHIB_R
+[6904] 22:07:12.538 D - merTransactionValidationServiceImpl(431) [            ServerThreadPool-1] [-5737485804463636058] : sessionTime : 00:00
+[6904] 22:07:12.538 D - merTransactionValidationServiceImpl(432) [            ServerThreadPool-1] [-5737485804463636058] : isReleaseTrx : false
+[6904] 22:07:12.538 D - merTransactionValidationServiceImpl(433) [            ServerThreadPool-1] [-5737485804463636058] : 
+
+
+
+
+
+[6904] 22:07:12.539 I -                SystemCOTServiceImpl(295) [            ServerThreadPool-1] [-5737485804463636058] : COT Code : GPT_FTR_DOM_LLG
+[6904] 22:07:12.539 I -                SystemCOTServiceImpl(296) [            ServerThreadPool-1] [-5737485804463636058] : COT Application Code : GPCASHIB_R
+[6904] 22:07:12.540 D -                SystemCOTServiceImpl(320) [            ServerThreadPool-1] [-5737485804463636058] : 
+
+
+
+
+
+
+[6904] 22:07:12.540 D -                SystemCOTServiceImpl(321) [            ServerThreadPool-1] [-5737485804463636058] : code: GPT_FTR_DOM_LLG
+[6904] 22:07:12.540 D -                SystemCOTServiceImpl(322) [            ServerThreadPool-1] [-5737485804463636058] : applicationCode: GPCASHIB_R
+[6904] 22:07:12.540 D -                SystemCOTServiceImpl(323) [            ServerThreadPool-1] [-5737485804463636058] : COT start : Mon Aug 03 00:00:00 ICT 2020
+[6904] 22:07:12.540 D -                SystemCOTServiceImpl(324) [            ServerThreadPool-1] [-5737485804463636058] : COT end : Mon Aug 03 23:59:00 ICT 2020
+[6904] 22:07:12.541 D -                SystemCOTServiceImpl(325) [            ServerThreadPool-1] [-5737485804463636058] : Today Date : Mon Aug 03 22:07:12 ICT 2020
+[6904] 22:07:12.541 D -                SystemCOTServiceImpl(326) [            ServerThreadPool-1] [-5737485804463636058] : 
+
+
+
+
+
+
+[6904] 22:07:12.542 D -               CurrencyCOTServiceImpl(49) [            ServerThreadPool-1] [-5737485804463636058] : COT start : Mon Aug 03 00:01:00 ICT 2020
+[6904] 22:07:12.542 D -               CurrencyCOTServiceImpl(50) [            ServerThreadPool-1] [-5737485804463636058] : COT end : Mon Aug 03 23:59:00 ICT 2020
+[6904] 22:07:12.542 D -               CurrencyCOTServiceImpl(51) [            ServerThreadPool-1] [-5737485804463636058] : Today Date : Mon Aug 03 22:07:12 ICT 2020
+[6904] 22:07:12.552 D - merTransactionValidationServiceImpl(126) [            ServerThreadPool-1] [-5737485804463636058] : 
+
+
+
+
+
+[6904] 22:07:12.552 D - merTransactionValidationServiceImpl(127) [            ServerThreadPool-1] [-5737485804463636058] : serviceCode : GPT_FTR_DOM_LLG
+[6904] 22:07:12.552 D - merTransactionValidationServiceImpl(128) [            ServerThreadPool-1] [-5737485804463636058] : currencyMatrixCode : LL
+[6904] 22:07:12.552 D - merTransactionValidationServiceImpl(129) [            ServerThreadPool-1] [-5737485804463636058] : transactionCurrency : IDR
+[6904] 22:07:12.553 D - merTransactionValidationServiceImpl(130) [            ServerThreadPool-1] [-5737485804463636058] : transactionAmount : 123000
+[6904] 22:07:12.553 D - merTransactionValidationServiceImpl(131) [            ServerThreadPool-1] [-5737485804463636058] : bankTransactionLimit.getMinAmountLimit() : 10000
+[6904] 22:07:12.553 D - merTransactionValidationServiceImpl(132) [            ServerThreadPool-1] [-5737485804463636058] : bankTransactionLimit.getMaxAmountLimit() : 999999999999999
+[6904] 22:07:12.553 D - merTransactionValidationServiceImpl(133) [            ServerThreadPool-1] [-5737485804463636058] : 
+
+
+
+
+
+[6904] 22:07:12.554 D - merTransactionValidationServiceImpl(156) [            ServerThreadPool-1] [-5737485804463636058] : 
+
+
+
+
+
+[6904] 22:07:12.555 D - merTransactionValidationServiceImpl(157) [            ServerThreadPool-1] [-5737485804463636058] : customerId : WHYRETAIL|DEMO0999
+[6904] 22:07:12.555 D - merTransactionValidationServiceImpl(158) [            ServerThreadPool-1] [-5737485804463636058] : serviceCode : GPT_FTR_DOM_LLG
+[6904] 22:07:12.555 D - merTransactionValidationServiceImpl(159) [            ServerThreadPool-1] [-5737485804463636058] : currencyMatrixCode : LL
+[6904] 22:07:12.555 D - merTransactionValidationServiceImpl(160) [            ServerThreadPool-1] [-5737485804463636058] : transactionCurrency : IDR
+[6904] 22:07:12.555 D - merTransactionValidationServiceImpl(161) [            ServerThreadPool-1] [-5737485804463636058] : transactionAmount : 123000
+[6904] 22:07:12.556 D - merTransactionValidationServiceImpl(162) [            ServerThreadPool-1] [-5737485804463636058] : totalPendingTaskTrxOccurence : 0
+[6904] 22:07:12.556 D - merTransactionValidationServiceImpl(163) [            ServerThreadPool-1] [-5737485804463636058] : totalPendingTaskDebitedAmount : 0
+[6904] 22:07:12.556 D - merTransactionValidationServiceImpl(164) [            ServerThreadPool-1] [-5737485804463636058] : totalOccurence : 2
+[6904] 22:07:12.556 D - merTransactionValidationServiceImpl(165) [            ServerThreadPool-1] [-5737485804463636058] : customerLimit.getMaxOccurrenceLimit() : 999999999
+[6904] 22:07:12.556 D - merTransactionValidationServiceImpl(166) [            ServerThreadPool-1] [-5737485804463636058] : customerLimit.getAmountLimitUsage() : 486400
+[6904] 22:07:12.556 D - merTransactionValidationServiceImpl(167) [            ServerThreadPool-1] [-5737485804463636058] : totalDebitedAmount : 486400
+[6904] 22:07:12.557 D - merTransactionValidationServiceImpl(168) [            ServerThreadPool-1] [-5737485804463636058] : customerLimit.getMaxAmountLimit( : 99999999999
+[6904] 22:07:12.557 D - merTransactionValidationServiceImpl(169) [            ServerThreadPool-1] [-5737485804463636058] : 
+
+
+
+
+
+[6904] 22:07:12.566 D -                        QueueInvoker(126) [            ServerThreadPool-1] [-5737485804463636058] : [AutoDiscoveryQueueInvoker] - EAIEngine#invokeService(DoGenerateTokenChallengeNo, {tokenNo=123456, tokenType=TKN})
+[6904] 22:07:12.571 I -                SystemCOTServiceImpl(295) [            ServerThreadPool-3] [-5737485804463636058] : COT Code : HOST_COT
+[6904] 22:07:12.572 I -                SystemCOTServiceImpl(296) [            ServerThreadPool-3] [-5737485804463636058] : COT Application Code : GPCASHIB
+[6904] 22:07:12.578 D -                SystemCOTServiceImpl(320) [            ServerThreadPool-3] [-5737485804463636058] : 
+
+
+
+
+
+
+[6904] 22:07:12.578 D -                SystemCOTServiceImpl(321) [            ServerThreadPool-3] [-5737485804463636058] : code: HOST_COT
+[6904] 22:07:12.578 D -                SystemCOTServiceImpl(322) [            ServerThreadPool-3] [-5737485804463636058] : applicationCode: GPCASHIB
+[6904] 22:07:12.578 D -                SystemCOTServiceImpl(323) [            ServerThreadPool-3] [-5737485804463636058] : COT start : Mon Aug 03 00:00:00 ICT 2020
+[6904] 22:07:12.578 D -                SystemCOTServiceImpl(324) [            ServerThreadPool-3] [-5737485804463636058] : COT end : Mon Aug 03 23:59:00 ICT 2020
+[6904] 22:07:12.578 D -                SystemCOTServiceImpl(325) [            ServerThreadPool-3] [-5737485804463636058] : Today Date : Mon Aug 03 22:07:12 ICT 2020
+[6904] 22:07:12.578 D -                SystemCOTServiceImpl(326) [            ServerThreadPool-3] [-5737485804463636058] : 
+
+
+
+
+
+
+[6904] 22:07:12.606 D -                        QueueInvoker(201) [     ServiceInvoker-Response-4] [-5737485804463636058] : Execution Time: 40 ms
+[6904] 22:07:12.607 D -                    ValidationAspect(280) [            ServerThreadPool-1] [-5737485804463636058] : [Validation - Output] - CustomerDomesticTransferSCImpl#confirm({memberCode=CITIIDJX, chargeList=[{currencyName=IDR, serviceChargeName=SKN Fee, id=c5ab90b7-2911-4f20-ad76-bc925ee8b341, currencyCode=IDR, value=9200}, {currencyName=IDR, serviceChargeName=Transfer Fee, id=54a59d0d-a1b9-4b41-a747-dec4e0631779, currencyCode=IDR, value=0}], bankCode=031, benAccountInfo={benCitizenCountryCode=AT, address3=, address2=, benAccountCurrencyName=IDR, address1=, isBenCitizen=N, benCitizenCountryName=AUSTRIA, beneficiaryTypeName=Company, benResidentCountryCode=AU, benId=45217fe5-8ae2-4a46-930d-6ab6f486d8b6, benAccountCurrencyCode=IDR, benAccountNo=777777777777777, benAccountName=TEST ACCOUNT NAME, benResidentCountryName=AUSTRALIA, beneficiaryTypeCode=2, isBenResident=N}, totalCharge=9200, name=CITIBANK, NA, challengeNo=47871766, onlineBankCode=031, totalChargeCurrency=IDR})
+[6904] 22:07:12.610 D -   CustomerDomesticTransferController(56) [            ServerThreadPool-1] [-5737485804463636058] : confirmDataMap : {accountDtlId=a5aaa3ed-faf3-4cb4-9a08-17616401128c, benId=45217fe5-8ae2-4a46-930d-6ab6f486d8b6, bankCode=031, benAccountName=TEST ACCOUNT NAME, benAccountCurrency=IDR, isBeneficiaryFlag=Y, transactionCurrency=IDR, transactionAmount=123000, transactionServiceCode=GPT_FTR_DOM_LLG, instructionMode=I, instructionDate=03/08/2020 23:07:12, sessionTime=00:00, recurringParamType=, recurringParam=, recurringStartDate=, recurringEndDate=, isSaveBenFlag=N, isNotify=N, notifyBenValue=, isBenResident=N, benResidentCountryCode=AU, isBenCitizen=N, benCitizenCountryCode=AT, beneficiaryTypeCode=2, benAliasName=null, address1=, address2=, address3=, remark1=TEST LALALALA DESC, menuCode=MNU_R_GPCASH_F_FUND_DOMESTIC, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999, loginTokenNo=123456, memberCode=CITIIDJX, chargeList=[{currencyName=IDR, serviceChargeName=SKN Fee, id=c5ab90b7-2911-4f20-ad76-bc925ee8b341, currencyCode=IDR, value=9200}, {currencyName=IDR, serviceChargeName=Transfer Fee, id=54a59d0d-a1b9-4b41-a747-dec4e0631779, currencyCode=IDR, value=0}], totalCharge=9200, name=CITIBANK, NA, challengeNo=47871766, onlineBankCode=031, message=, totalChargeCurrency=IDR, benAccountCurrencyName=IDR, benCitizenCountryName=AUSTRIA, beneficiaryTypeName=Company, benAccountCurrencyCode=IDR, benAccountNo=777777777777777, benResidentCountryName=AUSTRALIA}
+[6904] 22:07:12.678 D -                        QueueInvoker(201) [            ServerThreadPool-1] [-5737485804463636058] : Execution Time: 147 ms
+[6904] 22:07:58.658 D -   CustomerDomesticTransferController(58) [          http-nio-8005-exec-5] [  303485570088061141] : [preInvoke] - [fef1951d-050e-4d45-a18c-66c690662a8d] - CustomerDomesticTransferSC#submit({responseNo=12345678, action=CREATE, accountDtlId=a5aaa3ed-faf3-4cb4-9a08-17616401128c, benId=45217fe5-8ae2-4a46-930d-6ab6f486d8b6, bankCode=031, benAccountName=TEST ACCOUNT NAME, benAccountCurrency=IDR, isBeneficiaryFlag=Y, transactionCurrency=IDR, transactionAmount=123000, transactionServiceCode=GPT_FTR_DOM_LLG, instructionMode=I, instructionDate=03/08/2020 23:07:12, sessionTime=00:00, recurringParamType=, recurringParam=, recurringStartDate=, recurringEndDate=, isSaveBenFlag=N, isNotify=N, notifyBenValue=, isBenResident=N, benResidentCountryCode=AU, isBenCitizen=N, benCitizenCountryCode=AT, beneficiaryTypeCode=2, benAliasName=null, address1=, address2=, address3=, remark1=TEST LALALALA DESC, menuCode=MNU_R_GPCASH_F_FUND_DOMESTIC, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999, loginTokenNo=123456, memberCode=CITIIDJX, chargeList=[{serviceChargeName=SKN Fee, id=c5ab90b7-2911-4f20-ad76-bc925ee8b341, currencyName=IDR, currencyCode=IDR, value=9200}, {serviceChargeName=Transfer Fee, id=54a59d0d-a1b9-4b41-a747-dec4e0631779, currencyName=IDR, currencyCode=IDR, value=0}], totalCharge=9200, name=CITIBANK, NA, challengeNo=47871766, onlineBankCode=031, message=, totalChargeCurrency=IDR, benAccountCurrencyName=IDR, benCitizenCountryName=AUSTRIA, beneficiaryTypeName=Company, benAccountCurrencyCode=IDR, benAccountNo=777777777777777, benResidentCountryName=AUSTRALIA, totalDebitedAmount=132200, chargeInstruction=OUR})
+[6904] 22:07:58.663 D -                        QueueInvoker(126) [          http-nio-8005-exec-5] [  303485570088061141] : [AutoDiscoveryQueueInvoker] - CustomerDomesticTransferSC#submit({responseNo=12345678, action=CREATE, accountDtlId=a5aaa3ed-faf3-4cb4-9a08-17616401128c, benId=45217fe5-8ae2-4a46-930d-6ab6f486d8b6, bankCode=031, benAccountName=TEST ACCOUNT NAME, benAccountCurrency=IDR, isBeneficiaryFlag=Y, transactionCurrency=IDR, transactionAmount=123000, transactionServiceCode=GPT_FTR_DOM_LLG, instructionMode=I, instructionDate=03/08/2020 23:07:12, sessionTime=00:00, recurringParamType=, recurringParam=, recurringStartDate=, recurringEndDate=, isSaveBenFlag=N, isNotify=N, notifyBenValue=, isBenResident=N, benResidentCountryCode=AU, isBenCitizen=N, benCitizenCountryCode=AT, beneficiaryTypeCode=2, benAliasName=null, address1=, address2=, address3=, remark1=TEST LALALALA DESC, menuCode=MNU_R_GPCASH_F_FUND_DOMESTIC, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999, loginTokenNo=123456, memberCode=CITIIDJX, chargeList=[{serviceChargeName=SKN Fee, id=c5ab90b7-2911-4f20-ad76-bc925ee8b341, currencyName=IDR, currencyCode=IDR, value=9200}, {serviceChargeName=Transfer Fee, id=54a59d0d-a1b9-4b41-a747-dec4e0631779, currencyName=IDR, currencyCode=IDR, value=0}], totalCharge=9200, name=CITIBANK, NA, challengeNo=47871766, onlineBankCode=031, message=, totalChargeCurrency=IDR, benAccountCurrencyName=IDR, benCitizenCountryName=AUSTRIA, beneficiaryTypeName=Company, benAccountCurrencyCode=IDR, benAccountNo=777777777777777, benResidentCountryName=AUSTRALIA, totalDebitedAmount=132200, chargeInstruction=OUR})
+[6904] 22:07:58.667 D -                    ValidationAspect(266) [            ServerThreadPool-2] [  303485570088061141] : [Validation - Input] - CustomerDomesticTransferSCImpl#submit({responseNo=12345678, action=CREATE, accountDtlId=a5aaa3ed-faf3-4cb4-9a08-17616401128c, benId=45217fe5-8ae2-4a46-930d-6ab6f486d8b6, bankCode=031, benAccountName=TEST ACCOUNT NAME, benAccountCurrency=IDR, isBeneficiaryFlag=Y, transactionCurrency=IDR, transactionAmount=123000, transactionServiceCode=GPT_FTR_DOM_LLG, instructionMode=I, instructionDate=03/08/2020 23:07:12, sessionTime=00:00, recurringParamType=, recurringParam=, recurringStartDate=, recurringEndDate=, isSaveBenFlag=N, isNotify=N, notifyBenValue=, isBenResident=N, benResidentCountryCode=AU, isBenCitizen=N, benCitizenCountryCode=AT, beneficiaryTypeCode=2, benAliasName=null, address1=, address2=, address3=, remark1=TEST LALALALA DESC, menuCode=MNU_R_GPCASH_F_FUND_DOMESTIC, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999, loginTokenNo=123456, memberCode=CITIIDJX, chargeList=[{serviceChargeName=SKN Fee, id=c5ab90b7-2911-4f20-ad76-bc925ee8b341, currencyName=IDR, currencyCode=IDR, value=9200}, {serviceChargeName=Transfer Fee, id=54a59d0d-a1b9-4b41-a747-dec4e0631779, currencyName=IDR, currencyCode=IDR, value=0}], totalCharge=9200, name=CITIBANK, NA, challengeNo=47871766, onlineBankCode=031, message=, totalChargeCurrency=IDR, benAccountCurrencyName=IDR, benCitizenCountryName=AUSTRIA, beneficiaryTypeName=Company, benAccountCurrencyCode=IDR, benAccountNo=777777777777777, benResidentCountryName=AUSTRALIA, totalDebitedAmount=132200, chargeInstruction=OUR})
+[6904] 22:07:58.676 D - merTransactionValidationServiceImpl(335) [            ServerThreadPool-2] [  303485570088061141] : 
+
+
+
+
+
+[6904] 22:07:58.676 D - merTransactionValidationServiceImpl(336) [            ServerThreadPool-2] [  303485570088061141] : totalChargeFromTable = 9200
+[6904] 22:07:58.677 D - merTransactionValidationServiceImpl(337) [            ServerThreadPool-2] [  303485570088061141] : totalTransaction = 132200
+[6904] 22:07:58.677 D - merTransactionValidationServiceImpl(338) [            ServerThreadPool-2] [  303485570088061141] : 
+
+
+
+
+
+[6904] 22:07:58.679 D - merTransactionValidationServiceImpl(348) [            ServerThreadPool-2] [  303485570088061141] : 
+
+
+
+
+
+[6904] 22:07:58.679 D - merTransactionValidationServiceImpl(349) [            ServerThreadPool-2] [  303485570088061141] : customerCharge.getValue() = 9200
+[6904] 22:07:58.679 D - merTransactionValidationServiceImpl(350) [            ServerThreadPool-2] [  303485570088061141] : chargeMap.get(value) = 9200
+[6904] 22:07:58.679 D - merTransactionValidationServiceImpl(351) [            ServerThreadPool-2] [  303485570088061141] : 
+
+
+
+
+
+[6904] 22:07:58.681 D - merTransactionValidationServiceImpl(348) [            ServerThreadPool-2] [  303485570088061141] : 
+
+
+
+
+
+[6904] 22:07:58.681 D - merTransactionValidationServiceImpl(349) [            ServerThreadPool-2] [  303485570088061141] : customerCharge.getValue() = 0
+[6904] 22:07:58.681 D - merTransactionValidationServiceImpl(350) [            ServerThreadPool-2] [  303485570088061141] : chargeMap.get(value) = 0
+[6904] 22:07:58.682 D - merTransactionValidationServiceImpl(351) [            ServerThreadPool-2] [  303485570088061141] : 
+
+
+
+
+
+[6904] 22:07:58.684 D - merTransactionValidationServiceImpl(426) [            ServerThreadPool-2] [  303485570088061141] : 
+
+
+
+
+
+[6904] 22:07:58.684 D - merTransactionValidationServiceImpl(427) [            ServerThreadPool-2] [  303485570088061141] : instructionMode : I
+[6904] 22:07:58.684 D - merTransactionValidationServiceImpl(428) [            ServerThreadPool-2] [  303485570088061141] : serviceCode : GPT_FTR_DOM_LLG
+[6904] 22:07:58.684 D - merTransactionValidationServiceImpl(429) [            ServerThreadPool-2] [  303485570088061141] : currencyCode : IDR
+[6904] 22:07:58.685 D - merTransactionValidationServiceImpl(430) [            ServerThreadPool-2] [  303485570088061141] : applicationCode : GPCASHIB_R
+[6904] 22:07:58.685 D - merTransactionValidationServiceImpl(431) [            ServerThreadPool-2] [  303485570088061141] : sessionTime : 00:00
+[6904] 22:07:58.685 D - merTransactionValidationServiceImpl(432) [            ServerThreadPool-2] [  303485570088061141] : isReleaseTrx : false
+[6904] 22:07:58.685 D - merTransactionValidationServiceImpl(433) [            ServerThreadPool-2] [  303485570088061141] : 
+
+
+
+
+
+[6904] 22:07:58.686 I -                SystemCOTServiceImpl(295) [            ServerThreadPool-2] [  303485570088061141] : COT Code : GPT_FTR_DOM_LLG
+[6904] 22:07:58.686 I -                SystemCOTServiceImpl(296) [            ServerThreadPool-2] [  303485570088061141] : COT Application Code : GPCASHIB_R
+[6904] 22:07:58.686 D -                SystemCOTServiceImpl(320) [            ServerThreadPool-2] [  303485570088061141] : 
+
+
+
+
+
+
+[6904] 22:07:58.686 D -                SystemCOTServiceImpl(321) [            ServerThreadPool-2] [  303485570088061141] : code: GPT_FTR_DOM_LLG
+[6904] 22:07:58.686 D -                SystemCOTServiceImpl(322) [            ServerThreadPool-2] [  303485570088061141] : applicationCode: GPCASHIB_R
+[6904] 22:07:58.686 D -                SystemCOTServiceImpl(323) [            ServerThreadPool-2] [  303485570088061141] : COT start : Mon Aug 03 00:00:00 ICT 2020
+[6904] 22:07:58.687 D -                SystemCOTServiceImpl(324) [            ServerThreadPool-2] [  303485570088061141] : COT end : Mon Aug 03 23:59:00 ICT 2020
+[6904] 22:07:58.687 D -                SystemCOTServiceImpl(325) [            ServerThreadPool-2] [  303485570088061141] : Today Date : Mon Aug 03 22:07:58 ICT 2020
+[6904] 22:07:58.687 D -                SystemCOTServiceImpl(326) [            ServerThreadPool-2] [  303485570088061141] : 
+
+
+
+
+
+
+[6904] 22:07:58.688 D -               CurrencyCOTServiceImpl(49) [            ServerThreadPool-2] [  303485570088061141] : COT start : Mon Aug 03 00:01:00 ICT 2020
+[6904] 22:07:58.688 D -               CurrencyCOTServiceImpl(50) [            ServerThreadPool-2] [  303485570088061141] : COT end : Mon Aug 03 23:59:00 ICT 2020
+[6904] 22:07:58.688 D -               CurrencyCOTServiceImpl(51) [            ServerThreadPool-2] [  303485570088061141] : Today Date : Mon Aug 03 22:07:58 ICT 2020
+[6904] 22:07:58.694 D - merTransactionValidationServiceImpl(126) [            ServerThreadPool-2] [  303485570088061141] : 
+
+
+
+
+
+[6904] 22:07:58.695 D - merTransactionValidationServiceImpl(127) [            ServerThreadPool-2] [  303485570088061141] : serviceCode : GPT_FTR_DOM_LLG
+[6904] 22:07:58.695 D - merTransactionValidationServiceImpl(128) [            ServerThreadPool-2] [  303485570088061141] : currencyMatrixCode : LL
+[6904] 22:07:58.695 D - merTransactionValidationServiceImpl(129) [            ServerThreadPool-2] [  303485570088061141] : transactionCurrency : IDR
+[6904] 22:07:58.695 D - merTransactionValidationServiceImpl(130) [            ServerThreadPool-2] [  303485570088061141] : transactionAmount : 123000
+[6904] 22:07:58.695 D - merTransactionValidationServiceImpl(131) [            ServerThreadPool-2] [  303485570088061141] : bankTransactionLimit.getMinAmountLimit() : 10000
+[6904] 22:07:58.695 D - merTransactionValidationServiceImpl(132) [            ServerThreadPool-2] [  303485570088061141] : bankTransactionLimit.getMaxAmountLimit() : 999999999999999
+[6904] 22:07:58.696 D - merTransactionValidationServiceImpl(133) [            ServerThreadPool-2] [  303485570088061141] : 
+
+
+
+
+
+[6904] 22:07:58.697 D - merTransactionValidationServiceImpl(156) [            ServerThreadPool-2] [  303485570088061141] : 
+
+
+
+
+
+[6904] 22:07:58.697 D - merTransactionValidationServiceImpl(157) [            ServerThreadPool-2] [  303485570088061141] : customerId : WHYRETAIL|DEMO0999
+[6904] 22:07:58.697 D - merTransactionValidationServiceImpl(158) [            ServerThreadPool-2] [  303485570088061141] : serviceCode : GPT_FTR_DOM_LLG
+[6904] 22:07:58.698 D - merTransactionValidationServiceImpl(159) [            ServerThreadPool-2] [  303485570088061141] : currencyMatrixCode : LL
+[6904] 22:07:58.698 D - merTransactionValidationServiceImpl(160) [            ServerThreadPool-2] [  303485570088061141] : transactionCurrency : IDR
+[6904] 22:07:58.698 D - merTransactionValidationServiceImpl(161) [            ServerThreadPool-2] [  303485570088061141] : transactionAmount : 123000
+[6904] 22:07:58.698 D - merTransactionValidationServiceImpl(162) [            ServerThreadPool-2] [  303485570088061141] : totalPendingTaskTrxOccurence : 0
+[6904] 22:07:58.698 D - merTransactionValidationServiceImpl(163) [            ServerThreadPool-2] [  303485570088061141] : totalPendingTaskDebitedAmount : 0
+[6904] 22:07:58.698 D - merTransactionValidationServiceImpl(164) [            ServerThreadPool-2] [  303485570088061141] : totalOccurence : 2
+[6904] 22:07:58.698 D - merTransactionValidationServiceImpl(165) [            ServerThreadPool-2] [  303485570088061141] : customerLimit.getMaxOccurrenceLimit() : 999999999
+[6904] 22:07:58.699 D - merTransactionValidationServiceImpl(166) [            ServerThreadPool-2] [  303485570088061141] : customerLimit.getAmountLimitUsage() : 486400
+[6904] 22:07:58.699 D - merTransactionValidationServiceImpl(167) [            ServerThreadPool-2] [  303485570088061141] : totalDebitedAmount : 486400
+[6904] 22:07:58.699 D - merTransactionValidationServiceImpl(168) [            ServerThreadPool-2] [  303485570088061141] : customerLimit.getMaxAmountLimit( : 99999999999
+[6904] 22:07:58.699 D - merTransactionValidationServiceImpl(169) [            ServerThreadPool-2] [  303485570088061141] : 
+
+
+
+
+
+[6904] 22:07:58.704 D -  CustomerUserPendingTaskServiceImpl(257) [            ServerThreadPool-2] [  303485570088061141] : User PendingTask : PendingTaskModel{id=null,uniqueKey=WHYRETAIL|DEMO0999|a5aaa3ed-faf3-4cb4-9a08-17616401128c|123000|45217fe5-8ae2-4a46-930d-6ab6f486d8b6|1596467278700,referenceNo=R202008031823512497,action=CREATE,status=PENDING,service=CustomerDomesticTransferSC,model=java.util.LinkedHashMap,transactionAmount=123000,transactionCurrency=IDR,sourceAccount=4455057936,createdBy=WHYRETAIL|DEMO0999,createdDate=2020-08-03 22:07:58.703}
+[6904] 22:07:58.707 D -  CustomerUserPendingTaskServiceImpl(292) [            ServerThreadPool-2] [  303485570088061141] : 
+
+
+
+
+
+[6904] 22:07:58.708 D -  CustomerUserPendingTaskServiceImpl(293) [            ServerThreadPool-2] [  303485570088061141] : execute vo ID : 522e51f0-58ac-4531-9323-65654c53e79a
+[6904] 22:07:58.708 D -  CustomerUserPendingTaskServiceImpl(294) [            ServerThreadPool-2] [  303485570088061141] : 
+
+
+
+
+
+[6904] 22:07:58.708 D - CustomerDomesticTransferServiceImpl(618) [            ServerThreadPool-2] [  303485570088061141] : map : {responseNo=12345678, action=CREATE, accountDtlId=a5aaa3ed-faf3-4cb4-9a08-17616401128c, benId=45217fe5-8ae2-4a46-930d-6ab6f486d8b6, bankCode=031, benAccountName=TEST ACCOUNT NAME, benAccountCurrency=IDR, isBeneficiaryFlag=Y, transactionCurrency=IDR, transactionAmount=123000, transactionServiceCode=GPT_FTR_DOM_LLG, instructionMode=I, instructionDate=2020-08-03 22:07:58.699, sessionTime=00:00, recurringParamType=, recurringParam=0, recurringStartDate=null, recurringEndDate=null, isSaveBenFlag=N, isNotify=N, notifyBenValue=, isBenResident=N, benResidentCountryCode=AU, isBenCitizen=N, benCitizenCountryCode=AT, beneficiaryTypeCode=2, benAliasName=, address1=, address2=, address3=, remark1=TEST LALALALA DESC, menuCode=MNU_R_GPCASH_F_FUND_DOMESTIC, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999, loginTokenNo=123456, memberCode=CITIIDJX, chargeList=[{serviceChargeName=SKN Fee, id=c5ab90b7-2911-4f20-ad76-bc925ee8b341, currencyName=IDR, currencyCode=IDR, value=9200}, {serviceChargeName=Transfer Fee, id=54a59d0d-a1b9-4b41-a747-dec4e0631779, currencyName=IDR, currencyCode=IDR, value=0}], totalCharge=9200, name=CITIBANK, NA, challengeNo=47871766, onlineBankCode=031, message=, totalChargeCurrency=IDR, benAccountCurrencyName=IDR, benCitizenCountryName=AUSTRIA, beneficiaryTypeName=Company, benAccountCurrencyCode=IDR, benAccountNo=777777777777777, benResidentCountryName=AUSTRALIA, totalDebitedAmount=132200, chargeInstruction=OUR, remark2=, remark3=}
+[6904] 22:07:58.878 D - CustomerDomesticTransferServiceImpl(918) [            ServerThreadPool-2] [  303485570088061141] : 
+
+
+
+
+
+[6904] 22:07:58.879 D - CustomerDomesticTransferServiceImpl(919) [            ServerThreadPool-2] [  303485570088061141] : inputs : {benTypeCode=2, benResidentFlag=N, channel=GPCASHIB_R, benResidentCountryCode=AU, chargeTypeAmount1=9200, chargeTypeAmount2=0, chargeTypeAmount3=null, chargeTypeAmount4=null, chargeTypeAmount5=null, benRefNo=null, channelRefNo=522e51f0-58ac-4531-9323-65654c53e79a, destinationBankName=CITIBANK, NA, remitterResidentFlag=Y, benCitizenCountryCode=AT, chargeType4=null, chargeType5=null, chargeType2=54a59d0d-a1b9-4b41-a747-dec4e0631779, chargeType3=null, chargeType1=c5ab90b7-2911-4f20-ad76-bc925ee8b341, trxCurrencyCode=IDR, benAccountCurrencyCode=IDR, debitAccountNo=4455057936, benAccountName=TEST ACCOUNT NAME, remark1=TEST LALALALA DESC, destinationMemberBankCode=CITIIDJX, remark3=, remark2=, refNo=R202008031823512497, debitAccountType=001, serviceCode=GPT_FTR_DOM_LLG, benAddress1=null, benAddress2=null, benAddress3=null, benAccountNo=777777777777777, chargeTo=OUR, remitterType=1, senderRefNo=null, remitterAddress3=Address3, remitterAddress2=Address2, trxAmount=123000, remitterAddress1=Address1, chargeTypeCurrencyCode1=IDR, chargeTypeCurrencyCode3=null, destinationOnlineBankCode=031, chargeTypeCurrencyCode2=IDR, chargeTypeCurrencyCode5=null, chargeTypeCurrencyCode4=null, benCitizenFlag=N, debitAccountCurrencyCode=IDR, destinationBankCode=031, remitterCitizenCountryCode=ID, debitAccountName=Test1, remitterResidentCountryCode=ID, remitterCitizenFlag=Y}
+[6904] 22:07:58.879 D - CustomerDomesticTransferServiceImpl(920) [            ServerThreadPool-2] [  303485570088061141] : 
+
+
+
+
+
+[6904] 22:07:58.879 D -                        QueueInvoker(126) [            ServerThreadPool-2] [  303485570088061141] : [AutoDiscoveryQueueInvoker] - EAIEngine#invokeService(DoDomesticTransfer, {benTypeCode=2, benResidentFlag=N, channel=GPCASHIB_R, benResidentCountryCode=AU, chargeTypeAmount1=9200, chargeTypeAmount2=0, chargeTypeAmount3=null, chargeTypeAmount4=null, chargeTypeAmount5=null, benRefNo=null, channelRefNo=522e51f0-58ac-4531-9323-65654c53e79a, destinationBankName=CITIBANK, NA, remitterResidentFlag=Y, benCitizenCountryCode=AT, chargeType4=null, chargeType5=null, chargeType2=54a59d0d-a1b9-4b41-a747-dec4e0631779, chargeType3=null, chargeType1=c5ab90b7-2911-4f20-ad76-bc925ee8b341, trxCurrencyCode=IDR, benAccountCurrencyCode=IDR, debitAccountNo=4455057936, benAccountName=TEST ACCOUNT NAME, remark1=TEST LALALALA DESC, destinationMemberBankCode=CITIIDJX, remark3=, remark2=, refNo=R202008031823512497, debitAccountType=001, serviceCode=GPT_FTR_DOM_LLG, benAddress1=null, benAddress2=null, benAddress3=null, benAccountNo=777777777777777, chargeTo=OUR, remitterType=1, senderRefNo=null, remitterAddress3=Address3, remitterAddress2=Address2, trxAmount=123000, remitterAddress1=Address1, chargeTypeCurrencyCode1=IDR, chargeTypeCurrencyCode3=null, destinationOnlineBankCode=031, chargeTypeCurrencyCode2=IDR, chargeTypeCurrencyCode5=null, chargeTypeCurrencyCode4=null, benCitizenFlag=N, debitAccountCurrencyCode=IDR, destinationBankCode=031, remitterCitizenCountryCode=ID, debitAccountName=Test1, remitterResidentCountryCode=ID, remitterCitizenFlag=Y})
+[6904] 22:07:59.056 I -                SystemCOTServiceImpl(295) [            ServerThreadPool-5] [  303485570088061141] : COT Code : HOST_COT
+[6904] 22:07:59.056 I -                SystemCOTServiceImpl(296) [            ServerThreadPool-5] [  303485570088061141] : COT Application Code : GPCASHIB
+[6904] 22:07:59.057 D -                SystemCOTServiceImpl(320) [            ServerThreadPool-5] [  303485570088061141] : 
+
+
+
+
+
+
+[6904] 22:07:59.057 D -                SystemCOTServiceImpl(321) [            ServerThreadPool-5] [  303485570088061141] : code: HOST_COT
+[6904] 22:07:59.057 D -                SystemCOTServiceImpl(322) [            ServerThreadPool-5] [  303485570088061141] : applicationCode: GPCASHIB
+[6904] 22:07:59.057 D -                SystemCOTServiceImpl(323) [            ServerThreadPool-5] [  303485570088061141] : COT start : Mon Aug 03 00:00:00 ICT 2020
+[6904] 22:07:59.057 D -                SystemCOTServiceImpl(324) [            ServerThreadPool-5] [  303485570088061141] : COT end : Mon Aug 03 23:59:00 ICT 2020
+[6904] 22:07:59.058 D -                SystemCOTServiceImpl(325) [            ServerThreadPool-5] [  303485570088061141] : Today Date : Mon Aug 03 22:07:59 ICT 2020
+[6904] 22:07:59.058 D -                SystemCOTServiceImpl(326) [            ServerThreadPool-5] [  303485570088061141] : 
+
+
+
+
+
+
+[6904] 22:08:00.853 D -                        QueueInvoker(201) [     ServiceInvoker-Response-1] [  303485570088061141] : Execution Time: 1973 ms
+[6904] 22:08:01.517 D -  CustomerDomesticTransferController(163) [            ServerThreadPool-2] [  303485570088061141] : onException : com.gpt.component.common.exceptions.ApplicationException: com.netflix.hystrix.exception.HystrixRuntimeException: EAIEngine#invokeService failed and no fallback available.
+[6904] 22:08:01.539 D -                        QueueInvoker(201) [            ServerThreadPool-2] [  303485570088061141] : Execution Time: 2875 ms
+[6904] 22:08:02.015 E -        GlobalDefaultExceptionHandler(68) [          http-nio-8005-exec-8] [  303485570088061141] : com.netflix.hystrix.exception.HystrixRuntimeException: EAIEngine#invokeService failed and no fallback available.
+com.gpt.component.common.exceptions.ApplicationException: com.netflix.hystrix.exception.HystrixRuntimeException: EAIEngine#invokeService failed and no fallback available.
+	at com.gpt.product.gpcash.retail.transaction.domestic.services.CustomerDomesticTransferServiceImpl.doTransfer(CustomerDomesticTransferServiceImpl.java:801)
+	at com.gpt.product.gpcash.retail.transaction.domestic.services.CustomerDomesticTransferServiceImpl.approve(CustomerDomesticTransferServiceImpl.java:631)
+	at com.gpt.product.gpcash.retail.transaction.domestic.services.CustomerDomesticTransferServiceImpl$$FastClassBySpringCGLIB$$bde44496.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.retail.transaction.domestic.services.CustomerDomesticTransferServiceImpl$$EnhancerBySpringCGLIB$$9c16075b.approve(<generated>)
+	at com.gpt.product.gpcash.retail.pendingtaskuser.services.CustomerUserPendingTaskServiceImpl.approve(CustomerUserPendingTaskServiceImpl.java:297)
+	at com.gpt.product.gpcash.retail.pendingtaskuser.services.CustomerUserPendingTaskServiceImpl$$FastClassBySpringCGLIB$$278956a3.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.retail.pendingtaskuser.services.CustomerUserPendingTaskServiceImpl$$EnhancerBySpringCGLIB$$76a66da2.approve(<generated>)
+	at com.gpt.product.gpcash.retail.transaction.domestic.services.CustomerDomesticTransferSCImpl.submit(CustomerDomesticTransferSCImpl.java:192)
+	at com.gpt.product.gpcash.retail.transaction.domestic.services.CustomerDomesticTransferSCImpl$$FastClassBySpringCGLIB$$f6eeb1af.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
+	at com.gpt.component.common.validation.ValidationAspect.validate(ValidationAspect.java:270)
+	at sun.reflect.GeneratedMethodAccessor142.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
+	at com.gpt.product.gpcash.retail.logging.CustomerActivityLogAspect.log(CustomerActivityLogAspect.java:51)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.retail.transaction.domestic.services.CustomerDomesticTransferSCImpl$$EnhancerBySpringCGLIB$$9ccea579.submit(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:63)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:85)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:84)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:25)
+	at com.gpt.component.common.invoker.queue.consumer.handler.QueueHandler.processMessage(QueueHandler.java:40)
+	at com.gpt.component.common.invoker.queue.consumer.QueueConsumer$Worker.run(QueueConsumer.java:212)
+Caused by: com.netflix.hystrix.exception.HystrixRuntimeException: EAIEngine#invokeService failed and no fallback available.
+	at com.netflix.hystrix.AbstractCommand$22.call(AbstractCommand.java:819)
+	at com.netflix.hystrix.AbstractCommand$22.call(AbstractCommand.java:804)
+	at rx.internal.operators.OperatorOnErrorResumeNextViaFunction$4.onError(OperatorOnErrorResumeNextViaFunction.java:140)
+	at rx.internal.operators.OnSubscribeDoOnEach$DoOnEachSubscriber.onError(OnSubscribeDoOnEach.java:87)
+	at rx.internal.operators.OnSubscribeDoOnEach$DoOnEachSubscriber.onError(OnSubscribeDoOnEach.java:87)
+	at com.netflix.hystrix.AbstractCommand$DeprecatedOnFallbackHookApplication$1.onError(AbstractCommand.java:1472)
+	at com.netflix.hystrix.AbstractCommand$FallbackHookApplication$1.onError(AbstractCommand.java:1397)
+	at rx.internal.operators.OnSubscribeDoOnEach$DoOnEachSubscriber.onError(OnSubscribeDoOnEach.java:87)
+	at rx.observers.Subscribers$5.onError(Subscribers.java:230)
+	at rx.internal.operators.OnSubscribeThrow.call(OnSubscribeThrow.java:44)
+	at rx.internal.operators.OnSubscribeThrow.call(OnSubscribeThrow.java:28)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDefer.call(OnSubscribeDefer.java:51)
+	at rx.internal.operators.OnSubscribeDefer.call(OnSubscribeDefer.java:35)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:41)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:30)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:41)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:30)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:41)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:30)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:41)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:30)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OperatorOnErrorResumeNextViaFunction$4.onError(OperatorOnErrorResumeNextViaFunction.java:142)
+	at rx.internal.operators.OnSubscribeDoOnEach$DoOnEachSubscriber.onError(OnSubscribeDoOnEach.java:87)
+	at rx.internal.operators.OnSubscribeDoOnEach$DoOnEachSubscriber.onError(OnSubscribeDoOnEach.java:87)
+	at rx.observers.Subscribers$5.onError(Subscribers.java:230)
+	at com.netflix.hystrix.AbstractCommand$DeprecatedOnRunHookApplication$1.onError(AbstractCommand.java:1431)
+	at com.netflix.hystrix.AbstractCommand$ExecutionHookApplication$1.onError(AbstractCommand.java:1362)
+	at rx.observers.Subscribers$5.onError(Subscribers.java:230)
+	at rx.observers.Subscribers$5.onError(Subscribers.java:230)
+	at rx.internal.operators.OnSubscribeThrow.call(OnSubscribeThrow.java:44)
+	at rx.internal.operators.OnSubscribeThrow.call(OnSubscribeThrow.java:28)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDefer.call(OnSubscribeDefer.java:51)
+	at rx.internal.operators.OnSubscribeDefer.call(OnSubscribeDefer.java:35)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDefer.call(OnSubscribeDefer.java:51)
+	at rx.internal.operators.OnSubscribeDefer.call(OnSubscribeDefer.java:35)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:41)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:30)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:41)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:30)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:41)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:30)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:41)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:30)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:41)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:30)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDefer.call(OnSubscribeDefer.java:51)
+	at rx.internal.operators.OnSubscribeDefer.call(OnSubscribeDefer.java:35)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeMap.call(OnSubscribeMap.java:48)
+	at rx.internal.operators.OnSubscribeMap.call(OnSubscribeMap.java:33)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:41)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:30)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:41)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:30)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDefer.call(OnSubscribeDefer.java:51)
+	at rx.internal.operators.OnSubscribeDefer.call(OnSubscribeDefer.java:35)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+	at rx.Observable.subscribe(Observable.java:10247)
+	at rx.Observable.subscribe(Observable.java:10214)
+	at rx.internal.operators.BlockingOperatorToFuture.toFuture(BlockingOperatorToFuture.java:51)
+	at rx.observables.BlockingObservable.toFuture(BlockingObservable.java:411)
+	at com.netflix.hystrix.HystrixCommand.queue(HystrixCommand.java:378)
+	at com.netflix.hystrix.HystrixCommand.execute(HystrixCommand.java:344)
+	at com.gpt.component.common.configuration.AutoDiscoveryConfiguration$RemoteInvocationHandler.invoke(AutoDiscoveryConfiguration.java:492)
+	at com.sun.proxy.$Proxy211.invokeService(Unknown Source)
+	at com.gpt.product.gpcash.retail.transaction.domestic.services.CustomerDomesticTransferServiceImpl.doTransfer(CustomerDomesticTransferServiceImpl.java:775)
+	... 64 common frames omitted
+Caused by: java.util.concurrent.ExecutionException: com.gpt.component.common.exceptions.BusinessException: EAI-EAI-03
+	at com.gpt.component.common.invoker.QueueInvoker$FutureActionResponse.lambda$new$33(QueueInvoker.java:232)
+	at com.gpt.component.common.invoker.QueueInvoker$ActionResponse.handle(QueueInvoker.java:196)
+	at com.gpt.component.common.invoker.QueueInvoker$FutureActionResponse.handle(QueueInvoker.java:224)
+	at com.gpt.component.common.invoker.QueueInvoker$1.onMessage(QueueInvoker.java:59)
+	at com.gpt.component.common.invoker.queue.consumer.handler.QueueHandler.processMessage(QueueHandler.java:54)
+	at com.gpt.component.common.invoker.queue.consumer.MultiQueuesConsumer$ResponseWorker.run(MultiQueuesConsumer.java:163)
+Caused by: com.gpt.component.common.exceptions.BusinessException: EAI-EAI-03
+	at com.gpt.product.cash.eai.bjb.service.api.skngen2.DoPostingCreditSKNGEN2.executeService(DoPostingCreditSKNGEN2.java:86)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:333)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:741)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
+	at com.gpt.component.common.validation.ValidationAspect.validate(ValidationAspect.java:270)
+	at sun.reflect.GeneratedMethodAccessor48.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.cash.eai.bjb.service.api.skngen2.DoPostingCreditSKNGEN2$$EnhancerBySpringCGLIB$$ff14bcb4.executeService(<generated>)
+	at com.gpt.platform.eai.service.BaseService.execute(BaseService.java:32)
+	at com.gpt.product.cash.eai.bjb.service.gpcash.transfermanagement.DoDomesticTransfer.doSKNTransfer(DoDomesticTransfer.java:180)
+	at com.gpt.product.cash.eai.bjb.service.gpcash.transfermanagement.DoDomesticTransfer.executeService(DoDomesticTransfer.java:115)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:333)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:741)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
+	at com.gpt.component.common.validation.ValidationAspect.validate(ValidationAspect.java:270)
+	at sun.reflect.GeneratedMethodAccessor48.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.cash.eai.bjb.service.gpcash.transfermanagement.DoDomesticTransfer$$EnhancerBySpringCGLIB$$88cf3e4.executeService(<generated>)
+	at com.gpt.platform.eai.service.BaseService.execute(BaseService.java:32)
+	at com.gpt.platform.eai.service.ServiceLocator.invokeService(ServiceLocator.java:31)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:65)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:84)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:25)
+	at com.gpt.component.common.invoker.queue.consumer.handler.QueueHandler.processMessage(QueueHandler.java:40)
+	at com.gpt.component.common.invoker.queue.consumer.QueueConsumer$Worker.run(QueueConsumer.java:214)
+[6904] 22:08:02.068 W -   ExceptionHandlerExceptionResolver(189) [          http-nio-8005-exec-8] [  303485570088061141] : Resolved exception caused by Handler execution: com.gpt.component.common.exceptions.ApplicationException: com.netflix.hystrix.exception.HystrixRuntimeException: EAIEngine#invokeService failed and no fallback available.

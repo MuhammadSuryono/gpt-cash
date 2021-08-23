@@ -1,0 +1,130 @@
+[6904] 21:39:38.731 D -             CustomerMobileController(58) [          http-nio-8005-exec-2] [-5099263676376399221] : [preInvoke] - [-] - CustomerMobileSC#authenticate({loginId=whyretail, passwd=nWZ8C4BTfsFK2lO218cGtIEdZuBcHSkzCpJxD3mU8kk=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=YQSytavnOCMchJ8&, menuCode=null, appCode=GPCASHIB_R})
+[6904] 21:39:40.999 D -                        QueueInvoker(126) [          http-nio-8005-exec-2] [-5099263676376399221] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#authenticate({loginId=whyretail, passwd=nWZ8C4BTfsFK2lO218cGtIEdZuBcHSkzCpJxD3mU8kk=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=YQSytavnOCMchJ8&, menuCode=null, appCode=GPCASHIB_R})
+[6904] 21:39:41.669 D -                    ValidationAspect(266) [            ServerThreadPool-3] [-5099263676376399221] : [Validation - Input] - CustomerMobileSCImpl#authenticate({loginId=whyretail, passwd=nWZ8C4BTfsFK2lO218cGtIEdZuBcHSkzCpJxD3mU8kk=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=YQSytavnOCMchJ8&, menuCode=null, appCode=GPCASHIB_R})
+[6904] 21:39:46.778 D -                 IDMLoginServiceImpl(409) [            ServerThreadPool-3] [-5099263676376399221] : getLastLoginDate : 2020-07-30 19:07:24.905
+[6904] 21:39:46.779 D -                 IDMLoginServiceImpl(410) [            ServerThreadPool-3] [-5099263676376399221] : validateUserIdle diffDays : 4
+[6904] 21:39:49.118 D -                 IDMLoginServiceImpl(390) [            ServerThreadPool-3] [-5099263676376399221] : getLastChangePasswordDate : 2020-07-22 14:05:40.767
+[6904] 21:39:49.118 D -                 IDMLoginServiceImpl(391) [            ServerThreadPool-3] [-5099263676376399221] : validateUserPasswordExpired diffDays : 12
+[6904] 21:39:50.214 D -            CustomerMobileController(139) [            ServerThreadPool-3] [-5099263676376399221] : 
+
+
+
+
+
+[6904] 21:39:50.214 D -            CustomerMobileController(140) [            ServerThreadPool-3] [-5099263676376399221] : session id    : ac8ccdd1-0e00-4c41-831c-704a6ef6cab9
+[6904] 21:39:50.214 D -            CustomerMobileController(141) [            ServerThreadPool-3] [-5099263676376399221] : custId      : WHYRETAIL|DEMO0999
+[6904] 21:39:50.214 D -            CustomerMobileController(142) [            ServerThreadPool-3] [-5099263676376399221] : 
+
+
+
+
+
+[6904] 21:39:50.319 D -                        QueueInvoker(201) [            ServerThreadPool-3] [-5099263676376399221] : Execution Time: 9318 ms
+[6904] 21:39:57.501 D -             CustomerMobileController(58) [          http-nio-8005-exec-3] [-5357832821848915404] : [preInvoke] - [ac8ccdd1-0e00-4c41-831c-704a6ef6cab9] - CustomerMobileSC#finalizeSetup({otp=123456, fpAvailable=false, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, menuCode=MNU_R_GPCASH_M_OTP, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999})
+[6904] 21:39:57.512 D -                        QueueInvoker(126) [          http-nio-8005-exec-3] [-5357832821848915404] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#finalizeSetup({otp=123456, fpAvailable=false, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, menuCode=MNU_R_GPCASH_M_OTP, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999})
+[6904] 21:39:57.514 D -                    ValidationAspect(266) [            ServerThreadPool-2] [-5357832821848915404] : [Validation - Input] - CustomerMobileSCImpl#finalizeSetup({otp=123456, fpAvailable=false, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, menuCode=MNU_R_GPCASH_M_OTP, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999})
+[6904] 21:39:58.732 D -                        QueueInvoker(201) [            ServerThreadPool-2] [-5357832821848915404] : Execution Time: 1220 ms
+[6904] 21:40:01.049 D -             CustomerMobileController(58) [          http-nio-8005-exec-6] [-4586403923991179324] : [preInvoke] - [-] - CustomerMobileSC#mobileCustLogin({loginId=whyretail, passwd=JqcVGF65FdFb1KcpkxLTMkeeLBQTuI5nhsKogbj6mA0=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=AjfTqPrBUUEzcG0$, menuCode=null, appCode=GPCASHIB_R})
+[6904] 21:40:01.057 D -                        QueueInvoker(126) [          http-nio-8005-exec-6] [-4586403923991179324] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#mobileCustLogin({loginId=whyretail, passwd=JqcVGF65FdFb1KcpkxLTMkeeLBQTuI5nhsKogbj6mA0=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=AjfTqPrBUUEzcG0$, menuCode=null, appCode=GPCASHIB_R})
+[6904] 21:40:01.060 D -                    ValidationAspect(266) [            ServerThreadPool-1] [-4586403923991179324] : [Validation - Input] - CustomerMobileSCImpl#mobileCustLogin({loginId=whyretail, passwd=JqcVGF65FdFb1KcpkxLTMkeeLBQTuI5nhsKogbj6mA0=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=AjfTqPrBUUEzcG0$, menuCode=null, appCode=GPCASHIB_R})
+[6904] 21:40:01.129 D -                 IDMLoginServiceImpl(409) [            ServerThreadPool-1] [-4586403923991179324] : getLastLoginDate : 2020-07-30 19:07:24.905
+[6904] 21:40:01.129 D -                 IDMLoginServiceImpl(410) [            ServerThreadPool-1] [-4586403923991179324] : validateUserIdle diffDays : 4
+[6904] 21:40:01.240 D -                 IDMLoginServiceImpl(390) [            ServerThreadPool-1] [-4586403923991179324] : getLastChangePasswordDate : 2020-07-22 14:05:40.767
+[6904] 21:40:01.241 D -                 IDMLoginServiceImpl(391) [            ServerThreadPool-1] [-4586403923991179324] : validateUserPasswordExpired diffDays : 12
+[6904] 21:40:02.407 D -            CustomerMobileController(214) [            ServerThreadPool-1] [-4586403923991179324] : 
+
+
+
+
+
+[6904] 21:40:02.407 D -            CustomerMobileController(215) [            ServerThreadPool-1] [-4586403923991179324] : session id    : 9ddd000f-c524-4756-a7e0-b6b5dc3fcb5e
+[6904] 21:40:02.407 D -            CustomerMobileController(216) [            ServerThreadPool-1] [-4586403923991179324] : custId      : WHYRETAIL|DEMO0999
+[6904] 21:40:02.407 D -            CustomerMobileController(217) [            ServerThreadPool-1] [-4586403923991179324] : loginMenuList : [MNU_R_GPCASH_M_OTP, MNU_R_GPCASH_F_FUND_BENEFICIARY]
+[6904] 21:40:02.407 D -            CustomerMobileController(218) [            ServerThreadPool-1] [-4586403923991179324] : 
+
+
+
+
+
+[6904] 21:40:02.408 D -                        QueueInvoker(201) [            ServerThreadPool-1] [-4586403923991179324] : Execution Time: 1350 ms
+[6904] 21:40:06.785 D -             CustomerMobileController(58) [          http-nio-8005-exec-8] [ -505619852679689832] : [preInvoke] - [9ddd000f-c524-4756-a7e0-b6b5dc3fcb5e] - CustomerMobileSC#activateDevice({otp=123456, fpAvailable=false, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, menuCode=MNU_R_GPCASH_M_OTP, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999})
+[6904] 21:40:06.792 D -                        QueueInvoker(126) [          http-nio-8005-exec-8] [ -505619852679689832] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#activateDevice({otp=123456, fpAvailable=false, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, menuCode=MNU_R_GPCASH_M_OTP, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999})
+[6904] 21:40:06.844 D -                        QueueInvoker(201) [            ServerThreadPool-4] [ -505619852679689832] : Execution Time: 51 ms
+[6904] 21:53:50.217 D -             CustomerMobileController(58) [          http-nio-8005-exec-1] [-6237701921574991557] : [preInvoke] - [-] - CustomerMobileSC#mobileCustLogin({loginId=whyretail, passwd=3dXnky+1+PimM3fre02FWfX1HwC5BhOoFO7+Mnsi9TI=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=OgJXlxzzSPhAeg6$, menuCode=null, appCode=GPCASHIB_R})
+[6904] 21:53:50.218 D -                        QueueInvoker(126) [          http-nio-8005-exec-1] [-6237701921574991557] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#mobileCustLogin({loginId=whyretail, passwd=3dXnky+1+PimM3fre02FWfX1HwC5BhOoFO7+Mnsi9TI=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=OgJXlxzzSPhAeg6$, menuCode=null, appCode=GPCASHIB_R})
+[6904] 21:53:50.220 D -                    ValidationAspect(266) [            ServerThreadPool-1] [-6237701921574991557] : [Validation - Input] - CustomerMobileSCImpl#mobileCustLogin({loginId=whyretail, passwd=3dXnky+1+PimM3fre02FWfX1HwC5BhOoFO7+Mnsi9TI=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=OgJXlxzzSPhAeg6$, menuCode=null, appCode=GPCASHIB_R})
+[6904] 21:53:50.570 D -                 IDMLoginServiceImpl(409) [            ServerThreadPool-1] [-6237701921574991557] : getLastLoginDate : 2020-08-03 21:40:01.885
+[6904] 21:53:50.570 D -                 IDMLoginServiceImpl(410) [            ServerThreadPool-1] [-6237701921574991557] : validateUserIdle diffDays : 0
+[6904] 21:53:50.572 D -                 IDMLoginServiceImpl(390) [            ServerThreadPool-1] [-6237701921574991557] : getLastChangePasswordDate : 2020-07-22 14:05:40.767
+[6904] 21:53:50.573 D -                 IDMLoginServiceImpl(391) [            ServerThreadPool-1] [-6237701921574991557] : validateUserPasswordExpired diffDays : 12
+[6904] 21:53:50.621 D -            CustomerMobileController(214) [            ServerThreadPool-1] [-6237701921574991557] : 
+
+
+
+
+
+[6904] 21:53:50.621 D -            CustomerMobileController(215) [            ServerThreadPool-1] [-6237701921574991557] : session id    : 4ccf3b3d-2250-47d4-86db-1c45c5611176
+[6904] 21:53:50.621 D -            CustomerMobileController(216) [            ServerThreadPool-1] [-6237701921574991557] : custId      : WHYRETAIL|DEMO0999
+[6904] 21:53:50.621 D -            CustomerMobileController(217) [            ServerThreadPool-1] [-6237701921574991557] : loginMenuList : [MNU_R_GPCASH_M_OTP, MNU_R_GPCASH_F_FUND_BENEFICIARY]
+[6904] 21:53:50.622 D -            CustomerMobileController(218) [            ServerThreadPool-1] [-6237701921574991557] : 
+
+
+
+
+
+[6904] 21:53:50.622 D -                        QueueInvoker(201) [            ServerThreadPool-1] [-6237701921574991557] : Execution Time: 403 ms
+[6904] 21:53:55.058 D -             CustomerMobileController(58) [          http-nio-8005-exec-4] [-1149062519977261306] : [preInvoke] - [4ccf3b3d-2250-47d4-86db-1c45c5611176] - CustomerMobileSC#activateDevice({otp=123456, fpAvailable=false, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, menuCode=MNU_R_GPCASH_M_OTP, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999})
+[6904] 21:53:55.059 D -                        QueueInvoker(126) [          http-nio-8005-exec-4] [-1149062519977261306] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#activateDevice({otp=123456, fpAvailable=false, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, menuCode=MNU_R_GPCASH_M_OTP, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999})
+[6904] 21:53:55.082 D -                        QueueInvoker(201) [            ServerThreadPool-2] [-1149062519977261306] : Execution Time: 23 ms
+[6904] 21:57:05.894 D -             CustomerMobileController(58) [         http-nio-8005-exec-10] [ 5969137002892771454] : [preInvoke] - [-] - CustomerMobileSC#mobileCustLogin({loginId=whyretail, passwd=xGKgLDM+yT+xLYriVHi8o6CD3rkK/L5vCbtXLkwPE+k=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=CoHTPNxYGmHiLS0#, menuCode=null, appCode=GPCASHIB_R})
+[6904] 21:57:06.116 D -                        QueueInvoker(126) [         http-nio-8005-exec-10] [ 5969137002892771454] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#mobileCustLogin({loginId=whyretail, passwd=xGKgLDM+yT+xLYriVHi8o6CD3rkK/L5vCbtXLkwPE+k=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=CoHTPNxYGmHiLS0#, menuCode=null, appCode=GPCASHIB_R})
+[6904] 21:57:06.120 D -                    ValidationAspect(266) [            ServerThreadPool-1] [ 5969137002892771454] : [Validation - Input] - CustomerMobileSCImpl#mobileCustLogin({loginId=whyretail, passwd=xGKgLDM+yT+xLYriVHi8o6CD3rkK/L5vCbtXLkwPE+k=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=CoHTPNxYGmHiLS0#, menuCode=null, appCode=GPCASHIB_R})
+[6904] 21:57:06.133 D -                 IDMLoginServiceImpl(409) [            ServerThreadPool-1] [ 5969137002892771454] : getLastLoginDate : 2020-08-03 21:53:50.59
+[6904] 21:57:06.134 D -                 IDMLoginServiceImpl(410) [            ServerThreadPool-1] [ 5969137002892771454] : validateUserIdle diffDays : 0
+[6904] 21:57:06.136 D -                 IDMLoginServiceImpl(390) [            ServerThreadPool-1] [ 5969137002892771454] : getLastChangePasswordDate : 2020-07-22 14:05:40.767
+[6904] 21:57:06.137 D -                 IDMLoginServiceImpl(391) [            ServerThreadPool-1] [ 5969137002892771454] : validateUserPasswordExpired diffDays : 12
+[6904] 21:57:06.797 D -            CustomerMobileController(214) [            ServerThreadPool-1] [ 5969137002892771454] : 
+
+
+
+
+
+[6904] 21:57:06.797 D -            CustomerMobileController(215) [            ServerThreadPool-1] [ 5969137002892771454] : session id    : 9d674a22-22f1-4e95-a89e-8f4a7efec293
+[6904] 21:57:06.798 D -            CustomerMobileController(216) [            ServerThreadPool-1] [ 5969137002892771454] : custId      : WHYRETAIL|DEMO0999
+[6904] 21:57:06.798 D -            CustomerMobileController(217) [            ServerThreadPool-1] [ 5969137002892771454] : loginMenuList : [MNU_R_GPCASH_M_OTP, MNU_R_GPCASH_F_FUND_BENEFICIARY]
+[6904] 21:57:06.798 D -            CustomerMobileController(218) [            ServerThreadPool-1] [ 5969137002892771454] : 
+
+
+
+
+
+[6904] 21:57:06.799 D -                        QueueInvoker(201) [            ServerThreadPool-1] [ 5969137002892771454] : Execution Time: 681 ms
+[6904] 21:57:10.700 D -             CustomerMobileController(58) [          http-nio-8005-exec-3] [-5906196135343012537] : [preInvoke] - [9d674a22-22f1-4e95-a89e-8f4a7efec293] - CustomerMobileSC#activateDevice({otp=123456, fpAvailable=false, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, menuCode=MNU_R_GPCASH_M_OTP, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999})
+[6904] 21:57:10.703 D -                        QueueInvoker(126) [          http-nio-8005-exec-3] [-5906196135343012537] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#activateDevice({otp=123456, fpAvailable=false, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, menuCode=MNU_R_GPCASH_M_OTP, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999})
+[6904] 21:57:10.717 D -                        QueueInvoker(201) [            ServerThreadPool-5] [-5906196135343012537] : Execution Time: 14 ms
+[6904] 22:06:28.387 D -             CustomerMobileController(58) [          http-nio-8005-exec-6] [-6075108112233575032] : [preInvoke] - [-] - CustomerMobileSC#mobileCustLogin({loginId=whyretail, passwd=9cwDyRlhl+3H1zQ92jihmX1KBqb1mE0kwAOu8UZXkh0=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=ZBsNwXszxRSSMH7&, menuCode=null, appCode=GPCASHIB_R})
+[6904] 22:06:28.409 D -                        QueueInvoker(126) [          http-nio-8005-exec-6] [-6075108112233575032] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#mobileCustLogin({loginId=whyretail, passwd=9cwDyRlhl+3H1zQ92jihmX1KBqb1mE0kwAOu8UZXkh0=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=ZBsNwXszxRSSMH7&, menuCode=null, appCode=GPCASHIB_R})
+[6904] 22:06:28.413 D -                    ValidationAspect(266) [            ServerThreadPool-5] [-6075108112233575032] : [Validation - Input] - CustomerMobileSCImpl#mobileCustLogin({loginId=whyretail, passwd=9cwDyRlhl+3H1zQ92jihmX1KBqb1mE0kwAOu8UZXkh0=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=ZBsNwXszxRSSMH7&, menuCode=null, appCode=GPCASHIB_R})
+[6904] 22:06:28.442 D -                 IDMLoginServiceImpl(409) [            ServerThreadPool-5] [-6075108112233575032] : getLastLoginDate : 2020-08-03 21:57:06.143
+[6904] 22:06:28.443 D -                 IDMLoginServiceImpl(410) [            ServerThreadPool-5] [-6075108112233575032] : validateUserIdle diffDays : 0
+[6904] 22:06:28.444 D -                 IDMLoginServiceImpl(390) [            ServerThreadPool-5] [-6075108112233575032] : getLastChangePasswordDate : 2020-07-22 14:05:40.767
+[6904] 22:06:28.444 D -                 IDMLoginServiceImpl(391) [            ServerThreadPool-5] [-6075108112233575032] : validateUserPasswordExpired diffDays : 12
+[6904] 22:06:28.510 D -            CustomerMobileController(214) [            ServerThreadPool-5] [-6075108112233575032] : 
+
+
+
+
+
+[6904] 22:06:28.510 D -            CustomerMobileController(215) [            ServerThreadPool-5] [-6075108112233575032] : session id    : fef1951d-050e-4d45-a18c-66c690662a8d
+[6904] 22:06:28.510 D -            CustomerMobileController(216) [            ServerThreadPool-5] [-6075108112233575032] : custId      : WHYRETAIL|DEMO0999
+[6904] 22:06:28.510 D -            CustomerMobileController(217) [            ServerThreadPool-5] [-6075108112233575032] : loginMenuList : [MNU_R_GPCASH_M_OTP, MNU_R_GPCASH_F_FUND_BENEFICIARY]
+[6904] 22:06:28.510 D -            CustomerMobileController(218) [            ServerThreadPool-5] [-6075108112233575032] : 
+
+
+
+
+
+[6904] 22:06:28.530 D -                        QueueInvoker(201) [            ServerThreadPool-5] [-6075108112233575032] : Execution Time: 120 ms
+[6904] 22:06:32.826 D -             CustomerMobileController(58) [          http-nio-8005-exec-3] [  249706239247273694] : [preInvoke] - [fef1951d-050e-4d45-a18c-66c690662a8d] - CustomerMobileSC#activateDevice({otp=123456, fpAvailable=false, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, menuCode=MNU_R_GPCASH_M_OTP, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999})
+[6904] 22:06:32.842 D -                        QueueInvoker(126) [          http-nio-8005-exec-3] [  249706239247273694] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#activateDevice({otp=123456, fpAvailable=false, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, menuCode=MNU_R_GPCASH_M_OTP, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999})
+[6904] 22:06:32.856 D -                        QueueInvoker(201) [            ServerThreadPool-4] [  249706239247273694] : Execution Time: 13 ms

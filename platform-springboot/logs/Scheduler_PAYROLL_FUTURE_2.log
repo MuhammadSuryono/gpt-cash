@@ -1,0 +1,5 @@
+[13032] 11:00:00.094 D -                      SchedulerHelper(47) [            Scheduler_Worker-5] [ 3507682095247478048] : [PAYROLL_FUTURE_2] Scheduled Fire Time : Tue Jan 05 11:00:00 SGT 2021
+[13032] 11:00:00.130 D -                      SchedulerHelper(48) [            Scheduler_Worker-5] [ 3507682095247478048] : [PAYROLL_FUTURE_2] Next Fire Time      : Tue Jan 05 11:00:00 SGT 2021
+[13032] 11:00:00.155 D -                  PayrollServiceImpl(626) [            Scheduler_Worker-5] [ 3507682095247478048] : Future start : 2021-01-05 00:00:00.0
+[13032] 11:00:00.155 D -                  PayrollServiceImpl(627) [            Scheduler_Worker-5] [ 3507682095247478048] : Future end : 2021-01-05 11:00:00.0
+[13032] 11:00:00.161 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-5] [ 3507682095247478048] : [PAYROLL_FUTURE_2] Next Fire Time (New): Wed Jan 06 11:00:00 SGT 2021

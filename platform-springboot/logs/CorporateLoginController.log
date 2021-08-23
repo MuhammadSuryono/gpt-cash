@@ -1,0 +1,1343 @@
+[10692] 16:19:25.058 D -                              Helper(213) [          http-nio-8005-exec-9] [  299720533497627246] : random passwd : XhtBkKxsvbNKlM5$
+[10692] 16:19:25.299 D -             CorporateLoginController(62) [          http-nio-8005-exec-8] [-4393055946695229060] : [preInvoke] - [-] - CorporateLoginSC#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX1+ygZIgrpAPDMrwqSX3WhBn+VlKk7RLiC8=, key=XhtBkKxsvbNKlM5$, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:19:25.860 D -                        QueueInvoker(126) [          http-nio-8005-exec-8] [-4393055946695229060] : [AutoDiscoveryQueueInvoker] - CorporateLoginSC#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX1+ygZIgrpAPDMrwqSX3WhBn+VlKk7RLiC8=, key=XhtBkKxsvbNKlM5$, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:19:26.011 D -                    ValidationAspect(266) [            ServerThreadPool-4] [-4393055946695229060] : [Validation - Input] - CorporateLoginSCImpl#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX1+ygZIgrpAPDMrwqSX3WhBn+VlKk7RLiC8=, key=XhtBkKxsvbNKlM5$, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:19:26.974 D -                 IDMLoginServiceImpl(453) [            ServerThreadPool-4] [-4393055946695229060] : getLastLoginDate : 2021-08-12 20:30:01.588
+[10692] 16:19:26.975 D -                 IDMLoginServiceImpl(454) [            ServerThreadPool-4] [-4393055946695229060] : validateUserIdle diffDays : 0
+[10692] 16:19:26.997 D -                 IDMLoginServiceImpl(434) [            ServerThreadPool-4] [-4393055946695229060] : getLastChangePasswordDate : 2021-07-13 15:36:27.779
+[10692] 16:19:26.998 D -                 IDMLoginServiceImpl(435) [            ServerThreadPool-4] [-4393055946695229060] : validateUserPasswordExpired diffDays : 31
+[10692] 16:19:27.455 D -             CorporateLoginController(81) [            ServerThreadPool-4] [-4393055946695229060] : 
+
+
+
+
+
+[10692] 16:19:27.455 D -             CorporateLoginController(82) [            ServerThreadPool-4] [-4393055946695229060] : session id    : eaa66d71-1a86-451e-bfaf-e1db99e18980
+[10692] 16:19:27.455 D -             CorporateLoginController(83) [            ServerThreadPool-4] [-4393055946695229060] : userCode      : GDBANK|GDUSERMAKER
+[10692] 16:19:27.456 D -             CorporateLoginController(84) [            ServerThreadPool-4] [-4393055946695229060] : loginMenuList : [MNU_GPCASH_F_BILL_PAYMENT, MNU_GPCASH_F_DIRECT_DEBIT, MNU_GPCASH_F_FUND_BENEFICIARY_UPLOAD, MNU_GPCASH_F_FUND_INT, MNU_GPCASH_F_INTEREST_RATE, MNU_GPCASH_F_PAYMENT_VA, MNU_GPCASH_F_PENDING_TASK, MNU_GPCASH_F_TD_PLACEMENT, MNU_GPCASH_F_EXCHANGE_RATE, MNU_GPCASH_F_PARENT_SIPKD, MNU_GPCASH_F_CORP_VA, MNU_GPCASH_F_FUND_DOMESTIC, MNU_GPCASH_F_INFO, MNU_GPCASH_F_LIQ, MNU_GPCASH_F_PURCHASE, MNU_GPCASH_F_CHQ_ORDER, MNU_GPCASH_F_FUND_BENEFICIARY, MNU_GPCASH_F_ACCOUNTS, MNU_GPCASH_F_FUND_TRF, MNU_GPCASH_F_TAX_PAYMENT, MNU_GPCASH_F_CORP_VA_LIST, MNU_GPCASH_F_FUND_INHOUSE, MNU_GPCASH_F_MASS_FUND_BULK_PAYMENT, MNU_GPCASH_F_SIPKD, MNU_GPCASH_F_BAL_SUMMARY, MNU_GPCASH_F_CORP_VA_REPORT, MNU_GPCASH_F_LIQ_SWEEP_OUT, MNU_GPCASH_F_MASS_FUND_PAYROLL, MNU_GPCASH_F_TRX_VA_HISTORY, MNU_GPCASH_F_BILL, MNU_GPCASH_F_CHQ, MNU_GPCASH_F_CHQ_RECON, MNU_GPCASH_F_CORP_VA_UPLOAD, MNU_GPCASH_F_LIQ_SWEEP_IN, MNU_GPCASH_F_MASS_FUND_TRF, MNU_GPCASH_F_TD, MNU_GPCASH_F_TD_WITHDRAW, MNU_GPCASH_F_TRX_HISTORY, MNU_GPCASH_F_TRX_STATUS, MNU_GPCASH_F_NON_FIN, MNU_GPCASH_MT_PARAMETER, MNU_GPCASH_F_CHG_PASSWD, MNU_GPCASH_F_ADMIN_DASHBOARD, MNU_GPCASH_F_USER_DASHBOARD, MNU_GPCASH_MT_HOST_ERROR_MAPPING, MNU_GPCASH_F_ADMIN_PENDING_TASK, MNU_GPCASH_F_PENDING_TASK]
+[10692] 16:19:27.456 D -             CorporateLoginController(85) [            ServerThreadPool-4] [-4393055946695229060] : 
+
+
+
+
+
+[10692] 16:19:27.467 D -                        QueueInvoker(201) [            ServerThreadPool-4] [-4393055946695229060] : Execution Time: 1606 ms
+[10692] 16:19:27.679 D -             CorporateLoginController(62) [          http-nio-8005-exec-4] [-5961725328020322792] : [preInvoke] - [eaa66d71-1a86-451e-bfaf-e1db99e18980] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX1+ygZIgrpAPDMrwqSX3WhBn+VlKk7RLiC8=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=12/08/2021 20:30:01, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:19:27.690 D -                        QueueInvoker(126) [          http-nio-8005-exec-4] [-5961725328020322792] : [AutoDiscoveryQueueInvoker] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX1+ygZIgrpAPDMrwqSX3WhBn+VlKk7RLiC8=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=12/08/2021 20:30:01, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:19:27.694 D -                    ValidationAspect(266) [            ServerThreadPool-3] [-5961725328020322792] : [Validation - Input] - CorporateUserSCImpl#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX1+ygZIgrpAPDMrwqSX3WhBn+VlKk7RLiC8=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=12/08/2021 20:30:01, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:19:27.932 E -            CorporateUserServiceImpl(922) [            ServerThreadPool-3] [-5961725328020322792] : No Image Uploaded : D:\temp\null
+java.nio.file.NoSuchFileException: D:\temp\null
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.readAllBytes(Unknown Source)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl.getUserProfiles(CorporateUserServiceImpl.java:918)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$FastClassBySpringCGLIB$$9083946b.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$EnhancerBySpringCGLIB$$e8b9c4a1.getUserProfiles(<generated>)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl.getUserProfiles(CorporateUserSCImpl.java:324)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$FastClassBySpringCGLIB$$c51810ba.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
+	at com.gpt.component.common.validation.ValidationAspect.validate(ValidationAspect.java:270)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$EnhancerBySpringCGLIB$$1d6aa70b.getUserProfiles(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:63)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:85)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:84)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:25)
+	at com.gpt.component.common.invoker.queue.consumer.handler.QueueHandler.processMessage(QueueHandler.java:40)
+	at com.gpt.component.common.invoker.queue.consumer.QueueConsumer$Worker.run(QueueConsumer.java:212)
+[10692] 16:19:28.695 D -                        QueueInvoker(201) [            ServerThreadPool-3] [-5961725328020322792] : Execution Time: 1004 ms
+[10692] 16:25:55.740 D -                              Helper(213) [          http-nio-8005-exec-3] [ 8401607194237224778] : random passwd : YUtcCdnzrRLiGg0#
+[10692] 16:25:55.784 D -             CorporateLoginController(62) [          http-nio-8005-exec-2] [-8520877124492964028] : [preInvoke] - [-] - CorporateLoginSC#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX1+2KjX6kf06NwEKuGRrnWtldgSnn7dTrhE=, key=YUtcCdnzrRLiGg0#, loginCorporateId=gdbank, loginHandlesLogout=true, loginHistoryId=[9032efa7-caa9-45f2-8ad2-82c02803ce8f], loginDate=2021-08-13 16:19:27.153, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:25:55.784 D -                        QueueInvoker(126) [          http-nio-8005-exec-2] [-8520877124492964028] : [AutoDiscoveryQueueInvoker] - CorporateLoginSC#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX1+2KjX6kf06NwEKuGRrnWtldgSnn7dTrhE=, key=YUtcCdnzrRLiGg0#, loginCorporateId=gdbank, loginHandlesLogout=true, loginHistoryId=[9032efa7-caa9-45f2-8ad2-82c02803ce8f], loginDate=2021-08-13 16:19:27.153, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:25:55.787 D -                    ValidationAspect(266) [            ServerThreadPool-2] [-8520877124492964028] : [Validation - Input] - CorporateLoginSCImpl#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX1+2KjX6kf06NwEKuGRrnWtldgSnn7dTrhE=, key=YUtcCdnzrRLiGg0#, loginCorporateId=gdbank, loginHandlesLogout=true, loginHistoryId=[9032efa7-caa9-45f2-8ad2-82c02803ce8f], loginDate=2021-08-13 16:19:27.153, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:25:55.896 D -                 IDMLoginServiceImpl(453) [            ServerThreadPool-2] [-8520877124492964028] : getLastLoginDate : 2021-08-13 16:19:27.153
+[10692] 16:25:55.896 D -                 IDMLoginServiceImpl(454) [            ServerThreadPool-2] [-8520877124492964028] : validateUserIdle diffDays : 0
+[10692] 16:25:55.905 D -                 IDMLoginServiceImpl(434) [            ServerThreadPool-2] [-8520877124492964028] : getLastChangePasswordDate : 2021-07-13 15:36:27.779
+[10692] 16:25:55.906 D -                 IDMLoginServiceImpl(435) [            ServerThreadPool-2] [-8520877124492964028] : validateUserPasswordExpired diffDays : 31
+[10692] 16:25:55.983 D -             CorporateLoginController(81) [            ServerThreadPool-2] [-8520877124492964028] : 
+
+
+
+
+
+[10692] 16:25:55.984 D -             CorporateLoginController(82) [            ServerThreadPool-2] [-8520877124492964028] : session id    : 55bc0ed9-546d-4357-8dc4-e24275228cd3
+[10692] 16:25:55.984 D -             CorporateLoginController(83) [            ServerThreadPool-2] [-8520877124492964028] : userCode      : GDBANK|GDUSERMAKER
+[10692] 16:25:55.984 D -             CorporateLoginController(84) [            ServerThreadPool-2] [-8520877124492964028] : loginMenuList : [MNU_GPCASH_F_BILL_PAYMENT, MNU_GPCASH_F_DIRECT_DEBIT, MNU_GPCASH_F_FUND_BENEFICIARY_UPLOAD, MNU_GPCASH_F_FUND_INT, MNU_GPCASH_F_INTEREST_RATE, MNU_GPCASH_F_PAYMENT_VA, MNU_GPCASH_F_PENDING_TASK, MNU_GPCASH_F_TD_PLACEMENT, MNU_GPCASH_F_EXCHANGE_RATE, MNU_GPCASH_F_PARENT_SIPKD, MNU_GPCASH_F_CORP_VA, MNU_GPCASH_F_FUND_DOMESTIC, MNU_GPCASH_F_INFO, MNU_GPCASH_F_LIQ, MNU_GPCASH_F_PURCHASE, MNU_GPCASH_F_CHQ_ORDER, MNU_GPCASH_F_FUND_BENEFICIARY, MNU_GPCASH_F_ACCOUNTS, MNU_GPCASH_F_FUND_TRF, MNU_GPCASH_F_TAX_PAYMENT, MNU_GPCASH_F_CORP_VA_LIST, MNU_GPCASH_F_FUND_INHOUSE, MNU_GPCASH_F_MASS_FUND_BULK_PAYMENT, MNU_GPCASH_F_SIPKD, MNU_GPCASH_F_BAL_SUMMARY, MNU_GPCASH_F_CORP_VA_REPORT, MNU_GPCASH_F_LIQ_SWEEP_OUT, MNU_GPCASH_F_MASS_FUND_PAYROLL, MNU_GPCASH_F_TRX_VA_HISTORY, MNU_GPCASH_F_BILL, MNU_GPCASH_F_CHQ, MNU_GPCASH_F_CHQ_RECON, MNU_GPCASH_F_CORP_VA_UPLOAD, MNU_GPCASH_F_LIQ_SWEEP_IN, MNU_GPCASH_F_MASS_FUND_TRF, MNU_GPCASH_F_TD, MNU_GPCASH_F_TD_WITHDRAW, MNU_GPCASH_F_TRX_HISTORY, MNU_GPCASH_F_TRX_STATUS, MNU_GPCASH_F_NON_FIN, MNU_GPCASH_MT_PARAMETER, MNU_GPCASH_F_CHG_PASSWD, MNU_GPCASH_F_ADMIN_DASHBOARD, MNU_GPCASH_F_USER_DASHBOARD, MNU_GPCASH_MT_HOST_ERROR_MAPPING, MNU_GPCASH_F_ADMIN_PENDING_TASK, MNU_GPCASH_F_PENDING_TASK]
+[10692] 16:25:55.984 D -             CorporateLoginController(85) [            ServerThreadPool-2] [-8520877124492964028] : 
+
+
+
+
+
+[10692] 16:25:55.985 D -                        QueueInvoker(201) [            ServerThreadPool-2] [-8520877124492964028] : Execution Time: 200 ms
+[10692] 16:25:56.039 D -             CorporateLoginController(62) [          http-nio-8005-exec-7] [-2941013914175649476] : [preInvoke] - [55bc0ed9-546d-4357-8dc4-e24275228cd3] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX1+2KjX6kf06NwEKuGRrnWtldgSnn7dTrhE=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 16:19:27, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:25:56.039 D -                        QueueInvoker(126) [          http-nio-8005-exec-7] [-2941013914175649476] : [AutoDiscoveryQueueInvoker] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX1+2KjX6kf06NwEKuGRrnWtldgSnn7dTrhE=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 16:19:27, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:25:56.041 D -                    ValidationAspect(266) [            ServerThreadPool-3] [-2941013914175649476] : [Validation - Input] - CorporateUserSCImpl#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX1+2KjX6kf06NwEKuGRrnWtldgSnn7dTrhE=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 16:19:27, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:25:56.112 E -            CorporateUserServiceImpl(922) [            ServerThreadPool-3] [-2941013914175649476] : No Image Uploaded : D:\temp\null
+java.nio.file.NoSuchFileException: D:\temp\null
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.readAllBytes(Unknown Source)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl.getUserProfiles(CorporateUserServiceImpl.java:918)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$FastClassBySpringCGLIB$$9083946b.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$EnhancerBySpringCGLIB$$e8b9c4a1.getUserProfiles(<generated>)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl.getUserProfiles(CorporateUserSCImpl.java:324)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$FastClassBySpringCGLIB$$c51810ba.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
+	at com.gpt.component.common.validation.ValidationAspect.validate(ValidationAspect.java:270)
+	at sun.reflect.GeneratedMethodAccessor167.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$EnhancerBySpringCGLIB$$1d6aa70b.getUserProfiles(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:63)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:85)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:84)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:25)
+	at com.gpt.component.common.invoker.queue.consumer.handler.QueueHandler.processMessage(QueueHandler.java:40)
+	at com.gpt.component.common.invoker.queue.consumer.QueueConsumer$Worker.run(QueueConsumer.java:212)
+[10692] 16:25:56.646 D -                        QueueInvoker(201) [            ServerThreadPool-3] [-2941013914175649476] : Execution Time: 606 ms
+[10692] 16:33:29.419 D -                              Helper(213) [          http-nio-8005-exec-6] [-9035882934959914885] : random passwd : ZDLOXQvAJggDaA5#
+[10692] 16:33:29.448 D -             CorporateLoginController(62) [          http-nio-8005-exec-3] [-6727359246324185066] : [preInvoke] - [-] - CorporateLoginSC#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX19XcarRq3AwkY/kDtKZ8xefmuZcO8rgZpI=, key=ZDLOXQvAJggDaA5#, loginCorporateId=gdbank, loginHandlesLogout=true, loginHistoryId=[cdcacde5-f91c-48ab-a557-32086012037c], loginDate=2021-08-13 16:25:55.949, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:33:29.449 D -                        QueueInvoker(126) [          http-nio-8005-exec-3] [-6727359246324185066] : [AutoDiscoveryQueueInvoker] - CorporateLoginSC#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX19XcarRq3AwkY/kDtKZ8xefmuZcO8rgZpI=, key=ZDLOXQvAJggDaA5#, loginCorporateId=gdbank, loginHandlesLogout=true, loginHistoryId=[cdcacde5-f91c-48ab-a557-32086012037c], loginDate=2021-08-13 16:25:55.949, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:33:29.451 D -                    ValidationAspect(266) [            ServerThreadPool-2] [-6727359246324185066] : [Validation - Input] - CorporateLoginSCImpl#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX19XcarRq3AwkY/kDtKZ8xefmuZcO8rgZpI=, key=ZDLOXQvAJggDaA5#, loginCorporateId=gdbank, loginHandlesLogout=true, loginHistoryId=[cdcacde5-f91c-48ab-a557-32086012037c], loginDate=2021-08-13 16:25:55.949, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:33:29.719 D -                 IDMLoginServiceImpl(453) [            ServerThreadPool-2] [-6727359246324185066] : getLastLoginDate : 2021-08-13 16:25:55.949
+[10692] 16:33:29.719 D -                 IDMLoginServiceImpl(454) [            ServerThreadPool-2] [-6727359246324185066] : validateUserIdle diffDays : 0
+[10692] 16:33:29.739 D -                 IDMLoginServiceImpl(434) [            ServerThreadPool-2] [-6727359246324185066] : getLastChangePasswordDate : 2021-07-13 15:36:27.779
+[10692] 16:33:29.740 D -                 IDMLoginServiceImpl(435) [            ServerThreadPool-2] [-6727359246324185066] : validateUserPasswordExpired diffDays : 31
+[10692] 16:33:29.910 D -             CorporateLoginController(81) [            ServerThreadPool-2] [-6727359246324185066] : 
+
+
+
+
+
+[10692] 16:33:29.910 D -             CorporateLoginController(82) [            ServerThreadPool-2] [-6727359246324185066] : session id    : ad78364c-c6a8-4ba1-82ba-29fa6935333f
+[10692] 16:33:29.910 D -             CorporateLoginController(83) [            ServerThreadPool-2] [-6727359246324185066] : userCode      : GDBANK|GDUSERMAKER
+[10692] 16:33:29.910 D -             CorporateLoginController(84) [            ServerThreadPool-2] [-6727359246324185066] : loginMenuList : [MNU_GPCASH_F_BILL_PAYMENT, MNU_GPCASH_F_DIRECT_DEBIT, MNU_GPCASH_F_FUND_BENEFICIARY_UPLOAD, MNU_GPCASH_F_FUND_INT, MNU_GPCASH_F_INTEREST_RATE, MNU_GPCASH_F_PAYMENT_VA, MNU_GPCASH_F_PENDING_TASK, MNU_GPCASH_F_TD_PLACEMENT, MNU_GPCASH_F_EXCHANGE_RATE, MNU_GPCASH_F_PARENT_SIPKD, MNU_GPCASH_F_CORP_VA, MNU_GPCASH_F_FUND_DOMESTIC, MNU_GPCASH_F_INFO, MNU_GPCASH_F_LIQ, MNU_GPCASH_F_PURCHASE, MNU_GPCASH_F_CHQ_ORDER, MNU_GPCASH_F_FUND_BENEFICIARY, MNU_GPCASH_F_ACCOUNTS, MNU_GPCASH_F_FUND_TRF, MNU_GPCASH_F_TAX_PAYMENT, MNU_GPCASH_F_CORP_VA_LIST, MNU_GPCASH_F_FUND_INHOUSE, MNU_GPCASH_F_MASS_FUND_BULK_PAYMENT, MNU_GPCASH_F_SIPKD, MNU_GPCASH_F_BAL_SUMMARY, MNU_GPCASH_F_CORP_VA_REPORT, MNU_GPCASH_F_LIQ_SWEEP_OUT, MNU_GPCASH_F_MASS_FUND_PAYROLL, MNU_GPCASH_F_TRX_VA_HISTORY, MNU_GPCASH_F_BILL, MNU_GPCASH_F_CHQ, MNU_GPCASH_F_CHQ_RECON, MNU_GPCASH_F_CORP_VA_UPLOAD, MNU_GPCASH_F_LIQ_SWEEP_IN, MNU_GPCASH_F_MASS_FUND_TRF, MNU_GPCASH_F_TD, MNU_GPCASH_F_TD_WITHDRAW, MNU_GPCASH_F_TRX_HISTORY, MNU_GPCASH_F_TRX_STATUS, MNU_GPCASH_F_NON_FIN, MNU_GPCASH_MT_PARAMETER, MNU_GPCASH_F_CHG_PASSWD, MNU_GPCASH_F_ADMIN_DASHBOARD, MNU_GPCASH_F_USER_DASHBOARD, MNU_GPCASH_MT_HOST_ERROR_MAPPING, MNU_GPCASH_F_ADMIN_PENDING_TASK, MNU_GPCASH_F_PENDING_TASK]
+[10692] 16:33:29.910 D -             CorporateLoginController(85) [            ServerThreadPool-2] [-6727359246324185066] : 
+
+
+
+
+
+[10692] 16:33:29.911 D -                        QueueInvoker(201) [            ServerThreadPool-2] [-6727359246324185066] : Execution Time: 461 ms
+[10692] 16:33:29.952 D -             CorporateLoginController(62) [          http-nio-8005-exec-1] [-7510188431884727864] : [preInvoke] - [ad78364c-c6a8-4ba1-82ba-29fa6935333f] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX19XcarRq3AwkY/kDtKZ8xefmuZcO8rgZpI=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 16:25:55, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:33:29.954 D -                        QueueInvoker(126) [          http-nio-8005-exec-1] [-7510188431884727864] : [AutoDiscoveryQueueInvoker] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX19XcarRq3AwkY/kDtKZ8xefmuZcO8rgZpI=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 16:25:55, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:33:29.955 D -                    ValidationAspect(266) [            ServerThreadPool-3] [-7510188431884727864] : [Validation - Input] - CorporateUserSCImpl#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX19XcarRq3AwkY/kDtKZ8xefmuZcO8rgZpI=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 16:25:55, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:33:30.420 E -            CorporateUserServiceImpl(922) [            ServerThreadPool-3] [-7510188431884727864] : No Image Uploaded : D:\temp\null
+java.nio.file.NoSuchFileException: D:\temp\null
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.readAllBytes(Unknown Source)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl.getUserProfiles(CorporateUserServiceImpl.java:918)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$FastClassBySpringCGLIB$$9083946b.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$EnhancerBySpringCGLIB$$e8b9c4a1.getUserProfiles(<generated>)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl.getUserProfiles(CorporateUserSCImpl.java:324)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$FastClassBySpringCGLIB$$c51810ba.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
+	at com.gpt.component.common.validation.ValidationAspect.validate(ValidationAspect.java:270)
+	at sun.reflect.GeneratedMethodAccessor167.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$EnhancerBySpringCGLIB$$1d6aa70b.getUserProfiles(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:63)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:85)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:84)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:25)
+	at com.gpt.component.common.invoker.queue.consumer.handler.QueueHandler.processMessage(QueueHandler.java:40)
+	at com.gpt.component.common.invoker.queue.consumer.QueueConsumer$Worker.run(QueueConsumer.java:212)
+[10692] 16:33:31.434 D -                        QueueInvoker(201) [            ServerThreadPool-3] [-7510188431884727864] : Execution Time: 1480 ms
+[10692] 16:38:29.009 D -                              Helper(213) [          http-nio-8005-exec-9] [ 6812198151286637253] : random passwd : LQeilDLXysELUF7%
+[10692] 16:38:29.031 D -             CorporateLoginController(62) [          http-nio-8005-exec-7] [-8361378403387225228] : [preInvoke] - [-] - CorporateLoginSC#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX19e6SVEa1D3ZKsRwifGUYsoLwhLhTHAsYQ=, key=LQeilDLXysELUF7%, loginCorporateId=gdbank, loginHandlesLogout=true, loginHistoryId=[9308fcc8-1f86-4472-b426-28cca3f0fb34], loginDate=2021-08-13 16:33:29.841, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:38:29.032 D -                        QueueInvoker(126) [          http-nio-8005-exec-7] [-8361378403387225228] : [AutoDiscoveryQueueInvoker] - CorporateLoginSC#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX19e6SVEa1D3ZKsRwifGUYsoLwhLhTHAsYQ=, key=LQeilDLXysELUF7%, loginCorporateId=gdbank, loginHandlesLogout=true, loginHistoryId=[9308fcc8-1f86-4472-b426-28cca3f0fb34], loginDate=2021-08-13 16:33:29.841, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:38:29.034 D -                    ValidationAspect(266) [            ServerThreadPool-3] [-8361378403387225228] : [Validation - Input] - CorporateLoginSCImpl#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX19e6SVEa1D3ZKsRwifGUYsoLwhLhTHAsYQ=, key=LQeilDLXysELUF7%, loginCorporateId=gdbank, loginHandlesLogout=true, loginHistoryId=[9308fcc8-1f86-4472-b426-28cca3f0fb34], loginDate=2021-08-13 16:33:29.841, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:38:29.138 D -                 IDMLoginServiceImpl(453) [            ServerThreadPool-3] [-8361378403387225228] : getLastLoginDate : 2021-08-13 16:33:29.841
+[10692] 16:38:29.138 D -                 IDMLoginServiceImpl(454) [            ServerThreadPool-3] [-8361378403387225228] : validateUserIdle diffDays : 0
+[10692] 16:38:29.146 D -                 IDMLoginServiceImpl(434) [            ServerThreadPool-3] [-8361378403387225228] : getLastChangePasswordDate : 2021-07-13 15:36:27.779
+[10692] 16:38:29.146 D -                 IDMLoginServiceImpl(435) [            ServerThreadPool-3] [-8361378403387225228] : validateUserPasswordExpired diffDays : 31
+[10692] 16:38:29.215 D -             CorporateLoginController(81) [            ServerThreadPool-3] [-8361378403387225228] : 
+
+
+
+
+
+[10692] 16:38:29.215 D -             CorporateLoginController(82) [            ServerThreadPool-3] [-8361378403387225228] : session id    : 227b949b-969d-4f48-9633-9bf560371cd4
+[10692] 16:38:29.215 D -             CorporateLoginController(83) [            ServerThreadPool-3] [-8361378403387225228] : userCode      : GDBANK|GDUSERMAKER
+[10692] 16:38:29.216 D -             CorporateLoginController(84) [            ServerThreadPool-3] [-8361378403387225228] : loginMenuList : [MNU_GPCASH_F_BILL_PAYMENT, MNU_GPCASH_F_DIRECT_DEBIT, MNU_GPCASH_F_FUND_BENEFICIARY_UPLOAD, MNU_GPCASH_F_FUND_INT, MNU_GPCASH_F_INTEREST_RATE, MNU_GPCASH_F_PAYMENT_VA, MNU_GPCASH_F_PENDING_TASK, MNU_GPCASH_F_TD_PLACEMENT, MNU_GPCASH_F_EXCHANGE_RATE, MNU_GPCASH_F_PARENT_SIPKD, MNU_GPCASH_F_CORP_VA, MNU_GPCASH_F_FUND_DOMESTIC, MNU_GPCASH_F_INFO, MNU_GPCASH_F_LIQ, MNU_GPCASH_F_PURCHASE, MNU_GPCASH_F_CHQ_ORDER, MNU_GPCASH_F_FUND_BENEFICIARY, MNU_GPCASH_F_ACCOUNTS, MNU_GPCASH_F_FUND_TRF, MNU_GPCASH_F_TAX_PAYMENT, MNU_GPCASH_F_CORP_VA_LIST, MNU_GPCASH_F_FUND_INHOUSE, MNU_GPCASH_F_MASS_FUND_BULK_PAYMENT, MNU_GPCASH_F_SIPKD, MNU_GPCASH_F_BAL_SUMMARY, MNU_GPCASH_F_CORP_VA_REPORT, MNU_GPCASH_F_LIQ_SWEEP_OUT, MNU_GPCASH_F_MASS_FUND_PAYROLL, MNU_GPCASH_F_TRX_VA_HISTORY, MNU_GPCASH_F_BILL, MNU_GPCASH_F_CHQ, MNU_GPCASH_F_CHQ_RECON, MNU_GPCASH_F_CORP_VA_UPLOAD, MNU_GPCASH_F_LIQ_SWEEP_IN, MNU_GPCASH_F_MASS_FUND_TRF, MNU_GPCASH_F_TD, MNU_GPCASH_F_TD_WITHDRAW, MNU_GPCASH_F_TRX_HISTORY, MNU_GPCASH_F_TRX_STATUS, MNU_GPCASH_F_NON_FIN, MNU_GPCASH_MT_PARAMETER, MNU_GPCASH_F_CHG_PASSWD, MNU_GPCASH_F_ADMIN_DASHBOARD, MNU_GPCASH_F_USER_DASHBOARD, MNU_GPCASH_MT_HOST_ERROR_MAPPING, MNU_GPCASH_F_ADMIN_PENDING_TASK, MNU_GPCASH_F_PENDING_TASK]
+[10692] 16:38:29.216 D -             CorporateLoginController(85) [            ServerThreadPool-3] [-8361378403387225228] : 
+
+
+
+
+
+[10692] 16:38:29.217 D -                        QueueInvoker(201) [            ServerThreadPool-3] [-8361378403387225228] : Execution Time: 184 ms
+[10692] 16:38:29.267 D -             CorporateLoginController(62) [          http-nio-8005-exec-6] [ -522435397142887906] : [preInvoke] - [227b949b-969d-4f48-9633-9bf560371cd4] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX19e6SVEa1D3ZKsRwifGUYsoLwhLhTHAsYQ=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 16:33:29, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:38:29.267 D -                        QueueInvoker(126) [          http-nio-8005-exec-6] [ -522435397142887906] : [AutoDiscoveryQueueInvoker] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX19e6SVEa1D3ZKsRwifGUYsoLwhLhTHAsYQ=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 16:33:29, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:38:29.269 D -                    ValidationAspect(266) [            ServerThreadPool-5] [ -522435397142887906] : [Validation - Input] - CorporateUserSCImpl#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX19e6SVEa1D3ZKsRwifGUYsoLwhLhTHAsYQ=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 16:33:29, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:38:29.347 E -            CorporateUserServiceImpl(922) [            ServerThreadPool-5] [ -522435397142887906] : No Image Uploaded : D:\temp\null
+java.nio.file.NoSuchFileException: D:\temp\null
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.readAllBytes(Unknown Source)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl.getUserProfiles(CorporateUserServiceImpl.java:918)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$FastClassBySpringCGLIB$$9083946b.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$EnhancerBySpringCGLIB$$e8b9c4a1.getUserProfiles(<generated>)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl.getUserProfiles(CorporateUserSCImpl.java:324)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$FastClassBySpringCGLIB$$c51810ba.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
+	at com.gpt.component.common.validation.ValidationAspect.validate(ValidationAspect.java:270)
+	at sun.reflect.GeneratedMethodAccessor167.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$EnhancerBySpringCGLIB$$1d6aa70b.getUserProfiles(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:63)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:85)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:84)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:25)
+	at com.gpt.component.common.invoker.queue.consumer.handler.QueueHandler.processMessage(QueueHandler.java:40)
+	at com.gpt.component.common.invoker.queue.consumer.QueueConsumer$Worker.run(QueueConsumer.java:212)
+[10692] 16:38:29.849 D -                        QueueInvoker(201) [            ServerThreadPool-5] [ -522435397142887906] : Execution Time: 581 ms
+[10692] 16:43:26.117 D -                              Helper(213) [          http-nio-8005-exec-8] [ 7335000713354694376] : random passwd : QhhfHQepJyGBIx8&
+[10692] 16:43:26.150 D -             CorporateLoginController(62) [          http-nio-8005-exec-5] [-7365459680618724316] : [preInvoke] - [-] - CorporateLoginSC#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX1+diOQdUAt9EPK+NfzL42+AiCI2IAX9/qs=, key=QhhfHQepJyGBIx8&, loginCorporateId=gdbank, loginHandlesLogout=true, loginHistoryId=[826791cf-9744-4b2a-ab67-9b1789775e63], loginDate=2021-08-13 16:38:29.192, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:43:26.151 D -                        QueueInvoker(126) [          http-nio-8005-exec-5] [-7365459680618724316] : [AutoDiscoveryQueueInvoker] - CorporateLoginSC#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX1+diOQdUAt9EPK+NfzL42+AiCI2IAX9/qs=, key=QhhfHQepJyGBIx8&, loginCorporateId=gdbank, loginHandlesLogout=true, loginHistoryId=[826791cf-9744-4b2a-ab67-9b1789775e63], loginDate=2021-08-13 16:38:29.192, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:43:26.152 D -                    ValidationAspect(266) [            ServerThreadPool-5] [-7365459680618724316] : [Validation - Input] - CorporateLoginSCImpl#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX1+diOQdUAt9EPK+NfzL42+AiCI2IAX9/qs=, key=QhhfHQepJyGBIx8&, loginCorporateId=gdbank, loginHandlesLogout=true, loginHistoryId=[826791cf-9744-4b2a-ab67-9b1789775e63], loginDate=2021-08-13 16:38:29.192, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:43:26.280 D -                 IDMLoginServiceImpl(453) [            ServerThreadPool-5] [-7365459680618724316] : getLastLoginDate : 2021-08-13 16:38:29.192
+[10692] 16:43:26.281 D -                 IDMLoginServiceImpl(454) [            ServerThreadPool-5] [-7365459680618724316] : validateUserIdle diffDays : 0
+[10692] 16:43:26.293 D -                 IDMLoginServiceImpl(434) [            ServerThreadPool-5] [-7365459680618724316] : getLastChangePasswordDate : 2021-07-13 15:36:27.779
+[10692] 16:43:26.293 D -                 IDMLoginServiceImpl(435) [            ServerThreadPool-5] [-7365459680618724316] : validateUserPasswordExpired diffDays : 31
+[10692] 16:43:26.405 D -             CorporateLoginController(81) [            ServerThreadPool-5] [-7365459680618724316] : 
+
+
+
+
+
+[10692] 16:43:26.406 D -             CorporateLoginController(82) [            ServerThreadPool-5] [-7365459680618724316] : session id    : ae80c784-0f44-4d4f-9a0c-5668a173e706
+[10692] 16:43:26.406 D -             CorporateLoginController(83) [            ServerThreadPool-5] [-7365459680618724316] : userCode      : GDBANK|GDUSERMAKER
+[10692] 16:43:26.406 D -             CorporateLoginController(84) [            ServerThreadPool-5] [-7365459680618724316] : loginMenuList : [MNU_GPCASH_F_BILL_PAYMENT, MNU_GPCASH_F_DIRECT_DEBIT, MNU_GPCASH_F_FUND_BENEFICIARY_UPLOAD, MNU_GPCASH_F_FUND_INT, MNU_GPCASH_F_INTEREST_RATE, MNU_GPCASH_F_PAYMENT_VA, MNU_GPCASH_F_PENDING_TASK, MNU_GPCASH_F_TD_PLACEMENT, MNU_GPCASH_F_EXCHANGE_RATE, MNU_GPCASH_F_PARENT_SIPKD, MNU_GPCASH_F_CORP_VA, MNU_GPCASH_F_FUND_DOMESTIC, MNU_GPCASH_F_INFO, MNU_GPCASH_F_LIQ, MNU_GPCASH_F_PURCHASE, MNU_GPCASH_F_CHQ_ORDER, MNU_GPCASH_F_FUND_BENEFICIARY, MNU_GPCASH_F_ACCOUNTS, MNU_GPCASH_F_FUND_TRF, MNU_GPCASH_F_TAX_PAYMENT, MNU_GPCASH_F_CORP_VA_LIST, MNU_GPCASH_F_FUND_INHOUSE, MNU_GPCASH_F_MASS_FUND_BULK_PAYMENT, MNU_GPCASH_F_SIPKD, MNU_GPCASH_F_BAL_SUMMARY, MNU_GPCASH_F_CORP_VA_REPORT, MNU_GPCASH_F_LIQ_SWEEP_OUT, MNU_GPCASH_F_MASS_FUND_PAYROLL, MNU_GPCASH_F_TRX_VA_HISTORY, MNU_GPCASH_F_BILL, MNU_GPCASH_F_CHQ, MNU_GPCASH_F_CHQ_RECON, MNU_GPCASH_F_CORP_VA_UPLOAD, MNU_GPCASH_F_LIQ_SWEEP_IN, MNU_GPCASH_F_MASS_FUND_TRF, MNU_GPCASH_F_TD, MNU_GPCASH_F_TD_WITHDRAW, MNU_GPCASH_F_TRX_HISTORY, MNU_GPCASH_F_TRX_STATUS, MNU_GPCASH_F_NON_FIN, MNU_GPCASH_MT_PARAMETER, MNU_GPCASH_F_CHG_PASSWD, MNU_GPCASH_F_ADMIN_DASHBOARD, MNU_GPCASH_F_USER_DASHBOARD, MNU_GPCASH_MT_HOST_ERROR_MAPPING, MNU_GPCASH_F_ADMIN_PENDING_TASK, MNU_GPCASH_F_PENDING_TASK]
+[10692] 16:43:26.406 D -             CorporateLoginController(85) [            ServerThreadPool-5] [-7365459680618724316] : 
+
+
+
+
+
+[10692] 16:43:26.408 D -                        QueueInvoker(201) [            ServerThreadPool-5] [-7365459680618724316] : Execution Time: 257 ms
+[10692] 16:43:26.493 D -             CorporateLoginController(62) [          http-nio-8005-exec-4] [-7898793367891262152] : [preInvoke] - [ae80c784-0f44-4d4f-9a0c-5668a173e706] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX1+diOQdUAt9EPK+NfzL42+AiCI2IAX9/qs=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 16:38:29, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:43:26.494 D -                        QueueInvoker(126) [          http-nio-8005-exec-4] [-7898793367891262152] : [AutoDiscoveryQueueInvoker] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX1+diOQdUAt9EPK+NfzL42+AiCI2IAX9/qs=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 16:38:29, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:43:26.495 D -                    ValidationAspect(266) [            ServerThreadPool-1] [-7898793367891262152] : [Validation - Input] - CorporateUserSCImpl#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX1+diOQdUAt9EPK+NfzL42+AiCI2IAX9/qs=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 16:38:29, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:43:26.541 E -            CorporateUserServiceImpl(922) [            ServerThreadPool-1] [-7898793367891262152] : No Image Uploaded : D:\temp\null
+java.nio.file.NoSuchFileException: D:\temp\null
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.readAllBytes(Unknown Source)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl.getUserProfiles(CorporateUserServiceImpl.java:918)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$FastClassBySpringCGLIB$$9083946b.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$EnhancerBySpringCGLIB$$e8b9c4a1.getUserProfiles(<generated>)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl.getUserProfiles(CorporateUserSCImpl.java:324)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$FastClassBySpringCGLIB$$c51810ba.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
+	at com.gpt.component.common.validation.ValidationAspect.validate(ValidationAspect.java:270)
+	at sun.reflect.GeneratedMethodAccessor167.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$EnhancerBySpringCGLIB$$1d6aa70b.getUserProfiles(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:63)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:85)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:84)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:25)
+	at com.gpt.component.common.invoker.queue.consumer.handler.QueueHandler.processMessage(QueueHandler.java:40)
+	at com.gpt.component.common.invoker.queue.consumer.QueueConsumer$Worker.run(QueueConsumer.java:212)
+[10692] 16:43:27.101 D -                        QueueInvoker(201) [            ServerThreadPool-1] [-7898793367891262152] : Execution Time: 606 ms
+[10692] 16:48:40.681 D -                              Helper(213) [          http-nio-8005-exec-3] [ 4008323429467832998] : random passwd : OmSIZSxJMEJIjX4#
+[10692] 16:48:40.739 D -             CorporateLoginController(62) [          http-nio-8005-exec-9] [ 2145671610352094139] : [preInvoke] - [-] - CorporateLoginSC#corporateLogin({loginId=gdcorpmaker, passwd=U2FsdGVkX1+bE/s0a2tTvtVmLvRd0ZPkWdzpzBmXJL4=, key=OmSIZSxJMEJIjX4#, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDCORPMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:48:40.740 D -                        QueueInvoker(126) [          http-nio-8005-exec-9] [ 2145671610352094139] : [AutoDiscoveryQueueInvoker] - CorporateLoginSC#corporateLogin({loginId=gdcorpmaker, passwd=U2FsdGVkX1+bE/s0a2tTvtVmLvRd0ZPkWdzpzBmXJL4=, key=OmSIZSxJMEJIjX4#, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDCORPMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:48:40.742 D -                    ValidationAspect(266) [            ServerThreadPool-3] [ 2145671610352094139] : [Validation - Input] - CorporateLoginSCImpl#corporateLogin({loginId=gdcorpmaker, passwd=U2FsdGVkX1+bE/s0a2tTvtVmLvRd0ZPkWdzpzBmXJL4=, key=OmSIZSxJMEJIjX4#, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDCORPMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:48:40.792 D -                 IDMLoginServiceImpl(453) [            ServerThreadPool-3] [ 2145671610352094139] : getLastLoginDate : 2021-08-12 13:51:56.917
+[10692] 16:48:40.792 D -                 IDMLoginServiceImpl(454) [            ServerThreadPool-3] [ 2145671610352094139] : validateUserIdle diffDays : 1
+[10692] 16:48:40.802 D -                 IDMLoginServiceImpl(434) [            ServerThreadPool-3] [ 2145671610352094139] : getLastChangePasswordDate : 2021-07-13 15:10:03.914
+[10692] 16:48:40.802 D -                 IDMLoginServiceImpl(435) [            ServerThreadPool-3] [ 2145671610352094139] : validateUserPasswordExpired diffDays : 31
+[10692] 16:48:40.872 D -             CorporateLoginController(81) [            ServerThreadPool-3] [ 2145671610352094139] : 
+
+
+
+
+
+[10692] 16:48:40.872 D -             CorporateLoginController(82) [            ServerThreadPool-3] [ 2145671610352094139] : session id    : 511f19ce-151c-47f1-98fa-27a15780dd5b
+[10692] 16:48:40.872 D -             CorporateLoginController(83) [            ServerThreadPool-3] [ 2145671610352094139] : userCode      : GDBANK|GDCORPMAKER
+[10692] 16:48:40.872 D -             CorporateLoginController(84) [            ServerThreadPool-3] [ 2145671610352094139] : loginMenuList : [MNU_GPCASH_F_AUTH_LMT_SCHEME, MNU_GPCASH_F_UTILITIES, MNU_GPCASH_F_UNLOCK_USER, MNU_GPCASH_F_USER_MANAGER, MNU_GPCASH_F_CHG_PASSWD, MNU_GPCASH_F_FIN_ACTV, MNU_GPCASH_F_ADMIN_MYTASK, MNU_GPCASH_F_HELP_DESK, MNU_GPCASH_F_TRX_LMT_USG, MNU_GPCASH_F_USER_GROUP, MNU_GPCASH_F_USR_MANAGEMENT, MNU_GPCASH_F_NON_FIN, MNU_GPCASH_F_REPORT, MNU_GPCASH_F_ACCT_SETUP, MNU_GPCASH_F_ADMIN_PENDING_TASK, MNU_GPCASH_F_USER_MAINTENANCE, MNU_GPCASH_F_ACCT_MANAGEMENT, MNU_GPCASH_F_LOGIN_INFO, MNU_GPCASH_F_ACCT_GROUP, MNU_GPCASH_F_APRV_MTRX, MNU_GPCASH_F_BENEFICIARY, MNU_GPCASH_F_NON_FIN, MNU_GPCASH_MT_PARAMETER, MNU_GPCASH_F_CHG_PASSWD, MNU_GPCASH_F_ADMIN_DASHBOARD, MNU_GPCASH_F_USER_DASHBOARD, MNU_GPCASH_MT_HOST_ERROR_MAPPING, MNU_GPCASH_F_ADMIN_PENDING_TASK, MNU_GPCASH_F_PENDING_TASK]
+[10692] 16:48:40.872 D -             CorporateLoginController(85) [            ServerThreadPool-3] [ 2145671610352094139] : 
+
+
+
+
+
+[10692] 16:48:40.873 D -                        QueueInvoker(201) [            ServerThreadPool-3] [ 2145671610352094139] : Execution Time: 132 ms
+[10692] 16:48:40.927 D -             CorporateLoginController(62) [          http-nio-8005-exec-7] [ 8411894827907891566] : [preInvoke] - [511f19ce-151c-47f1-98fa-27a15780dd5b] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDCORPMAKER, passwd=U2FsdGVkX1+bE/s0a2tTvtVmLvRd0ZPkWdzpzBmXJL4=, loginCorporateId=GDBANK, loginUsername=GDCorpmaker, lastLoginDate=12/08/2021 13:51:56, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, isShowBeneficiary=Y, loginUserCode=GDBANK|GDCORPMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:48:40.928 D -                        QueueInvoker(126) [          http-nio-8005-exec-7] [ 8411894827907891566] : [AutoDiscoveryQueueInvoker] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDCORPMAKER, passwd=U2FsdGVkX1+bE/s0a2tTvtVmLvRd0ZPkWdzpzBmXJL4=, loginCorporateId=GDBANK, loginUsername=GDCorpmaker, lastLoginDate=12/08/2021 13:51:56, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, isShowBeneficiary=Y, loginUserCode=GDBANK|GDCORPMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:48:40.930 D -                    ValidationAspect(266) [            ServerThreadPool-5] [ 8411894827907891566] : [Validation - Input] - CorporateUserSCImpl#getUserProfiles({loginId=GDBANK|GDCORPMAKER, passwd=U2FsdGVkX1+bE/s0a2tTvtVmLvRd0ZPkWdzpzBmXJL4=, loginCorporateId=GDBANK, loginUsername=GDCorpmaker, lastLoginDate=12/08/2021 13:51:56, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, isShowBeneficiary=Y, loginUserCode=GDBANK|GDCORPMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:48:40.999 E -            CorporateUserServiceImpl(922) [            ServerThreadPool-5] [ 8411894827907891566] : No Image Uploaded : D:\temp\null
+java.nio.file.NoSuchFileException: D:\temp\null
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.readAllBytes(Unknown Source)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl.getUserProfiles(CorporateUserServiceImpl.java:918)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$FastClassBySpringCGLIB$$9083946b.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$EnhancerBySpringCGLIB$$e8b9c4a1.getUserProfiles(<generated>)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl.getUserProfiles(CorporateUserSCImpl.java:324)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$FastClassBySpringCGLIB$$c51810ba.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
+	at com.gpt.component.common.validation.ValidationAspect.validate(ValidationAspect.java:270)
+	at sun.reflect.GeneratedMethodAccessor167.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$EnhancerBySpringCGLIB$$1d6aa70b.getUserProfiles(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:63)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:85)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:84)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:25)
+	at com.gpt.component.common.invoker.queue.consumer.handler.QueueHandler.processMessage(QueueHandler.java:40)
+	at com.gpt.component.common.invoker.queue.consumer.QueueConsumer$Worker.run(QueueConsumer.java:212)
+[10692] 16:48:41.243 D -                        QueueInvoker(201) [            ServerThreadPool-5] [ 8411894827907891566] : Execution Time: 314 ms
+[10692] 16:49:14.373 D -                              Helper(213) [          http-nio-8005-exec-6] [  513318337128517072] : random passwd : ArFAmBcwYNYLhw7#
+[10692] 16:49:14.403 D -             CorporateLoginController(62) [          http-nio-8005-exec-4] [ 6120915884293964846] : [preInvoke] - [-] - CorporateLoginSC#corporateLogin({loginId=gdcorpmaker, passwd=U2FsdGVkX1+cxb4j0QlRdn4aL5uCKpj+TlpRzLaMNfA=, key=ArFAmBcwYNYLhw7#, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDCORPMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:49:14.404 D -                        QueueInvoker(126) [          http-nio-8005-exec-4] [ 6120915884293964846] : [AutoDiscoveryQueueInvoker] - CorporateLoginSC#corporateLogin({loginId=gdcorpmaker, passwd=U2FsdGVkX1+cxb4j0QlRdn4aL5uCKpj+TlpRzLaMNfA=, key=ArFAmBcwYNYLhw7#, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDCORPMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:49:14.405 D -                    ValidationAspect(266) [            ServerThreadPool-3] [ 6120915884293964846] : [Validation - Input] - CorporateLoginSCImpl#corporateLogin({loginId=gdcorpmaker, passwd=U2FsdGVkX1+cxb4j0QlRdn4aL5uCKpj+TlpRzLaMNfA=, key=ArFAmBcwYNYLhw7#, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDCORPMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:49:14.481 D -                 IDMLoginServiceImpl(453) [            ServerThreadPool-3] [ 6120915884293964846] : getLastLoginDate : 2021-08-13 16:48:40.841
+[10692] 16:49:14.482 D -                 IDMLoginServiceImpl(454) [            ServerThreadPool-3] [ 6120915884293964846] : validateUserIdle diffDays : 0
+[10692] 16:49:14.494 D -                 IDMLoginServiceImpl(434) [            ServerThreadPool-3] [ 6120915884293964846] : getLastChangePasswordDate : 2021-07-13 15:10:03.914
+[10692] 16:49:14.495 D -                 IDMLoginServiceImpl(435) [            ServerThreadPool-3] [ 6120915884293964846] : validateUserPasswordExpired diffDays : 31
+[10692] 16:49:14.529 D -            CorporateLoginController(163) [            ServerThreadPool-3] [ 6120915884293964846] : onException : com.gpt.component.common.exceptions.BusinessException: GPT-0100134
+[10692] 16:49:14.530 D -                        QueueInvoker(201) [            ServerThreadPool-3] [ 6120915884293964846] : Execution Time: 126 ms
+[10692] 16:49:14.558 E -        GlobalDefaultExceptionHandler(47) [          http-nio-8005-exec-3] [ 6120915884293964846] : GPT-0100134: User masih dalam keadaan login
+com.gpt.component.common.exceptions.BusinessException: GPT-0100134
+	at com.gpt.component.idm.login.services.IDMLoginServiceImpl.validateUserStillLogin(IDMLoginServiceImpl.java:482)
+	at com.gpt.component.idm.login.services.IDMLoginServiceImpl.login(IDMLoginServiceImpl.java:118)
+	at com.gpt.component.idm.login.services.IDMLoginServiceImpl$$FastClassBySpringCGLIB$$1fba14d0.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.component.idm.login.services.IDMLoginServiceImpl$$EnhancerBySpringCGLIB$$48ca2cf0.login(<generated>)
+	at com.gpt.product.gpcash.corporate.login.services.CorporateLoginServiceImpl.corporateLogin(CorporateLoginServiceImpl.java:50)
+	at com.gpt.product.gpcash.corporate.login.services.CorporateLoginServiceImpl$$FastClassBySpringCGLIB$$851f9852.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.login.services.CorporateLoginServiceImpl$$EnhancerBySpringCGLIB$$bfff8b6.corporateLogin(<generated>)
+	at com.gpt.product.gpcash.corporate.login.services.CorporateLoginSCImpl.corporateLogin(CorporateLoginSCImpl.java:52)
+	at com.gpt.product.gpcash.corporate.login.services.CorporateLoginSCImpl$$FastClassBySpringCGLIB$$2324f873.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
+	at com.gpt.component.common.validation.ValidationAspect.validate(ValidationAspect.java:270)
+	at sun.reflect.GeneratedMethodAccessor167.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.login.services.CorporateLoginSCImpl$$EnhancerBySpringCGLIB$$4fc1d1dc.corporateLogin(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:63)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:85)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:84)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:25)
+	at com.gpt.component.common.invoker.queue.consumer.handler.QueueHandler.processMessage(QueueHandler.java:40)
+	at com.gpt.component.common.invoker.queue.consumer.QueueConsumer$Worker.run(QueueConsumer.java:212)
+[10692] 16:49:14.560 W -   ExceptionHandlerExceptionResolver(189) [          http-nio-8005-exec-3] [ 6120915884293964846] : Resolved exception caused by Handler execution: com.gpt.component.common.exceptions.BusinessException: GPT-0100134
+[10692] 16:49:25.660 D -                              Helper(213) [          http-nio-8005-exec-1] [ 8356975095278354951] : random passwd : NWgzpvUrdsVvXW0%
+[10692] 16:49:25.674 D -             CorporateLoginController(62) [         http-nio-8005-exec-10] [ -415897366686645166] : [preInvoke] - [-] - CorporateLoginSC#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX1/GI3ymYzGl8XxZxeOWlZReWOW1JKbabZQ=, key=NWgzpvUrdsVvXW0%, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:49:25.675 D -                        QueueInvoker(126) [         http-nio-8005-exec-10] [ -415897366686645166] : [AutoDiscoveryQueueInvoker] - CorporateLoginSC#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX1/GI3ymYzGl8XxZxeOWlZReWOW1JKbabZQ=, key=NWgzpvUrdsVvXW0%, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:49:25.676 D -                    ValidationAspect(266) [            ServerThreadPool-5] [ -415897366686645166] : [Validation - Input] - CorporateLoginSCImpl#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX1/GI3ymYzGl8XxZxeOWlZReWOW1JKbabZQ=, key=NWgzpvUrdsVvXW0%, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:49:25.803 D -                 IDMLoginServiceImpl(453) [            ServerThreadPool-5] [ -415897366686645166] : getLastLoginDate : 2021-08-13 16:43:26.366
+[10692] 16:49:25.803 D -                 IDMLoginServiceImpl(454) [            ServerThreadPool-5] [ -415897366686645166] : validateUserIdle diffDays : 0
+[10692] 16:49:25.837 D -                 IDMLoginServiceImpl(434) [            ServerThreadPool-5] [ -415897366686645166] : getLastChangePasswordDate : 2021-07-13 15:36:27.779
+[10692] 16:49:25.837 D -                 IDMLoginServiceImpl(435) [            ServerThreadPool-5] [ -415897366686645166] : validateUserPasswordExpired diffDays : 31
+[10692] 16:49:26.166 D -             CorporateLoginController(81) [            ServerThreadPool-5] [ -415897366686645166] : 
+
+
+
+
+
+[10692] 16:49:26.166 D -             CorporateLoginController(82) [            ServerThreadPool-5] [ -415897366686645166] : session id    : 24166666-aa88-4dbb-83e8-4574de8dad21
+[10692] 16:49:26.166 D -             CorporateLoginController(83) [            ServerThreadPool-5] [ -415897366686645166] : userCode      : GDBANK|GDUSERMAKER
+[10692] 16:49:26.167 D -             CorporateLoginController(84) [            ServerThreadPool-5] [ -415897366686645166] : loginMenuList : [MNU_GPCASH_F_BILL_PAYMENT, MNU_GPCASH_F_DIRECT_DEBIT, MNU_GPCASH_F_FUND_BENEFICIARY_UPLOAD, MNU_GPCASH_F_FUND_INT, MNU_GPCASH_F_INTEREST_RATE, MNU_GPCASH_F_PAYMENT_VA, MNU_GPCASH_F_PENDING_TASK, MNU_GPCASH_F_TD_PLACEMENT, MNU_GPCASH_F_EXCHANGE_RATE, MNU_GPCASH_F_PARENT_SIPKD, MNU_GPCASH_F_CORP_VA, MNU_GPCASH_F_FUND_DOMESTIC, MNU_GPCASH_F_INFO, MNU_GPCASH_F_LIQ, MNU_GPCASH_F_PURCHASE, MNU_GPCASH_F_CHQ_ORDER, MNU_GPCASH_F_FUND_BENEFICIARY, MNU_GPCASH_F_ACCOUNTS, MNU_GPCASH_F_FUND_TRF, MNU_GPCASH_F_TAX_PAYMENT, MNU_GPCASH_F_CORP_VA_LIST, MNU_GPCASH_F_FUND_INHOUSE, MNU_GPCASH_F_MASS_FUND_BULK_PAYMENT, MNU_GPCASH_F_SIPKD, MNU_GPCASH_F_BAL_SUMMARY, MNU_GPCASH_F_CORP_VA_REPORT, MNU_GPCASH_F_LIQ_SWEEP_OUT, MNU_GPCASH_F_MASS_FUND_PAYROLL, MNU_GPCASH_F_TRX_VA_HISTORY, MNU_GPCASH_F_BILL, MNU_GPCASH_F_CHQ, MNU_GPCASH_F_CHQ_RECON, MNU_GPCASH_F_CORP_VA_UPLOAD, MNU_GPCASH_F_LIQ_SWEEP_IN, MNU_GPCASH_F_MASS_FUND_TRF, MNU_GPCASH_F_TD, MNU_GPCASH_F_TD_WITHDRAW, MNU_GPCASH_F_TRX_HISTORY, MNU_GPCASH_F_TRX_STATUS, MNU_GPCASH_F_NON_FIN, MNU_GPCASH_MT_PARAMETER, MNU_GPCASH_F_CHG_PASSWD, MNU_GPCASH_F_ADMIN_DASHBOARD, MNU_GPCASH_F_USER_DASHBOARD, MNU_GPCASH_MT_HOST_ERROR_MAPPING, MNU_GPCASH_F_ADMIN_PENDING_TASK, MNU_GPCASH_F_PENDING_TASK]
+[10692] 16:49:26.167 D -             CorporateLoginController(85) [            ServerThreadPool-5] [ -415897366686645166] : 
+
+
+
+
+
+[10692] 16:49:26.167 D -                        QueueInvoker(201) [            ServerThreadPool-5] [ -415897366686645166] : Execution Time: 492 ms
+[10692] 16:49:26.217 D -             CorporateLoginController(62) [          http-nio-8005-exec-6] [-6232279419030846629] : [preInvoke] - [24166666-aa88-4dbb-83e8-4574de8dad21] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX1/GI3ymYzGl8XxZxeOWlZReWOW1JKbabZQ=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 16:43:26, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, isShowBeneficiary=N, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:49:26.218 D -                        QueueInvoker(126) [          http-nio-8005-exec-6] [-6232279419030846629] : [AutoDiscoveryQueueInvoker] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX1/GI3ymYzGl8XxZxeOWlZReWOW1JKbabZQ=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 16:43:26, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, isShowBeneficiary=N, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:49:26.219 D -                    ValidationAspect(266) [            ServerThreadPool-4] [-6232279419030846629] : [Validation - Input] - CorporateUserSCImpl#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX1/GI3ymYzGl8XxZxeOWlZReWOW1JKbabZQ=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 16:43:26, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, isShowBeneficiary=N, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:49:26.327 E -            CorporateUserServiceImpl(922) [            ServerThreadPool-4] [-6232279419030846629] : No Image Uploaded : D:\temp\null
+java.nio.file.NoSuchFileException: D:\temp\null
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.readAllBytes(Unknown Source)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl.getUserProfiles(CorporateUserServiceImpl.java:918)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$FastClassBySpringCGLIB$$9083946b.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$EnhancerBySpringCGLIB$$e8b9c4a1.getUserProfiles(<generated>)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl.getUserProfiles(CorporateUserSCImpl.java:324)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$FastClassBySpringCGLIB$$c51810ba.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
+	at com.gpt.component.common.validation.ValidationAspect.validate(ValidationAspect.java:270)
+	at sun.reflect.GeneratedMethodAccessor167.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$EnhancerBySpringCGLIB$$1d6aa70b.getUserProfiles(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:63)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:85)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:84)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:25)
+	at com.gpt.component.common.invoker.queue.consumer.handler.QueueHandler.processMessage(QueueHandler.java:40)
+	at com.gpt.component.common.invoker.queue.consumer.QueueConsumer$Worker.run(QueueConsumer.java:212)
+[10692] 16:49:26.814 D -                        QueueInvoker(201) [            ServerThreadPool-4] [-6232279419030846629] : Execution Time: 596 ms
+[10692] 16:55:00.877 D -                              Helper(213) [         http-nio-8005-exec-10] [-6206733746317606260] : random passwd : GBlUqCickduyrl6#
+[10692] 16:55:00.902 D -             CorporateLoginController(62) [          http-nio-8005-exec-7] [  433536343095396406] : [preInvoke] - [-] - CorporateLoginSC#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX1/Fz11nkE7dq+kATclODyaVC7uKFvyg40U=, key=GBlUqCickduyrl6#, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:55:00.903 D -                        QueueInvoker(126) [          http-nio-8005-exec-7] [  433536343095396406] : [AutoDiscoveryQueueInvoker] - CorporateLoginSC#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX1/Fz11nkE7dq+kATclODyaVC7uKFvyg40U=, key=GBlUqCickduyrl6#, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:55:00.910 D -                    ValidationAspect(266) [            ServerThreadPool-1] [  433536343095396406] : [Validation - Input] - CorporateLoginSCImpl#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX1/Fz11nkE7dq+kATclODyaVC7uKFvyg40U=, key=GBlUqCickduyrl6#, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:55:00.974 D -                 IDMLoginServiceImpl(453) [            ServerThreadPool-1] [  433536343095396406] : getLastLoginDate : 2021-08-13 16:49:26.135
+[10692] 16:55:00.975 D -                 IDMLoginServiceImpl(454) [            ServerThreadPool-1] [  433536343095396406] : validateUserIdle diffDays : 0
+[10692] 16:55:00.986 D -                 IDMLoginServiceImpl(434) [            ServerThreadPool-1] [  433536343095396406] : getLastChangePasswordDate : 2021-07-13 15:36:27.779
+[10692] 16:55:00.987 D -                 IDMLoginServiceImpl(435) [            ServerThreadPool-1] [  433536343095396406] : validateUserPasswordExpired diffDays : 31
+[10692] 16:55:01.086 D -             CorporateLoginController(81) [            ServerThreadPool-1] [  433536343095396406] : 
+
+
+
+
+
+[10692] 16:55:01.086 D -             CorporateLoginController(82) [            ServerThreadPool-1] [  433536343095396406] : session id    : f3fad640-f7a5-4ecc-86a9-531272ac4956
+[10692] 16:55:01.086 D -             CorporateLoginController(83) [            ServerThreadPool-1] [  433536343095396406] : userCode      : GDBANK|GDUSERMAKER
+[10692] 16:55:01.086 D -             CorporateLoginController(84) [            ServerThreadPool-1] [  433536343095396406] : loginMenuList : [MNU_GPCASH_F_BILL_PAYMENT, MNU_GPCASH_F_DIRECT_DEBIT, MNU_GPCASH_F_FUND_BENEFICIARY_UPLOAD, MNU_GPCASH_F_FUND_INT, MNU_GPCASH_F_INTEREST_RATE, MNU_GPCASH_F_PAYMENT_VA, MNU_GPCASH_F_PENDING_TASK, MNU_GPCASH_F_TD_PLACEMENT, MNU_GPCASH_F_EXCHANGE_RATE, MNU_GPCASH_F_PARENT_SIPKD, MNU_GPCASH_F_CORP_VA, MNU_GPCASH_F_FUND_DOMESTIC, MNU_GPCASH_F_INFO, MNU_GPCASH_F_LIQ, MNU_GPCASH_F_PURCHASE, MNU_GPCASH_F_CHQ_ORDER, MNU_GPCASH_F_FUND_BENEFICIARY, MNU_GPCASH_F_ACCOUNTS, MNU_GPCASH_F_FUND_TRF, MNU_GPCASH_F_TAX_PAYMENT, MNU_GPCASH_F_CORP_VA_LIST, MNU_GPCASH_F_FUND_INHOUSE, MNU_GPCASH_F_MASS_FUND_BULK_PAYMENT, MNU_GPCASH_F_SIPKD, MNU_GPCASH_F_BAL_SUMMARY, MNU_GPCASH_F_CORP_VA_REPORT, MNU_GPCASH_F_LIQ_SWEEP_OUT, MNU_GPCASH_F_MASS_FUND_PAYROLL, MNU_GPCASH_F_TRX_VA_HISTORY, MNU_GPCASH_F_BILL, MNU_GPCASH_F_CHQ, MNU_GPCASH_F_CHQ_RECON, MNU_GPCASH_F_CORP_VA_UPLOAD, MNU_GPCASH_F_LIQ_SWEEP_IN, MNU_GPCASH_F_MASS_FUND_TRF, MNU_GPCASH_F_TD, MNU_GPCASH_F_TD_WITHDRAW, MNU_GPCASH_F_TRX_HISTORY, MNU_GPCASH_F_TRX_STATUS, MNU_GPCASH_F_NON_FIN, MNU_GPCASH_MT_PARAMETER, MNU_GPCASH_F_CHG_PASSWD, MNU_GPCASH_F_ADMIN_DASHBOARD, MNU_GPCASH_F_USER_DASHBOARD, MNU_GPCASH_MT_HOST_ERROR_MAPPING, MNU_GPCASH_F_ADMIN_PENDING_TASK, MNU_GPCASH_F_PENDING_TASK]
+[10692] 16:55:01.086 D -             CorporateLoginController(85) [            ServerThreadPool-1] [  433536343095396406] : 
+
+
+
+
+
+[10692] 16:55:01.087 D -                        QueueInvoker(201) [            ServerThreadPool-1] [  433536343095396406] : Execution Time: 183 ms
+[10692] 16:55:01.126 D -             CorporateLoginController(62) [          http-nio-8005-exec-5] [ 4299827731183715693] : [preInvoke] - [f3fad640-f7a5-4ecc-86a9-531272ac4956] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX1/Fz11nkE7dq+kATclODyaVC7uKFvyg40U=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 16:49:26, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, isShowBeneficiary=Y, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:55:01.128 D -                        QueueInvoker(126) [          http-nio-8005-exec-5] [ 4299827731183715693] : [AutoDiscoveryQueueInvoker] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX1/Fz11nkE7dq+kATclODyaVC7uKFvyg40U=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 16:49:26, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, isShowBeneficiary=Y, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:55:01.129 D -                    ValidationAspect(266) [            ServerThreadPool-2] [ 4299827731183715693] : [Validation - Input] - CorporateUserSCImpl#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX1/Fz11nkE7dq+kATclODyaVC7uKFvyg40U=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 16:49:26, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, isShowBeneficiary=Y, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 16:55:01.226 E -            CorporateUserServiceImpl(922) [            ServerThreadPool-2] [ 4299827731183715693] : No Image Uploaded : D:\temp\null
+java.nio.file.NoSuchFileException: D:\temp\null
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.readAllBytes(Unknown Source)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl.getUserProfiles(CorporateUserServiceImpl.java:918)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$FastClassBySpringCGLIB$$9083946b.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$EnhancerBySpringCGLIB$$e8b9c4a1.getUserProfiles(<generated>)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl.getUserProfiles(CorporateUserSCImpl.java:324)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$FastClassBySpringCGLIB$$c51810ba.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
+	at com.gpt.component.common.validation.ValidationAspect.validate(ValidationAspect.java:270)
+	at sun.reflect.GeneratedMethodAccessor167.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$EnhancerBySpringCGLIB$$1d6aa70b.getUserProfiles(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:63)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:85)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:84)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:25)
+	at com.gpt.component.common.invoker.queue.consumer.handler.QueueHandler.processMessage(QueueHandler.java:40)
+	at com.gpt.component.common.invoker.queue.consumer.QueueConsumer$Worker.run(QueueConsumer.java:212)
+[10692] 16:55:01.743 D -                        QueueInvoker(201) [            ServerThreadPool-2] [ 4299827731183715693] : Execution Time: 614 ms
+[10692] 17:01:17.751 D -                              Helper(213) [          http-nio-8005-exec-7] [ 4767001096173732481] : random passwd : REDTtcXHvBdgci1#
+[10692] 17:01:17.908 D -             CorporateLoginController(62) [          http-nio-8005-exec-5] [-4704568603360344039] : [preInvoke] - [-] - CorporateLoginSC#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX1/IrBtwSk+03WqYqzuVvEzEorqa/AyENN0=, key=REDTtcXHvBdgci1#, loginCorporateId=gdbank, loginHandlesLogout=true, loginHistoryId=[68bc5b63-2c78-40cb-8e30-1efa314fd448], loginDate=2021-08-13 16:55:01.056, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:01:17.909 D -                        QueueInvoker(126) [          http-nio-8005-exec-5] [-4704568603360344039] : [AutoDiscoveryQueueInvoker] - CorporateLoginSC#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX1/IrBtwSk+03WqYqzuVvEzEorqa/AyENN0=, key=REDTtcXHvBdgci1#, loginCorporateId=gdbank, loginHandlesLogout=true, loginHistoryId=[68bc5b63-2c78-40cb-8e30-1efa314fd448], loginDate=2021-08-13 16:55:01.056, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:01:17.911 D -                    ValidationAspect(266) [            ServerThreadPool-2] [-4704568603360344039] : [Validation - Input] - CorporateLoginSCImpl#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX1/IrBtwSk+03WqYqzuVvEzEorqa/AyENN0=, key=REDTtcXHvBdgci1#, loginCorporateId=gdbank, loginHandlesLogout=true, loginHistoryId=[68bc5b63-2c78-40cb-8e30-1efa314fd448], loginDate=2021-08-13 16:55:01.056, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:01:18.453 D -                 IDMLoginServiceImpl(453) [            ServerThreadPool-2] [-4704568603360344039] : getLastLoginDate : 2021-08-13 16:55:01.056
+[10692] 17:01:18.454 D -                 IDMLoginServiceImpl(454) [            ServerThreadPool-2] [-4704568603360344039] : validateUserIdle diffDays : 0
+[10692] 17:01:18.529 D -                 IDMLoginServiceImpl(434) [            ServerThreadPool-2] [-4704568603360344039] : getLastChangePasswordDate : 2021-07-13 15:36:27.779
+[10692] 17:01:18.530 D -                 IDMLoginServiceImpl(435) [            ServerThreadPool-2] [-4704568603360344039] : validateUserPasswordExpired diffDays : 31
+[10692] 17:01:19.182 D -             CorporateLoginController(81) [            ServerThreadPool-2] [-4704568603360344039] : 
+
+
+
+
+
+[10692] 17:01:19.183 D -             CorporateLoginController(82) [            ServerThreadPool-2] [-4704568603360344039] : session id    : 76c1a2cd-7dec-4304-82bc-927909acd79c
+[10692] 17:01:19.183 D -             CorporateLoginController(83) [            ServerThreadPool-2] [-4704568603360344039] : userCode      : GDBANK|GDUSERMAKER
+[10692] 17:01:19.183 D -             CorporateLoginController(84) [            ServerThreadPool-2] [-4704568603360344039] : loginMenuList : [MNU_GPCASH_F_BILL_PAYMENT, MNU_GPCASH_F_DIRECT_DEBIT, MNU_GPCASH_F_FUND_BENEFICIARY_UPLOAD, MNU_GPCASH_F_FUND_INT, MNU_GPCASH_F_INTEREST_RATE, MNU_GPCASH_F_PAYMENT_VA, MNU_GPCASH_F_PENDING_TASK, MNU_GPCASH_F_TD_PLACEMENT, MNU_GPCASH_F_EXCHANGE_RATE, MNU_GPCASH_F_PARENT_SIPKD, MNU_GPCASH_F_CORP_VA, MNU_GPCASH_F_FUND_DOMESTIC, MNU_GPCASH_F_INFO, MNU_GPCASH_F_LIQ, MNU_GPCASH_F_PURCHASE, MNU_GPCASH_F_CHQ_ORDER, MNU_GPCASH_F_FUND_BENEFICIARY, MNU_GPCASH_F_ACCOUNTS, MNU_GPCASH_F_FUND_TRF, MNU_GPCASH_F_TAX_PAYMENT, MNU_GPCASH_F_CORP_VA_LIST, MNU_GPCASH_F_FUND_INHOUSE, MNU_GPCASH_F_MASS_FUND_BULK_PAYMENT, MNU_GPCASH_F_SIPKD, MNU_GPCASH_F_BAL_SUMMARY, MNU_GPCASH_F_CORP_VA_REPORT, MNU_GPCASH_F_LIQ_SWEEP_OUT, MNU_GPCASH_F_MASS_FUND_PAYROLL, MNU_GPCASH_F_TRX_VA_HISTORY, MNU_GPCASH_F_BILL, MNU_GPCASH_F_CHQ, MNU_GPCASH_F_CHQ_RECON, MNU_GPCASH_F_CORP_VA_UPLOAD, MNU_GPCASH_F_LIQ_SWEEP_IN, MNU_GPCASH_F_MASS_FUND_TRF, MNU_GPCASH_F_TD, MNU_GPCASH_F_TD_WITHDRAW, MNU_GPCASH_F_TRX_HISTORY, MNU_GPCASH_F_TRX_STATUS, MNU_GPCASH_F_NON_FIN, MNU_GPCASH_MT_PARAMETER, MNU_GPCASH_F_CHG_PASSWD, MNU_GPCASH_F_ADMIN_DASHBOARD, MNU_GPCASH_F_USER_DASHBOARD, MNU_GPCASH_MT_HOST_ERROR_MAPPING, MNU_GPCASH_F_ADMIN_PENDING_TASK, MNU_GPCASH_F_PENDING_TASK]
+[10692] 17:01:19.183 D -             CorporateLoginController(85) [            ServerThreadPool-2] [-4704568603360344039] : 
+
+
+
+
+
+[10692] 17:01:19.184 D -                        QueueInvoker(201) [            ServerThreadPool-2] [-4704568603360344039] : Execution Time: 1274 ms
+[10692] 17:01:19.226 D -             CorporateLoginController(62) [          http-nio-8005-exec-9] [ 4698236676636363147] : [preInvoke] - [76c1a2cd-7dec-4304-82bc-927909acd79c] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX1/IrBtwSk+03WqYqzuVvEzEorqa/AyENN0=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 16:55:01, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:01:19.227 D -                        QueueInvoker(126) [          http-nio-8005-exec-9] [ 4698236676636363147] : [AutoDiscoveryQueueInvoker] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX1/IrBtwSk+03WqYqzuVvEzEorqa/AyENN0=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 16:55:01, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:01:19.230 D -                    ValidationAspect(266) [            ServerThreadPool-3] [ 4698236676636363147] : [Validation - Input] - CorporateUserSCImpl#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX1/IrBtwSk+03WqYqzuVvEzEorqa/AyENN0=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 16:55:01, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:01:19.853 E -            CorporateUserServiceImpl(922) [            ServerThreadPool-3] [ 4698236676636363147] : No Image Uploaded : D:\temp\null
+java.nio.file.NoSuchFileException: D:\temp\null
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.readAllBytes(Unknown Source)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl.getUserProfiles(CorporateUserServiceImpl.java:918)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$FastClassBySpringCGLIB$$9083946b.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$EnhancerBySpringCGLIB$$e8b9c4a1.getUserProfiles(<generated>)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl.getUserProfiles(CorporateUserSCImpl.java:324)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$FastClassBySpringCGLIB$$c51810ba.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
+	at com.gpt.component.common.validation.ValidationAspect.validate(ValidationAspect.java:270)
+	at sun.reflect.GeneratedMethodAccessor167.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$EnhancerBySpringCGLIB$$1d6aa70b.getUserProfiles(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:63)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:85)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:84)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:25)
+	at com.gpt.component.common.invoker.queue.consumer.handler.QueueHandler.processMessage(QueueHandler.java:40)
+	at com.gpt.component.common.invoker.queue.consumer.QueueConsumer$Worker.run(QueueConsumer.java:212)
+[10692] 17:01:22.232 D -                        QueueInvoker(201) [            ServerThreadPool-3] [ 4698236676636363147] : Execution Time: 3004 ms
+[10692] 17:03:26.988 D -                              Helper(213) [          http-nio-8005-exec-3] [-7577403508328542832] : random passwd : BSaQyGNKavXnTl1&
+[10692] 17:03:27.019 D -             CorporateLoginController(62) [          http-nio-8005-exec-1] [  469204102690261460] : [preInvoke] - [-] - CorporateLoginSC#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX1+iUIcTNwRpPvw4oHmm51WctuWSuN8SaQg=, key=BSaQyGNKavXnTl1&, loginCorporateId=gdbank, loginHandlesLogout=true, loginHistoryId=[ce87e65a-1426-409f-b168-083f00da91fd], loginDate=2021-08-13 17:01:18.929, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:03:27.020 D -                        QueueInvoker(126) [          http-nio-8005-exec-1] [  469204102690261460] : [AutoDiscoveryQueueInvoker] - CorporateLoginSC#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX1+iUIcTNwRpPvw4oHmm51WctuWSuN8SaQg=, key=BSaQyGNKavXnTl1&, loginCorporateId=gdbank, loginHandlesLogout=true, loginHistoryId=[ce87e65a-1426-409f-b168-083f00da91fd], loginDate=2021-08-13 17:01:18.929, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:03:27.021 D -                    ValidationAspect(266) [            ServerThreadPool-3] [  469204102690261460] : [Validation - Input] - CorporateLoginSCImpl#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX1+iUIcTNwRpPvw4oHmm51WctuWSuN8SaQg=, key=BSaQyGNKavXnTl1&, loginCorporateId=gdbank, loginHandlesLogout=true, loginHistoryId=[ce87e65a-1426-409f-b168-083f00da91fd], loginDate=2021-08-13 17:01:18.929, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:03:27.198 D -                 IDMLoginServiceImpl(453) [            ServerThreadPool-3] [  469204102690261460] : getLastLoginDate : 2021-08-13 17:01:18.929
+[10692] 17:03:27.198 D -                 IDMLoginServiceImpl(454) [            ServerThreadPool-3] [  469204102690261460] : validateUserIdle diffDays : 0
+[10692] 17:03:27.213 D -                 IDMLoginServiceImpl(434) [            ServerThreadPool-3] [  469204102690261460] : getLastChangePasswordDate : 2021-07-13 15:36:27.779
+[10692] 17:03:27.213 D -                 IDMLoginServiceImpl(435) [            ServerThreadPool-3] [  469204102690261460] : validateUserPasswordExpired diffDays : 31
+[10692] 17:03:27.366 D -             CorporateLoginController(81) [            ServerThreadPool-3] [  469204102690261460] : 
+
+
+
+
+
+[10692] 17:03:27.366 D -             CorporateLoginController(82) [            ServerThreadPool-3] [  469204102690261460] : session id    : b408dd0e-778b-4f59-a17b-8a7faf520420
+[10692] 17:03:27.366 D -             CorporateLoginController(83) [            ServerThreadPool-3] [  469204102690261460] : userCode      : GDBANK|GDUSERMAKER
+[10692] 17:03:27.366 D -             CorporateLoginController(84) [            ServerThreadPool-3] [  469204102690261460] : loginMenuList : [MNU_GPCASH_F_BILL_PAYMENT, MNU_GPCASH_F_DIRECT_DEBIT, MNU_GPCASH_F_FUND_BENEFICIARY_UPLOAD, MNU_GPCASH_F_FUND_INT, MNU_GPCASH_F_INTEREST_RATE, MNU_GPCASH_F_PAYMENT_VA, MNU_GPCASH_F_PENDING_TASK, MNU_GPCASH_F_TD_PLACEMENT, MNU_GPCASH_F_EXCHANGE_RATE, MNU_GPCASH_F_PARENT_SIPKD, MNU_GPCASH_F_CORP_VA, MNU_GPCASH_F_FUND_DOMESTIC, MNU_GPCASH_F_INFO, MNU_GPCASH_F_LIQ, MNU_GPCASH_F_PURCHASE, MNU_GPCASH_F_CHQ_ORDER, MNU_GPCASH_F_FUND_BENEFICIARY, MNU_GPCASH_F_ACCOUNTS, MNU_GPCASH_F_FUND_TRF, MNU_GPCASH_F_TAX_PAYMENT, MNU_GPCASH_F_CORP_VA_LIST, MNU_GPCASH_F_FUND_INHOUSE, MNU_GPCASH_F_MASS_FUND_BULK_PAYMENT, MNU_GPCASH_F_SIPKD, MNU_GPCASH_F_BAL_SUMMARY, MNU_GPCASH_F_CORP_VA_REPORT, MNU_GPCASH_F_LIQ_SWEEP_OUT, MNU_GPCASH_F_MASS_FUND_PAYROLL, MNU_GPCASH_F_TRX_VA_HISTORY, MNU_GPCASH_F_BILL, MNU_GPCASH_F_CHQ, MNU_GPCASH_F_CHQ_RECON, MNU_GPCASH_F_CORP_VA_UPLOAD, MNU_GPCASH_F_LIQ_SWEEP_IN, MNU_GPCASH_F_MASS_FUND_TRF, MNU_GPCASH_F_TD, MNU_GPCASH_F_TD_WITHDRAW, MNU_GPCASH_F_TRX_HISTORY, MNU_GPCASH_F_TRX_STATUS, MNU_GPCASH_F_NON_FIN, MNU_GPCASH_MT_PARAMETER, MNU_GPCASH_F_CHG_PASSWD, MNU_GPCASH_F_ADMIN_DASHBOARD, MNU_GPCASH_F_USER_DASHBOARD, MNU_GPCASH_MT_HOST_ERROR_MAPPING, MNU_GPCASH_F_ADMIN_PENDING_TASK, MNU_GPCASH_F_PENDING_TASK]
+[10692] 17:03:27.366 D -             CorporateLoginController(85) [            ServerThreadPool-3] [  469204102690261460] : 
+
+
+
+
+
+[10692] 17:03:27.367 D -                        QueueInvoker(201) [            ServerThreadPool-3] [  469204102690261460] : Execution Time: 346 ms
+[10692] 17:03:27.410 D -             CorporateLoginController(62) [          http-nio-8005-exec-6] [-6981617026472458579] : [preInvoke] - [b408dd0e-778b-4f59-a17b-8a7faf520420] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX1+iUIcTNwRpPvw4oHmm51WctuWSuN8SaQg=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 17:01:18, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:03:27.410 D -                        QueueInvoker(126) [          http-nio-8005-exec-6] [-6981617026472458579] : [AutoDiscoveryQueueInvoker] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX1+iUIcTNwRpPvw4oHmm51WctuWSuN8SaQg=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 17:01:18, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:03:27.412 D -                    ValidationAspect(266) [            ServerThreadPool-5] [-6981617026472458579] : [Validation - Input] - CorporateUserSCImpl#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX1+iUIcTNwRpPvw4oHmm51WctuWSuN8SaQg=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 17:01:18, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:03:27.549 E -            CorporateUserServiceImpl(922) [            ServerThreadPool-5] [-6981617026472458579] : No Image Uploaded : D:\temp\null
+java.nio.file.NoSuchFileException: D:\temp\null
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.readAllBytes(Unknown Source)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl.getUserProfiles(CorporateUserServiceImpl.java:918)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$FastClassBySpringCGLIB$$9083946b.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$EnhancerBySpringCGLIB$$e8b9c4a1.getUserProfiles(<generated>)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl.getUserProfiles(CorporateUserSCImpl.java:324)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$FastClassBySpringCGLIB$$c51810ba.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
+	at com.gpt.component.common.validation.ValidationAspect.validate(ValidationAspect.java:270)
+	at sun.reflect.GeneratedMethodAccessor167.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$EnhancerBySpringCGLIB$$1d6aa70b.getUserProfiles(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:63)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:85)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:84)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:25)
+	at com.gpt.component.common.invoker.queue.consumer.handler.QueueHandler.processMessage(QueueHandler.java:40)
+	at com.gpt.component.common.invoker.queue.consumer.QueueConsumer$Worker.run(QueueConsumer.java:212)
+[10692] 17:03:28.409 D -                        QueueInvoker(201) [            ServerThreadPool-5] [-6981617026472458579] : Execution Time: 998 ms
+[10692] 17:10:04.263 D -                              Helper(213) [          http-nio-8005-exec-6] [ 5873106026984064694] : random passwd : UTzrufxCKTzCvT3#
+[10692] 17:10:04.295 D -             CorporateLoginController(62) [          http-nio-8005-exec-4] [-8846661694485607934] : [preInvoke] - [-] - CorporateLoginSC#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX19ge1LxTEr7Yrt14uq4H1OGGCtQnAdrQ98=, key=UTzrufxCKTzCvT3#, loginCorporateId=gdbank, loginHandlesLogout=true, loginHistoryId=[4cdbc9ce-a7c6-44ad-bece-824960d81260], loginDate=2021-08-13 17:03:27.292, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:10:04.298 D -                        QueueInvoker(126) [          http-nio-8005-exec-4] [-8846661694485607934] : [AutoDiscoveryQueueInvoker] - CorporateLoginSC#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX19ge1LxTEr7Yrt14uq4H1OGGCtQnAdrQ98=, key=UTzrufxCKTzCvT3#, loginCorporateId=gdbank, loginHandlesLogout=true, loginHistoryId=[4cdbc9ce-a7c6-44ad-bece-824960d81260], loginDate=2021-08-13 17:03:27.292, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:10:04.301 D -                    ValidationAspect(266) [            ServerThreadPool-1] [-8846661694485607934] : [Validation - Input] - CorporateLoginSCImpl#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX19ge1LxTEr7Yrt14uq4H1OGGCtQnAdrQ98=, key=UTzrufxCKTzCvT3#, loginCorporateId=gdbank, loginHandlesLogout=true, loginHistoryId=[4cdbc9ce-a7c6-44ad-bece-824960d81260], loginDate=2021-08-13 17:03:27.292, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:10:04.402 D -                 IDMLoginServiceImpl(453) [            ServerThreadPool-1] [-8846661694485607934] : getLastLoginDate : 2021-08-13 17:03:27.292
+[10692] 17:10:04.402 D -                 IDMLoginServiceImpl(454) [            ServerThreadPool-1] [-8846661694485607934] : validateUserIdle diffDays : 0
+[10692] 17:10:04.458 D -            CorporateLoginController(163) [            ServerThreadPool-1] [-8846661694485607934] : onException : com.gpt.component.common.exceptions.BusinessException: GPT-0100032
+[10692] 17:10:04.460 D -                        QueueInvoker(201) [            ServerThreadPool-1] [-8846661694485607934] : Execution Time: 161 ms
+[10692] 17:10:04.495 E -        GlobalDefaultExceptionHandler(47) [          http-nio-8005-exec-5] [-8846661694485607934] : GPT-0100032: Invalid User ID or Password
+com.gpt.component.common.exceptions.BusinessException: GPT-0100032
+	at com.gpt.component.idm.login.services.IDMLoginServiceImpl.validateUserAndPassword(IDMLoginServiceImpl.java:314)
+	at com.gpt.component.idm.login.services.IDMLoginServiceImpl.login(IDMLoginServiceImpl.java:115)
+	at com.gpt.component.idm.login.services.IDMLoginServiceImpl$$FastClassBySpringCGLIB$$1fba14d0.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.component.idm.login.services.IDMLoginServiceImpl$$EnhancerBySpringCGLIB$$48ca2cf0.login(<generated>)
+	at com.gpt.product.gpcash.corporate.login.services.CorporateLoginServiceImpl.corporateLogin(CorporateLoginServiceImpl.java:50)
+	at com.gpt.product.gpcash.corporate.login.services.CorporateLoginServiceImpl$$FastClassBySpringCGLIB$$851f9852.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.login.services.CorporateLoginServiceImpl$$EnhancerBySpringCGLIB$$bfff8b6.corporateLogin(<generated>)
+	at com.gpt.product.gpcash.corporate.login.services.CorporateLoginSCImpl.corporateLogin(CorporateLoginSCImpl.java:52)
+	at com.gpt.product.gpcash.corporate.login.services.CorporateLoginSCImpl$$FastClassBySpringCGLIB$$2324f873.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
+	at com.gpt.component.common.validation.ValidationAspect.validate(ValidationAspect.java:270)
+	at sun.reflect.GeneratedMethodAccessor167.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.login.services.CorporateLoginSCImpl$$EnhancerBySpringCGLIB$$4fc1d1dc.corporateLogin(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:63)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:85)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:84)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:25)
+	at com.gpt.component.common.invoker.queue.consumer.handler.QueueHandler.processMessage(QueueHandler.java:40)
+	at com.gpt.component.common.invoker.queue.consumer.QueueConsumer$Worker.run(QueueConsumer.java:212)
+[10692] 17:10:04.497 W -   ExceptionHandlerExceptionResolver(189) [          http-nio-8005-exec-5] [-8846661694485607934] : Resolved exception caused by Handler execution: com.gpt.component.common.exceptions.BusinessException: GPT-0100032
+[10692] 17:10:08.527 D -                              Helper(213) [          http-nio-8005-exec-9] [ 4718051555074002476] : random passwd : TpHajsnRAnVuRv4%
+[10692] 17:10:08.545 D -             CorporateLoginController(62) [          http-nio-8005-exec-1] [-4369015350674043989] : [preInvoke] - [-] - CorporateLoginSC#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX1+jXTv/VWE5ayZXZd32yHi91etf25Bn8x8=, key=TpHajsnRAnVuRv4%, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:10:08.545 D -                        QueueInvoker(126) [          http-nio-8005-exec-1] [-4369015350674043989] : [AutoDiscoveryQueueInvoker] - CorporateLoginSC#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX1+jXTv/VWE5ayZXZd32yHi91etf25Bn8x8=, key=TpHajsnRAnVuRv4%, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:10:08.547 D -                    ValidationAspect(266) [            ServerThreadPool-2] [-4369015350674043989] : [Validation - Input] - CorporateLoginSCImpl#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX1+jXTv/VWE5ayZXZd32yHi91etf25Bn8x8=, key=TpHajsnRAnVuRv4%, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:10:08.589 D -                 IDMLoginServiceImpl(453) [            ServerThreadPool-2] [-4369015350674043989] : getLastLoginDate : 2021-08-13 17:03:27.292
+[10692] 17:10:08.590 D -                 IDMLoginServiceImpl(454) [            ServerThreadPool-2] [-4369015350674043989] : validateUserIdle diffDays : 0
+[10692] 17:10:08.598 D -                 IDMLoginServiceImpl(434) [            ServerThreadPool-2] [-4369015350674043989] : getLastChangePasswordDate : 2021-07-13 15:36:27.779
+[10692] 17:10:08.599 D -                 IDMLoginServiceImpl(435) [            ServerThreadPool-2] [-4369015350674043989] : validateUserPasswordExpired diffDays : 31
+[10692] 17:10:08.761 D -             CorporateLoginController(81) [            ServerThreadPool-2] [-4369015350674043989] : 
+
+
+
+
+
+[10692] 17:10:08.761 D -             CorporateLoginController(82) [            ServerThreadPool-2] [-4369015350674043989] : session id    : 9c27ff73-890b-4a98-8c34-2b18b26e15f3
+[10692] 17:10:08.761 D -             CorporateLoginController(83) [            ServerThreadPool-2] [-4369015350674043989] : userCode      : GDBANK|GDUSERMAKER
+[10692] 17:10:08.761 D -             CorporateLoginController(84) [            ServerThreadPool-2] [-4369015350674043989] : loginMenuList : [MNU_GPCASH_F_BILL_PAYMENT, MNU_GPCASH_F_DIRECT_DEBIT, MNU_GPCASH_F_FUND_BENEFICIARY_UPLOAD, MNU_GPCASH_F_FUND_INT, MNU_GPCASH_F_INTEREST_RATE, MNU_GPCASH_F_PAYMENT_VA, MNU_GPCASH_F_PENDING_TASK, MNU_GPCASH_F_TD_PLACEMENT, MNU_GPCASH_F_EXCHANGE_RATE, MNU_GPCASH_F_PARENT_SIPKD, MNU_GPCASH_F_CORP_VA, MNU_GPCASH_F_FUND_DOMESTIC, MNU_GPCASH_F_INFO, MNU_GPCASH_F_LIQ, MNU_GPCASH_F_PURCHASE, MNU_GPCASH_F_CHQ_ORDER, MNU_GPCASH_F_FUND_BENEFICIARY, MNU_GPCASH_F_ACCOUNTS, MNU_GPCASH_F_FUND_TRF, MNU_GPCASH_F_TAX_PAYMENT, MNU_GPCASH_F_CORP_VA_LIST, MNU_GPCASH_F_FUND_INHOUSE, MNU_GPCASH_F_MASS_FUND_BULK_PAYMENT, MNU_GPCASH_F_SIPKD, MNU_GPCASH_F_BAL_SUMMARY, MNU_GPCASH_F_CORP_VA_REPORT, MNU_GPCASH_F_LIQ_SWEEP_OUT, MNU_GPCASH_F_MASS_FUND_PAYROLL, MNU_GPCASH_F_TRX_VA_HISTORY, MNU_GPCASH_F_BILL, MNU_GPCASH_F_CHQ, MNU_GPCASH_F_CHQ_RECON, MNU_GPCASH_F_CORP_VA_UPLOAD, MNU_GPCASH_F_LIQ_SWEEP_IN, MNU_GPCASH_F_MASS_FUND_TRF, MNU_GPCASH_F_TD, MNU_GPCASH_F_TD_WITHDRAW, MNU_GPCASH_F_TRX_HISTORY, MNU_GPCASH_F_TRX_STATUS, MNU_GPCASH_F_NON_FIN, MNU_GPCASH_MT_PARAMETER, MNU_GPCASH_F_CHG_PASSWD, MNU_GPCASH_F_ADMIN_DASHBOARD, MNU_GPCASH_F_USER_DASHBOARD, MNU_GPCASH_MT_HOST_ERROR_MAPPING, MNU_GPCASH_F_ADMIN_PENDING_TASK, MNU_GPCASH_F_PENDING_TASK]
+[10692] 17:10:08.761 D -             CorporateLoginController(85) [            ServerThreadPool-2] [-4369015350674043989] : 
+
+
+
+
+
+[10692] 17:10:08.762 D -                        QueueInvoker(201) [            ServerThreadPool-2] [-4369015350674043989] : Execution Time: 216 ms
+[10692] 17:10:08.810 D -             CorporateLoginController(62) [          http-nio-8005-exec-6] [-1672530108510419874] : [preInvoke] - [9c27ff73-890b-4a98-8c34-2b18b26e15f3] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX1+jXTv/VWE5ayZXZd32yHi91etf25Bn8x8=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 17:03:27, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:10:08.811 D -                        QueueInvoker(126) [          http-nio-8005-exec-6] [-1672530108510419874] : [AutoDiscoveryQueueInvoker] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX1+jXTv/VWE5ayZXZd32yHi91etf25Bn8x8=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 17:03:27, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:10:08.812 D -                    ValidationAspect(266) [            ServerThreadPool-3] [-1672530108510419874] : [Validation - Input] - CorporateUserSCImpl#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX1+jXTv/VWE5ayZXZd32yHi91etf25Bn8x8=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 17:03:27, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:10:08.901 E -            CorporateUserServiceImpl(922) [            ServerThreadPool-3] [-1672530108510419874] : No Image Uploaded : D:\temp\null
+java.nio.file.NoSuchFileException: D:\temp\null
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.readAllBytes(Unknown Source)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl.getUserProfiles(CorporateUserServiceImpl.java:918)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$FastClassBySpringCGLIB$$9083946b.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$EnhancerBySpringCGLIB$$e8b9c4a1.getUserProfiles(<generated>)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl.getUserProfiles(CorporateUserSCImpl.java:324)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$FastClassBySpringCGLIB$$c51810ba.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
+	at com.gpt.component.common.validation.ValidationAspect.validate(ValidationAspect.java:270)
+	at sun.reflect.GeneratedMethodAccessor167.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$EnhancerBySpringCGLIB$$1d6aa70b.getUserProfiles(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:63)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:85)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:84)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:25)
+	at com.gpt.component.common.invoker.queue.consumer.handler.QueueHandler.processMessage(QueueHandler.java:40)
+	at com.gpt.component.common.invoker.queue.consumer.QueueConsumer$Worker.run(QueueConsumer.java:212)
+[10692] 17:10:09.430 D -                        QueueInvoker(201) [            ServerThreadPool-3] [-1672530108510419874] : Execution Time: 618 ms
+[10692] 17:10:36.621 D -                              Helper(213) [          http-nio-8005-exec-6] [ 1525461543221546154] : random passwd : JGTBOkYRrTTIqp8%
+[10692] 17:10:36.643 D -             CorporateLoginController(62) [          http-nio-8005-exec-4] [ 2404016406294318611] : [preInvoke] - [-] - CorporateLoginSC#corporateLogin({loginId=gdcorpmaker, passwd=U2FsdGVkX19ev9mPZ+wFmFPxhWTCWEBE39T3LvPJC3k=, key=JGTBOkYRrTTIqp8%, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDCORPMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:10:36.644 D -                        QueueInvoker(126) [          http-nio-8005-exec-4] [ 2404016406294318611] : [AutoDiscoveryQueueInvoker] - CorporateLoginSC#corporateLogin({loginId=gdcorpmaker, passwd=U2FsdGVkX19ev9mPZ+wFmFPxhWTCWEBE39T3LvPJC3k=, key=JGTBOkYRrTTIqp8%, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDCORPMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:10:36.645 D -                    ValidationAspect(266) [            ServerThreadPool-3] [ 2404016406294318611] : [Validation - Input] - CorporateLoginSCImpl#corporateLogin({loginId=gdcorpmaker, passwd=U2FsdGVkX19ev9mPZ+wFmFPxhWTCWEBE39T3LvPJC3k=, key=JGTBOkYRrTTIqp8%, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDCORPMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:10:36.707 D -                 IDMLoginServiceImpl(453) [            ServerThreadPool-3] [ 2404016406294318611] : getLastLoginDate : 2021-08-13 16:48:40.841
+[10692] 17:10:36.707 D -                 IDMLoginServiceImpl(454) [            ServerThreadPool-3] [ 2404016406294318611] : validateUserIdle diffDays : 0
+[10692] 17:10:36.719 D -                 IDMLoginServiceImpl(434) [            ServerThreadPool-3] [ 2404016406294318611] : getLastChangePasswordDate : 2021-07-13 15:10:03.914
+[10692] 17:10:36.720 D -                 IDMLoginServiceImpl(435) [            ServerThreadPool-3] [ 2404016406294318611] : validateUserPasswordExpired diffDays : 31
+[10692] 17:10:36.947 D -             CorporateLoginController(81) [            ServerThreadPool-3] [ 2404016406294318611] : 
+
+
+
+
+
+[10692] 17:10:36.947 D -             CorporateLoginController(82) [            ServerThreadPool-3] [ 2404016406294318611] : session id    : b1f893f6-d5e2-48ec-8e16-e7dda2b5db31
+[10692] 17:10:36.947 D -             CorporateLoginController(83) [            ServerThreadPool-3] [ 2404016406294318611] : userCode      : GDBANK|GDCORPMAKER
+[10692] 17:10:36.947 D -             CorporateLoginController(84) [            ServerThreadPool-3] [ 2404016406294318611] : loginMenuList : [MNU_GPCASH_F_AUTH_LMT_SCHEME, MNU_GPCASH_F_UTILITIES, MNU_GPCASH_F_UNLOCK_USER, MNU_GPCASH_F_USER_MANAGER, MNU_GPCASH_F_CHG_PASSWD, MNU_GPCASH_F_FIN_ACTV, MNU_GPCASH_F_ADMIN_MYTASK, MNU_GPCASH_F_HELP_DESK, MNU_GPCASH_F_TRX_LMT_USG, MNU_GPCASH_F_USER_GROUP, MNU_GPCASH_F_USR_MANAGEMENT, MNU_GPCASH_F_NON_FIN, MNU_GPCASH_F_REPORT, MNU_GPCASH_F_ACCT_SETUP, MNU_GPCASH_F_ADMIN_PENDING_TASK, MNU_GPCASH_F_USER_MAINTENANCE, MNU_GPCASH_F_ACCT_MANAGEMENT, MNU_GPCASH_F_LOGIN_INFO, MNU_GPCASH_F_ACCT_GROUP, MNU_GPCASH_F_APRV_MTRX, MNU_GPCASH_F_BENEFICIARY, MNU_GPCASH_F_NON_FIN, MNU_GPCASH_MT_PARAMETER, MNU_GPCASH_F_CHG_PASSWD, MNU_GPCASH_F_ADMIN_DASHBOARD, MNU_GPCASH_F_USER_DASHBOARD, MNU_GPCASH_MT_HOST_ERROR_MAPPING, MNU_GPCASH_F_ADMIN_PENDING_TASK, MNU_GPCASH_F_PENDING_TASK]
+[10692] 17:10:36.947 D -             CorporateLoginController(85) [            ServerThreadPool-3] [ 2404016406294318611] : 
+
+
+
+
+
+[10692] 17:10:36.948 D -                        QueueInvoker(201) [            ServerThreadPool-3] [ 2404016406294318611] : Execution Time: 303 ms
+[10692] 17:10:36.986 D -             CorporateLoginController(62) [          http-nio-8005-exec-3] [ 8628804943438761089] : [preInvoke] - [b1f893f6-d5e2-48ec-8e16-e7dda2b5db31] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDCORPMAKER, passwd=U2FsdGVkX19ev9mPZ+wFmFPxhWTCWEBE39T3LvPJC3k=, loginCorporateId=GDBANK, loginUsername=GDCorpmaker, lastLoginDate=13/08/2021 16:48:40, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, isShowBeneficiary=Y, loginUserCode=GDBANK|GDCORPMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:10:36.988 D -                        QueueInvoker(126) [          http-nio-8005-exec-3] [ 8628804943438761089] : [AutoDiscoveryQueueInvoker] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDCORPMAKER, passwd=U2FsdGVkX19ev9mPZ+wFmFPxhWTCWEBE39T3LvPJC3k=, loginCorporateId=GDBANK, loginUsername=GDCorpmaker, lastLoginDate=13/08/2021 16:48:40, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, isShowBeneficiary=Y, loginUserCode=GDBANK|GDCORPMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:10:36.989 D -                    ValidationAspect(266) [            ServerThreadPool-5] [ 8628804943438761089] : [Validation - Input] - CorporateUserSCImpl#getUserProfiles({loginId=GDBANK|GDCORPMAKER, passwd=U2FsdGVkX19ev9mPZ+wFmFPxhWTCWEBE39T3LvPJC3k=, loginCorporateId=GDBANK, loginUsername=GDCorpmaker, lastLoginDate=13/08/2021 16:48:40, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, isShowBeneficiary=Y, loginUserCode=GDBANK|GDCORPMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:10:37.084 E -            CorporateUserServiceImpl(922) [            ServerThreadPool-5] [ 8628804943438761089] : No Image Uploaded : D:\temp\null
+java.nio.file.NoSuchFileException: D:\temp\null
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.readAllBytes(Unknown Source)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl.getUserProfiles(CorporateUserServiceImpl.java:918)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$FastClassBySpringCGLIB$$9083946b.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$EnhancerBySpringCGLIB$$e8b9c4a1.getUserProfiles(<generated>)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl.getUserProfiles(CorporateUserSCImpl.java:324)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$FastClassBySpringCGLIB$$c51810ba.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
+	at com.gpt.component.common.validation.ValidationAspect.validate(ValidationAspect.java:270)
+	at sun.reflect.GeneratedMethodAccessor167.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$EnhancerBySpringCGLIB$$1d6aa70b.getUserProfiles(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:63)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:85)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:84)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:25)
+	at com.gpt.component.common.invoker.queue.consumer.handler.QueueHandler.processMessage(QueueHandler.java:40)
+	at com.gpt.component.common.invoker.queue.consumer.QueueConsumer$Worker.run(QueueConsumer.java:212)
+[10692] 17:10:37.337 D -                        QueueInvoker(201) [            ServerThreadPool-5] [ 8628804943438761089] : Execution Time: 348 ms
+[10692] 17:11:14.668 D -                              Helper(213) [          http-nio-8005-exec-4] [ 8085596072966639459] : random passwd : HKAfYJCcKGYGrb1&
+[10692] 17:11:14.688 D -             CorporateLoginController(62) [          http-nio-8005-exec-2] [ 5618373037882492798] : [preInvoke] - [-] - CorporateLoginSC#corporateLogin({loginId=gdcorpapprover, passwd=U2FsdGVkX18weuAYUdWJ/epCjPzAR4Nr7lrviEnz2l4=, key=HKAfYJCcKGYGrb1&, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDCORPAPPROVER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:11:14.689 D -                        QueueInvoker(126) [          http-nio-8005-exec-2] [ 5618373037882492798] : [AutoDiscoveryQueueInvoker] - CorporateLoginSC#corporateLogin({loginId=gdcorpapprover, passwd=U2FsdGVkX18weuAYUdWJ/epCjPzAR4Nr7lrviEnz2l4=, key=HKAfYJCcKGYGrb1&, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDCORPAPPROVER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:11:14.690 D -                    ValidationAspect(266) [            ServerThreadPool-3] [ 5618373037882492798] : [Validation - Input] - CorporateLoginSCImpl#corporateLogin({loginId=gdcorpapprover, passwd=U2FsdGVkX18weuAYUdWJ/epCjPzAR4Nr7lrviEnz2l4=, key=HKAfYJCcKGYGrb1&, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDCORPAPPROVER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:11:14.738 D -                 IDMLoginServiceImpl(453) [            ServerThreadPool-3] [ 5618373037882492798] : getLastLoginDate : 2021-08-12 13:53:29.229
+[10692] 17:11:14.739 D -                 IDMLoginServiceImpl(454) [            ServerThreadPool-3] [ 5618373037882492798] : validateUserIdle diffDays : 1
+[10692] 17:11:14.748 D -                 IDMLoginServiceImpl(434) [            ServerThreadPool-3] [ 5618373037882492798] : getLastChangePasswordDate : 2021-07-13 15:31:44.573
+[10692] 17:11:14.748 D -                 IDMLoginServiceImpl(435) [            ServerThreadPool-3] [ 5618373037882492798] : validateUserPasswordExpired diffDays : 31
+[10692] 17:11:14.816 D -             CorporateLoginController(81) [            ServerThreadPool-3] [ 5618373037882492798] : 
+
+
+
+
+
+[10692] 17:11:14.816 D -             CorporateLoginController(82) [            ServerThreadPool-3] [ 5618373037882492798] : session id    : 47791f64-9c44-4b90-b8b7-541968fcab5a
+[10692] 17:11:14.816 D -             CorporateLoginController(83) [            ServerThreadPool-3] [ 5618373037882492798] : userCode      : GDBANK|GDCORPAPPROVER
+[10692] 17:11:14.817 D -             CorporateLoginController(84) [            ServerThreadPool-3] [ 5618373037882492798] : loginMenuList : [MNU_GPCASH_F_AUTH_LMT_SCHEME, MNU_GPCASH_F_UTILITIES, MNU_GPCASH_F_UNLOCK_USER, MNU_GPCASH_F_USER_MANAGER, MNU_GPCASH_F_CHG_PASSWD, MNU_GPCASH_F_FIN_ACTV, MNU_GPCASH_F_ADMIN_MYTASK, MNU_GPCASH_F_HELP_DESK, MNU_GPCASH_F_TRX_LMT_USG, MNU_GPCASH_F_USER_GROUP, MNU_GPCASH_F_USR_MANAGEMENT, MNU_GPCASH_F_NON_FIN, MNU_GPCASH_F_REPORT, MNU_GPCASH_F_ACCT_SETUP, MNU_GPCASH_F_ADMIN_PENDING_TASK, MNU_GPCASH_F_USER_MAINTENANCE, MNU_GPCASH_F_ACCT_MANAGEMENT, MNU_GPCASH_F_LOGIN_INFO, MNU_GPCASH_F_ACCT_GROUP, MNU_GPCASH_F_APRV_MTRX, MNU_GPCASH_F_BENEFICIARY, MNU_GPCASH_F_NON_FIN, MNU_GPCASH_MT_PARAMETER, MNU_GPCASH_F_CHG_PASSWD, MNU_GPCASH_F_ADMIN_DASHBOARD, MNU_GPCASH_F_USER_DASHBOARD, MNU_GPCASH_MT_HOST_ERROR_MAPPING, MNU_GPCASH_F_ADMIN_PENDING_TASK, MNU_GPCASH_F_PENDING_TASK]
+[10692] 17:11:14.817 D -             CorporateLoginController(85) [            ServerThreadPool-3] [ 5618373037882492798] : 
+
+
+
+
+
+[10692] 17:11:14.817 D -                        QueueInvoker(201) [            ServerThreadPool-3] [ 5618373037882492798] : Execution Time: 127 ms
+[10692] 17:11:14.862 D -             CorporateLoginController(62) [          http-nio-8005-exec-1] [-4220548765059889665] : [preInvoke] - [47791f64-9c44-4b90-b8b7-541968fcab5a] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDCORPAPPROVER, passwd=U2FsdGVkX18weuAYUdWJ/epCjPzAR4Nr7lrviEnz2l4=, loginCorporateId=GDBANK, loginUsername=GDcorpapprover, lastLoginDate=12/08/2021 13:53:29, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, isShowBeneficiary=N, loginUserCode=GDBANK|GDCORPAPPROVER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:11:14.863 D -                        QueueInvoker(126) [          http-nio-8005-exec-1] [-4220548765059889665] : [AutoDiscoveryQueueInvoker] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDCORPAPPROVER, passwd=U2FsdGVkX18weuAYUdWJ/epCjPzAR4Nr7lrviEnz2l4=, loginCorporateId=GDBANK, loginUsername=GDcorpapprover, lastLoginDate=12/08/2021 13:53:29, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, isShowBeneficiary=N, loginUserCode=GDBANK|GDCORPAPPROVER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:11:14.865 D -                    ValidationAspect(266) [            ServerThreadPool-5] [-4220548765059889665] : [Validation - Input] - CorporateUserSCImpl#getUserProfiles({loginId=GDBANK|GDCORPAPPROVER, passwd=U2FsdGVkX18weuAYUdWJ/epCjPzAR4Nr7lrviEnz2l4=, loginCorporateId=GDBANK, loginUsername=GDcorpapprover, lastLoginDate=12/08/2021 13:53:29, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, isShowBeneficiary=N, loginUserCode=GDBANK|GDCORPAPPROVER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:11:14.947 E -            CorporateUserServiceImpl(922) [            ServerThreadPool-5] [-4220548765059889665] : No Image Uploaded : D:\temp\null
+java.nio.file.NoSuchFileException: D:\temp\null
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.readAllBytes(Unknown Source)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl.getUserProfiles(CorporateUserServiceImpl.java:918)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$FastClassBySpringCGLIB$$9083946b.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$EnhancerBySpringCGLIB$$e8b9c4a1.getUserProfiles(<generated>)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl.getUserProfiles(CorporateUserSCImpl.java:324)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$FastClassBySpringCGLIB$$c51810ba.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
+	at com.gpt.component.common.validation.ValidationAspect.validate(ValidationAspect.java:270)
+	at sun.reflect.GeneratedMethodAccessor167.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$EnhancerBySpringCGLIB$$1d6aa70b.getUserProfiles(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:63)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:85)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:84)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:25)
+	at com.gpt.component.common.invoker.queue.consumer.handler.QueueHandler.processMessage(QueueHandler.java:40)
+	at com.gpt.component.common.invoker.queue.consumer.QueueConsumer$Worker.run(QueueConsumer.java:212)
+[10692] 17:11:15.141 D -                        QueueInvoker(201) [            ServerThreadPool-5] [-4220548765059889665] : Execution Time: 277 ms
+[10692] 17:11:35.785 D -                              Helper(213) [          http-nio-8005-exec-7] [-7756764601815905700] : random passwd : KbayvFWPNGMGnO2%
+[10692] 17:11:35.804 D -             CorporateLoginController(62) [          http-nio-8005-exec-2] [-6357313490761203185] : [preInvoke] - [-] - CorporateLoginSC#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX19edV3vSW9HCloKUVjWcUq+MAWoRHJQQQo=, key=KbayvFWPNGMGnO2%, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:11:35.804 D -                        QueueInvoker(126) [          http-nio-8005-exec-2] [-6357313490761203185] : [AutoDiscoveryQueueInvoker] - CorporateLoginSC#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX19edV3vSW9HCloKUVjWcUq+MAWoRHJQQQo=, key=KbayvFWPNGMGnO2%, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:11:35.806 D -                    ValidationAspect(266) [            ServerThreadPool-5] [-6357313490761203185] : [Validation - Input] - CorporateLoginSCImpl#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX19edV3vSW9HCloKUVjWcUq+MAWoRHJQQQo=, key=KbayvFWPNGMGnO2%, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:11:35.921 D -                 IDMLoginServiceImpl(453) [            ServerThreadPool-5] [-6357313490761203185] : getLastLoginDate : 2021-08-13 17:10:08.731
+[10692] 17:11:35.922 D -                 IDMLoginServiceImpl(454) [            ServerThreadPool-5] [-6357313490761203185] : validateUserIdle diffDays : 0
+[10692] 17:11:35.931 D -                 IDMLoginServiceImpl(434) [            ServerThreadPool-5] [-6357313490761203185] : getLastChangePasswordDate : 2021-07-13 15:36:27.779
+[10692] 17:11:35.931 D -                 IDMLoginServiceImpl(435) [            ServerThreadPool-5] [-6357313490761203185] : validateUserPasswordExpired diffDays : 31
+[10692] 17:11:36.024 D -             CorporateLoginController(81) [            ServerThreadPool-5] [-6357313490761203185] : 
+
+
+
+
+
+[10692] 17:11:36.025 D -             CorporateLoginController(82) [            ServerThreadPool-5] [-6357313490761203185] : session id    : f1fc84d3-9349-499a-81bb-0c40fe965603
+[10692] 17:11:36.025 D -             CorporateLoginController(83) [            ServerThreadPool-5] [-6357313490761203185] : userCode      : GDBANK|GDUSERMAKER
+[10692] 17:11:36.025 D -             CorporateLoginController(84) [            ServerThreadPool-5] [-6357313490761203185] : loginMenuList : [MNU_GPCASH_F_BILL_PAYMENT, MNU_GPCASH_F_DIRECT_DEBIT, MNU_GPCASH_F_FUND_BENEFICIARY_UPLOAD, MNU_GPCASH_F_FUND_INT, MNU_GPCASH_F_INTEREST_RATE, MNU_GPCASH_F_PAYMENT_VA, MNU_GPCASH_F_PENDING_TASK, MNU_GPCASH_F_TD_PLACEMENT, MNU_GPCASH_F_EXCHANGE_RATE, MNU_GPCASH_F_PARENT_SIPKD, MNU_GPCASH_F_CORP_VA, MNU_GPCASH_F_FUND_DOMESTIC, MNU_GPCASH_F_INFO, MNU_GPCASH_F_LIQ, MNU_GPCASH_F_PURCHASE, MNU_GPCASH_F_CHQ_ORDER, MNU_GPCASH_F_FUND_BENEFICIARY, MNU_GPCASH_F_ACCOUNTS, MNU_GPCASH_F_FUND_TRF, MNU_GPCASH_F_TAX_PAYMENT, MNU_GPCASH_F_CORP_VA_LIST, MNU_GPCASH_F_FUND_INHOUSE, MNU_GPCASH_F_MASS_FUND_BULK_PAYMENT, MNU_GPCASH_F_SIPKD, MNU_GPCASH_F_BAL_SUMMARY, MNU_GPCASH_F_CORP_VA_REPORT, MNU_GPCASH_F_LIQ_SWEEP_OUT, MNU_GPCASH_F_MASS_FUND_PAYROLL, MNU_GPCASH_F_TRX_VA_HISTORY, MNU_GPCASH_F_BILL, MNU_GPCASH_F_CHQ, MNU_GPCASH_F_CHQ_RECON, MNU_GPCASH_F_CORP_VA_UPLOAD, MNU_GPCASH_F_LIQ_SWEEP_IN, MNU_GPCASH_F_MASS_FUND_TRF, MNU_GPCASH_F_TD, MNU_GPCASH_F_TD_WITHDRAW, MNU_GPCASH_F_TRX_HISTORY, MNU_GPCASH_F_TRX_STATUS, MNU_GPCASH_F_NON_FIN, MNU_GPCASH_MT_PARAMETER, MNU_GPCASH_F_CHG_PASSWD, MNU_GPCASH_F_ADMIN_DASHBOARD, MNU_GPCASH_F_USER_DASHBOARD, MNU_GPCASH_MT_HOST_ERROR_MAPPING, MNU_GPCASH_F_ADMIN_PENDING_TASK, MNU_GPCASH_F_PENDING_TASK]
+[10692] 17:11:36.025 D -             CorporateLoginController(85) [            ServerThreadPool-5] [-6357313490761203185] : 
+
+
+
+
+
+[10692] 17:11:36.025 D -                        QueueInvoker(201) [            ServerThreadPool-5] [-6357313490761203185] : Execution Time: 220 ms
+[10692] 17:11:36.064 D -             CorporateLoginController(62) [          http-nio-8005-exec-1] [ -468966991748185628] : [preInvoke] - [f1fc84d3-9349-499a-81bb-0c40fe965603] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX19edV3vSW9HCloKUVjWcUq+MAWoRHJQQQo=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 17:10:08, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, isShowBeneficiary=N, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:11:36.065 D -                        QueueInvoker(126) [          http-nio-8005-exec-1] [ -468966991748185628] : [AutoDiscoveryQueueInvoker] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX19edV3vSW9HCloKUVjWcUq+MAWoRHJQQQo=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 17:10:08, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, isShowBeneficiary=N, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:11:36.067 D -                    ValidationAspect(266) [            ServerThreadPool-4] [ -468966991748185628] : [Validation - Input] - CorporateUserSCImpl#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX19edV3vSW9HCloKUVjWcUq+MAWoRHJQQQo=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 17:10:08, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, isShowBeneficiary=N, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:11:36.170 E -            CorporateUserServiceImpl(922) [            ServerThreadPool-4] [ -468966991748185628] : No Image Uploaded : D:\temp\null
+java.nio.file.NoSuchFileException: D:\temp\null
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.readAllBytes(Unknown Source)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl.getUserProfiles(CorporateUserServiceImpl.java:918)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$FastClassBySpringCGLIB$$9083946b.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$EnhancerBySpringCGLIB$$e8b9c4a1.getUserProfiles(<generated>)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl.getUserProfiles(CorporateUserSCImpl.java:324)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$FastClassBySpringCGLIB$$c51810ba.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
+	at com.gpt.component.common.validation.ValidationAspect.validate(ValidationAspect.java:270)
+	at sun.reflect.GeneratedMethodAccessor167.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$EnhancerBySpringCGLIB$$1d6aa70b.getUserProfiles(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:63)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:85)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:84)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:25)
+	at com.gpt.component.common.invoker.queue.consumer.handler.QueueHandler.processMessage(QueueHandler.java:40)
+	at com.gpt.component.common.invoker.queue.consumer.QueueConsumer$Worker.run(QueueConsumer.java:212)
+[10692] 17:11:36.708 D -                        QueueInvoker(201) [            ServerThreadPool-4] [ -468966991748185628] : Execution Time: 642 ms
+[10692] 17:13:42.710 D -                              Helper(213) [          http-nio-8005-exec-6] [ 7462412116172295018] : random passwd : JosCBqMvNsfdIE5&
+[10692] 17:13:42.738 D -             CorporateLoginController(62) [          http-nio-8005-exec-7] [  942611200930957201] : [preInvoke] - [-] - CorporateLoginSC#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX19D67GNRCuCqMSeGQTRGR9s918z9GztyRw=, key=JosCBqMvNsfdIE5&, loginCorporateId=gdbank, loginHandlesLogout=true, loginHistoryId=[b3b8cdbf-3abe-4f07-80c4-2dffaed98425], loginDate=2021-08-13 17:11:35.976, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:13:42.739 D -                        QueueInvoker(126) [          http-nio-8005-exec-7] [  942611200930957201] : [AutoDiscoveryQueueInvoker] - CorporateLoginSC#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX19D67GNRCuCqMSeGQTRGR9s918z9GztyRw=, key=JosCBqMvNsfdIE5&, loginCorporateId=gdbank, loginHandlesLogout=true, loginHistoryId=[b3b8cdbf-3abe-4f07-80c4-2dffaed98425], loginDate=2021-08-13 17:11:35.976, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:13:42.741 D -                    ValidationAspect(266) [            ServerThreadPool-2] [  942611200930957201] : [Validation - Input] - CorporateLoginSCImpl#corporateLogin({loginId=gdusermaker, passwd=U2FsdGVkX19D67GNRCuCqMSeGQTRGR9s918z9GztyRw=, key=JosCBqMvNsfdIE5&, loginCorporateId=gdbank, loginHandlesLogout=true, loginHistoryId=[b3b8cdbf-3abe-4f07-80c4-2dffaed98425], loginDate=2021-08-13 17:11:35.976, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:13:42.834 D -                 IDMLoginServiceImpl(453) [            ServerThreadPool-2] [  942611200930957201] : getLastLoginDate : 2021-08-13 17:11:35.976
+[10692] 17:13:42.835 D -                 IDMLoginServiceImpl(454) [            ServerThreadPool-2] [  942611200930957201] : validateUserIdle diffDays : 0
+[10692] 17:13:42.849 D -                 IDMLoginServiceImpl(434) [            ServerThreadPool-2] [  942611200930957201] : getLastChangePasswordDate : 2021-07-13 15:36:27.779
+[10692] 17:13:42.850 D -                 IDMLoginServiceImpl(435) [            ServerThreadPool-2] [  942611200930957201] : validateUserPasswordExpired diffDays : 31
+[10692] 17:13:42.935 D -             CorporateLoginController(81) [            ServerThreadPool-2] [  942611200930957201] : 
+
+
+
+
+
+[10692] 17:13:42.935 D -             CorporateLoginController(82) [            ServerThreadPool-2] [  942611200930957201] : session id    : 2fbb7cb4-ec97-44db-9756-d13c2a163161
+[10692] 17:13:42.935 D -             CorporateLoginController(83) [            ServerThreadPool-2] [  942611200930957201] : userCode      : GDBANK|GDUSERMAKER
+[10692] 17:13:42.935 D -             CorporateLoginController(84) [            ServerThreadPool-2] [  942611200930957201] : loginMenuList : [MNU_GPCASH_F_BILL_PAYMENT, MNU_GPCASH_F_DIRECT_DEBIT, MNU_GPCASH_F_FUND_BENEFICIARY_UPLOAD, MNU_GPCASH_F_FUND_INT, MNU_GPCASH_F_INTEREST_RATE, MNU_GPCASH_F_PAYMENT_VA, MNU_GPCASH_F_PENDING_TASK, MNU_GPCASH_F_TD_PLACEMENT, MNU_GPCASH_F_EXCHANGE_RATE, MNU_GPCASH_F_PARENT_SIPKD, MNU_GPCASH_F_CORP_VA, MNU_GPCASH_F_FUND_DOMESTIC, MNU_GPCASH_F_INFO, MNU_GPCASH_F_LIQ, MNU_GPCASH_F_PURCHASE, MNU_GPCASH_F_CHQ_ORDER, MNU_GPCASH_F_FUND_BENEFICIARY, MNU_GPCASH_F_ACCOUNTS, MNU_GPCASH_F_FUND_TRF, MNU_GPCASH_F_TAX_PAYMENT, MNU_GPCASH_F_CORP_VA_LIST, MNU_GPCASH_F_FUND_INHOUSE, MNU_GPCASH_F_MASS_FUND_BULK_PAYMENT, MNU_GPCASH_F_SIPKD, MNU_GPCASH_F_BAL_SUMMARY, MNU_GPCASH_F_CORP_VA_REPORT, MNU_GPCASH_F_LIQ_SWEEP_OUT, MNU_GPCASH_F_MASS_FUND_PAYROLL, MNU_GPCASH_F_TRX_VA_HISTORY, MNU_GPCASH_F_BILL, MNU_GPCASH_F_CHQ, MNU_GPCASH_F_CHQ_RECON, MNU_GPCASH_F_CORP_VA_UPLOAD, MNU_GPCASH_F_LIQ_SWEEP_IN, MNU_GPCASH_F_MASS_FUND_TRF, MNU_GPCASH_F_TD, MNU_GPCASH_F_TD_WITHDRAW, MNU_GPCASH_F_TRX_HISTORY, MNU_GPCASH_F_TRX_STATUS, MNU_GPCASH_F_NON_FIN, MNU_GPCASH_MT_PARAMETER, MNU_GPCASH_F_CHG_PASSWD, MNU_GPCASH_F_ADMIN_DASHBOARD, MNU_GPCASH_F_USER_DASHBOARD, MNU_GPCASH_MT_HOST_ERROR_MAPPING, MNU_GPCASH_F_ADMIN_PENDING_TASK, MNU_GPCASH_F_PENDING_TASK]
+[10692] 17:13:42.935 D -             CorporateLoginController(85) [            ServerThreadPool-2] [  942611200930957201] : 
+
+
+
+
+
+[10692] 17:13:42.936 D -                        QueueInvoker(201) [            ServerThreadPool-2] [  942611200930957201] : Execution Time: 196 ms
+[10692] 17:13:42.973 D -             CorporateLoginController(62) [          http-nio-8005-exec-3] [-8984148394685152865] : [preInvoke] - [2fbb7cb4-ec97-44db-9756-d13c2a163161] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX19D67GNRCuCqMSeGQTRGR9s918z9GztyRw=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 17:11:35, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:13:42.975 D -                        QueueInvoker(126) [          http-nio-8005-exec-3] [-8984148394685152865] : [AutoDiscoveryQueueInvoker] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX19D67GNRCuCqMSeGQTRGR9s918z9GztyRw=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 17:11:35, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:13:42.976 D -                    ValidationAspect(266) [            ServerThreadPool-3] [-8984148394685152865] : [Validation - Input] - CorporateUserSCImpl#getUserProfiles({loginId=GDBANK|GDUSERMAKER, passwd=U2FsdGVkX19D67GNRCuCqMSeGQTRGR9s918z9GztyRw=, loginCorporateId=GDBANK, loginUsername=GDusermaker, lastLoginDate=13/08/2021 17:11:35, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, loginUserCode=GDBANK|GDUSERMAKER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:13:43.043 E -            CorporateUserServiceImpl(922) [            ServerThreadPool-3] [-8984148394685152865] : No Image Uploaded : D:\temp\null
+java.nio.file.NoSuchFileException: D:\temp\null
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.readAllBytes(Unknown Source)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl.getUserProfiles(CorporateUserServiceImpl.java:918)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$FastClassBySpringCGLIB$$9083946b.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$EnhancerBySpringCGLIB$$e8b9c4a1.getUserProfiles(<generated>)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl.getUserProfiles(CorporateUserSCImpl.java:324)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$FastClassBySpringCGLIB$$c51810ba.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
+	at com.gpt.component.common.validation.ValidationAspect.validate(ValidationAspect.java:270)
+	at sun.reflect.GeneratedMethodAccessor167.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$EnhancerBySpringCGLIB$$1d6aa70b.getUserProfiles(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:63)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:85)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:84)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:25)
+	at com.gpt.component.common.invoker.queue.consumer.handler.QueueHandler.processMessage(QueueHandler.java:40)
+	at com.gpt.component.common.invoker.queue.consumer.QueueConsumer$Worker.run(QueueConsumer.java:212)
+[10692] 17:13:43.478 D -                        QueueInvoker(201) [            ServerThreadPool-3] [-8984148394685152865] : Execution Time: 503 ms
+[10692] 17:14:31.265 D -                              Helper(213) [          http-nio-8005-exec-2] [-7568921246672862847] : random passwd : JxswJzZMpVfEYA2$
+[10692] 17:14:31.302 D -             CorporateLoginController(62) [          http-nio-8005-exec-9] [ 4938879692329601160] : [preInvoke] - [-] - CorporateLoginSC#corporateLogin({loginId=gduserapprover, passwd=U2FsdGVkX1/RgBWxS/tPiuiYjDvhAxfUBsyfgvaWsRY=, key=JxswJzZMpVfEYA2$, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERAPPROVER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:14:31.303 D -                        QueueInvoker(126) [          http-nio-8005-exec-9] [ 4938879692329601160] : [AutoDiscoveryQueueInvoker] - CorporateLoginSC#corporateLogin({loginId=gduserapprover, passwd=U2FsdGVkX1/RgBWxS/tPiuiYjDvhAxfUBsyfgvaWsRY=, key=JxswJzZMpVfEYA2$, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERAPPROVER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:14:31.304 D -                    ValidationAspect(266) [            ServerThreadPool-4] [ 4938879692329601160] : [Validation - Input] - CorporateLoginSCImpl#corporateLogin({loginId=gduserapprover, passwd=U2FsdGVkX1/RgBWxS/tPiuiYjDvhAxfUBsyfgvaWsRY=, key=JxswJzZMpVfEYA2$, loginCorporateId=gdbank, loginIPAddress=0:0:0:0:0:0:0:1, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36, loginUserCode=GDBANK|GDUSERAPPROVER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:14:31.363 D -                 IDMLoginServiceImpl(453) [            ServerThreadPool-4] [ 4938879692329601160] : getLastLoginDate : 2021-08-12 15:02:39.83
+[10692] 17:14:31.364 D -                 IDMLoginServiceImpl(454) [            ServerThreadPool-4] [ 4938879692329601160] : validateUserIdle diffDays : 1
+[10692] 17:14:31.386 D -                 IDMLoginServiceImpl(434) [            ServerThreadPool-4] [ 4938879692329601160] : getLastChangePasswordDate : 2021-07-13 16:28:56.78
+[10692] 17:14:31.387 D -                 IDMLoginServiceImpl(435) [            ServerThreadPool-4] [ 4938879692329601160] : validateUserPasswordExpired diffDays : 31
+[10692] 17:14:31.466 D -             CorporateLoginController(81) [            ServerThreadPool-4] [ 4938879692329601160] : 
+
+
+
+
+
+[10692] 17:14:31.466 D -             CorporateLoginController(82) [            ServerThreadPool-4] [ 4938879692329601160] : session id    : 13af6c04-307d-4f08-8e10-14318b1520b7
+[10692] 17:14:31.466 D -             CorporateLoginController(83) [            ServerThreadPool-4] [ 4938879692329601160] : userCode      : GDBANK|GDUSERAPPROVER
+[10692] 17:14:31.466 D -             CorporateLoginController(84) [            ServerThreadPool-4] [ 4938879692329601160] : loginMenuList : [MNU_GPCASH_F_BILL_PAYMENT, MNU_GPCASH_F_DIRECT_DEBIT, MNU_GPCASH_F_FUND_BENEFICIARY_UPLOAD, MNU_GPCASH_F_FUND_INT, MNU_GPCASH_F_INTEREST_RATE, MNU_GPCASH_F_PAYMENT_VA, MNU_GPCASH_F_PENDING_TASK, MNU_GPCASH_F_TD_PLACEMENT, MNU_GPCASH_F_EXCHANGE_RATE, MNU_GPCASH_F_PARENT_SIPKD, MNU_GPCASH_F_CORP_VA, MNU_GPCASH_F_FUND_DOMESTIC, MNU_GPCASH_F_INFO, MNU_GPCASH_F_LIQ, MNU_GPCASH_F_PURCHASE, MNU_GPCASH_F_CHQ_ORDER, MNU_GPCASH_F_FUND_BENEFICIARY, MNU_GPCASH_F_ACCOUNTS, MNU_GPCASH_F_FUND_TRF, MNU_GPCASH_F_TAX_PAYMENT, MNU_GPCASH_F_CORP_VA_LIST, MNU_GPCASH_F_FUND_INHOUSE, MNU_GPCASH_F_MASS_FUND_BULK_PAYMENT, MNU_GPCASH_F_SIPKD, MNU_GPCASH_F_BAL_SUMMARY, MNU_GPCASH_F_CORP_VA_REPORT, MNU_GPCASH_F_LIQ_SWEEP_OUT, MNU_GPCASH_F_MASS_FUND_PAYROLL, MNU_GPCASH_F_TRX_VA_HISTORY, MNU_GPCASH_F_BILL, MNU_GPCASH_F_CHQ, MNU_GPCASH_F_CHQ_RECON, MNU_GPCASH_F_CORP_VA_UPLOAD, MNU_GPCASH_F_LIQ_SWEEP_IN, MNU_GPCASH_F_MASS_FUND_TRF, MNU_GPCASH_F_TD, MNU_GPCASH_F_TD_WITHDRAW, MNU_GPCASH_F_TRX_HISTORY, MNU_GPCASH_F_TRX_STATUS, MNU_GPCASH_F_NON_FIN, MNU_GPCASH_MT_PARAMETER, MNU_GPCASH_F_CHG_PASSWD, MNU_GPCASH_F_ADMIN_DASHBOARD, MNU_GPCASH_F_USER_DASHBOARD, MNU_GPCASH_MT_HOST_ERROR_MAPPING, MNU_GPCASH_F_ADMIN_PENDING_TASK, MNU_GPCASH_F_PENDING_TASK]
+[10692] 17:14:31.466 D -             CorporateLoginController(85) [            ServerThreadPool-4] [ 4938879692329601160] : 
+
+
+
+
+
+[10692] 17:14:31.467 D -                        QueueInvoker(201) [            ServerThreadPool-4] [ 4938879692329601160] : Execution Time: 164 ms
+[10692] 17:14:31.509 D -             CorporateLoginController(62) [          http-nio-8005-exec-1] [ 3763475495860192935] : [preInvoke] - [13af6c04-307d-4f08-8e10-14318b1520b7] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDUSERAPPROVER, passwd=U2FsdGVkX1/RgBWxS/tPiuiYjDvhAxfUBsyfgvaWsRY=, loginCorporateId=GDBANK, loginUsername=GDUserapprover, lastLoginDate=12/08/2021 15:02:39, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, isShowBeneficiary=Y, loginUserCode=GDBANK|GDUSERAPPROVER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:14:31.512 D -                        QueueInvoker(126) [          http-nio-8005-exec-1] [ 3763475495860192935] : [AutoDiscoveryQueueInvoker] - CorporateUserSC#getUserProfiles({loginId=GDBANK|GDUSERAPPROVER, passwd=U2FsdGVkX1/RgBWxS/tPiuiYjDvhAxfUBsyfgvaWsRY=, loginCorporateId=GDBANK, loginUsername=GDUserapprover, lastLoginDate=12/08/2021 15:02:39, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, isShowBeneficiary=Y, loginUserCode=GDBANK|GDUSERAPPROVER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:14:31.513 D -                    ValidationAspect(266) [            ServerThreadPool-1] [ 3763475495860192935] : [Validation - Input] - CorporateUserSCImpl#getUserProfiles({loginId=GDBANK|GDUSERAPPROVER, passwd=U2FsdGVkX1/RgBWxS/tPiuiYjDvhAxfUBsyfgvaWsRY=, loginCorporateId=GDBANK, loginUsername=GDUserapprover, lastLoginDate=12/08/2021 15:02:39, imageUrl=, corporateName=, userRole=, tokenTypeName=, email=, userRoleCode=, isNotifyMyTrx=, isNotifyMyTask=, browser=, isShowBeneficiary=Y, loginUserCode=GDBANK|GDUSERAPPROVER, menuCode=null, appCode=GPCASHIB_ADMIN})
+[10692] 17:14:31.597 E -            CorporateUserServiceImpl(922) [            ServerThreadPool-1] [ 3763475495860192935] : No Image Uploaded : D:\temp\null
+java.nio.file.NoSuchFileException: D:\temp\null
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.newByteChannel(Unknown Source)
+	at java.nio.file.Files.readAllBytes(Unknown Source)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl.getUserProfiles(CorporateUserServiceImpl.java:918)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$FastClassBySpringCGLIB$$9083946b.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserServiceImpl$$EnhancerBySpringCGLIB$$e8b9c4a1.getUserProfiles(<generated>)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl.getUserProfiles(CorporateUserSCImpl.java:324)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$FastClassBySpringCGLIB$$c51810ba.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
+	at com.gpt.component.common.validation.ValidationAspect.validate(ValidationAspect.java:270)
+	at sun.reflect.GeneratedMethodAccessor167.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.corporateuser.services.CorporateUserSCImpl$$EnhancerBySpringCGLIB$$1d6aa70b.getUserProfiles(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:63)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:85)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:84)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:25)
+	at com.gpt.component.common.invoker.queue.consumer.handler.QueueHandler.processMessage(QueueHandler.java:40)
+	at com.gpt.component.common.invoker.queue.consumer.QueueConsumer$Worker.run(QueueConsumer.java:212)
+[10692] 17:14:31.824 D -                        QueueInvoker(201) [            ServerThreadPool-1] [ 3763475495860192935] : Execution Time: 311 ms

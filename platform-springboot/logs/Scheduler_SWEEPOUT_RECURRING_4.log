@@ -1,0 +1,3 @@
+[10692] 06:24:44.084 D -                      SchedulerHelper(47) [            Scheduler_Worker-2] [-1624114323861387815] : [SWEEPOUT_RECURRING_4] Scheduled Fire Time : Sun Aug 15 16:00:00 ICT 2021
+[10692] 06:24:44.084 D -                      SchedulerHelper(48) [            Scheduler_Worker-2] [-1624114323861387815] : [SWEEPOUT_RECURRING_4] Next Fire Time      : Mon Aug 16 16:00:00 ICT 2021
+[10692] 06:24:44.090 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-2] [-1624114323861387815] : [SWEEPOUT_RECURRING_4] Next Fire Time (New): Mon Aug 16 16:00:00 ICT 2021

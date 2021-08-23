@@ -1,0 +1,3 @@
+[10692] 06:24:44.144 D -                      SchedulerHelper(47) [            Scheduler_Worker-5] [-3098718159151741375] : [RESET_USER_GROUP_LIMIT] Scheduled Fire Time : Mon Aug 16 01:00:00 ICT 2021
+[10692] 06:24:44.145 D -                      SchedulerHelper(48) [            Scheduler_Worker-5] [-3098718159151741375] : [RESET_USER_GROUP_LIMIT] Next Fire Time      : Tue Aug 17 01:00:00 ICT 2021
+[10692] 06:24:44.151 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-5] [-3098718159151741375] : [RESET_USER_GROUP_LIMIT] Next Fire Time (New): Tue Aug 17 01:00:00 ICT 2021
