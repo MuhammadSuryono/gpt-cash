@@ -1,0 +1,17 @@
+/.project
+.gradle/*
+.settings/*
+.classpath/*
+.project/*
+build/*
+bin/*
+gradle
+gradlew
+gradlew.bat
+platform-springboot/*
+platform-springboot/test_deployment
+test_deployment
+*.class
+*.jar
+*.log
+*.zip

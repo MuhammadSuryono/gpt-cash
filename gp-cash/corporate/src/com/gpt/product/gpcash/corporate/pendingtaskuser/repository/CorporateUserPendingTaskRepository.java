@@ -51,8 +51,9 @@ public interface CorporateUserPendingTaskRepository extends JpaRepository<Corpor
 			+ "and instructionDate>=?2 "
 			+ "and instructionDate<?3 "
 			+ "and status in (?4) "
-			+ "and userGroupId = ?5 ")
-	Object getCountAndTotalByServiceCodeAndInstructionDate(String serviceCode, Date instructionDateFrom, Date instructionDateTo, List<String> pendingTaskStatus, String userGroupId);
+			+ "and userGroupId = ?5 "
+			+ "and serviceCurrencyMatrix = ?6 ")
+	Object getCountAndTotalByServiceCodeAndInstructionDate(String serviceCode, Date instructionDateFrom, Date instructionDateTo, List<String> pendingTaskStatus, String userGroupId,String currencyMatrixCode);
 
 	@Query("from CorporateUserPendingTaskModel p where p.senderRefNo = ?1 and p.menu.code = ?2 and p.corporate.id = ?3 and isFinalPayment = 'Y' ")
 	List<CorporateUserPendingTaskModel> findBySenderRefNoAndMenuCodeAndCorporateId(String senderRefNo, String menuCode, String corporateId);

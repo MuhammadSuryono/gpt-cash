@@ -217,9 +217,19 @@ public class CorporateUserPendingTaskModel implements Serializable {
 	@Column(name = "REFNO_SPECIALRATE")
 	protected String refNoSpecialRate;
 	
-	
+	@Column(name = "SRVC_CCY_MTRX_CD")
+	protected String serviceCurrencyMatrix;
 
-         public String getRefNoSpecialRate() {
+	
+    public String getServiceCurrencyMatrix() {
+		return serviceCurrencyMatrix;
+	}
+
+	public void setServiceCurrencyMatrix(String serviceCurrencyMatrix) {
+		this.serviceCurrencyMatrix = serviceCurrencyMatrix;
+	}
+
+	public String getRefNoSpecialRate() {
 		return refNoSpecialRate;
 	}
 

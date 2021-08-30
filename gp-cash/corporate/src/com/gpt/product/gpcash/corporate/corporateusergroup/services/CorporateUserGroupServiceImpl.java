@@ -740,7 +740,7 @@ public class CorporateUserGroupServiceImpl implements CorporateUserGroupService,
 				BigDecimal totalPendingTaskDebitedAmount = new BigDecimal(0);
 				if(corporateUserGroupListener != null) {
 					Map<String, Object> trxInfoMap = corporateUserGroupListener.getTrxInfoFromPendingTask(service.getCode(), DateUtils.getCurrentTimestamp(), ApplicationConstants.SI_IMMEDIATE, 
-							userGroupId);
+							userGroupId,currencyMatrixModel.getCurrencyMatrix().getCode());
 					totalPendingTaskDebitedAmount = (BigDecimal) trxInfoMap.get("totalPendingTaskDebitedAmount");
 				}
 				modelMap.put("amountLimitUsage", totalPendingTaskDebitedAmount.add((model.getAmountLimitUsage() != null ? model.getAmountLimitUsage() : BigDecimal.ZERO)));

@@ -365,6 +365,10 @@ public class CorporateUserPendingTaskServiceImpl implements CorporateUserPending
 			if (vo.getRefNoSpecialRate() != null) {
 				pendingTask.setRefNoSpecialRate(vo.getRefNoSpecialRate());
 			}
+			
+			if(vo.getTransactionCurrency()!=null && vo.getSourceAccountCurrencyCode()!=null) {
+				pendingTask.setServiceCurrencyMatrix(getCurrencyMatrixCode(vo.getSourceAccountCurrencyCode(), vo.getTransactionCurrency()));
+			}
 
 			if (logger.isDebugEnabled())
 				logger.debug("User PendingTask : " + pendingTask);
@@ -1212,6 +1216,28 @@ public class CorporateUserPendingTaskServiceImpl implements CorporateUserPending
 			throw new ApplicationException(e);
 		}
 	
+	}
+	
+	private String getCurrencyMatrixCode(String fromCurrency, String toCurrency)
+			throws Exception {
+		String localCurrency = maintenanceRepo.isSysParamValid(SysParamConstants.LOCAL_CURRENCY_CODE).getValue();
+		
+		if (fromCurrency.equalsIgnoreCase(localCurrency) && fromCurrency.equalsIgnoreCase(toCurrency)) {
+			return ApplicationConstants.CCY_MTRX_LL;
+		} else if (fromCurrency.equalsIgnoreCase(localCurrency) 
+				&& !toCurrency.equalsIgnoreCase(fromCurrency)) {
+			return ApplicationConstants.CCY_MTRX_LF;
+		} else if (toCurrency.equalsIgnoreCase(localCurrency) 
+				&& !toCurrency.equalsIgnoreCase(fromCurrency)) {
+			return ApplicationConstants.CCY_MTRX_FL;
+		}else if (!fromCurrency.equalsIgnoreCase(localCurrency) && fromCurrency.equalsIgnoreCase(toCurrency)) {
+			return ApplicationConstants.CCY_MTRX_FS;
+		} else if (!fromCurrency.equalsIgnoreCase(localCurrency) && !toCurrency.equalsIgnoreCase(localCurrency)
+				&& !fromCurrency.equalsIgnoreCase(toCurrency)) {
+			return ApplicationConstants.CCY_MTRX_FC;
+		}
+
+		return null;
 	}
 	
 	class NotificationSender extends TransactionSynchronizationAdapter {
