@@ -1764,11 +1764,38 @@ public class BillPaymentServiceImpl implements BillPaymentService {
 				}
 			} else if ("BPHTB".equals(institution)) {
 				setReportParamBPHTB(reportParams, pendingTaskValues);
+			} else if ("RETRIBUTION".equals(institution)) {
+				setReportParamRetribusi(reportParams, pendingTaskValues);
 			}
 			
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
+	private void setReportParamRetribusi(Map<String, Object> reportParams, Map<String, Object> pendingTaskValues) {
+		
+		if (pendingTaskValues.get("othersInfo") != null) {
+
+			DecimalFormat df = new DecimalFormat(moneyFormat);
+			List<Map<String, Object>> infoList = (List<Map<String, Object>>) pendingTaskValues.get("othersInfo");
+
+			for (Map<String, Object> infoMap : infoList) {
+				
+				if (infoMap.get("key") !=null) {
+					if (String.valueOf(infoMap.get("key")).toLowerCase().contains("amount")) {
+						reportParams.put(String.valueOf(infoMap.get("key")), df.format(new BigDecimal(String.valueOf(infoMap.get("value")))));
+					}else {
+						reportParams.put(String.valueOf(infoMap.get("key")), String.valueOf(infoMap.get("value")));
+					}
+				}
+			}
+		}
+		
+		Map<String, Object> confirmData = (Map<String, Object>) pendingTaskValues.get("confirm_data");
+		reportParams.put("title", String.valueOf(confirmData.get("institutionName")).toUpperCase());
+		
+	}
+
 	@SuppressWarnings("unchecked")
 	private void setReportParamBPHTB(Map<String, Object> reportParams, Map<String, Object> pendingTaskValues) {
 		
