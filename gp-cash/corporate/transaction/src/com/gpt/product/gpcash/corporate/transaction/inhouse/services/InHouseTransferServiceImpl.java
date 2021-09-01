@@ -737,6 +737,8 @@ public class InHouseTransferServiceImpl implements InHouseTransferService {
 			resultMap.putAll(corporateChargeService.getCorporateCharges((String) map.get(ApplicationConstants.APP_CODE),
 					(String) map.get(ApplicationConstants.TRANS_SERVICE_CODE),
 					(String) map.get(ApplicationConstants.LOGIN_CORP_ID)));
+			
+			resultMap.put(ApplicationConstants.TRANS_AMOUNT_EQ, map.get("equivalentAmount"));
 		} catch (BusinessException e) {
 			throw e;
 		} catch (Exception e) {
@@ -1783,6 +1785,38 @@ public class InHouseTransferServiceImpl implements InHouseTransferService {
 		}
 
 		return resultMap;
+	}
+	
+	
+	@Override
+	public Map<String, Object> searchOnline(Map<String, Object> map) throws ApplicationException, BusinessException {
+		
+		String isVirtualAccount = (String) map.get("isVirtualAccount");
+		
+		try {
+			
+			Map<String, Object> inputs = new HashMap<>();
+			inputs.put("accountNo", map.get("benAccountNo"));
+			
+			Map<String, Object> result = new HashMap<>(12,1);
+			if (ApplicationConstants.YES.equals(isVirtualAccount)) {
+				Map<String, Object> outputs = eaiAdapter.invokeService(EAIConstants.TRANSFER_VA_INQUIRY, inputs);
+				result.put("benAccountNo", outputs.get("accountNo"));
+				result.put("benAccountName", outputs.get("accountName"));
+				result.put("benAccountCurrency", outputs.get("accountCurrencyCode"));
+			} else {		
+				Map<String, Object> outputs = corporateAccountService.searchOnlineByAccountNo(inputs);
+				result.put("benAccountNo", outputs.get("accountNo"));
+				result.put("benAccountName", outputs.get("accountName"));
+				result.put("benAccountCurrency", outputs.get("accountCurrencyCode"));							
+			}
+			
+			return result;
+		} catch (BusinessException e) {
+			throw e;
+		} catch (Exception e) {
+			throw new ApplicationException(e);
+		}
 	}
 	
 }

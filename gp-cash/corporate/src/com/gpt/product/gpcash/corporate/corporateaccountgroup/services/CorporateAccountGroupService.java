@@ -31,6 +31,11 @@ public interface CorporateAccountGroupService extends CorporateAdminWorkflowServ
 	
 	Map<String, Object> searchCorporateAccountGroupDetailForDebitOnlyGetMap(String corporateId, String userCode) throws ApplicationException, BusinessException;
 	
+	List<CorporateAccountGroupDetailModel> searchCorporateAccountGroupDetailForDebitOnlyMultiCurrency(String corporateId, String userCode) throws ApplicationException, BusinessException;
+	
+	Map<String, Object> searchCorporateAccountGroupDetailForDebitOnlyMultiCurrencyGetMap(String corporateId, String userCode) throws ApplicationException, BusinessException;
+	
+	
 	List<CorporateAccountGroupDetailModel> searchCorporateAccountGroupDetailForCreditOnly(String corporateId, String userCode) throws ApplicationException, BusinessException;
 	
 	Map<String, Object> searchCorporateAccountGroupDetailForCreditOnlyGetMap(String corporateId, String userCode) throws ApplicationException, BusinessException;

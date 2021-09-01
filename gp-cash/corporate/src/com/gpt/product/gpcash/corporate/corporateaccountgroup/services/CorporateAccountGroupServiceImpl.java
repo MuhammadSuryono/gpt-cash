@@ -690,6 +690,42 @@ public class CorporateAccountGroupServiceImpl implements CorporateAccountGroupSe
 	    	casaAccountType.add(ApplicationConstants.ACCOUNT_TYPE_SAVING);
 	    	casaAccountType.add(ApplicationConstants.ACCOUNT_TYPE_CURRENT);
 	    	
+	    	String localCurrencyCode = maintenanceRepo.isSysParamValid(SysParamConstants.LOCAL_CURRENCY_CODE).getValue();
+	    	
+	    	//TODO remove local currency if implement forex transaction
+	    	return corporateAccountGroupRepo.findDetailByAccountGroupIdAndIsDebit(corporateId, accountGroup.getId(), casaAccountType, localCurrencyCode);
+	    	
+	    	//return corporateAccountGroupRepo.findDetailByAccountGroupIdAndIsDebitMultiCurrency(corporateId, accountGroup.getId(), casaAccountType);
+	    	
+		} catch (BusinessException e) {
+			throw e;
+		} catch (Exception e) {
+			throw new ApplicationException(e);
+		}
+    }
+	
+	@Override
+	public Map<String, Object> searchCorporateAccountGroupDetailForDebitOnlyGetMap(String corporateId, String userCode) throws ApplicationException, BusinessException {
+		Map<String, Object> resultMap = new HashMap<>();
+		
+		List<CorporateAccountGroupDetailModel> modelList = searchCorporateAccountGroupDetailForDebitOnly(corporateId, userCode);
+		
+		resultMap.put("accounts", getAccountList(modelList, false));
+		
+		return resultMap;
+	}
+	
+	@Override
+	public List<CorporateAccountGroupDetailModel> searchCorporateAccountGroupDetailForDebitOnlyMultiCurrency(String corporateId, String userCode) throws ApplicationException, BusinessException {
+		try {
+	    	CorporateUserModel corporateUser = corporateUtilsRepo.isCorporateUserValid(userCode);
+	    	
+	    	CorporateAccountGroupModel accountGroup = corporateUser.getCorporateUserGroup().getCorporateAccountGroup();
+	    	
+	    	List<String> casaAccountType = new ArrayList<>();
+	    	casaAccountType.add(ApplicationConstants.ACCOUNT_TYPE_SAVING);
+	    	casaAccountType.add(ApplicationConstants.ACCOUNT_TYPE_CURRENT);
+	    	
 	    	/*String localCurrencyCode = maintenanceRepo.isSysParamValid(SysParamConstants.LOCAL_CURRENCY_CODE).getValue();
 	    	
 	    	//TODO remove local currency if implement forex transaction
@@ -705,10 +741,10 @@ public class CorporateAccountGroupServiceImpl implements CorporateAccountGroupSe
     }
 	
 	@Override
-	public Map<String, Object> searchCorporateAccountGroupDetailForDebitOnlyGetMap(String corporateId, String userCode) throws ApplicationException, BusinessException {
+	public Map<String, Object> searchCorporateAccountGroupDetailForDebitOnlyMultiCurrencyGetMap(String corporateId, String userCode) throws ApplicationException, BusinessException {
 		Map<String, Object> resultMap = new HashMap<>();
 		
-		List<CorporateAccountGroupDetailModel> modelList = searchCorporateAccountGroupDetailForDebitOnly(corporateId, userCode);
+		List<CorporateAccountGroupDetailModel> modelList = searchCorporateAccountGroupDetailForDebitOnlyMultiCurrency(corporateId, userCode);
 		
 		resultMap.put("accounts", getAccountList(modelList, false));
 		
@@ -759,8 +795,9 @@ public class CorporateAccountGroupServiceImpl implements CorporateAccountGroupSe
 	    	String localCurrencyCode = maintenanceRepo.isSysParamValid(SysParamConstants.LOCAL_CURRENCY_CODE).getValue();
 	    	
 	    	//TODO remove local currency if implement forex transaction
+	    	//OK saya remove localcurrencynya, 31 Agustus 2021
 	    	return corporateAccountGroupRepo.findDetailByAccountGroupIdAndIsCredit(corporateId, accountGroup.getId(),
-	    			casaAccountType, localCurrencyCode);			
+	    			casaAccountType);			
 		} catch (BusinessException e) {
 			throw e;
 		} catch (Exception e) {

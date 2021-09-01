@@ -379,7 +379,7 @@ public class CorporateUserPendingTaskSCImpl implements CorporateUserPendingTaskS
 	})	
 	@Override
 	public Map<String, Object> searchSourceAccount(Map<String, Object> map) throws ApplicationException, BusinessException {
-		return corporateAccountGroupService.searchCorporateAccountGroupDetailForDebitOnlyGetMap((String)map.get(ApplicationConstants.LOGIN_CORP_ID), 
+		return corporateAccountGroupService.searchCorporateAccountGroupDetailForDebitOnlyMultiCurrencyGetMap((String)map.get(ApplicationConstants.LOGIN_CORP_ID), 
 				(String)map.get(ApplicationConstants.LOGIN_USERCODE));
 	}
 	

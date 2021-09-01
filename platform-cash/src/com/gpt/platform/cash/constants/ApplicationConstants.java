@@ -288,6 +288,8 @@ public interface ApplicationConstants extends Constants {
 	
 	String TRANS_AMOUNT = "transactionAmount";
 	
+	String TRANS_AMOUNT_EQ = "transactionAmountEquivalent";
+	
 	String TRANS_TOTAL_DEBIT_AMOUNT = "totalDebitedAmount";
 	
 	String TRANS_TOTAL_CHARGE = "totalCharge";

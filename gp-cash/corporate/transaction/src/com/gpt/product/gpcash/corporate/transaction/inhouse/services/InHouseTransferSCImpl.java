@@ -64,6 +64,7 @@ public class InHouseTransferSCImpl implements InHouseTransferSC {
 		@Variable(name = "isSaveBenFlag", options = {ApplicationConstants.YES, ApplicationConstants.NO}),
 		@Variable(name = ApplicationConstants.TRANS_CURRENCY), 
 		@Variable(name = ApplicationConstants.TRANS_AMOUNT, type = BigDecimal.class),
+		@Variable(name = ApplicationConstants.TRANS_AMOUNT_EQ, type = BigDecimal.class),
 		@Variable(name = ApplicationConstants.TRANS_TOTAL_DEBIT_AMOUNT, type = BigDecimal.class), 
 		@Variable(name = "chargeList", type = List.class, subVariables = {
 			@SubVariable(name = "id"),
@@ -118,7 +119,7 @@ public class InHouseTransferSCImpl implements InHouseTransferSC {
 		String userCode = (String) map.get(ApplicationConstants.LOGIN_USERCODE);
 		
 		transactionValidationService.validateChargeAndTotalTransaction((String) map.get(ApplicationConstants.LOGIN_CORP_ID), 
-				(String) map.get(ApplicationConstants.TRANS_SERVICE_CODE), (BigDecimal) map.get(ApplicationConstants.TRANS_AMOUNT), 
+				(String) map.get(ApplicationConstants.TRANS_SERVICE_CODE), (BigDecimal) map.get(ApplicationConstants.TRANS_AMOUNT_EQ), 
 				(BigDecimal) map.get(ApplicationConstants.TRANS_TOTAL_DEBIT_AMOUNT), (BigDecimal) map.get("totalCharge"), 
 				(String)map.get(ApplicationConstants.APP_CODE), (ArrayList<Map<String,Object>>) map.get("chargeList"), null);
 		
@@ -201,7 +202,7 @@ public class InHouseTransferSCImpl implements InHouseTransferSC {
 		
 		String treasuryCode = map.get("treasuryCode")!=null?(String)map.get("treasuryCode"):"";
 		
-		transactionValidationService.validateLimitEquivalent((String) map.get(ApplicationConstants.LOGIN_USERCODE), 
+		Map<String, Object> limitMap = transactionValidationService.validateLimitEquivalent((String) map.get(ApplicationConstants.LOGIN_USERCODE), 
 				(String) map.get(ApplicationConstants.LOGIN_CORP_ID), (String) map.get(ApplicationConstants.TRANS_SERVICE_CODE), 
 				(String) map.get(ApplicationConstants.ACCOUNT_GRP_DTL_ID), 
 				(BigDecimal) map.get(ApplicationConstants.TRANS_AMOUNT), 
@@ -212,6 +213,8 @@ public class InHouseTransferSCImpl implements InHouseTransferSC {
 				map.get("recurringStartDate"),
 				(String)map.get("exchangeRate"),
 				treasuryCode);
+		
+		map.putAll(limitMap);
 		
 		return inhouseTransferService.confirm(map);
 	}
@@ -256,7 +259,7 @@ public class InHouseTransferSCImpl implements InHouseTransferSC {
 	})	
 	@Override
 	public Map<String, Object> searchSourceAccount(Map<String, Object> map) throws ApplicationException, BusinessException {
-		return corporateAccountGroupService.searchCorporateAccountGroupDetailForDebitOnlyGetMap((String)map.get(ApplicationConstants.LOGIN_CORP_ID), 
+		return corporateAccountGroupService.searchCorporateAccountGroupDetailForDebitOnlyMultiCurrencyGetMap((String)map.get(ApplicationConstants.LOGIN_CORP_ID), 
 				(String)map.get(ApplicationConstants.LOGIN_USERCODE));
 	}
 	
@@ -353,7 +356,7 @@ public class InHouseTransferSCImpl implements InHouseTransferSC {
 	})
 	@Override
 	public Map<String, Object> searchOnline(Map<String, Object> map) throws ApplicationException, BusinessException {
-		return beneficiaryListInHouseService.searchOnline(map);
+		return inhouseTransferService.searchOnline(map);
 	}
 	
 	@Validate

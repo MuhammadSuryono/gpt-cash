@@ -28,4 +28,6 @@ public interface InHouseTransferService extends CorporateUserWorkflowService {
 	Map<String, Object> cancelTransactionWF(Map<String, Object> map) throws ApplicationException, BusinessException;
 	
 	Map<String, Object> updateTransaction(Map<String, Object> map) throws ApplicationException, BusinessException;
+	
+	Map<String, Object> searchOnline(Map<String, Object> map) throws ApplicationException, BusinessException;
 }

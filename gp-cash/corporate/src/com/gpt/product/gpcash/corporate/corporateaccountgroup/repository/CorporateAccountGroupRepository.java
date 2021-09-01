@@ -142,10 +142,9 @@ public interface CorporateAccountGroupRepository extends JpaRepository<Corporate
 			+ "where corpAcct.corporate.id = ?1 "
 			+ "and detail.corporateAccountGroup.id = ?2 "
 			+ "and detail.isCredit = 'Y' and acct.accountType.code in (?3) "
-			+ "and acct.currency.code = ?4 "
 			+ "order by acct.accountNo")
 	List<CorporateAccountGroupDetailModel> findDetailByAccountGroupIdAndIsCredit(String corporateId, String accountGroupId, 
-			List<String> accountTypeList, String localCurrency) throws Exception;
+			List<String> accountTypeList) throws Exception;
 	
 	@Query("select count(*) as count from CorporateAccountGroupDetailModel detail "
 			+ "where detail.corporateAccount.corporate.id = ?1 "

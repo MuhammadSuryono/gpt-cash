@@ -4,7 +4,7 @@
 .classpath/*
 .project/*
 build/*
-bin/*
+*/bin/*
 gradle
 gradlew
 gradlew.bat
