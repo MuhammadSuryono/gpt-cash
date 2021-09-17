@@ -22,6 +22,7 @@ import com.gpt.component.idm.user.services.IDMUserService;
 import com.gpt.platform.cash.constants.ApplicationConstants;
 import com.gpt.platform.cash.utils.Helper;
 import com.gpt.product.gpcash.corporate.authorizedlimitscheme.services.AuthorizedLimitSchemeService;
+import com.gpt.product.gpcash.corporate.corporate.services.CorporateService;
 import com.gpt.product.gpcash.corporate.corporateusergroup.services.CorporateUserGroupService;
 import com.gpt.product.gpcash.corporate.logging.annotation.EnableCorporateActivityLog;
 import com.gpt.product.gpcash.corporate.pendingtaskadmin.valueobject.CorporateAdminPendingTaskVO;
@@ -49,6 +50,9 @@ public class CorporateUserSCImpl implements CorporateUserSC{
 	
 	@Autowired
 	private TokenUserService tokenUserService;
+	
+	@Autowired
+	private CorporateService corporateService;
 
 	@EnableCorporateActivityLog
 	@Validate(paging = Option.REQUIRED, sorting = Option.OPTIONAL)
@@ -87,6 +91,8 @@ public class CorporateUserSCImpl implements CorporateUserSC{
 		@Variable(name = "isGrantViewDetail", options = { ApplicationConstants.YES, ApplicationConstants.NO }),
 		@Variable(name = "tokenType", required = false, format = Format.UPPER_CASE, options = ApplicationConstants.TOKEN_TYPE_HARD_TOKEN),
 		@Variable(name = "tokenNo", required = false),
+		@Variable(name = "isApproverReleaser", options = { ApplicationConstants.YES, ApplicationConstants.NO }),
+		@Variable(name = "isOneSigner", options = { ApplicationConstants.YES, ApplicationConstants.NO }),
 		@Variable(name = ApplicationConstants.LOGIN_USERID, format = Format.UPPER_CASE), 
 		@Variable(name = ApplicationConstants.LOGIN_CORP_ID, format = Format.UPPER_CASE),
 		@Variable(name = ApplicationConstants.WF_ACTION, options = { 
@@ -416,5 +422,17 @@ public class CorporateUserSCImpl implements CorporateUserSC{
 		Map<String, Object> resultMap = new HashMap<>();
 		resultMap.put(ApplicationConstants.WF_FIELD_MESSAGE, "GPT-0100152");
 		return resultMap;
+	}
+	
+	@Validate
+	@Input({ 
+		@Variable(name = ApplicationConstants.LOGIN_USERID, format = Format.UPPER_CASE), 
+		@Variable(name = ApplicationConstants.LOGIN_CORP_ID, format = Format.UPPER_CASE),
+		@Variable(name = ApplicationConstants.WF_ACTION, options = { ApplicationConstants.WF_ACTION_SEARCH}),
+		@Variable(name = ApplicationConstants.STR_MENUCODE, options = menuCode)
+	})
+	@Override
+	public Map<String, Object> isSME(Map<String, Object> map) throws ApplicationException, BusinessException {
+		return corporateService.isSME((String) map.get(ApplicationConstants.LOGIN_CORP_ID));
 	}
 }

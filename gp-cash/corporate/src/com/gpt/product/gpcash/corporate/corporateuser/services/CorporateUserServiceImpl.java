@@ -184,6 +184,9 @@ public class CorporateUserServiceImpl implements CorporateUserService {
 			map.put("createdDate", ValueUtils.getValue(model.getCreatedDate()));
 			map.put("updatedBy", ValueUtils.getValue(model.getUpdatedBy()));
 			map.put("updatedDate", ValueUtils.getValue(model.getUpdatedDate()));
+			
+			map.put("isApproverReleaser", ValueUtils.getValue(model.getIsApproverReleaser()));
+			map.put("isOneSigner", ValueUtils.getValue(model.getIsOneSigner()));
 		}
 
 		return map;
@@ -340,6 +343,8 @@ public class CorporateUserServiceImpl implements CorporateUserService {
 			String isGrantViewDetail = (String) map.get("isGrantViewDetail");
 			String tokenType = (String) map.get("tokenType");
 			String tokenNo = (String) map.get("tokenNo");
+			String isApproverReleaser = (String)map.get("isApproverReleaser");
+			String isOneSigner = (String)map.get("isOneSigner");
 
 			if (ApplicationConstants.WF_ACTION_CREATE.equals(vo.getAction())) {
 				checkCustomValidation(map);
@@ -352,18 +357,18 @@ public class CorporateUserServiceImpl implements CorporateUserService {
 						&& ApplicationConstants.YES.equals(corporateUserExisting.getDeleteFlag())) {
 					updateCorporateUser(corporateId, userId, userGroupCode, mobileNo, userName, email,
 							isGrantViewDetail, authorizedLimitId, isNotifyMyTask, isNotifyMyTrx, tokenType, tokenNo,
-							vo.getCreatedBy(), wfRoleCode);
+							vo.getCreatedBy(), wfRoleCode,isApproverReleaser,isOneSigner);
 				} else {
 					saveCorporateUserAndAssignToken(corporateId, userId, userGroupCode, mobileNo, userName, email, isGrantViewDetail,
 							authorizedLimitId, isNotifyMyTask, isNotifyMyTrx, tokenType, tokenNo, vo.getCreatedBy(),
-							wfRoleCode);
+							wfRoleCode,isApproverReleaser,isOneSigner);
 				}
 			} else if (ApplicationConstants.WF_ACTION_UPDATE.equals(vo.getAction())) {
 				checkCustomValidation(map);
 				
 				updateCorporateUser(corporateId, userId, userGroupCode, mobileNo, userName, email, isGrantViewDetail,
 						authorizedLimitId, isNotifyMyTask, isNotifyMyTrx, tokenType, tokenNo, vo.getCreatedBy(),
-						wfRoleCode);
+						wfRoleCode,isApproverReleaser,isOneSigner);
 			} else if (ApplicationConstants.WF_ACTION_DELETE.equals(vo.getAction())) {
 				// check existing record exist or not
 				String userCode = Helper.getCorporateUserCode(corporateId, userId);
@@ -612,7 +617,7 @@ public class CorporateUserServiceImpl implements CorporateUserService {
 	public void saveCorporateUser(String userId, String mobileNo, String isGrantViewDetail,
 			ApprovalMapModel approvalMap, CorporateModel corporate, CorporateUserGroupModel corpUsrGroup,
 			IDMUserModel idmUser, String createdBy, String authorizedLimitId, String isNotifyMyTask,
-			String isNotifyMyTrx) throws ApplicationException, BusinessException {
+			String isNotifyMyTrx,String isApproverReleaser, String isOneSigner) throws ApplicationException, BusinessException {
 
 		String userCode = Helper.getCorporateUserCode(corporate.getId(), userId);
 
@@ -627,6 +632,8 @@ public class CorporateUserServiceImpl implements CorporateUserService {
 		corpUser.setUser(idmUser);
 		corpUser.setIsNotifyMyTask(isNotifyMyTask);
 		corpUser.setIsNotifyMyTrx(isNotifyMyTrx);
+		corpUser.setIsApproverReleaser(isApproverReleaser);
+		corpUser.setIsOneSigner(isOneSigner);
 
 		AuthorizedLimitSchemeModel authorizedLimit = new AuthorizedLimitSchemeModel();
 		authorizedLimit.setId(authorizedLimitId);
@@ -638,7 +645,7 @@ public class CorporateUserServiceImpl implements CorporateUserService {
 	@Override
 	public void saveCorporateUserAndAssignToken(String corporateId, String userId, String userGroupCode, String mobileNo,
 			String userName, String email, String isGrantViewDetail, String authorizedLimitId, String isNotifyMyTask,
-			String isNotifyMyTrx, String tokenType, String tokenNo, String createdBy, String roleCodeWF)
+			String isNotifyMyTrx, String tokenType, String tokenNo, String createdBy, String roleCodeWF,String isApproverReleaser, String isOneSigner)
 			throws Exception {
 
 		CorporateModel corporate = new CorporateModel();
@@ -676,7 +683,7 @@ public class CorporateUserServiceImpl implements CorporateUserService {
 
 		// create corporate user for admin user
 		saveCorporateUser(userId, mobileNo, isGrantViewDetail, approvalMap, corporate, corpUsrGroup, idmUser, createdBy,
-				authorizedLimitId, isNotifyMyTask, isNotifyMyTrx);
+				authorizedLimitId, isNotifyMyTask, isNotifyMyTrx,isApproverReleaser,isOneSigner);
 
 		// create user role AP
 		String roleCodeAP = corpUsrGroup.getRole().getCode();
@@ -752,7 +759,7 @@ public class CorporateUserServiceImpl implements CorporateUserService {
 	@Override
 	public void updateCorporateUser(String corporateId, String userId, String userGroupCode, String mobileNo,
 			String userName, String email, String isGrantViewDetail, String authorizedLimitId, String isNotifyMyTask,
-			String isNotifyMyTrx, String tokenType, String tokenNo, String updatedBy, String roleCodeWF)
+			String isNotifyMyTrx, String tokenType, String tokenNo, String updatedBy, String roleCodeWF,String isApproverReleaser, String isOneSigner)
 			throws Exception {
 		String userCode = Helper.getCorporateUserCode(corporateId, userId);
 		IDMUserModel idmUser = idmUserRepo.findOne(userCode);
@@ -772,6 +779,9 @@ public class CorporateUserServiceImpl implements CorporateUserService {
 		corporateUser.setIsNotifyMyTask(isNotifyMyTask);
 		corporateUser.setIsNotifyMyTrx(isNotifyMyTrx);
 
+		corporateUser.setIsApproverReleaser(isApproverReleaser);
+		corporateUser.setIsOneSigner(isOneSigner);
+		
 		AuthorizedLimitSchemeModel authorizedLimit = corporateUtilsRepo.getAuthorizedLimitSchemeRepo()
 				.findOne(authorizedLimitId);
 		corporateUser.setAuthorizedLimit(authorizedLimit);

@@ -124,8 +124,10 @@ public class InterestRateServiceImpl implements InterestRateService {
 					String productCode = interestRateOld.getProductCode();
 					String balance = (String) rateMap.get("balance");
 					String period = (String) rateMap.get("period");
-					InterestRateDetailModel interestRateDetailOld = getExistingDetail(productCode, balance, period, true);
-					rateListOld.add(setModelToMapDetail(interestRateDetailOld));
+					InterestRateDetailModel interestRateDetailOld = getExistingDetail(productCode, balance, period, false);
+					if(interestRateDetailOld!= null) {
+						rateListOld.add(setModelToMapDetail(interestRateDetailOld));
+					}
 				}
 				Map<String, Object> rateMap = new HashMap<>();
 				rateMap.put("interestRate", setModelToMap(interestRateOld, true));

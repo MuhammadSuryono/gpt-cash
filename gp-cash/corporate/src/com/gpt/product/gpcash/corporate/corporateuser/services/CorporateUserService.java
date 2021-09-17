@@ -25,7 +25,7 @@ public interface CorporateUserService extends CorporateAdminWorkflowService {
 	
 	void saveCorporateUserAndAssignToken(String corporateId, String userId, String userGroupCode, String mobileNo,
 			String userName, String email, String isGrantViewDetail, String authorizedLimitId, String isNotifyMyTask,
-			String isNotifyMyTrx, String tokenType, String tokenNo, String createdBy, String roleCodeWF) throws Exception;
+			String isNotifyMyTrx, String tokenType, String tokenNo, String createdBy, String roleCodeWF,String isApproverReleaser, String isOneSigner) throws Exception;
 
 	void saveCorporateUser(String userId, String mobileNo, String phoneNo, String isGrantViewDetail,
 			ApprovalMapModel approvalMap, CorporateModel corporate, CorporateUserGroupModel corpUsrGroup,
@@ -33,11 +33,11 @@ public interface CorporateUserService extends CorporateAdminWorkflowService {
 
 	void saveCorporateUser(String userId, String mobileNo, String isGrantViewDetail,
 			ApprovalMapModel approvalMap, CorporateModel corporate, CorporateUserGroupModel corpUsrGroup,
-			IDMUserModel idmUser, String createdBy, String authorizedLimitId, String isNotifyMyTask, String isNotifyMyTrx) throws ApplicationException, BusinessException;
+			IDMUserModel idmUser, String createdBy, String authorizedLimitId, String isNotifyMyTask, String isNotifyMyTrx,String isApproverReleaser, String isOneSigner) throws ApplicationException, BusinessException;
 
 	void updateCorporateUser(String corporateId, String userId, String userGroupCode, String mobileNo,
 			String userName, String email, String isGrantViewDetail, String authorizedLimitId, String isNotifyMyTask,
-			String isNotifyMyTrx, String tokenType, String tokenNo, String updatedBy, String roleCodeWF) throws Exception;
+			String isNotifyMyTrx, String tokenType, String tokenNo, String updatedBy, String roleCodeWF,String isApproverReleaser, String isOneSigner) throws Exception;
 
 	void saveCorporateAdminUser(CorporateModel corporate, String userId, String userName, String mobileNo, String email,
 			String createdBy, String wfRoleCode) throws Exception;

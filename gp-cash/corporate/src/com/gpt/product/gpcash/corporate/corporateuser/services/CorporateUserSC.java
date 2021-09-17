@@ -42,4 +42,6 @@ public interface CorporateUserSC extends CorporateAdminWorkflowService {
 
 	Map<String, Object> searchTokenUserForEditUser(Map<String, Object> map)
 			throws ApplicationException, BusinessException;
+	
+	Map<String, Object> isSME(Map<String, Object> map) throws ApplicationException, BusinessException;
 }

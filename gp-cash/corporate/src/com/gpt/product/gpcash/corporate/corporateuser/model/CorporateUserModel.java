@@ -63,6 +63,12 @@ public class CorporateUserModel implements Serializable{
 	@JoinColumn(name = "AUTH_LMT_SCHEME_ID")
 	protected AuthorizedLimitSchemeModel authorizedLimit;
 	
+	@Column(name = "IS_APP_RLS")
+	protected String isApproverReleaser;
+	
+	@Column(name = "IS_ONE_SIGNER")
+	protected String isOneSigner;
+	
 	@Column(name = "IS_DELETE")
 	protected String deleteFlag;
 	
@@ -212,6 +218,22 @@ public class CorporateUserModel implements Serializable{
 
 	public void setAuthorizedLimit(AuthorizedLimitSchemeModel authorizedLimit) {
 		this.authorizedLimit = authorizedLimit;
+	}
+
+	public String getIsApproverReleaser() {
+		return isApproverReleaser;
+	}
+
+	public void setIsApproverReleaser(String isApproverReleaser) {
+		this.isApproverReleaser = isApproverReleaser;
+	}
+
+	public String getIsOneSigner() {
+		return isOneSigner;
+	}
+
+	public void setIsOneSigner(String isOneSigner) {
+		this.isOneSigner = isOneSigner;
 	}
 
 	

@@ -24,6 +24,7 @@ import com.gpt.component.idm.rolemenu.model.IDMRoleMenuModel;
 import com.gpt.component.idm.rolemenu.repository.IDMRoleMenuRepository;
 import com.gpt.component.idm.rolemenu.services.IDMRoleMenuService;
 import com.gpt.component.idm.roletype.model.IDMRoleTypeModel;
+import com.gpt.component.idm.userrole.repository.IDMUserRoleRepository;
 import com.gpt.component.idm.utils.IDMRepository;
 import com.gpt.component.pendingtask.services.PendingTaskService;
 import com.gpt.component.pendingtask.valueobject.PendingTaskVO;
@@ -51,6 +52,9 @@ public class IDMRoleServiceImpl implements IDMRoleService {
 	
 	@Autowired
 	private IDMMenuTreeService menuTreeService;
+	
+	@Autowired
+	private IDMUserRoleRepository idmUserRoleRepo;
 
 	@Override
 	public Map<String, Object> search(Map<String, Object> map) throws ApplicationException, BusinessException {
@@ -175,6 +179,12 @@ public class IDMRoleServiceImpl implements IDMRoleService {
 			if(ApplicationConstants.YES.equals(idmRole.getSystemFlag())) {
 				throw new BusinessException("GPT-0100046");
 			}
+		}
+		
+		// validate cannot delete role that is used by user
+		List<String> userRoleList = idmUserRoleRepo.findByRoleCode(idmRole.getCode());
+		if(userRoleList.size()>0) {
+			throw new BusinessException("GPT-0100230");
 		}
 	}
 

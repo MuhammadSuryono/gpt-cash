@@ -387,18 +387,37 @@ public class CorporateUserPendingTaskServiceImpl implements CorporateUserPending
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
 	@Override
 	public Map<String, Object> approve(Map<String, Object> map) throws ApplicationException, BusinessException {
 		try {
+			
+			Map<String, Object> result = new HashMap<>();
+			
 			// get pending task by reference
 			CorporateUserPendingTaskModel pendingTask = pendingTaskRepo.findByReferenceNoAndStatusIsPending((String) map.get(ApplicationConstants.WF_FIELD_REFERENCE_NO));
 
+			//getUserModel login user ID
+			CorporateUserModel corpUser = corporateUserRepo.findOne(map.get(ApplicationConstants.LOGIN_USERID).toString());
+			
 			if (pendingTask != null) {
-				return wfEngine.endUserTask((String) map.get("taskId"), (String) map.get(ApplicationConstants.LOGIN_USERCODE), pendingTask.getId(), Status.APPROVED, null);
+				result = wfEngine.endUserTask((String) map.get("taskId"), (String) map.get(ApplicationConstants.LOGIN_USERCODE), pendingTask.getId(), Status.APPROVED, null);
+				
+				if(ApplicationConstants.YES.equals(corpUser.getIsApproverReleaser())) { //condition for user that has role approver is releaser
+					if("GPT-0200002".equals(result.get(ApplicationConstants.WF_FIELD_MESSAGE)) && TransactionStatus.PENDING_RELEASE.equals(result.get("trxStatus"))) {
+						Map<String, Object> outputMap = wfEngine.findTasksByUser(map, CorporateWFEngine.Type.CorporateUser); // for get new task instance id						
+						List<Map<String, Object>> tasks = (List<Map<String, Object>>)outputMap.get("tasks");
+						Map<String, Object> taskMap = (Map<String, Object>)tasks.get(0);
+						//recall for release
+						result = wfEngine.endUserTask((String) taskMap.get("taskId"), (String) map.get(ApplicationConstants.LOGIN_USERCODE), pendingTask.getId(), Status.APPROVED, null);
+					}
+				}
 			} else {
 				throw new BusinessException("GPT-0100001");
 			}
+			
+			return result;
 		} catch (BusinessException e) {
 			throw e;
 		} catch (Exception e) {

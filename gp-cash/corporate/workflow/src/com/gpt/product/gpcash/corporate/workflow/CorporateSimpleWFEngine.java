@@ -333,6 +333,7 @@ public class CorporateSimpleWFEngine implements CorporateWFEngine {
 		result.put(ApplicationConstants.WF_FIELD_MESSAGE, getWFStatus(pi));
 		result.put(ApplicationConstants.WF_FIELD_DATE_TIME_INFO, "GPT-0200008|" + strDateTime);
 		result.put("dateTime", strDateTime);
+		result.put("trxStatus", pi.getTrxStatus());
 		return result;
 	}
 			

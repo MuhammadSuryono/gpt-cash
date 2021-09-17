@@ -87,7 +87,7 @@ public class IDMUserModel implements Serializable {
 	
 	@Column(name = "PROFILE_IMG_FILE_NAME")
 	protected String profileImgFileName;
-
+	
 	public String getCreatedBy() {
 		return createdBy;
 	}

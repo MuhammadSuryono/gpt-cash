@@ -24,4 +24,9 @@ public interface IDMUserRoleRepository extends JpaRepository<IDMUserRoleModel, S
 			+ "and userRole.role.code like ?2 "
 			+ "and userRole.role.code like ?3")
 	List<String> findByRoleTypeCodeAndWFRoleCode(String roleType, String wfRoleCode, String approvalLevel);
+	
+
+	@Query("select userRole.user.code from IDMUserRoleModel userRole "
+			+ "where userRole.role.code = ?1 ")
+	List<String>findByRoleCode(String roleCode);
 }

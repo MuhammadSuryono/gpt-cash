@@ -169,6 +169,9 @@ public class CorporateModel implements Serializable{
 	@Column(name = "VA_PRODUCT_CD")
 	protected String vaProductCode;
 	
+	@Column(name = "IS_SME")
+	protected String isSME;	
+	
 	@Column(name="CREATED_BY")
 	protected String createdBy;
 	
@@ -184,10 +187,17 @@ public class CorporateModel implements Serializable{
 	@OrderColumn(name = "IDX")
 	@OneToMany(mappedBy = "corporate", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	protected List<CorporateContactModel> corporateContact;
-	
-	
+		
 	@Column(name = "TOKEN_AUTH_FLAG")
 	protected String tokenAuthenticationFlag;
+
+	public String getIsSME() {
+		return isSME;
+	}
+
+	public void setIsSME(String isSME) {
+		this.isSME = isSME;
+	}
 
 	public String getId() {
 		return id;

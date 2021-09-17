@@ -33,4 +33,7 @@ public interface CorporateService extends WorkflowService {
 			throws ApplicationException;
 	
 	CorporateModel getExistingRecord(String code, boolean isThrowError) throws BusinessException;
+	
+	Map<String, Object> isSME(String corpID) throws ApplicationException, BusinessException;
+	
 }

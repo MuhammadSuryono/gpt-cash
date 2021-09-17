@@ -92,11 +92,13 @@ public class CorporateActivityLogRepositoryImpl extends CashRepositoryImpl<Corpo
 			predicate = builder.and(predicate, statusEquals);
 		}
 		
-		//query ke corporate log activity harus menggunakan corporateId agar lebih secure
+		//query ke corporate log activity harus menggunakan corporateId agar lebih secure, kecuali non financial dari bank
 		Object corporateId = paramMap.get("corporateId");
-		Predicate corporateIdEquals = builder.equal(builder.upper(root.get("corporateId")), corporateId);
-		predicate = builder.and(predicate, corporateIdEquals);
-
+		if (ValueUtils.hasValue(actionBy)) {
+			Predicate corporateIdEquals = builder.equal(builder.upper(root.get("corporateId")), corporateId);
+			predicate = builder.and(predicate, corporateIdEquals);
+		}
+		
 		// paths for sorting with alias
 		Map<String, Path<Object>> paths = new HashMap<>(1, 1);
 		paths.put("activityDate", root.get("activityDate"));
