@@ -399,7 +399,7 @@ public class CorporateUserPendingTaskServiceImpl implements CorporateUserPending
 			CorporateUserPendingTaskModel pendingTask = pendingTaskRepo.findByReferenceNoAndStatusIsPending((String) map.get(ApplicationConstants.WF_FIELD_REFERENCE_NO));
 
 			//getUserModel login user ID
-			CorporateUserModel corpUser = corporateUserRepo.findOne(map.get(ApplicationConstants.LOGIN_USERID).toString());
+			CorporateUserModel corpUser = corporateUserRepo.findOne(map.get(ApplicationConstants.LOGIN_USERCODE).toString());
 			
 			if (pendingTask != null) {
 				result = wfEngine.endUserTask((String) map.get("taskId"), (String) map.get(ApplicationConstants.LOGIN_USERCODE), pendingTask.getId(), Status.APPROVED, null);
