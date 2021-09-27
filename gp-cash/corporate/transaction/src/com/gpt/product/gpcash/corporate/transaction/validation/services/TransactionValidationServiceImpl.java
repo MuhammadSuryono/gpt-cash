@@ -112,9 +112,9 @@ public class TransactionValidationServiceImpl implements TransactionValidationSe
 			
 			//if recurring maka instructionDate di ambil dari recurringStartDate
 			if(!(instructionMode).equals(ApplicationConstants.SI_RECURRING)) {
-				trxInfoMap = getTrxInfoFromPendingTask(transactionServiceCode, (Timestamp) instructionDate, instructionMode, corporateUserGroup.getId());
+				trxInfoMap = getTrxInfoFromPendingTask(transactionServiceCode, (Timestamp) instructionDate, instructionMode, corporateUserGroup.getId(),currencyMatrixCode);
 			} else {
-				trxInfoMap = getTrxInfoFromPendingTask(transactionServiceCode, (Timestamp) recurringStartDate, instructionMode, corporateUserGroup.getId());
+				trxInfoMap = getTrxInfoFromPendingTask(transactionServiceCode, (Timestamp) recurringStartDate, instructionMode, corporateUserGroup.getId(),currencyMatrixCode);
 			}
 			
 			int totalPendingTaskTrxOccurence = ((Number) trxInfoMap.get("totalPendingTaskTrxOccurence")).intValue();
@@ -241,7 +241,7 @@ public class TransactionValidationServiceImpl implements TransactionValidationSe
 		}
 	}
 
-	public Map<String, Object> getTrxInfoFromPendingTask(String serviceCode, Timestamp instructionDate, String instructionMode, String userGroupId)
+	public Map<String, Object> getTrxInfoFromPendingTask(String serviceCode, Timestamp instructionDate, String instructionMode, String userGroupId, String currencyMatrixCode)
 			throws Exception {
 		Map<String, Object> trxInfoMap = new HashMap<>();
 
@@ -269,7 +269,7 @@ public class TransactionValidationServiceImpl implements TransactionValidationSe
 		}
 		
 		Object[] totals = (Object[])pendingTaskRepo.getCountAndTotalByServiceCodeAndInstructionDate(serviceCode, calFrom.getTime(), calTo.getTime(), 
-				pendingTaskStatus, userGroupId);
+				pendingTaskStatus, userGroupId,currencyMatrixCode);
 
 		trxInfoMap.put("totalPendingTaskTrxOccurence", totals[0]);
 		trxInfoMap.put("totalPendingTaskDebitedAmount", totals[1] == null ? new BigDecimal(0) : totals[1]);
@@ -927,9 +927,9 @@ public class TransactionValidationServiceImpl implements TransactionValidationSe
 			
 			//if recurring maka instructionDate di ambil dari recurringStartDate
 			if(!(instructionMode).equals(ApplicationConstants.SI_RECURRING)) {
-				trxInfoMap = getTrxInfoFromPendingTask(transactionServiceCode, (Timestamp) instructionDate, instructionMode, corporateUserGroup.getId());
+				trxInfoMap = getTrxInfoFromPendingTask(transactionServiceCode, (Timestamp) instructionDate, instructionMode, corporateUserGroup.getId(),currencyMatrixCode);
 			} else {
-				trxInfoMap = getTrxInfoFromPendingTask(transactionServiceCode, (Timestamp) recurringStartDate, instructionMode, corporateUserGroup.getId());
+				trxInfoMap = getTrxInfoFromPendingTask(transactionServiceCode, (Timestamp) recurringStartDate, instructionMode, corporateUserGroup.getId(),currencyMatrixCode);
 			}
 			
 			int totalPendingTaskTrxOccurence = ((Number) trxInfoMap.get("totalPendingTaskTrxOccurence")).intValue();
@@ -966,7 +966,7 @@ public class TransactionValidationServiceImpl implements TransactionValidationSe
 			String exchangeRate, String treasuryCode,Object instructionDate, String instructionMode,String corporateId) throws Exception {
 		
 		BankTransactionLimitModel bankTransactionLimit = productRepo
-				.isBankTransactionLimitValid(serviceCode, currencyMatrixCode, applicationCode, transactionCurrency);
+				.isBankTransactionLimitValid(serviceCode, currencyMatrixCode, applicationCode, localCurrency);
 
 		// TODO implement get equivalent amount for cross forex transaction
 		
@@ -1004,8 +1004,9 @@ public class TransactionValidationServiceImpl implements TransactionValidationSe
 			BigDecimal transactionAmount, String applicationCode, String transactionCurrency, Map<String, Object> rateMap) throws Exception {
 
 			BigDecimal amountEquivalent = transactionAmount;
-		
-			//amountEquivalent = calculateAmountEquivalentForLimit(localCurrency, transactionCurrency, localCurrency, transactionAmount, currencyMatrixCode, rateMap);
+			
+			String localCurrency = sysParamService.getLocalCurrency();			
+			amountEquivalent = calculateAmountEquivalentForLimit(localCurrency, transactionCurrency, localCurrency, transactionAmount, currencyMatrixCode, rateMap);
 			
 			if(currencyMatrixCode.equals(ApplicationConstants.CCY_MTRX_LF)) {
 				BankForexLimitModel bankForexLimit = productRepo.isBankForexLimitValid(transactionCurrency);
@@ -1053,7 +1054,7 @@ public class TransactionValidationServiceImpl implements TransactionValidationSe
 			BigDecimal transactionAmount, String applicationCode, int totalPendingTaskTrxOccurence, BigDecimal totalPendingTaskDebitedAmount, String localCurrency, Map<String, Object> rateMap) throws Exception {
 
 		CorporateLimitModel corporateLimit = corporateUtilsRepo
-				.isCorporateLimitValid(serviceCode, currencyMatrixCode, applicationCode, transactionCurrency, corporateId);
+				.isCorporateLimitValid(serviceCode, currencyMatrixCode, applicationCode, localCurrency, corporateId);
 
 		// TODO implement get equivalent amount for cross forex transaction
 
@@ -1130,6 +1131,23 @@ public class TransactionValidationServiceImpl implements TransactionValidationSe
 			BigDecimal equivalentAmount = calculateAmountEquivalent(transactionCurrency, sourceAccountCurrency, localCurrency, transactionAmount, rateMap);
 			ExchangeRateModel exchangeRate = getRate(sourceAccountCurrency, rateMap);
 			
+			if (!sourceAccountCurrency.equals(localCurrency) && !transactionCurrency.equals(localCurrency)) {
+				
+				ExchangeRateModel exchangeRate1 = getRate(transactionCurrency, rateMap);
+				ExchangeRateModel exchangeRate2 = getRate(sourceAccountCurrency, rateMap);
+				returnMap.put("counterRate", "Sell Rate " + transactionCurrency + " : " + ValueUtils.getValue(exchangeRate1.getTransactionSellRate()) 
+				+ ",  Buy Rate " + transactionCurrency + " : " + ValueUtils.getValue(exchangeRate2.getTransactionBuyRate()));
+			} else {
+				
+				if (sourceAccountCurrency.equals(localCurrency)) {					
+					exchangeRate = getRate(transactionCurrency, rateMap);
+					returnMap.put("counterRate", localCurrency + " " + ValueUtils.getValue(exchangeRate.getTransactionSellRate()));
+				} else if (transactionCurrency.equals(localCurrency)) {					
+					exchangeRate = getRate(sourceAccountCurrency, rateMap);
+					returnMap.put("counterRate", localCurrency + " " + ValueUtils.getValue(exchangeRate.getTransactionBuyRate()));
+				}
+			}
+
 			returnMap.put("equivalentAmount", equivalentAmount);
 			returnMap.put("trxBuyRate", ValueUtils.getValue(exchangeRate.getTransactionBuyRate()));
 			returnMap.put("validDate", exchangeRate.getUpdatedDate() !=null ? Helper.DATE_TIME_FORMATTER.format(exchangeRate.getUpdatedDate()) : Helper.DATE_TIME_FORMATTER.format(exchangeRate.getCreatedDate()));
@@ -1163,33 +1181,37 @@ public class TransactionValidationServiceImpl implements TransactionValidationSe
 			map.put("instructionMode",instructionMode);
 			
 			
-			String localCurrency = sysParamService.getLocalCurrency();						
-			if(localCurrency.equals(transactionCurrency)) { //localSpecialRate BuyRate
-				map.put("rateType", "LOCAL");
-				map.put("foreignCurrency1",sourceAccountCurrency);
+			String localCurrency = sysParamService.getLocalCurrency();		
+			
+			if(!localCurrency.equals(transactionCurrency) && !localCurrency.equals(sourceAccountCurrency)) {
+				//foreign Special Rate cross currency
+				map.put("rateType", "FOREIGN");
+				map.put("foreignCurrency1", sourceAccountCurrency);
+				map.put("foreignCurrency2", transactionCurrency);
 				SpecialRateModel specialRateModel =  getSpecialRate(map);
-				if(specialRateModel.getTransactionBuyRate()!=null) {
-					if(specialRateModel.getTransactionAmountRate().compareTo(transactionAmount)==0) {
-						returnMap.put("equivalentAmount", specialRateModel.getBuyAmountRate());
-						returnMap.put("specialRate", sourceAccountCurrency +" "+ specialRateModel.getTransactionBuyRate());
-						returnMap.put("validDate", Helper.DATE_TIME_FORMATTER.format(specialRateModel.getCreatedDate()));
-					}else {
-						throw new BusinessException("GPT-131191"); //invalid special rate
-					}
+				if(specialRateModel.getTransactionAmountRate() == transactionAmount) {
+					// 1. bank buy foreigncurrency1/sourceaccoutncurrency to IDR
+					BigDecimal eqAmount = transactionAmount.multiply(specialRateModel.getTransactionBuyRate());
+					
+					//2. bank sell foreigncurrency 2/trasactionCurrency from IDR
+					eqAmount = eqAmount.divide(specialRateModel.getTransactionSellRate());
+					
+					returnMap.put("equivalentAmount", eqAmount);
+					returnMap.put("specialRate", "Buy Rate " + sourceAccountCurrency +" : "+ specialRateModel.getTransactionBuyRate()+" , Sell Rate "+transactionCurrency +" : "+ specialRateModel.getTransactionSellRate());
+					returnMap.put("validDate", Helper.DATE_TIME_FORMATTER.format(specialRateModel.getCreatedDate()));
 					
 				}else {
 					throw new BusinessException("GPT-131191"); //invalid special rate
 				}
-				
-			}else {
-				if(localCurrency.equals(sourceAccountCurrency)) { //localSpecialRate SellRate
+			}else { //local sepcial rate
+				if(localCurrency.equals(sourceAccountCurrency)) { //local special rate sell rate
 					map.put("rateType", "LOCAL");
 					map.put("foreignCurrency1",transactionCurrency);
 					SpecialRateModel specialRateModel =  getSpecialRate(map);
 					if(specialRateModel.getTransactionSellRate()!=null) {
 						if(specialRateModel.getTransactionAmountRate().compareTo(transactionAmount)==0) {
 							returnMap.put("equivalentAmount", specialRateModel.getSellAmountRate());
-							returnMap.put("specialRate", transactionCurrency +" "+ specialRateModel.getTransactionSellRate());
+							returnMap.put("specialRate", localCurrency +" "+ specialRateModel.getTransactionSellRate());
 							returnMap.put("validDate", Helper.DATE_TIME_FORMATTER.format(specialRateModel.getCreatedDate()));
 						}else {
 							throw new BusinessException("GPT-131191"); //invalid special rate
@@ -1198,29 +1220,27 @@ public class TransactionValidationServiceImpl implements TransactionValidationSe
 					}else {
 						throw new BusinessException("GPT-131191"); //invalid special rate
 					}
-					
-				}else { //foreignSpecialRate cross currency
-					map.put("rateType", "FOREIGN");
-					map.put("foreignCurrency1", sourceAccountCurrency);
-					map.put("foreignCurrency2", transactionCurrency);
+				}else if(localCurrency.equals(transactionCurrency)) {
+					//localSpecialRate BuyRate
+					map.put("rateType", "LOCAL");
+					map.put("foreignCurrency1",sourceAccountCurrency);
 					SpecialRateModel specialRateModel =  getSpecialRate(map);
-					if(specialRateModel.getTransactionAmountRate() == transactionAmount) {
-						// 1. bank buy foreigncurrency1/sourceaccoutncurrency to IDR
-						BigDecimal eqAmount = transactionAmount.multiply(specialRateModel.getTransactionBuyRate());
-						
-						//2. bank sell foreigncurrency 2/trasactionCurrency from IDR
-						eqAmount = eqAmount.divide(specialRateModel.getTransactionSellRate());
-						
-						returnMap.put("equivalentAmount", eqAmount);
-						returnMap.put("specialRate", sourceAccountCurrency +" "+ specialRateModel.getTransactionBuyRate()+" , "+transactionCurrency +" "+ specialRateModel.getTransactionSellRate());
-						returnMap.put("validDate", Helper.DATE_TIME_FORMATTER.format(specialRateModel.getCreatedDate()));
+					if(specialRateModel.getTransactionBuyRate()!=null) {
+						if(specialRateModel.getTransactionAmountRate().compareTo(transactionAmount)==0) {
+							returnMap.put("equivalentAmount", specialRateModel.getBuyAmountRate());
+							returnMap.put("specialRate", localCurrency +" "+ specialRateModel.getTransactionBuyRate());
+							returnMap.put("validDate", Helper.DATE_TIME_FORMATTER.format(specialRateModel.getCreatedDate()));
+						}else {
+							throw new BusinessException("GPT-131191"); //invalid special rate
+						}
 						
 					}else {
 						throw new BusinessException("GPT-131191"); //invalid special rate
 					}
-					
 				}
+					
 			}
+			
 			
 		} catch (BusinessException e) {
 			throw e;
