@@ -45,7 +45,7 @@ public interface CorporateUserPendingTaskService {
 	 * @throws ApplicationException
 	 * @throws BusinessException
 	 */
-	void approve(String pendingTaskId, String userId) throws ApplicationException, BusinessException;
+	CorporateUserPendingTaskVO approve(String pendingTaskId, String userId) throws ApplicationException, BusinessException;
 	
 	/**
 	 * Invoked by workflow engine

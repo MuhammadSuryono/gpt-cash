@@ -407,7 +407,7 @@ public class VAAccountListServiceImpl implements VAAccountListService {
 		} catch (Exception e) {
 			throw new ApplicationException(e);
 		}
-
+		
 		return vo;
 	}
 

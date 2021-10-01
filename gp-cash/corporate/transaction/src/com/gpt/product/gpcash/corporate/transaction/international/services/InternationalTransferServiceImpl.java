@@ -673,7 +673,8 @@ public class InternationalTransferServiceImpl implements InternationalTransferSe
 				
 				if(ApplicationConstants.SI_IMMEDIATE.equals(internationalTransfer.getInstructionMode())) {
 					saveInternational(internationalTransfer, vo.getCreatedBy(), ApplicationConstants.YES);
-
+					
+					internationalTransfer.setIsError(ApplicationConstants.NO);
 					//doTransfer(internationalTransfer, (String)map.get(ApplicationConstants.APP_CODE));
 					vo.setErrorCode(internationalTransfer.getErrorCode());
 					vo.setIsError(internationalTransfer.getIsError());

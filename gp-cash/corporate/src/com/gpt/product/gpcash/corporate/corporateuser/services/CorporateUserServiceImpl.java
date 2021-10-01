@@ -421,6 +421,7 @@ public class CorporateUserServiceImpl implements CorporateUserService {
 			String tokenType = (String) map.get("tokenType");
 			String tokenNo = (String) map.get("tokenNo");
 			String userId = (String) map.get("userId");
+			String isOneSigner = (String) map.get("isOneSigner");
 
 			// check wfRoleCode
 			maintenanceRepo.isWorkflowRoleValid(wfRoleCode);
@@ -433,7 +434,7 @@ public class CorporateUserServiceImpl implements CorporateUserService {
 			
 			//check jika maker tidak perlu tokenNo dan token type,
 			// sebaliknya yg lain perlu
-			if(ApplicationConstants.ROLE_WF_CRP_USR_MAKER.equals(wfRoleCode)){
+			if(ApplicationConstants.ROLE_WF_CRP_USR_MAKER.equals(wfRoleCode) && "N".equals(isOneSigner)){
 				if(ValueUtils.hasValue(tokenNo)){
 					throw new BusinessException("GPT-0100066");
 				}

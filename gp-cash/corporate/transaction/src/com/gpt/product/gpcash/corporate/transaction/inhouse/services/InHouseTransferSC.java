@@ -42,4 +42,5 @@ public interface InHouseTransferSC extends CorporateUserWorkflowService {
 	Map<String, Object> cancelTransactionWF(Map<String, Object> map) throws ApplicationException, BusinessException;
 	
 	Map<String, Object> checkRate(Map<String, Object> map) throws ApplicationException, BusinessException;
+
 }

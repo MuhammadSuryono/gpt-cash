@@ -471,4 +471,17 @@ public class CorporateSimpleWFEngine implements CorporateWFEngine {
 		return resultMap;
 	}
 	
+	
+
+	@Override
+	public void endInstance(String processInstanceId) throws BusinessException, ApplicationException {
+		CorporateProcessInstance pi = piRepo.findOne(processInstanceId);
+
+		taskRepo.endUnfinishedTasks(pi.getId(),pi.getApprovalLimit(),pi.getApprovalLimitCcyCd(),Status.APPROVED); //for One Signer
+		pi.setStatus(Status.APPROVED);
+		pi.setEndDate(new Timestamp(System.currentTimeMillis()));
+		piRepo.save(pi);
+	}
+	
+	
 }

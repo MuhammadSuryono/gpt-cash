@@ -497,4 +497,6 @@ public interface ApplicationConstants extends Constants {
 	String BENELIST_TYPE_LOCAL_ONLINE_BANK = "ONL";
 	String BENELIST_TYPE_OVERSEAS_BANK = "INT";
 	String BENELIST_TYPE_VIRTUAL_ACCOUNT = "VAA";
+	
+	String IS_ONE_SIGNER = "isOneSigner";
 }

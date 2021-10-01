@@ -781,7 +781,8 @@ public class ChequeOrderServiceImpl implements ChequeOrderService {
 				setMapToModel(chequeOrder, map, true, vo);
 
 				saveChequeOrder(chequeOrder, vo.getCreatedBy(), ApplicationConstants.NO);
-					
+				
+				chequeOrder.setIsError(ApplicationConstants.NO);
 				vo.setErrorCode(chequeOrder.getErrorCode());
 				vo.setIsError(chequeOrder.getIsError());
 			}

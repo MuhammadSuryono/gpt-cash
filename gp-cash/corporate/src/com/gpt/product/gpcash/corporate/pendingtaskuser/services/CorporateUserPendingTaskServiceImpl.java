@@ -378,8 +378,9 @@ public class CorporateUserPendingTaskServiceImpl implements CorporateUserPending
 			vo.setId(pendingTask.getId());
 			
 			// start workflow
-			return wfEngine.createInstance(CorporateWFEngine.Type.CorporateUser, vo.getCreatedBy(), pendingTask.getCreatedDate(), prepareVarsForWorkflow(vo));
-
+			Map<String, Object> returnMap =  wfEngine.createInstance(CorporateWFEngine.Type.CorporateUser, vo.getCreatedBy(), pendingTask.getCreatedDate(), prepareVarsForWorkflow(vo));
+			returnMap.put(ApplicationConstants.PENDINGTASK_VO, vo);
+			return returnMap;
 		} catch (BusinessException e) {
 			throw e;
 		} catch (Exception e) {
@@ -426,7 +427,7 @@ public class CorporateUserPendingTaskServiceImpl implements CorporateUserPending
 	}
 
 	@Override
-	public void approve(String pendingTaskId, String userId) throws ApplicationException, BusinessException {
+	public CorporateUserPendingTaskVO approve(String pendingTaskId, String userId) throws ApplicationException, BusinessException {
 		boolean approved = false;
 		boolean isTimeOut = false;
 		String errorCode = null;
@@ -570,6 +571,7 @@ public class CorporateUserPendingTaskServiceImpl implements CorporateUserPending
 				}
 			}
 		}
+		return vo;
 	}
 
 	@Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)

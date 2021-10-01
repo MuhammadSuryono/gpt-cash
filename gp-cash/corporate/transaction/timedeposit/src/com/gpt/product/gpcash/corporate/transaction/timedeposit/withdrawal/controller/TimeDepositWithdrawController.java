@@ -30,6 +30,32 @@ public class TimeDepositWithdrawController extends CorporateUserBaseController {
 		return invoke("TimeDepositWithdrawSC", method, param);
 	}
 	
+	@RequestMapping(baseCorpUserUrl + "/" + menuCode + "/confirm")
+	public DeferredResult<Map<String, Object>> confirm(HttpServletRequest request,
+			@RequestBody Map<String, Object> param) {
+		HttpSession session = request.getSession(false);
+		session.setAttribute(ApplicationConstants.CONFIRMATION_DATA, param);
+		
+		return invoke("TimeDepositWithdrawSC", "confirm", (DeferredResult<Map<String, Object>> deferredResult, Map<String, Object> map) -> {
+			Map<String, Object> confirmDataMap = (Map<String, Object>)session.getAttribute(ApplicationConstants.CONFIRMATION_DATA);
+			confirmDataMap.putAll(map);			
+			//remove unused data
+			confirmDataMap.remove(ApplicationConstants.WF_ACTION);			
+			//put confirmationData for submit
+			session.setAttribute(ApplicationConstants.CONFIRMATION_DATA, confirmDataMap);			
+			deferredResult.setResult(map);
+		}, this::defaultOnException, param);
+	}
+	
+	@RequestMapping(baseCorpUserUrl + "/" + menuCode + "/submit")
+	public DeferredResult<Map<String, Object>> approve(HttpServletRequest request,
+			@RequestBody Map<String, Object> param) {
+		HttpSession session = request.getSession(false);		
+		Map<String, Object> confirmationDataMap = (Map<String, Object>) session.getAttribute(ApplicationConstants.CONFIRMATION_DATA);
+		param.putAll(confirmationDataMap);		
+		return invoke("TimeDepositWithdrawSC", "submit", param);
+	}
+	
 	@RequestMapping(path = baseCorpUserUrl + "/" + menuCode + "/downloadTransactionStatus", method = RequestMethod.POST)
 	public DeferredResult<Map<String, Object>> downloadPeriodicTransaction(HttpServletRequest request, HttpServletResponse response, @RequestBody Map<String, Object> param) {
 		return invoke("TimeDepositWithdrawSC", "downloadTransactionStatus", 

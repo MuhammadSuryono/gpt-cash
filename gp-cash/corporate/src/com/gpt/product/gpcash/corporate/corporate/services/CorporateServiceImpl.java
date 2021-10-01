@@ -1259,12 +1259,9 @@ public class CorporateServiceImpl implements CorporateService {
 	}
 
 	@Override
-	public Map<String, Object> isSME(String corpID) throws ApplicationException, BusinessException {
+	public boolean isSME(String corpID) throws ApplicationException, BusinessException {
 		// TODO Auto-generated method stub
 		CorporateModel model = corporateRepo.findOne(corpID);
-		
-		Map<String, Object> resultMap = new HashMap<>();
-		resultMap.put("isSME",model.getIsSME()!=null?model.getIsSME():ApplicationConstants.NO);
-		return resultMap;
+		return "Y".equals(model.getIsSME());
 	}
 }

@@ -92,6 +92,9 @@ public class CorporateLoginController extends CorporateAdminBaseController {
 			session.setAttribute(ApplicationConstants.LOGIN_HISTORY_ID, loginHistoryId);
 			session.setAttribute(ApplicationConstants.LOGIN_DATE, loginDate);
 			
+			//for one signer SME
+			session.setAttribute(ApplicationConstants.IS_ONE_SIGNER, (String) map.get(ApplicationConstants.IS_ONE_SIGNER));
+
 
 			resultMap.put(ApplicationConstants.LOGIN_USERNAME, loginUserName);
 			resultMap.put("lastLoginDate", map.get("lastLoginDate"));
@@ -161,6 +164,8 @@ public class CorporateLoginController extends CorporateAdminBaseController {
 				session.setAttribute(ApplicationConstants.LOGIN_HISTORY_ID, loginHistoryId);
 				session.setAttribute(ApplicationConstants.LOGIN_DATE, loginDate);
 				
+				//for one signer SME
+				session.setAttribute(ApplicationConstants.IS_ONE_SIGNER, (String) map.get(ApplicationConstants.IS_ONE_SIGNER));
 	
 				resultMap.put(ApplicationConstants.LOGIN_USERNAME, loginUserName);
 				resultMap.put("lastLoginDate", DateUtils.getCurrentTimestamp());

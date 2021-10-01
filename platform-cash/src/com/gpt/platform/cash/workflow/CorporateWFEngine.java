@@ -36,4 +36,6 @@ public interface CorporateWFEngine {
 	
 	Map<String, Object> findPendingTasksForDownload(Map<String, Object> map) throws BusinessException, ApplicationException;
 
+	void endInstance(String processInstanceId) throws BusinessException, ApplicationException;
+
 }

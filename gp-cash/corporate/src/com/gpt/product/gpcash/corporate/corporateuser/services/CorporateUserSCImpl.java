@@ -433,6 +433,12 @@ public class CorporateUserSCImpl implements CorporateUserSC{
 	})
 	@Override
 	public Map<String, Object> isSME(Map<String, Object> map) throws ApplicationException, BusinessException {
-		return corporateService.isSME((String) map.get(ApplicationConstants.LOGIN_CORP_ID));
+		Map<String, Object> resultMap = new HashMap<>();
+		if(corporateService.isSME((String) map.get(ApplicationConstants.LOGIN_CORP_ID)))
+			resultMap.put("isSME", "Y");
+		else
+			resultMap.put("isSME", "N");
+		
+		return resultMap;
 	}
 }

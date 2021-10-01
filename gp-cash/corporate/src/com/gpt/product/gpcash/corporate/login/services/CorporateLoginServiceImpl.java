@@ -15,6 +15,7 @@ import com.gpt.platform.cash.constants.ApplicationConstants;
 import com.gpt.platform.cash.utils.DateUtils;
 import com.gpt.platform.cash.utils.Helper;
 import com.gpt.product.gpcash.corporate.corporate.model.CorporateModel;
+import com.gpt.product.gpcash.corporate.corporateuser.model.CorporateUserModel;
 import com.gpt.product.gpcash.corporate.outsourceadmin.model.OutsourceAdminLoginModel;
 import com.gpt.product.gpcash.corporate.outsourceadmin.repository.OutsourceAdminRepository;
 import com.gpt.product.gpcash.corporate.utils.CorporateUtilsRepository;
@@ -52,6 +53,10 @@ public class CorporateLoginServiceImpl implements CorporateLoginService {
 			//rewrite special for corporate since corporate have userCode and corpId
 			returnMap.put(ApplicationConstants.LOGIN_USERCODE, userCode);
 			returnMap.put(ApplicationConstants.LOGIN_CORP_ID, corpId);
+			
+			//for onesigner flag in corporate
+			CorporateUserModel corpUser = corporateUtilsRepo.isCorporateUserValid(userCode);
+			returnMap.put(ApplicationConstants.IS_ONE_SIGNER, corpUser.getIsOneSigner());
 			
 			return returnMap;
 		} catch (BusinessException e) {

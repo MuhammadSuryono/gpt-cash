@@ -669,7 +669,7 @@ public class BeneficiaryListDomesticServiceImpl implements BeneficiaryListDomest
 			if (isBenOnline) {
 				beneficiaryDomestic.setIsBenOnline(ApplicationConstants.YES);
 			} else {
-				
+				beneficiaryDomestic.setIsBenOnline(ApplicationConstants.NO);
 				beneficiaryDomestic.setLldIsBenResidence(isBenResident);
 				
 				String localCountryCode = maintenanceRepo.isSysParamValid(SysParamConstants.LOCAL_COUNTRY_CODE).getValue();

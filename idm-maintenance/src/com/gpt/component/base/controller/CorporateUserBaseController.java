@@ -49,6 +49,10 @@ public class CorporateUserBaseController extends BaseController {
 					param.put(ApplicationConstants.LOGIN_TOKEN_NO, session.getAttribute(ApplicationConstants.LOGIN_TOKEN_NO));
 				}
 				
+				if(session.getAttribute(ApplicationConstants.IS_ONE_SIGNER) != null) {
+					param.put(ApplicationConstants.IS_ONE_SIGNER, session.getAttribute(ApplicationConstants.IS_ONE_SIGNER));
+				}
+				
 				//only open this for development
 //				param.put(ApplicationConstants.LOGIN_USERID, "dapprls");
 //				param.put(ApplicationConstants.LOGIN_CORP_ID, "gg1");

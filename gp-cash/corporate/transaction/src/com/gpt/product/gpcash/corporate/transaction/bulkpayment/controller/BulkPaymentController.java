@@ -2,6 +2,7 @@ package com.gpt.product.gpcash.corporate.transaction.bulkpayment.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -26,6 +27,7 @@ import com.gpt.component.base.controller.CorporateUserBaseController;
 import com.gpt.platform.cash.constants.ApplicationConstants;
 import com.gpt.platform.cash.constants.EAIConstants;
 import com.gpt.platform.cash.utils.DateUtils;
+import com.gpt.platform.cash.utils.Helper;
 
 @RestController
 public class BulkPaymentController extends CorporateUserBaseController {
@@ -45,6 +47,49 @@ public class BulkPaymentController extends CorporateUserBaseController {
 	public DeferredResult<Map<String, Object>> genericHandler(HttpServletRequest request, @PathVariable String method, @RequestBody Map<String, Object> param) {	
 		return invoke("BulkPaymentSC", method, param);
 	}	
+	
+	@RequestMapping(baseCorpUserUrl + "/" + menuCode + "/confirm")
+	public DeferredResult<Map<String, Object>> confirm(HttpServletRequest request,
+			@RequestBody Map<String, Object> param) {
+		HttpSession session = request.getSession(false);
+		session.setAttribute(ApplicationConstants.CONFIRMATION_DATA, param);
+		
+		return invoke("BulkPaymentSC", "confirm", (DeferredResult<Map<String, Object>> deferredResult, Map<String, Object> map) -> {
+			Map<String, Object> confirmDataMap = (Map<String, Object>)session.getAttribute(ApplicationConstants.CONFIRMATION_DATA);
+			confirmDataMap.putAll(map);
+
+			confirmDataMap.remove(ApplicationConstants.WF_ACTION);
+			//put confirmationData for submit
+			session.setAttribute(ApplicationConstants.CONFIRMATION_DATA, confirmDataMap);	
+			
+			deferredResult.setResult(map);
+		}, this::defaultOnException, param);
+	}
+	
+	@RequestMapping(baseCorpUserUrl + "/" + menuCode + "/submit")
+	public DeferredResult<Map<String, Object>> approve(HttpServletRequest request,
+			@RequestBody Map<String, Object> param) {
+		HttpSession session = request.getSession(false);
+		
+		Map<String, Object> confirmationDataMap = (Map<String, Object>) session.getAttribute(ApplicationConstants.CONFIRMATION_DATA);
+		param.putAll(confirmationDataMap);
+		
+		//START count totalDebitedAmount
+		BigDecimal totalCharge = BigDecimal.ZERO;
+		BigDecimal transactionAmount = BigDecimal.ZERO;
+
+		if(confirmationDataMap.get(ApplicationConstants.TRANS_TOTAL_CHARGE) != null) {
+			totalCharge = Helper.getBigDecimalValue(confirmationDataMap.get(ApplicationConstants.TRANS_TOTAL_CHARGE), BigDecimal.ZERO);
+		}
+		
+		if(confirmationDataMap.get(ApplicationConstants.TRANS_AMOUNT) != null) {
+			transactionAmount = Helper.getBigDecimalValue(confirmationDataMap.get(ApplicationConstants.TRANS_AMOUNT), BigDecimal.ZERO);
+		}
+		param.put(ApplicationConstants.TRANS_TOTAL_DEBIT_AMOUNT, transactionAmount.add(totalCharge));
+		//END count totalDebitedAmount
+		
+		return invoke("BulkPaymentSC", "submit", param);
+	}
 
 	@RequestMapping(baseCorpUserUrl + "/" + menuCode + "/upload")
 	public DeferredResult<Map<String, Object>> upload(HttpServletRequest request, @RequestParam("file") MultipartFile file) {

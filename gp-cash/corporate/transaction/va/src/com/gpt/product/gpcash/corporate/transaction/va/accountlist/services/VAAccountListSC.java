@@ -18,4 +18,6 @@ public interface VAAccountListSC extends CorporateUserWorkflowService{
 	Map<String, Object> searchVADetailList(Map<String, Object> map) throws ApplicationException, BusinessException;
 
 	Map<String, Object> submitDelete(Map<String, Object> map) throws ApplicationException, BusinessException;
+	
+	Map<String, Object> confirm(Map<String, Object> map) throws ApplicationException, BusinessException;
 }

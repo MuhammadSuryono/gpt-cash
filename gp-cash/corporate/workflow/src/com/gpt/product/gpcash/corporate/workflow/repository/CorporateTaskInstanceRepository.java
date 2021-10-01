@@ -1,5 +1,6 @@
 package com.gpt.product.gpcash.corporate.workflow.repository;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.Tuple;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.gpt.component.common.exceptions.ApplicationException;
 import com.gpt.component.common.exceptions.BusinessException;
+import com.gpt.platform.cash.workflow.Status;
 import com.gpt.product.gpcash.corporate.workflow.model.CorporateTaskInstance;
 
 @Repository
@@ -33,4 +35,8 @@ public interface CorporateTaskInstanceRepository extends JpaRepository<Corporate
 	
 	@Query("select count(ti) from CorporateTaskInstance ti join ti.processInstance pi where pi.endDate is null and ti.endDate is null and ti.canceled = false and ti.user = ?1")
 	int countActiveTasksByUser(String user);
+
+	@Modifying
+	@Query("update CorporateTaskInstance ti set ti.endDate = CURRENT_TIMESTAMP,ti.status = ?4,ti.amount = ?2,ti.amountCcyCd = ?3 where ti.endDate is null and ti.processInstance.id = ?1")
+	void endUnfinishedTasks(String id, BigDecimal approvalLimit, String approvalLimitCcyCd,Status status);
 }

@@ -8,7 +8,7 @@ import com.gpt.product.gpcash.corporate.pendingtaskuser.valueobject.CorporateUse
 
 public interface CorporateUserWorkflowService {
 	Map<String, Object> submit(Map<String, Object> map) throws ApplicationException, BusinessException;
-
+	
 	CorporateUserPendingTaskVO approve(CorporateUserPendingTaskVO vo) throws ApplicationException, BusinessException;
 	
 	CorporateUserPendingTaskVO reject(CorporateUserPendingTaskVO vo) throws ApplicationException, BusinessException;
