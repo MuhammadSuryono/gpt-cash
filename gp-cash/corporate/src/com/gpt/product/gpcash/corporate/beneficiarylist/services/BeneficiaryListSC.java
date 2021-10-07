@@ -57,4 +57,6 @@ public interface BeneficiaryListSC extends CorporateUserWorkflowService {
 	
 	Map<String, Object> searchVirtualAccount(Map<String, Object> map) throws ApplicationException, BusinessException;
 	
+	Map<String, Object> confirm(Map<String, Object> map) throws ApplicationException, BusinessException;
+	
 }

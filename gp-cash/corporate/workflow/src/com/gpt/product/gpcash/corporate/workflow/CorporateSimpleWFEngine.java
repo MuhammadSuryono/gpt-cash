@@ -34,6 +34,7 @@ import com.gpt.product.gpcash.approvallevel.repository.ApprovalLevelRepository;
 import com.gpt.product.gpcash.corporate.corporate.model.CorporateModel;
 import com.gpt.product.gpcash.corporate.pendingtaskadmin.model.CorporateAdminPendingTaskModel;
 import com.gpt.product.gpcash.corporate.pendingtaskuser.model.CorporateUserPendingTaskModel;
+import com.gpt.product.gpcash.corporate.transactionstatus.TransactionStatus;
 import com.gpt.product.gpcash.corporate.workflow.model.CorporateProcessInstance;
 import com.gpt.product.gpcash.corporate.workflow.model.CorporateTaskInstance;
 import com.gpt.product.gpcash.corporate.workflow.model.CorporateVariable;
@@ -483,5 +484,67 @@ public class CorporateSimpleWFEngine implements CorporateWFEngine {
 		piRepo.save(pi);
 	}
 	
+	@Override
+	public Map<String, Object> createInstanceOneSigner(Type type, String createdBy, Timestamp createdDate,
+			Map<String, Object> processVars,Map<String, String> user) throws BusinessException, ApplicationException {
+		try {
+			CorporateProcessDefinition pd = latestDefinitions.get(type);
+			
+			assert(pd != null) : "Configuration exception, can not find process definition of type: " + type;
+			
+			CorporateProcessInstance pi = new CorporateProcessInstance();
+			pd.setSpecifiParams(pi, processVars);
+			pi.setCreatedBy(createdBy);
+			pi.setCreatedDate(createdDate);
+			pi.setProcessDefinition(pd.getName());
+			if(!processVars.isEmpty()) {
+				Set<CorporateVariable> vars = new HashSet<>();
+				processVars.forEach( (key, value) -> {
+					CorporateVariable var = variableFactory.createVariable(key, value);
+					var.setProcessInstance(pi);
+					vars.add(var);
+				});
+				pi.setVariables(vars);
+			}
+	
+			//tambahan untuk oneSigner
+			pi.setCurrApprLv(0);
+			pi.setCurrApprLvCount(0);
+			pi.setTrxStatus(TransactionStatus.PENDING_APPROVE);
+			pi.setCurrentStageId("ApproverStage");
+			
+			piRepo.persist(pi);
+			
+			
+			CorporateTaskInstance ti = new CorporateTaskInstance();
+			ti.setStartDate(DateUtils.getCurrentTimestamp());
+			ti.setProcessInstance(pi);
+			ti.setStageId("ApproverStage");
+			ti.setUser(user.get("assignedUserId"));
+			ti.setCurrApprLv(pi.getCurrApprLv());
+			ti.setUserApprovalLvCode(user.get("assignedUserLevelCode"));
+			ti.setUserApprovalLvAlias(user.get("assignedUserLevelAlias"));
+			ti.setUserApprovalLvName(user.get("assignedUserLevelName"));
+			ti.setUserGroupId(user.get("assignedUserGroupId"));
+			taskRepo.save(ti);
+			
+			//end tambahan untuk one signer
+			
+			pd.updatePendingTaskActivity(pi);
+			
+			String strDateTime = Helper.DATE_TIME_FORMATTER.format(pi.getCreatedDate());
+			Map<String, Object> result = new HashMap<>();
+			result.put(ApplicationConstants.WF_FIELD_MESSAGE, getWFStatus(pi));
+			result.put(ApplicationConstants.WF_FIELD_DATE_TIME_INFO, "GPT-0200008|" + strDateTime);
+			result.put("dateTime", strDateTime);
+			return result;
+		} catch (ApplicationException e) {
+			throw e;
+		} catch (BusinessException e) {
+			throw e;
+		} catch (Exception e) {
+			throw new ApplicationException(e);
+		}
+	}
 	
 }

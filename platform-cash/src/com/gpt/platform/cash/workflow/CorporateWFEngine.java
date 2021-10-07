@@ -38,4 +38,7 @@ public interface CorporateWFEngine {
 
 	void endInstance(String processInstanceId) throws BusinessException, ApplicationException;
 
+	Map<String, Object> createInstanceOneSigner(Type type, String createdBy, Timestamp createdDate, Map<String, Object> processVars,Map<String, String> user) throws BusinessException, ApplicationException;
+
+
 }

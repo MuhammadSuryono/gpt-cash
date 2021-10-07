@@ -149,15 +149,15 @@ public class ChequeOrderSCImpl implements ChequeOrderSC {
 			String pendingTaskId = vo.getId();
 			vo = pendingTaskService.approve(pendingTaskId, (String) map.get(ApplicationConstants.LOGIN_USERCODE));
 			
-			if(ApplicationConstants.NO.equals(vo.getIsError())) {
+			if(ApplicationConstants.YES.equals(vo.getIsError())) {
+				throw new BusinessException(vo.getErrorCode());
+			} else {
 				resultMap = new HashMap<>();
 				String strDateTime = Helper.DATE_TIME_FORMATTER.format(vo.getCreatedDate());
 				resultMap.put(ApplicationConstants.WF_FIELD_REFERENCE_NO, vo.getReferenceNo());
 				resultMap.put(ApplicationConstants.WF_FIELD_MESSAGE, "GPT-0200005");
 				resultMap.put(ApplicationConstants.WF_FIELD_DATE_TIME_INFO, "GPT-0200008|" + strDateTime);
 				resultMap.put("dateTime", strDateTime);
-			} else {
-				throw new BusinessException(vo.getErrorCode());
 			}
 			
 			//end taskInstance

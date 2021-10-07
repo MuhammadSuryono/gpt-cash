@@ -282,7 +282,7 @@ public class CorporateUserPendingTaskServiceImpl implements CorporateUserPending
 				vo.setActionByLevelName(authModel.getApprovalLevel().getName());
 				vo.setActionByLevelAlias(authModel.getApprovalLevelAlias());
 			}
-			
+						
 			CorporateUserPendingTaskModel pendingTask = new CorporateUserPendingTaskModel();
 			pendingTask.setUniqueKey(vo.getUniqueKey());
 			pendingTask.setUniqueKeyDisplay(vo.getUniqueKeyDisplay());
@@ -378,7 +378,20 @@ public class CorporateUserPendingTaskServiceImpl implements CorporateUserPending
 			vo.setId(pendingTask.getId());
 			
 			// start workflow
-			Map<String, Object> returnMap =  wfEngine.createInstance(CorporateWFEngine.Type.CorporateUser, vo.getCreatedBy(), pendingTask.getCreatedDate(), prepareVarsForWorkflow(vo));
+			Map<String, Object> returnMap =  null;
+			
+			if(ApplicationConstants.YES.equals(user.getIsOneSigner())) {
+				Map<String, String> userMakerMap = new HashMap<>(5, 1);
+				userMakerMap.put("assignedUserId", user.getId());
+				userMakerMap.put("assignedUserLevelCode", authModel.getApprovalLevel().getCode());
+				userMakerMap.put("assignedUserLevelName", authModel.getApprovalLevel().getName());
+				userMakerMap.put("assignedUserLevelAlias", user.getAuthorizedLimit().getApprovalLevelAlias());
+				userMakerMap.put("assignedUserGroupId", user.getCorporateUserGroup().getId());
+				
+				returnMap =  wfEngine.createInstanceOneSigner(CorporateWFEngine.Type.CorporateUser, vo.getCreatedBy(), pendingTask.getCreatedDate(), prepareVarsForWorkflow(vo),userMakerMap);
+			}else {				
+				returnMap =  wfEngine.createInstance(CorporateWFEngine.Type.CorporateUser, vo.getCreatedBy(), pendingTask.getCreatedDate(), prepareVarsForWorkflow(vo));
+			}
 			returnMap.put(ApplicationConstants.PENDINGTASK_VO, vo);
 			return returnMap;
 		} catch (BusinessException e) {

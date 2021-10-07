@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.gpt.component.common.exceptions.ApplicationException;
 import com.gpt.component.common.exceptions.BusinessException;
@@ -117,11 +118,13 @@ public class VAAccountListSCImpl implements VAAccountListSC {
 		@Variable(name = ApplicationConstants.WF_FIELD_MESSAGE, format = Format.I18N),
 		@Variable(name = ApplicationConstants.WF_FIELD_DATE_TIME_INFO, format = Format.I18N) 
 	})
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public Map<String, Object> submit(Map<String, Object> map) throws ApplicationException, BusinessException {
 		String isOneSigner = map.get(ApplicationConstants.IS_ONE_SIGNER)!=null?(String) map.get(ApplicationConstants.IS_ONE_SIGNER):ApplicationConstants.NO;
 		
 		if(ApplicationConstants.YES.equals(isOneSigner)) {
+			
 			tokenValidationService.authenticate((String) map.get(ApplicationConstants.LOGIN_CORP_ID), 
 					(String) map.get(ApplicationConstants.LOGIN_USERCODE), 
 					(String) map.get(ApplicationConstants.LOGIN_TOKEN_NO), (String) map.get(ApplicationConstants.CHALLENGE_NO), (String) map.get(ApplicationConstants.RESPONSE_NO));
@@ -168,6 +171,7 @@ public class VAAccountListSCImpl implements VAAccountListSC {
 		@Variable(name = ApplicationConstants.WF_FIELD_MESSAGE, format = Format.I18N),
 		@Variable(name = ApplicationConstants.WF_FIELD_DATE_TIME_INFO, format = Format.I18N) 
 	})
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public Map<String, Object> submitDelete(Map<String, Object> map) throws ApplicationException, BusinessException {
 		String isOneSigner = map.get(ApplicationConstants.IS_ONE_SIGNER)!=null?(String) map.get(ApplicationConstants.IS_ONE_SIGNER):ApplicationConstants.NO;
@@ -180,12 +184,12 @@ public class VAAccountListSCImpl implements VAAccountListSC {
 		
 		Map<String, Object> resultMap = vaAccountListService.submit(map);
 		
-		if(ApplicationConstants.YES.equals(isOneSigner)) {
+		/*if(ApplicationConstants.YES.equals(isOneSigner)) {
 			CorporateUserPendingTaskVO vo = (CorporateUserPendingTaskVO) resultMap.get(ApplicationConstants.PENDINGTASK_VO);
 			String pendingTaskId = vo.getId();
 			vo = pendingTaskService.approve(pendingTaskId, (String) map.get(ApplicationConstants.LOGIN_USERCODE));
 			
-			if(ApplicationConstants.NO.equals(vo.getIsError())) {
+			if(ApplicationConstants.NO.equals(vo.getIsError()) ||vo.getIsError() == null) {
 				resultMap = new HashMap<>();
 				String strDateTime = Helper.DATE_TIME_FORMATTER.format(vo.getCreatedDate());
 				resultMap.put(ApplicationConstants.WF_FIELD_REFERENCE_NO, vo.getReferenceNo());
@@ -199,7 +203,7 @@ public class VAAccountListSCImpl implements VAAccountListSC {
 			//end taskInstance
 			wfEngine.endInstance(pendingTaskId);
 			
-		}
+		}*/
 		
 		return resultMap;
 	}
