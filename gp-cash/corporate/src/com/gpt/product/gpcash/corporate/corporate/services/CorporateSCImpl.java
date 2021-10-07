@@ -134,6 +134,7 @@ public class CorporateSCImpl implements CorporateSC {
 		@Variable(name = "residenceCountryCode"),
 		@Variable(name = "specialChargeFlag", options= {ApplicationConstants.YES, ApplicationConstants.NO}),
 		@Variable(name = "specialLimitFlag", options= {ApplicationConstants.YES, ApplicationConstants.NO}),
+		@Variable(name = "smeFlag", options= {ApplicationConstants.YES, ApplicationConstants.NO}),
 		@Variable(name = "contactList", required = false, type = List.class, subVariables = {
 			@SubVariable(name = ApplicationConstants.STR_NAME, required = false),
 			@SubVariable(name = "phoneNo", required = false),

@@ -199,6 +199,7 @@ public class CorporateServiceImpl implements CorporateService {
 			map.put("specialChargeFlag", ValueUtils.getValue(model.getSpecialChargeFlag()));
 			map.put("specialLimitFlag", ValueUtils.getValue(model.getSpecialLimitFlag()));
 			map.put("outsourceAdminFlag", ValueUtils.getValue(model.getOutsourceAdminFlag()));
+			map.put("smeFlag", ValueUtils.getValue(model.getIsSME()));
 
 			if (model.getBranch() != null) {
 				BranchModel branch = maintenanceRepo.getBranchRepo().findOne(model.getBranch().getCode());
@@ -504,6 +505,7 @@ public class CorporateServiceImpl implements CorporateService {
 		corporate.setSpecialChargeFlag((String) map.get("specialChargeFlag"));
 		corporate.setSpecialLimitFlag((String) map.get("specialLimitFlag"));
 		corporate.setOutsourceAdminFlag((String) map.get("outsourceAdminFlag"));
+		corporate.setIsSME((String) map.get("smeFlag"));
 		
 		if(ApplicationConstants.YES.equals(corporate.getOutsourceAdminFlag()))
 			corporate.setTokenAuthenticationFlag(ApplicationConstants.NO);
@@ -659,6 +661,8 @@ public class CorporateServiceImpl implements CorporateService {
 					
 					corporateExisting.setOutsourceAdminFlag(corporate.getOutsourceAdminFlag());
 					corporateExisting.setTokenAuthenticationFlag(corporate.getTokenAuthenticationFlag());
+					
+					corporateExisting.setIsSME(corporate.getIsSME());
 
 					saveCorporate(corporateExisting, vo.getCreatedBy(), true);
 				} else {
@@ -783,6 +787,7 @@ public class CorporateServiceImpl implements CorporateService {
 				corporateExisting.setSpecialLimitFlag(corporateNew.getSpecialLimitFlag());
 //				corporateExisting.setOutsourceAdminFlag(corporateNew.getOutsourceAdminFlag());
 //				corporateExisting.setTokenAuthenticationFlag(corporateNew.getTokenAuthenticationFlag());
+				corporateExisting.setIsSME(corporateNew.getIsSME());
 
 				corporateExisting.setBranch(corporateNew.getBranch());
 
