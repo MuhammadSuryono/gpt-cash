@@ -499,7 +499,7 @@ public class BeneficiaryListUploadServiceImpl implements BeneficiaryListUploadSe
 		if (isOnline) {
 			beneficiaryDomestic.setIsBenOnline(ApplicationConstants.YES);
 		} else {
-			
+			beneficiaryDomestic.setIsBenOnline(ApplicationConstants.NO);
 			CountryModel localCountry = new CountryModel();
 			localCountry.setCode(localCountryCode);
 			beneficiaryDomestic.setLldBenResidenceCountry(localCountry);

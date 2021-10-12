@@ -93,7 +93,15 @@ public class BeneficiaryListSCImpl implements BeneficiaryListSC {
 	})
 	@Override
 	public Map<String, Object> searchOnline(Map<String, Object> map) throws ApplicationException, BusinessException {
-		return beneficiaryListInHouseService.searchOnline(map);
+		
+		Map<String, Object> resultMap = beneficiaryListInHouseService.searchOnline(map);
+		String isOneSigner = map.get(ApplicationConstants.IS_ONE_SIGNER)!=null?(String) map.get(ApplicationConstants.IS_ONE_SIGNER):ApplicationConstants.NO;
+		if(ApplicationConstants.YES.equals(isOneSigner)) {
+			Map<String, Object> challengeMap = getChallenge(map);
+			resultMap.putAll(challengeMap);
+		}
+		
+		return resultMap;
 	}
 
 	@EnableCorporateActivityLog
@@ -194,9 +202,41 @@ public class BeneficiaryListSCImpl implements BeneficiaryListSC {
 		@Variable(name = ApplicationConstants.WF_FIELD_MESSAGE, format = Format.I18N),
 		@Variable(name = ApplicationConstants.WF_FIELD_DATE_TIME_INFO, format = Format.I18N) 
 	})
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public Map<String, Object> submitDelete(Map<String, Object> map) throws ApplicationException, BusinessException {
-		return beneficiaryListInHouseService.submit(map);
+		String isOneSigner = map.get(ApplicationConstants.IS_ONE_SIGNER)!=null?(String) map.get(ApplicationConstants.IS_ONE_SIGNER):ApplicationConstants.NO;
+		
+		if(ApplicationConstants.YES.equals(isOneSigner)) {
+			tokenValidationService.authenticate((String) map.get(ApplicationConstants.LOGIN_CORP_ID), 
+					(String) map.get(ApplicationConstants.LOGIN_USERCODE), 
+					(String) map.get(ApplicationConstants.LOGIN_TOKEN_NO), (String) map.get(ApplicationConstants.CHALLENGE_NO), (String) map.get(ApplicationConstants.RESPONSE_NO));
+		}
+		
+		Map<String, Object> resultMap = beneficiaryListInHouseService.submit(map);
+		
+		if(ApplicationConstants.YES.equals(isOneSigner)) {
+			CorporateUserPendingTaskVO vo = (CorporateUserPendingTaskVO) resultMap.get(ApplicationConstants.PENDINGTASK_VO);
+			String pendingTaskId = vo.getId();
+			vo = pendingTaskService.approve(pendingTaskId, (String) map.get(ApplicationConstants.LOGIN_USERCODE));
+			
+			if(ApplicationConstants.YES.equals(vo.getIsError()) ) {
+				throw new BusinessException(vo.getErrorCode());
+			} else {
+				resultMap = new HashMap<>();
+				String strDateTime = Helper.DATE_TIME_FORMATTER.format(vo.getCreatedDate());
+				resultMap.put(ApplicationConstants.WF_FIELD_REFERENCE_NO, vo.getReferenceNo());
+				resultMap.put(ApplicationConstants.WF_FIELD_MESSAGE, "GPT-0200005");
+				resultMap.put(ApplicationConstants.WF_FIELD_DATE_TIME_INFO, "GPT-0200008|" + strDateTime);
+				resultMap.put("dateTime", strDateTime);
+			}
+			
+			//end taskInstance
+			wfEngine.endInstance(pendingTaskId);
+			
+		}
+		
+		return resultMap;
 	}
 	
 	@EnableCorporateActivityLog
@@ -215,9 +255,40 @@ public class BeneficiaryListSCImpl implements BeneficiaryListSC {
 		@Variable(name = ApplicationConstants.WF_FIELD_MESSAGE, format = Format.I18N),
 		@Variable(name = ApplicationConstants.WF_FIELD_DATE_TIME_INFO, format = Format.I18N) 
 	})
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public Map<String, Object> submitDeleteList(Map<String, Object> map) throws ApplicationException, BusinessException {
-		return beneficiaryListInHouseService.submit(map);
+		String isOneSigner = map.get(ApplicationConstants.IS_ONE_SIGNER)!=null?(String) map.get(ApplicationConstants.IS_ONE_SIGNER):ApplicationConstants.NO;
+		
+		if(ApplicationConstants.YES.equals(isOneSigner)) {
+			tokenValidationService.authenticate((String) map.get(ApplicationConstants.LOGIN_CORP_ID), 
+					(String) map.get(ApplicationConstants.LOGIN_USERCODE), 
+					(String) map.get(ApplicationConstants.LOGIN_TOKEN_NO), (String) map.get(ApplicationConstants.CHALLENGE_NO), (String) map.get(ApplicationConstants.RESPONSE_NO));
+		}
+		
+		Map<String, Object> resultMap = beneficiaryListInHouseService.submit(map);
+		
+		if(ApplicationConstants.YES.equals(isOneSigner)) {
+			CorporateUserPendingTaskVO vo = (CorporateUserPendingTaskVO) resultMap.get(ApplicationConstants.PENDINGTASK_VO);
+			String pendingTaskId = vo.getId();
+			vo = pendingTaskService.approve(pendingTaskId, (String) map.get(ApplicationConstants.LOGIN_USERCODE));
+			
+			if(ApplicationConstants.YES.equals(vo.getIsError()) ) {
+				throw new BusinessException(vo.getErrorCode());
+			} else {
+				resultMap = new HashMap<>();
+				String strDateTime = Helper.DATE_TIME_FORMATTER.format(vo.getCreatedDate());
+				resultMap.put(ApplicationConstants.WF_FIELD_REFERENCE_NO, vo.getReferenceNo());
+				resultMap.put(ApplicationConstants.WF_FIELD_MESSAGE, "GPT-0200005");
+				resultMap.put(ApplicationConstants.WF_FIELD_DATE_TIME_INFO, "GPT-0200008|" + strDateTime);
+				resultMap.put("dateTime", strDateTime);
+			}
+			
+			//end taskInstance
+			wfEngine.endInstance(pendingTaskId);
+			
+		}
+		return resultMap;
 	}
 
 	// -----------------------------------Domestic----------------------------------------------------
@@ -238,7 +309,7 @@ public class BeneficiaryListSCImpl implements BeneficiaryListSC {
 	public Map<String, Object> searchDomestic(Map<String, Object> map) throws ApplicationException, BusinessException {
 		// put corporateId for searching based on login corporate id
 		map.put(ApplicationConstants.CORP_ID, map.get(ApplicationConstants.LOGIN_CORP_ID));
-		return beneficiaryListDomesticService.search(map);
+		return beneficiaryListDomesticService.search(map);		
 	}
 
 	@Validate
@@ -257,7 +328,17 @@ public class BeneficiaryListSCImpl implements BeneficiaryListSC {
 	public Map<String, Object> searchOnlineDomestic(Map<String, Object> map) throws ApplicationException, BusinessException {
 		// put corporateId for searching based on login corporate id
 		map.put(ApplicationConstants.CORP_ID, map.get(ApplicationConstants.LOGIN_CORP_ID));
-		return beneficiaryListDomesticService.searchOnline(map);
+
+		Map<String, Object> resultMap =  beneficiaryListDomesticService.searchOnline(map);
+		
+		String isOneSigner = map.get(ApplicationConstants.IS_ONE_SIGNER)!=null?(String) map.get(ApplicationConstants.IS_ONE_SIGNER):ApplicationConstants.NO;
+		if(ApplicationConstants.YES.equals(isOneSigner)) {
+			Map<String, Object> challengeMap = getChallenge(map);
+			resultMap.putAll(challengeMap);
+		}
+		
+		return resultMap;
+		
 	}
 
 	@EnableCorporateActivityLog
@@ -334,10 +415,42 @@ public class BeneficiaryListSCImpl implements BeneficiaryListSC {
 		@Variable(name = ApplicationConstants.WF_FIELD_MESSAGE, format = Format.I18N),
 		@Variable(name = ApplicationConstants.WF_FIELD_DATE_TIME_INFO, format = Format.I18N) 
 	})
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public Map<String, Object> submitDeleteDomestic(Map<String, Object> map)
 			throws ApplicationException, BusinessException {
-		return beneficiaryListDomesticService.submit(map);
+		String isOneSigner = map.get(ApplicationConstants.IS_ONE_SIGNER)!=null?(String) map.get(ApplicationConstants.IS_ONE_SIGNER):ApplicationConstants.NO;
+		
+		if(ApplicationConstants.YES.equals(isOneSigner)) {
+			tokenValidationService.authenticate((String) map.get(ApplicationConstants.LOGIN_CORP_ID), 
+					(String) map.get(ApplicationConstants.LOGIN_USERCODE), 
+					(String) map.get(ApplicationConstants.LOGIN_TOKEN_NO), (String) map.get(ApplicationConstants.CHALLENGE_NO), (String) map.get(ApplicationConstants.RESPONSE_NO));
+		}
+		
+		Map<String, Object> resultMap = beneficiaryListDomesticService.submit(map);
+		
+		if(ApplicationConstants.YES.equals(isOneSigner)) {
+			CorporateUserPendingTaskVO vo = (CorporateUserPendingTaskVO) resultMap.get(ApplicationConstants.PENDINGTASK_VO);
+			String pendingTaskId = vo.getId();
+			vo = pendingTaskService.approve(pendingTaskId, (String) map.get(ApplicationConstants.LOGIN_USERCODE));
+			
+			if(ApplicationConstants.YES.equals(vo.getIsError()) ) {
+				throw new BusinessException(vo.getErrorCode());
+			} else {
+				resultMap = new HashMap<>();
+				String strDateTime = Helper.DATE_TIME_FORMATTER.format(vo.getCreatedDate());
+				resultMap.put(ApplicationConstants.WF_FIELD_REFERENCE_NO, vo.getReferenceNo());
+				resultMap.put(ApplicationConstants.WF_FIELD_MESSAGE, "GPT-0200005");
+				resultMap.put(ApplicationConstants.WF_FIELD_DATE_TIME_INFO, "GPT-0200008|" + strDateTime);
+				resultMap.put("dateTime", strDateTime);
+			}
+			
+			//end taskInstance
+			wfEngine.endInstance(pendingTaskId);
+			
+		}
+		
+		return resultMap;
 	}
 	
 	@EnableCorporateActivityLog
@@ -356,10 +469,42 @@ public class BeneficiaryListSCImpl implements BeneficiaryListSC {
 		@Variable(name = ApplicationConstants.WF_FIELD_MESSAGE, format = Format.I18N),
 		@Variable(name = ApplicationConstants.WF_FIELD_DATE_TIME_INFO, format = Format.I18N) 
 	})
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public Map<String, Object> submitDeleteDomesticList(Map<String, Object> map)
 			throws ApplicationException, BusinessException {
-		return beneficiaryListDomesticService.submit(map);
+		String isOneSigner = map.get(ApplicationConstants.IS_ONE_SIGNER)!=null?(String) map.get(ApplicationConstants.IS_ONE_SIGNER):ApplicationConstants.NO;
+		
+		if(ApplicationConstants.YES.equals(isOneSigner)) {
+			tokenValidationService.authenticate((String) map.get(ApplicationConstants.LOGIN_CORP_ID), 
+					(String) map.get(ApplicationConstants.LOGIN_USERCODE), 
+					(String) map.get(ApplicationConstants.LOGIN_TOKEN_NO), (String) map.get(ApplicationConstants.CHALLENGE_NO), (String) map.get(ApplicationConstants.RESPONSE_NO));
+		}
+		
+		Map<String, Object> resultMap = beneficiaryListDomesticService.submit(map);
+		
+		if(ApplicationConstants.YES.equals(isOneSigner)) {
+			CorporateUserPendingTaskVO vo = (CorporateUserPendingTaskVO) resultMap.get(ApplicationConstants.PENDINGTASK_VO);
+			String pendingTaskId = vo.getId();
+			vo = pendingTaskService.approve(pendingTaskId, (String) map.get(ApplicationConstants.LOGIN_USERCODE));
+			
+			if(ApplicationConstants.YES.equals(vo.getIsError()) ) {
+				throw new BusinessException(vo.getErrorCode());
+			} else {
+				resultMap = new HashMap<>();
+				String strDateTime = Helper.DATE_TIME_FORMATTER.format(vo.getCreatedDate());
+				resultMap.put(ApplicationConstants.WF_FIELD_REFERENCE_NO, vo.getReferenceNo());
+				resultMap.put(ApplicationConstants.WF_FIELD_MESSAGE, "GPT-0200005");
+				resultMap.put(ApplicationConstants.WF_FIELD_DATE_TIME_INFO, "GPT-0200008|" + strDateTime);
+				resultMap.put("dateTime", strDateTime);
+			}
+			
+			//end taskInstance
+			wfEngine.endInstance(pendingTaskId);
+			
+		}
+		
+		return resultMap;
 	}
 
 	@EnableCorporateActivityLog
@@ -507,9 +652,41 @@ public class BeneficiaryListSCImpl implements BeneficiaryListSC {
 		@Variable(name = ApplicationConstants.WF_FIELD_MESSAGE, format = Format.I18N),
 		@Variable(name = ApplicationConstants.WF_FIELD_DATE_TIME_INFO, format = Format.I18N) 
 	})
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public Map<String, Object> submitDeleteInternational(Map<String, Object> map) throws ApplicationException, BusinessException {
-		return beneficiaryListInternationalService.submit(map);
+String isOneSigner = map.get(ApplicationConstants.IS_ONE_SIGNER)!=null?(String) map.get(ApplicationConstants.IS_ONE_SIGNER):ApplicationConstants.NO;
+		
+		if(ApplicationConstants.YES.equals(isOneSigner)) {
+			tokenValidationService.authenticate((String) map.get(ApplicationConstants.LOGIN_CORP_ID), 
+					(String) map.get(ApplicationConstants.LOGIN_USERCODE), 
+					(String) map.get(ApplicationConstants.LOGIN_TOKEN_NO), (String) map.get(ApplicationConstants.CHALLENGE_NO), (String) map.get(ApplicationConstants.RESPONSE_NO));
+		}
+		
+		Map<String, Object> resultMap = beneficiaryListInternationalService.submit(map);
+		
+		if(ApplicationConstants.YES.equals(isOneSigner)) {
+			CorporateUserPendingTaskVO vo = (CorporateUserPendingTaskVO) resultMap.get(ApplicationConstants.PENDINGTASK_VO);
+			String pendingTaskId = vo.getId();
+			vo = pendingTaskService.approve(pendingTaskId, (String) map.get(ApplicationConstants.LOGIN_USERCODE));
+			
+			if(ApplicationConstants.YES.equals(vo.getIsError()) ) {
+				throw new BusinessException(vo.getErrorCode());
+			} else {
+				resultMap = new HashMap<>();
+				String strDateTime = Helper.DATE_TIME_FORMATTER.format(vo.getCreatedDate());
+				resultMap.put(ApplicationConstants.WF_FIELD_REFERENCE_NO, vo.getReferenceNo());
+				resultMap.put(ApplicationConstants.WF_FIELD_MESSAGE, "GPT-0200005");
+				resultMap.put(ApplicationConstants.WF_FIELD_DATE_TIME_INFO, "GPT-0200008|" + strDateTime);
+				resultMap.put("dateTime", strDateTime);
+			}
+			
+			//end taskInstance
+			wfEngine.endInstance(pendingTaskId);
+			
+		}
+		
+		return resultMap;
 	}
 
 	@EnableCorporateActivityLog
@@ -528,9 +705,41 @@ public class BeneficiaryListSCImpl implements BeneficiaryListSC {
 		@Variable(name = ApplicationConstants.WF_FIELD_MESSAGE, format = Format.I18N),
 		@Variable(name = ApplicationConstants.WF_FIELD_DATE_TIME_INFO, format = Format.I18N) 
 	})
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public Map<String, Object> submitDeleteInternationalList(Map<String, Object> map) throws ApplicationException, BusinessException {
-		return beneficiaryListInternationalService.submit(map);
+		String isOneSigner = map.get(ApplicationConstants.IS_ONE_SIGNER)!=null?(String) map.get(ApplicationConstants.IS_ONE_SIGNER):ApplicationConstants.NO;
+		
+		if(ApplicationConstants.YES.equals(isOneSigner)) {
+			tokenValidationService.authenticate((String) map.get(ApplicationConstants.LOGIN_CORP_ID), 
+					(String) map.get(ApplicationConstants.LOGIN_USERCODE), 
+					(String) map.get(ApplicationConstants.LOGIN_TOKEN_NO), (String) map.get(ApplicationConstants.CHALLENGE_NO), (String) map.get(ApplicationConstants.RESPONSE_NO));
+		}
+		
+		Map<String, Object> resultMap = beneficiaryListInternationalService.submit(map);
+		
+		if(ApplicationConstants.YES.equals(isOneSigner)) {
+			CorporateUserPendingTaskVO vo = (CorporateUserPendingTaskVO) resultMap.get(ApplicationConstants.PENDINGTASK_VO);
+			String pendingTaskId = vo.getId();
+			vo = pendingTaskService.approve(pendingTaskId, (String) map.get(ApplicationConstants.LOGIN_USERCODE));
+			
+			if(ApplicationConstants.YES.equals(vo.getIsError()) ) {
+				throw new BusinessException(vo.getErrorCode());
+			} else {
+				resultMap = new HashMap<>();
+				String strDateTime = Helper.DATE_TIME_FORMATTER.format(vo.getCreatedDate());
+				resultMap.put(ApplicationConstants.WF_FIELD_REFERENCE_NO, vo.getReferenceNo());
+				resultMap.put(ApplicationConstants.WF_FIELD_MESSAGE, "GPT-0200005");
+				resultMap.put(ApplicationConstants.WF_FIELD_DATE_TIME_INFO, "GPT-0200008|" + strDateTime);
+				resultMap.put("dateTime", strDateTime);
+			}
+			
+			//end taskInstance
+			wfEngine.endInstance(pendingTaskId);
+			
+		}
+		
+		return resultMap;
 	}
 	
 	@Validate
@@ -612,7 +821,15 @@ public class BeneficiaryListSCImpl implements BeneficiaryListSC {
 	})
 	@Override
 	public Map<String, Object> searchVirtualAccount(Map<String, Object> map) throws ApplicationException, BusinessException {
-		return beneficiaryListInHouseService.inquiryVirtualAccount(map);
+		Map<String, Object> resultMap =  beneficiaryListInHouseService.inquiryVirtualAccount(map);
+		
+		String isOneSigner = map.get(ApplicationConstants.IS_ONE_SIGNER)!=null?(String) map.get(ApplicationConstants.IS_ONE_SIGNER):ApplicationConstants.NO;
+		if(ApplicationConstants.YES.equals(isOneSigner)) {
+			Map<String, Object> challengeMap = getChallenge(map);
+			resultMap.putAll(challengeMap);
+		}
+		
+		return resultMap;
 	}
 	
 	@EnableCorporateActivityLog
@@ -624,7 +841,7 @@ public class BeneficiaryListSCImpl implements BeneficiaryListSC {
 		@Variable(name = ApplicationConstants.STR_MENUCODE, options = menuCode) 
 	})
 	@Override
-	public Map<String, Object> confirm(Map<String, Object> map) throws ApplicationException, BusinessException {
+	public Map<String, Object> getChallenge(Map<String, Object> map) throws ApplicationException, BusinessException {
 		String isOneSigner = map.get(ApplicationConstants.IS_ONE_SIGNER)!=null?(String) map.get(ApplicationConstants.IS_ONE_SIGNER):ApplicationConstants.NO;
 		
 		String corpId = (String) map.get(ApplicationConstants.LOGIN_CORP_ID);

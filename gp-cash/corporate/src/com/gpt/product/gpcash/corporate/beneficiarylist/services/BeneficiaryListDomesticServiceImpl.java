@@ -391,6 +391,7 @@ public class BeneficiaryListDomesticServiceImpl implements BeneficiaryListDomest
 		beneficiaryDomestic.setCorporate(corporate);
 
 		beneficiaryDomestic.setCorporateUserGroup(corpUser.getCorporateUserGroup());
+		beneficiaryDomestic.setIsBenOnline(ApplicationConstants.NO);
 
 		return beneficiaryDomestic;
 	}

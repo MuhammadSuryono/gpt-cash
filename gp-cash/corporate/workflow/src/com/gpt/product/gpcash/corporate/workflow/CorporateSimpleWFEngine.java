@@ -1,7 +1,9 @@
 package com.gpt.product.gpcash.corporate.workflow;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -493,7 +495,38 @@ public class CorporateSimpleWFEngine implements CorporateWFEngine {
 			assert(pd != null) : "Configuration exception, can not find process definition of type: " + type;
 			
 			CorporateProcessInstance pi = new CorporateProcessInstance();
-			pd.setSpecifiParams(pi, processVars);
+			
+			
+			
+			//pd.setSpecifiParams(pi, processVars); di set default khusus untuk one signer
+			
+			BigDecimal trxAmount = (BigDecimal)processVars.remove(ApplicationConstants.KEY_TRX_AMOUNT);
+			String trxAmountCcyCd =  (String) processVars.remove(ApplicationConstants.KEY_TRX_AMOUNT_CCY_CD);
+			String corpId = (String) processVars.remove(ApplicationConstants.KEY_CORP_ID);
+			String actionByLevelName = (String) processVars.remove("actionByLevelName");
+			String actionByLevelAlias = (String) processVars.remove("actionByLevelAlias");
+			String pendingTaskId = (String)processVars.remove(ApplicationConstants.KEY_PT_ID);
+			String menuCode = (String)processVars.remove(ApplicationConstants.KEY_MENU_CODE);
+			
+			
+			assert(trxAmount!=null);
+			assert(corpId!=null);
+			
+			pi.setApprovalLimit(trxAmount);
+			pi.setApprovalLimitCcyCd(trxAmountCcyCd);
+			pi.setCorporateId(corpId);
+			pi.setCreatedByLevelName(actionByLevelName);
+			pi.setCreatedByLevelAlias(actionByLevelAlias);
+			
+			pi.setId(pendingTaskId);
+			pi.setMenuCode(menuCode);
+			
+			List<List<Object>> approvalMatrix = new ArrayList<>(1);
+			approvalMatrix.add(Arrays.asList(null,1, "ANY",null,null));
+			
+			pi.setListOfApprovalMatrix(approvalMatrix);
+			//end tambahan one signer
+			
 			pi.setCreatedBy(createdBy);
 			pi.setCreatedDate(createdDate);
 			pi.setProcessDefinition(pd.getName());
@@ -538,10 +571,7 @@ public class CorporateSimpleWFEngine implements CorporateWFEngine {
 			result.put(ApplicationConstants.WF_FIELD_DATE_TIME_INFO, "GPT-0200008|" + strDateTime);
 			result.put("dateTime", strDateTime);
 			return result;
-		} catch (ApplicationException e) {
-			throw e;
-		} catch (BusinessException e) {
-			throw e;
+
 		} catch (Exception e) {
 			throw new ApplicationException(e);
 		}

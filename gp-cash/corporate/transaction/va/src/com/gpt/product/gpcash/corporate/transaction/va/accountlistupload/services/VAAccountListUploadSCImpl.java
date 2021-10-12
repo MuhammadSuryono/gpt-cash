@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.gpt.component.common.exceptions.ApplicationException;
 import com.gpt.component.common.exceptions.BusinessException;
+import com.gpt.component.common.utils.ValueUtils;
 import com.gpt.component.common.validation.annotation.Input;
 import com.gpt.component.common.validation.annotation.Option;
 import com.gpt.component.common.validation.annotation.Output;
@@ -22,8 +23,12 @@ import com.gpt.component.common.validation.annotation.Validate;
 import com.gpt.component.common.validation.annotation.Variable;
 import com.gpt.component.common.validation.converter.Format;
 import com.gpt.platform.cash.constants.ApplicationConstants;
+import com.gpt.platform.cash.utils.Helper;
+import com.gpt.platform.cash.workflow.CorporateWFEngine;
 import com.gpt.product.gpcash.corporate.logging.annotation.EnableCorporateActivityLog;
+import com.gpt.product.gpcash.corporate.pendingtaskuser.services.CorporateUserPendingTaskService;
 import com.gpt.product.gpcash.corporate.pendingtaskuser.valueobject.CorporateUserPendingTaskVO;
+import com.gpt.product.gpcash.corporate.token.validation.services.TokenValidationService;
 import com.gpt.product.gpcash.corporate.transaction.pendingupload.constants.PendingUploadConstants;
 import com.gpt.product.gpcash.corporate.transaction.pendingupload.services.PendingUploadService;
 import com.gpt.product.gpcash.corporate.transaction.va.registration.services.VARegistrationService;
@@ -40,6 +45,15 @@ public class VAAccountListUploadSCImpl implements VAAccountListUploadSC {
 	
 	@Autowired
 	private VARegistrationService vaRegistrationService;
+	
+	@Autowired
+	private TokenValidationService tokenValidationService;
+	
+	@Autowired
+	private CorporateUserPendingTaskService pendingTaskService;
+	
+	@Autowired
+	private CorporateWFEngine wfEngine;
 	
 	@Validate
 	@Input({
@@ -115,7 +129,24 @@ public class VAAccountListUploadSCImpl implements VAAccountListUploadSC {
 	public Map<String, Object> confirm(Map<String, Object> map) throws ApplicationException, BusinessException {
 		Map<String, Object> pendingUploadInfo = pendingUploadService.searchPendingUploadByIdValidOnly(map);				
 		map.putAll(pendingUploadInfo);
-		return vaAccountListUploadService.confirm(map);
+		String isOneSigner = map.get(ApplicationConstants.IS_ONE_SIGNER)!=null?(String) map.get(ApplicationConstants.IS_ONE_SIGNER):ApplicationConstants.NO;
+
+		String corpId = (String) map.get(ApplicationConstants.LOGIN_CORP_ID);
+				String userCode = (String) map.get(ApplicationConstants.LOGIN_USERCODE);
+				String tokenNo = (String) map.get(ApplicationConstants.LOGIN_TOKEN_NO);
+				
+				map = vaAccountListUploadService.confirm(map);
+
+				map.put(ApplicationConstants.IS_ONE_SIGNER, isOneSigner);
+				if(ApplicationConstants.YES.equals(isOneSigner)) {
+					//pengecekan jika loginTokenNo tidak ada maka mungkin saja telah di unassign, maka harus di assign dl token nya.
+					if(!ValueUtils.hasValue(tokenNo)) {
+						throw new BusinessException("GPT-0100153");
+					}
+					map.put(ApplicationConstants.CHALLENGE_NO, tokenValidationService.getChallenge(corpId,userCode,tokenNo));				
+				}
+				
+		return map; 	
 	}	
 	
 	@EnableCorporateActivityLog
@@ -137,7 +168,40 @@ public class VAAccountListUploadSCImpl implements VAAccountListUploadSC {
 	public Map<String, Object> submit(Map<String, Object> map) throws ApplicationException, BusinessException {
 		Map<String, Object> pendingUploadInfo = pendingUploadService.searchPendingUploadByIdValidOnly(map);		
 		map.putAll(pendingUploadInfo);
-		return vaAccountListUploadService.submit(map);
+		
+String isOneSigner = map.get(ApplicationConstants.IS_ONE_SIGNER)!=null?(String) map.get(ApplicationConstants.IS_ONE_SIGNER):ApplicationConstants.NO;
+		
+		if(ApplicationConstants.YES.equals(isOneSigner)) {
+			tokenValidationService.authenticate((String) map.get(ApplicationConstants.LOGIN_CORP_ID), 
+					(String) map.get(ApplicationConstants.LOGIN_USERCODE), 
+					(String) map.get(ApplicationConstants.LOGIN_TOKEN_NO), (String) map.get(ApplicationConstants.CHALLENGE_NO), (String) map.get(ApplicationConstants.RESPONSE_NO));
+		}
+		
+		Map<String, Object> resultMap = vaAccountListUploadService.submit(map);
+		
+		
+		if(ApplicationConstants.YES.equals(isOneSigner)) {
+			CorporateUserPendingTaskVO vo = (CorporateUserPendingTaskVO) resultMap.get(ApplicationConstants.PENDINGTASK_VO);
+			String pendingTaskId = vo.getId();
+			vo = pendingTaskService.approve(pendingTaskId, (String) map.get(ApplicationConstants.LOGIN_USERCODE));
+			
+			if(ApplicationConstants.YES.equals(vo.getIsError())) {
+				throw new BusinessException(vo.getErrorCode());
+			} else {				
+				resultMap = new HashMap<>();
+				String strDateTime = Helper.DATE_TIME_FORMATTER.format(vo.getCreatedDate());
+				resultMap.put(ApplicationConstants.WF_FIELD_REFERENCE_NO, vo.getReferenceNo());
+				resultMap.put(ApplicationConstants.WF_FIELD_MESSAGE, "GPT-0200005");
+				resultMap.put(ApplicationConstants.WF_FIELD_DATE_TIME_INFO, "GPT-0200008|" + strDateTime);
+				resultMap.put("dateTime", strDateTime);
+			}
+			
+			//end taskInstance
+			wfEngine.endInstance(pendingTaskId);	
+	
+		}
+		
+		return resultMap;
 	}
 
 	@EnableCorporateActivityLog
