@@ -343,7 +343,8 @@ public class CorporateServiceImpl implements CorporateService {
 				checkUniqueRecord((String) map.get(ApplicationConstants.CORP_ID));
 			} else if (map.get(ApplicationConstants.WF_ACTION).equals(ApplicationConstants.WF_ACTION_UPDATE)) {
 				checkCustomValidation(map);
-
+				validateOnesigner(map);
+				
 				vo.setAction(ApplicationConstants.WF_ACTION_UPDATE);
 
 				// check existing record exist or not
@@ -373,6 +374,19 @@ public class CorporateServiceImpl implements CorporateService {
 		}
 
 		return resultMap;
+	}
+
+	private void validateOnesigner(Map<String, Object> map) throws BusinessException, Exception {
+		
+		if (map.get("smeFlag") !=null && "N".equals(String.valueOf(map.get("smeFlag")))) {
+			List<CorporateUserModel> corpUserList = corporateUserRepo.findUserByCorporateAndIsOneSigner((String) map.get(ApplicationConstants.CORP_ID));
+			
+			if (corpUserList != null) {
+				if (corpUserList.size() > 0) {
+					throw new BusinessException("GPT-0100241");
+				}					
+			}
+		}				
 	}
 
 	@SuppressWarnings("unchecked")
@@ -429,6 +443,7 @@ public class CorporateServiceImpl implements CorporateService {
 				}
 				
 			}
+			
 		} catch (BusinessException e) {
 			throw e;
 		} catch (Exception e) {
