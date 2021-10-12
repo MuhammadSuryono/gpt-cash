@@ -189,4 +189,10 @@ public interface CorporateUserRepository extends JpaRepository<CorporateUserMode
 			+ "and corpUser.user.deleteFlag = 'N' ")
 	List<CorporateUserModel> findCorporateUserByAuthorizedLimitId(String authorizedLimitId) throws Exception;
 	
+	@Query("from CorporateUserModel corpUsr "
+			+ "where corpUsr.corporate.id = ?1 "
+			+ "and corpUsr.user.deleteFlag = 'N' "
+			+ "and corpUsr.isOneSigner = 'Y' ")
+	List<CorporateUserModel> findUserByCorporateAndIsOneSigner(String corporateId) throws Exception;
+	
 }
