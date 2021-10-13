@@ -506,4 +506,53 @@ public class CorporateApprovalMatrixServiceImpl implements CorporateApprovalMatr
 
 		return resultMap;
 	}
+
+	@Override
+	public Map<String, Object> saveDefaultApprovalMatrix(Map<String, Object> map)
+			throws ApplicationException, BusinessException {
+		// TODO Auto-generated method stub
+		try {
+			String corporateId = (String) map.get(ApplicationConstants.LOGIN_CORP_ID);
+			
+			CorporateModel corporate = corporateUtilsRepo.isCorporateValid(corporateId);
+			
+			String roleCode = corporate.getServicePackage().getMenuPackage().getRole().getCode();
+			List<IDMMenuModel> menuList = idmRepo.getMenuRepo().findTransactionAndMaintenanceMenuByRoleCode(roleCode);
+			
+			for(IDMMenuModel menu : menuList) {
+				
+				Map<String, Object> inputMap = new HashMap<String,Object>();
+				inputMap.put(ApplicationConstants.LOGIN_CORP_ID, corporateId);
+				inputMap.put("searchMenuCode", menu.getCode());
+				inputMap.put("currencyCode", "IDR");
+				
+				Map<String, Object> detailMap = new HashMap<String, Object>();
+				detailMap.put("sequenceNo", 1);
+				detailMap.put("noOfUser", 1);
+				detailMap.put("authorizedLimitId", "");
+				detailMap.put("userGroupOptionCode", "ANY");
+				detailMap.put("userGroupCode", "");
+				List<Map<String, Object>> approvalList = new ArrayList<Map<String,Object>>();
+				approvalList.add(detailMap);
+				
+				Map<String, Object> approvalMatrixMap = new HashMap<String, Object>();
+				approvalMatrixMap.put("noOfApproval", "1");
+				approvalMatrixMap.put("rangeLimit", "999999999999999");
+				approvalMatrixMap.put("approvalList", approvalList);
+				
+				List<Map<String, Object>> approvalMatrixListing = new ArrayList<Map<String, Object>> ();
+				approvalMatrixListing.add(approvalMatrixMap);
+				
+				inputMap.put("approvalMatrixListing", approvalMatrixListing);
+				saveApprovalMatrix(inputMap, ApplicationConstants.CREATED_BY_SYSTEM);
+			}
+			
+			
+		} catch (BusinessException e) {
+			throw e;
+		} catch (Exception e) {
+			throw new ApplicationException(e);
+		}
+		return null;
+	}
 }

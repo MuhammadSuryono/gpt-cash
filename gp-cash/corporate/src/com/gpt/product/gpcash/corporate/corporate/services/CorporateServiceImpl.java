@@ -42,6 +42,7 @@ import com.gpt.platform.cash.utils.DateUtils;
 import com.gpt.platform.cash.utils.Helper;
 import com.gpt.product.gpcash.chargepackage.model.ChargePackageDetailModel;
 import com.gpt.product.gpcash.chargepackage.model.ChargePackageModel;
+import com.gpt.product.gpcash.corporate.approvalmatrix.services.CorporateApprovalMatrixService;
 import com.gpt.product.gpcash.corporate.corporate.VAStatus;
 import com.gpt.product.gpcash.corporate.corporate.model.CorporateContactModel;
 import com.gpt.product.gpcash.corporate.corporate.model.CorporateModel;
@@ -111,6 +112,9 @@ public class CorporateServiceImpl implements CorporateService {
 
 	@Autowired
 	private EAIEngine eaiAdapter;
+	
+	@Autowired
+	private CorporateApprovalMatrixService corporateApprovalMatrixService;
 
 	@Override
 	public Map<String, Object> search(Map<String, Object> map) throws ApplicationException, BusinessException {
@@ -200,6 +204,7 @@ public class CorporateServiceImpl implements CorporateService {
 			map.put("specialLimitFlag", ValueUtils.getValue(model.getSpecialLimitFlag()));
 			map.put("outsourceAdminFlag", ValueUtils.getValue(model.getOutsourceAdminFlag()));
 			map.put("smeFlag", ValueUtils.getValue(model.getIsSME()));
+			map.put("defAppMatrixFlag", ValueUtils.getValue(model.getDefaultAppMatrixFlag()));
 
 			if (model.getBranch() != null) {
 				BranchModel branch = maintenanceRepo.getBranchRepo().findOne(model.getBranch().getCode());
@@ -521,6 +526,7 @@ public class CorporateServiceImpl implements CorporateService {
 		corporate.setSpecialLimitFlag((String) map.get("specialLimitFlag"));
 		corporate.setOutsourceAdminFlag((String) map.get("outsourceAdminFlag"));
 		corporate.setIsSME((String) map.get("smeFlag"));
+		corporate.setDefaultAppMatrixFlag((String)map.get("defAppMatrixFlag"));
 		
 		if(ApplicationConstants.YES.equals(corporate.getOutsourceAdminFlag()))
 			corporate.setTokenAuthenticationFlag(ApplicationConstants.NO);
@@ -678,6 +684,7 @@ public class CorporateServiceImpl implements CorporateService {
 					corporateExisting.setTokenAuthenticationFlag(corporate.getTokenAuthenticationFlag());
 					
 					corporateExisting.setIsSME(corporate.getIsSME());
+					corporateExisting.setDefaultAppMatrixFlag(corporate.getDefaultAppMatrixFlag());
 
 					saveCorporate(corporateExisting, vo.getCreatedBy(), true);
 				} else {
@@ -763,6 +770,14 @@ public class CorporateServiceImpl implements CorporateService {
 						
 						eaiAdapter.invokeService(EAIConstants.RESERVE_TOKEN, inputs);
 					}
+					
+					
+					//save default approval matrix, jika default app matrix = Y
+					if(ApplicationConstants.YES.equals(corporate.getDefaultAppMatrixFlag())) {
+						Map<String, Object> inputMap = new HashMap<String,Object>();
+						inputMap.put(ApplicationConstants.LOGIN_CORP_ID, corporate.getId());
+						corporateApprovalMatrixService.saveDefaultApprovalMatrix(inputMap);
+					}
 
 				}
 
@@ -803,7 +818,8 @@ public class CorporateServiceImpl implements CorporateService {
 //				corporateExisting.setOutsourceAdminFlag(corporateNew.getOutsourceAdminFlag());
 //				corporateExisting.setTokenAuthenticationFlag(corporateNew.getTokenAuthenticationFlag());
 				corporateExisting.setIsSME(corporateNew.getIsSME());
-
+				corporateExisting.setDefaultAppMatrixFlag(corporateNew.getDefaultAppMatrixFlag());
+				
 				corporateExisting.setBranch(corporateNew.getBranch());
 
 				ServicePackageModel servicePackage = corporateNew.getServicePackage();

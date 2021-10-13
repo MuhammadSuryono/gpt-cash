@@ -16,5 +16,7 @@ public interface CorporateApprovalMatrixService extends CorporateAdminWorkflowSe
 	List<CorporateApprovalMatrixDetailModel> getApprovalMatrixDetailForWorkflow(String menuCode, String corporateId) throws ApplicationException, BusinessException;
 
 	Map<String, Object> getCurrency() throws ApplicationException, BusinessException;
+	
+	Map<String, Object> saveDefaultApprovalMatrix(Map<String, Object> map) throws ApplicationException, BusinessException;
 
 }

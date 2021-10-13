@@ -190,6 +190,17 @@ public class CorporateModel implements Serializable{
 		
 	@Column(name = "TOKEN_AUTH_FLAG")
 	protected String tokenAuthenticationFlag;
+	
+	@Column(name = "IS_DEF_APP_MTRX")
+	protected String defaultAppMatrixFlag;	
+
+	public String getDefaultAppMatrixFlag() {
+		return defaultAppMatrixFlag;
+	}
+
+	public void setDefaultAppMatrixFlag(String defaultAppMatrixFlag) {
+		this.defaultAppMatrixFlag = defaultAppMatrixFlag;
+	}
 
 	public String getIsSME() {
 		return isSME;
