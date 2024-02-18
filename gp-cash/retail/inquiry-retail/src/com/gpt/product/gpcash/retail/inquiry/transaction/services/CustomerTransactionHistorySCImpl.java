@@ -295,6 +295,36 @@ public class CustomerTransactionHistorySCImpl implements CustomerTransactionHist
 		return customerAccountService.findCASAAccountByCustomerAndAccountTypeForInquiryOnlyGetMap((String) map.get(ApplicationConstants.CUST_ID), casaAccountType);
 	}
 	
+	@Validate
+	@Input({
+		@Variable(name = ApplicationConstants.CUST_ID, format = Format.UPPER_CASE),		
+		@Variable(name = ApplicationConstants.WF_ACTION, options = {ApplicationConstants.WF_ACTION_SEARCH}),
+		@Variable(name = ApplicationConstants.STR_MENUCODE, options = menuCode)
+	})
+	@Output({
+		@Variable(name = "accounts", type = List.class, subVariables = {
+			@SubVariable(name = ApplicationConstants.ACCOUNT_DTL_ID),
+			@SubVariable(name = "accountNo"),
+			@SubVariable(name = "accountName"),
+			@SubVariable(name = "accountTypeCode"),
+			@SubVariable(name = "accountTypeName"),
+			@SubVariable(name = "accountCurrencyCode"),
+			@SubVariable(name = "accountCurrencyName"),
+			@SubVariable(name = "accountBranchCode", required = false),
+			@SubVariable(name = "accountBranchName", required = false)
+		})			
+	})
+	@Override
+	public Map<String, Object> searchCustomerVirtualAccountForInquiry(Map<String, Object> map) throws ApplicationException, BusinessException {
+		List<String> casaAccountType = new ArrayList<>();
+	    casaAccountType.add(ApplicationConstants.ACCOUNT_TYPE_SAVING);
+	    casaAccountType.add(ApplicationConstants.ACCOUNT_TYPE_CURRENT);
+	    casaAccountType.add(ApplicationConstants.ACCOUNT_TYPE_TIME_DEPOSIT);
+	    casaAccountType.add(ApplicationConstants.ACCOUNT_TYPE_LOAN);
+	    
+		return customerAccountService.findCASAAccountByCustomerAndVirtualAccountTypeForInquiryOnlyGetMap((String) map.get(ApplicationConstants.CUST_ID), casaAccountType);
+	}
+	
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	@Override
 	public void executeSOTRequestScheduler(String parameter) throws ApplicationException, BusinessException {

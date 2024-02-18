@@ -1,10 +1,11 @@
-[9820] 10:06:00.299 D -                      SchedulerHelper(47) [            Scheduler_Worker-7] [ 6173831089462005174] : [SOT_REQUEST_DAILY_TRX] Scheduled Fire Time : Mon Jun 07 05:00:00 ICT 2021
-[9820] 10:06:00.299 D -                      SchedulerHelper(48) [            Scheduler_Worker-7] [ 6173831089462005174] : [SOT_REQUEST_DAILY_TRX] Next Fire Time      : Mon Jun 07 05:00:00 ICT 2021
-[9820] 10:06:00.431 D -       TransactionHistoryServiceImpl(521) [            Scheduler_Worker-7] [ 6173831089462005174] : executeSOTRequestScheduler inputs : {requestDate=Mon Jul 26 00:00:00 ICT 2021, isNew=false}
-[9820] 10:06:00.431 D -                        QueueInvoker(126) [            Scheduler_Worker-7] [ 6173831089462005174] : [AutoDiscoveryQueueInvoker] - EAIEngine#invokeService(DoSOTRequest, {requestDate=Mon Jul 26 00:00:00 ICT 2021, isNew=false})
-[9820] 10:06:30.542 E -                SchedulerServiceImpl(296) [            Scheduler_Worker-7] [ 6173831089462005174] : com.netflix.hystrix.exception.HystrixRuntimeException: EAIEngine#invokeService failed and no fallback available.
+[25164] 05:00:00.011 D -                      SchedulerHelper(47) [            Scheduler_Worker-5] [-7907113131717801373] : [SOT_REQUEST_DAILY_TRX] Scheduled Fire Time : Thu Sep 15 05:00:00 ICT 2022
+[25164] 05:00:00.011 D -                      SchedulerHelper(48) [            Scheduler_Worker-5] [-7907113131717801373] : [SOT_REQUEST_DAILY_TRX] Next Fire Time      : Thu Sep 15 05:00:00 ICT 2022
+[25164] 05:00:00.076 D -       TransactionHistoryServiceImpl(522) [            Scheduler_Worker-5] [-7907113131717801373] : executeSOTRequestScheduler inputs : {requestDate=Wed Sep 14 00:00:00 ICT 2022, isNew=false, maxLenghtAccountRegular=13}
+[25164] 05:00:00.077 D -                        QueueInvoker(126) [            Scheduler_Worker-5] [-7907113131717801373] : [AutoDiscoveryQueueInvoker] - EAIEngine#invokeService(DoSOTRequest, {requestDate=Wed Sep 14 00:00:00 ICT 2022, isNew=false, maxLenghtAccountRegular=13})
+[25164] 05:00:12.403 D -                        QueueInvoker(201) [     ServiceInvoker-Response-4] [-7907113131717801373] : Execution Time: 12326 ms
+[25164] 05:00:12.406 E -                SchedulerServiceImpl(296) [            Scheduler_Worker-5] [-7907113131717801373] : com.netflix.hystrix.exception.HystrixRuntimeException: EAIEngine#invokeService failed and no fallback available.
 com.gpt.component.common.exceptions.ApplicationException: com.netflix.hystrix.exception.HystrixRuntimeException: EAIEngine#invokeService failed and no fallback available.
-	at com.gpt.product.gpcash.corporate.inquiry.transaction.services.TransactionHistoryServiceImpl.executeSOTRequestScheduler(TransactionHistoryServiceImpl.java:527)
+	at com.gpt.product.gpcash.corporate.inquiry.transaction.services.TransactionHistoryServiceImpl.executeSOTRequestScheduler(TransactionHistoryServiceImpl.java:528)
 	at com.gpt.product.gpcash.corporate.inquiry.transaction.services.TransactionHistoryServiceImpl$$FastClassBySpringCGLIB$$9b7c7032.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
@@ -14,7 +15,7 @@ com.gpt.component.common.exceptions.ApplicationException: com.netflix.hystrix.ex
 	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
-	at com.gpt.product.gpcash.corporate.inquiry.transaction.services.TransactionHistoryServiceImpl$$EnhancerBySpringCGLIB$$ac4afacf.executeSOTRequestScheduler(<generated>)
+	at com.gpt.product.gpcash.corporate.inquiry.transaction.services.TransactionHistoryServiceImpl$$EnhancerBySpringCGLIB$$34ceb2d8.executeSOTRequestScheduler(<generated>)
 	at com.gpt.product.gpcash.corporate.inquiry.transaction.services.TransactionHistorySCImpl.executeSOTRequestScheduler(TransactionHistorySCImpl.java:308)
 	at com.gpt.product.gpcash.corporate.inquiry.transaction.services.TransactionHistorySCImpl$$FastClassBySpringCGLIB$$9a58b493.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
@@ -27,7 +28,7 @@ com.gpt.component.common.exceptions.ApplicationException: com.netflix.hystrix.ex
 	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
-	at com.gpt.product.gpcash.corporate.inquiry.transaction.services.TransactionHistorySCImpl$$EnhancerBySpringCGLIB$$e5351c22.executeSOTRequestScheduler(<generated>)
+	at com.gpt.product.gpcash.corporate.inquiry.transaction.services.TransactionHistorySCImpl$$EnhancerBySpringCGLIB$$a37374e2.executeSOTRequestScheduler(<generated>)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -39,7 +40,7 @@ com.gpt.component.common.exceptions.ApplicationException: com.netflix.hystrix.ex
 	at com.gpt.component.scheduler.services.SchedulerServiceImpl$$FastClassBySpringCGLIB$$12cd3956.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:669)
-	at com.gpt.component.scheduler.services.SchedulerServiceImpl$$EnhancerBySpringCGLIB$$4622cbb.executeJob(<generated>)
+	at com.gpt.component.scheduler.services.SchedulerServiceImpl$$EnhancerBySpringCGLIB$$8ce5e4c4.executeJob(<generated>)
 	at com.gpt.component.scheduler.JobExecutor.execute(JobExecutor.java:29)
 	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
 	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
@@ -147,18 +148,47 @@ Caused by: com.netflix.hystrix.exception.HystrixRuntimeException: EAIEngine#invo
 	at com.netflix.hystrix.HystrixCommand.execute(HystrixCommand.java:344)
 	at com.gpt.component.common.configuration.AutoDiscoveryConfiguration$RemoteInvocationHandler.invoke(AutoDiscoveryConfiguration.java:492)
 	at com.sun.proxy.$Proxy213.invokeService(Unknown Source)
-	at com.gpt.product.gpcash.corporate.inquiry.transaction.services.TransactionHistoryServiceImpl.executeSOTRequestScheduler(TransactionHistoryServiceImpl.java:524)
+	at com.gpt.product.gpcash.corporate.inquiry.transaction.services.TransactionHistoryServiceImpl.executeSOTRequestScheduler(TransactionHistoryServiceImpl.java:525)
 	... 38 common frames omitted
-Caused by: java.util.concurrent.ExecutionException: java.util.concurrent.TimeoutException
+Caused by: java.util.concurrent.ExecutionException: com.gpt.component.common.exceptions.BusinessException: EAI-EAI-00
 	at com.gpt.component.common.invoker.QueueInvoker$FutureActionResponse.lambda$new$33(QueueInvoker.java:232)
-	at com.gpt.component.common.invoker.QueueInvoker$ActionResponseEvictionThread.lambda$run$34(QueueInvoker.java:273)
-	at java.util.concurrent.ConcurrentHashMap$ForEachMappingTask.compute(Unknown Source)
-	at java.util.concurrent.CountedCompleter.exec(Unknown Source)
-	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
-	at java.util.concurrent.ForkJoinTask.doInvoke(Unknown Source)
-	at java.util.concurrent.ForkJoinTask.invoke(Unknown Source)
-	at java.util.concurrent.ConcurrentHashMap.forEach(Unknown Source)
-	at com.gpt.component.common.invoker.QueueInvoker$ActionResponseEvictionThread.run(QueueInvoker.java:257)
-Caused by: java.util.concurrent.TimeoutException: null
-	... 8 common frames omitted
-[9820] 10:06:31.079 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-7] [ 6173831089462005174] : [SOT_REQUEST_DAILY_TRX] Next Fire Time (New): Wed Jul 28 05:00:00 ICT 2021
+	at com.gpt.component.common.invoker.QueueInvoker$ActionResponse.handle(QueueInvoker.java:196)
+	at com.gpt.component.common.invoker.QueueInvoker$FutureActionResponse.handle(QueueInvoker.java:224)
+	at com.gpt.component.common.invoker.QueueInvoker$1.onMessage(QueueInvoker.java:59)
+	at com.gpt.component.common.invoker.queue.consumer.handler.QueueHandler.processMessage(QueueHandler.java:54)
+	at com.gpt.component.common.invoker.queue.consumer.MultiQueuesConsumer$ResponseWorker.run(MultiQueuesConsumer.java:163)
+Caused by: com.gpt.component.common.exceptions.BusinessException: EAI-EAI-00
+	at com.gpt.product.cash.eai.bjb.service.gpcash.sot.DoSOTRequest.executeService(DoSOTRequest.java:85)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:333)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:741)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
+	at com.gpt.component.common.validation.ValidationAspect.validate(ValidationAspect.java:270)
+	at sun.reflect.GeneratedMethodAccessor59.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.cash.eai.bjb.service.gpcash.sot.DoSOTRequest$$EnhancerBySpringCGLIB$$dedb118c.executeService(<generated>)
+	at com.gpt.platform.eai.service.BaseService.execute(BaseService.java:32)
+	at com.gpt.platform.eai.service.ServiceLocator.invokeService(ServiceLocator.java:31)
+	at sun.reflect.GeneratedMethodAccessor60.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:63)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:85)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:84)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:25)
+	at com.gpt.component.common.invoker.queue.consumer.handler.QueueHandler.processMessage(QueueHandler.java:40)
+	at com.gpt.component.common.invoker.queue.consumer.QueueConsumer$Worker.run(QueueConsumer.java:212)
+[25164] 05:00:12.458 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-5] [-7907113131717801373] : [SOT_REQUEST_DAILY_TRX] Next Fire Time (New): Fri Sep 16 05:00:00 ICT 2022

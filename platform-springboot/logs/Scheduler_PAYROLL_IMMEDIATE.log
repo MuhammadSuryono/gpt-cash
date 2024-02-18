@@ -1,12 +1,68 @@
-[9404] 14:00:00.228 D -                      SchedulerHelper(47) [            Scheduler_Worker-1] [ -271149814796169960] : [PAYROLL_IMMEDIATE] Scheduled Fire Time : Fri Aug 13 03:30:00 ICT 2021
-[9404] 14:00:00.229 D -                      SchedulerHelper(48) [            Scheduler_Worker-1] [ -271149814796169960] : [PAYROLL_IMMEDIATE] Next Fire Time      : Fri Aug 13 03:30:00 ICT 2021
-[9404] 14:00:00.485 D -                  PayrollServiceImpl(588) [            Scheduler_Worker-1] [ -271149814796169960] : Immediate date : 2021-08-13 00:00:00.0
-[9404] 14:00:00.720 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-1] [ -271149814796169960] : [PAYROLL_IMMEDIATE] Next Fire Time (New): Fri Aug 13 14:15:00 ICT 2021
-[9404] 14:15:00.328 D -                      SchedulerHelper(47) [            Scheduler_Worker-1] [ 6005563100462597438] : [PAYROLL_IMMEDIATE] Scheduled Fire Time : Fri Aug 13 14:15:00 ICT 2021
-[9404] 14:15:00.328 D -                      SchedulerHelper(48) [            Scheduler_Worker-1] [ 6005563100462597438] : [PAYROLL_IMMEDIATE] Next Fire Time      : Fri Aug 13 14:15:00 ICT 2021
-[9404] 14:15:00.370 D -                  PayrollServiceImpl(588) [            Scheduler_Worker-1] [ 6005563100462597438] : Immediate date : 2021-08-13 00:00:00.0
-[9404] 14:15:00.464 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-1] [ 6005563100462597438] : [PAYROLL_IMMEDIATE] Next Fire Time (New): Fri Aug 13 14:30:00 ICT 2021
-[17888] 14:45:00.063 D -                      SchedulerHelper(47) [            Scheduler_Worker-4] [ 1215995486976036828] : [PAYROLL_IMMEDIATE] Scheduled Fire Time : Fri Aug 13 14:30:00 ICT 2021
-[17888] 14:45:00.063 D -                      SchedulerHelper(48) [            Scheduler_Worker-4] [ 1215995486976036828] : [PAYROLL_IMMEDIATE] Next Fire Time      : Fri Aug 13 14:30:00 ICT 2021
-[17888] 14:45:00.104 D -                  PayrollServiceImpl(588) [            Scheduler_Worker-4] [ 1215995486976036828] : Immediate date : 2021-08-13 00:00:00.0
-[17888] 14:45:00.289 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-4] [ 1215995486976036828] : [PAYROLL_IMMEDIATE] Next Fire Time (New): Fri Aug 13 15:00:00 ICT 2021
+[26544] 00:00:00.167 D -                      SchedulerHelper(47) [           Scheduler_Worker-10] [-8663439589484576430] : [PAYROLL_IMMEDIATE] Scheduled Fire Time : Thu Sep 15 00:00:00 ICT 2022
+[26544] 00:00:00.167 D -                      SchedulerHelper(48) [           Scheduler_Worker-10] [-8663439589484576430] : [PAYROLL_IMMEDIATE] Next Fire Time      : Thu Sep 15 00:00:00 ICT 2022
+[26544] 00:00:00.182 D -                  PayrollServiceImpl(602) [           Scheduler_Worker-10] [-8663439589484576430] : Immediate date : 2022-09-15 00:00:00.0
+[26544] 00:00:00.458 D -                SchedulerServiceImpl(313) [           Scheduler_Worker-10] [-8663439589484576430] : [PAYROLL_IMMEDIATE] Next Fire Time (New): Thu Sep 15 00:15:00 ICT 2022
+[26544] 00:15:00.081 D -                      SchedulerHelper(47) [           Scheduler_Worker-10] [-5685679021405943594] : [PAYROLL_IMMEDIATE] Scheduled Fire Time : Thu Sep 15 00:15:00 ICT 2022
+[26544] 00:15:00.081 D -                      SchedulerHelper(48) [           Scheduler_Worker-10] [-5685679021405943594] : [PAYROLL_IMMEDIATE] Next Fire Time      : Thu Sep 15 00:15:00 ICT 2022
+[26544] 00:15:00.084 D -                  PayrollServiceImpl(602) [           Scheduler_Worker-10] [-5685679021405943594] : Immediate date : 2022-09-15 00:00:00.0
+[26544] 00:15:00.183 D -                SchedulerServiceImpl(313) [           Scheduler_Worker-10] [-5685679021405943594] : [PAYROLL_IMMEDIATE] Next Fire Time (New): Thu Sep 15 00:30:00 ICT 2022
+[26544] 00:30:00.042 D -                      SchedulerHelper(47) [            Scheduler_Worker-7] [-5447302007801361460] : [PAYROLL_IMMEDIATE] Scheduled Fire Time : Thu Sep 15 00:30:00 ICT 2022
+[26544] 00:30:00.043 D -                      SchedulerHelper(48) [            Scheduler_Worker-7] [-5447302007801361460] : [PAYROLL_IMMEDIATE] Next Fire Time      : Thu Sep 15 00:30:00 ICT 2022
+[26544] 00:30:00.048 D -                  PayrollServiceImpl(602) [            Scheduler_Worker-7] [-5447302007801361460] : Immediate date : 2022-09-15 00:00:00.0
+[26544] 00:30:00.133 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-7] [-5447302007801361460] : [PAYROLL_IMMEDIATE] Next Fire Time (New): Thu Sep 15 00:45:00 ICT 2022
+[26544] 00:45:00.074 D -                      SchedulerHelper(47) [            Scheduler_Worker-7] [-1969800722985301166] : [PAYROLL_IMMEDIATE] Scheduled Fire Time : Thu Sep 15 00:45:00 ICT 2022
+[26544] 00:45:00.074 D -                      SchedulerHelper(48) [            Scheduler_Worker-7] [-1969800722985301166] : [PAYROLL_IMMEDIATE] Next Fire Time      : Thu Sep 15 00:45:00 ICT 2022
+[26544] 00:45:00.076 D -                  PayrollServiceImpl(602) [            Scheduler_Worker-7] [-1969800722985301166] : Immediate date : 2022-09-15 00:00:00.0
+[26544] 00:45:00.090 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-7] [-1969800722985301166] : [PAYROLL_IMMEDIATE] Next Fire Time (New): Thu Sep 15 01:00:00 ICT 2022
+[12176] 01:30:00.016 D -                      SchedulerHelper(47) [            Scheduler_Worker-4] [ 1601343145006874980] : [PAYROLL_IMMEDIATE] Scheduled Fire Time : Thu Sep 15 01:00:00 ICT 2022
+[12176] 01:30:00.017 D -                      SchedulerHelper(48) [            Scheduler_Worker-4] [ 1601343145006874980] : [PAYROLL_IMMEDIATE] Next Fire Time      : Thu Sep 15 01:00:00 ICT 2022
+[12176] 01:30:00.043 D -                  PayrollServiceImpl(602) [            Scheduler_Worker-4] [ 1601343145006874980] : Immediate date : 2022-09-15 00:00:00.0
+[12176] 01:30:00.167 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-4] [ 1601343145006874980] : [PAYROLL_IMMEDIATE] Next Fire Time (New): Thu Sep 15 01:45:00 ICT 2022
+[25164] 02:15:00.011 D -                      SchedulerHelper(47) [            Scheduler_Worker-3] [-5188507643430418014] : [PAYROLL_IMMEDIATE] Scheduled Fire Time : Thu Sep 15 01:45:00 ICT 2022
+[25164] 02:15:00.012 D -                      SchedulerHelper(48) [            Scheduler_Worker-3] [-5188507643430418014] : [PAYROLL_IMMEDIATE] Next Fire Time      : Thu Sep 15 01:45:00 ICT 2022
+[25164] 02:15:00.045 D -                  PayrollServiceImpl(602) [            Scheduler_Worker-3] [-5188507643430418014] : Immediate date : 2022-09-15 00:00:00.0
+[25164] 02:15:00.146 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-3] [-5188507643430418014] : [PAYROLL_IMMEDIATE] Next Fire Time (New): Thu Sep 15 02:30:00 ICT 2022
+[25164] 02:30:00.053 D -                      SchedulerHelper(47) [            Scheduler_Worker-1] [-7710266869867854987] : [PAYROLL_IMMEDIATE] Scheduled Fire Time : Thu Sep 15 02:30:00 ICT 2022
+[25164] 02:30:00.055 D -                      SchedulerHelper(48) [            Scheduler_Worker-1] [-7710266869867854987] : [PAYROLL_IMMEDIATE] Next Fire Time      : Thu Sep 15 02:30:00 ICT 2022
+[25164] 02:30:00.092 D -                  PayrollServiceImpl(602) [            Scheduler_Worker-1] [-7710266869867854987] : Immediate date : 2022-09-15 00:00:00.0
+[25164] 02:30:00.146 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-1] [-7710266869867854987] : [PAYROLL_IMMEDIATE] Next Fire Time (New): Thu Sep 15 02:45:00 ICT 2022
+[25164] 02:45:00.041 D -                      SchedulerHelper(47) [            Scheduler_Worker-1] [-1977918260418033114] : [PAYROLL_IMMEDIATE] Scheduled Fire Time : Thu Sep 15 02:45:00 ICT 2022
+[25164] 02:45:00.042 D -                      SchedulerHelper(48) [            Scheduler_Worker-1] [-1977918260418033114] : [PAYROLL_IMMEDIATE] Next Fire Time      : Thu Sep 15 02:45:00 ICT 2022
+[25164] 02:45:00.055 D -                  PayrollServiceImpl(602) [            Scheduler_Worker-1] [-1977918260418033114] : Immediate date : 2022-09-15 00:00:00.0
+[25164] 02:45:00.174 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-1] [-1977918260418033114] : [PAYROLL_IMMEDIATE] Next Fire Time (New): Thu Sep 15 03:00:00 ICT 2022
+[25164] 03:00:00.053 D -                      SchedulerHelper(47) [            Scheduler_Worker-2] [-2617829958886732034] : [PAYROLL_IMMEDIATE] Scheduled Fire Time : Thu Sep 15 03:00:00 ICT 2022
+[25164] 03:00:00.055 D -                      SchedulerHelper(48) [            Scheduler_Worker-2] [-2617829958886732034] : [PAYROLL_IMMEDIATE] Next Fire Time      : Thu Sep 15 03:00:00 ICT 2022
+[25164] 03:00:00.066 D -                  PayrollServiceImpl(602) [            Scheduler_Worker-2] [-2617829958886732034] : Immediate date : 2022-09-15 00:00:00.0
+[25164] 03:00:00.124 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-2] [-2617829958886732034] : [PAYROLL_IMMEDIATE] Next Fire Time (New): Thu Sep 15 03:15:00 ICT 2022
+[25164] 03:15:00.007 D -                      SchedulerHelper(47) [            Scheduler_Worker-2] [ 4945198115331654063] : [PAYROLL_IMMEDIATE] Scheduled Fire Time : Thu Sep 15 03:15:00 ICT 2022
+[25164] 03:15:00.007 D -                      SchedulerHelper(48) [            Scheduler_Worker-2] [ 4945198115331654063] : [PAYROLL_IMMEDIATE] Next Fire Time      : Thu Sep 15 03:15:00 ICT 2022
+[25164] 03:15:00.039 D -                  PayrollServiceImpl(602) [            Scheduler_Worker-2] [ 4945198115331654063] : Immediate date : 2022-09-15 00:00:00.0
+[25164] 03:15:00.111 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-2] [ 4945198115331654063] : [PAYROLL_IMMEDIATE] Next Fire Time (New): Thu Sep 15 03:30:00 ICT 2022
+[25164] 03:30:00.026 D -                      SchedulerHelper(47) [            Scheduler_Worker-8] [-7944691632596300320] : [PAYROLL_IMMEDIATE] Scheduled Fire Time : Thu Sep 15 03:30:00 ICT 2022
+[25164] 03:30:00.027 D -                      SchedulerHelper(48) [            Scheduler_Worker-8] [-7944691632596300320] : [PAYROLL_IMMEDIATE] Next Fire Time      : Thu Sep 15 03:30:00 ICT 2022
+[25164] 03:30:00.050 D -                  PayrollServiceImpl(602) [            Scheduler_Worker-8] [-7944691632596300320] : Immediate date : 2022-09-15 00:00:00.0
+[25164] 03:30:00.098 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-8] [-7944691632596300320] : [PAYROLL_IMMEDIATE] Next Fire Time (New): Thu Sep 15 03:45:00 ICT 2022
+[25164] 03:45:00.030 D -                      SchedulerHelper(47) [            Scheduler_Worker-8] [-5239594143613041531] : [PAYROLL_IMMEDIATE] Scheduled Fire Time : Thu Sep 15 03:45:00 ICT 2022
+[25164] 03:45:00.031 D -                      SchedulerHelper(48) [            Scheduler_Worker-8] [-5239594143613041531] : [PAYROLL_IMMEDIATE] Next Fire Time      : Thu Sep 15 03:45:00 ICT 2022
+[25164] 03:45:00.051 D -                  PayrollServiceImpl(602) [            Scheduler_Worker-8] [-5239594143613041531] : Immediate date : 2022-09-15 00:00:00.0
+[25164] 03:45:00.141 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-8] [-5239594143613041531] : [PAYROLL_IMMEDIATE] Next Fire Time (New): Thu Sep 15 04:00:00 ICT 2022
+[25164] 04:00:00.072 D -                      SchedulerHelper(47) [            Scheduler_Worker-7] [ 5111672870631981233] : [PAYROLL_IMMEDIATE] Scheduled Fire Time : Thu Sep 15 04:00:00 ICT 2022
+[25164] 04:00:00.072 D -                      SchedulerHelper(48) [            Scheduler_Worker-7] [ 5111672870631981233] : [PAYROLL_IMMEDIATE] Next Fire Time      : Thu Sep 15 04:00:00 ICT 2022
+[25164] 04:00:00.091 D -                  PayrollServiceImpl(602) [            Scheduler_Worker-7] [ 5111672870631981233] : Immediate date : 2022-09-15 00:00:00.0
+[25164] 04:00:00.119 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-7] [ 5111672870631981233] : [PAYROLL_IMMEDIATE] Next Fire Time (New): Thu Sep 15 04:15:00 ICT 2022
+[25164] 04:15:00.082 D -                      SchedulerHelper(47) [            Scheduler_Worker-3] [ 2970697045924595248] : [PAYROLL_IMMEDIATE] Scheduled Fire Time : Thu Sep 15 04:15:00 ICT 2022
+[25164] 04:15:00.083 D -                      SchedulerHelper(48) [            Scheduler_Worker-3] [ 2970697045924595248] : [PAYROLL_IMMEDIATE] Next Fire Time      : Thu Sep 15 04:15:00 ICT 2022
+[25164] 04:15:00.087 D -                  PayrollServiceImpl(602) [            Scheduler_Worker-3] [ 2970697045924595248] : Immediate date : 2022-09-15 00:00:00.0
+[25164] 04:15:00.102 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-3] [ 2970697045924595248] : [PAYROLL_IMMEDIATE] Next Fire Time (New): Thu Sep 15 04:30:00 ICT 2022
+[25164] 04:30:00.022 D -                      SchedulerHelper(47) [            Scheduler_Worker-9] [ 5896712992450760214] : [PAYROLL_IMMEDIATE] Scheduled Fire Time : Thu Sep 15 04:30:00 ICT 2022
+[25164] 04:30:00.023 D -                      SchedulerHelper(48) [            Scheduler_Worker-9] [ 5896712992450760214] : [PAYROLL_IMMEDIATE] Next Fire Time      : Thu Sep 15 04:30:00 ICT 2022
+[25164] 04:30:00.057 D -                  PayrollServiceImpl(602) [            Scheduler_Worker-9] [ 5896712992450760214] : Immediate date : 2022-09-15 00:00:00.0
+[25164] 04:30:00.137 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-9] [ 5896712992450760214] : [PAYROLL_IMMEDIATE] Next Fire Time (New): Thu Sep 15 04:45:00 ICT 2022
+[25164] 04:45:00.017 D -                      SchedulerHelper(47) [            Scheduler_Worker-2] [ 5363893210126567679] : [PAYROLL_IMMEDIATE] Scheduled Fire Time : Thu Sep 15 04:45:00 ICT 2022
+[25164] 04:45:00.018 D -                      SchedulerHelper(48) [            Scheduler_Worker-2] [ 5363893210126567679] : [PAYROLL_IMMEDIATE] Next Fire Time      : Thu Sep 15 04:45:00 ICT 2022
+[25164] 04:45:00.048 D -                  PayrollServiceImpl(602) [            Scheduler_Worker-2] [ 5363893210126567679] : Immediate date : 2022-09-15 00:00:00.0
+[25164] 04:45:00.081 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-2] [ 5363893210126567679] : [PAYROLL_IMMEDIATE] Next Fire Time (New): Thu Sep 15 05:00:00 ICT 2022
+[25164] 05:00:00.051 D -                      SchedulerHelper(47) [            Scheduler_Worker-3] [-3151071463529101154] : [PAYROLL_IMMEDIATE] Scheduled Fire Time : Thu Sep 15 05:00:00 ICT 2022
+[25164] 05:00:00.062 D -                      SchedulerHelper(48) [            Scheduler_Worker-3] [-3151071463529101154] : [PAYROLL_IMMEDIATE] Next Fire Time      : Thu Sep 15 05:00:00 ICT 2022
+[25164] 05:00:00.072 D -                  PayrollServiceImpl(602) [            Scheduler_Worker-3] [-3151071463529101154] : Immediate date : 2022-09-15 00:00:00.0
+[25164] 05:00:00.084 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-3] [-3151071463529101154] : [PAYROLL_IMMEDIATE] Next Fire Time (New): Thu Sep 15 05:15:00 ICT 2022

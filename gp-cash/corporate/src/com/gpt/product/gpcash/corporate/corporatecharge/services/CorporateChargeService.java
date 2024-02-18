@@ -16,4 +16,7 @@ public interface CorporateChargeService extends WorkflowService {
 
 	Map<String, Object> getCorporateChargesPerRecord(String applicationCode, String transactionServiceCode,
 			String corporateId, Long records) throws ApplicationException, BusinessException;
+	
+	Map<String, Object> getCorporateChargesEquivalent(String applicationCode, String transactionServiceCode,
+			String customerId,String soureAccCurrency) throws ApplicationException, BusinessException;
 }

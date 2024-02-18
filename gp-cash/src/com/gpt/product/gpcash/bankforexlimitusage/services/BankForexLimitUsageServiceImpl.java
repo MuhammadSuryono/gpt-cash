@@ -213,11 +213,12 @@ public class BankForexLimitUsageServiceImpl implements BankForexLimitUsageServic
 					
 					BankForexLimitModel limitModel = getExistingRecord((String)bankForexLimitMap.get("id"), true);
 					BigDecimal limitUsageOld =limitModel.getLimitUsage()!=null?limitModel.getLimitUsage():BigDecimal.ZERO;
-					BigDecimal limitUsageEqOld =limitModel.getLimitUsageEquivalent()!=null?limitModel.getLimitUsage():BigDecimal.ZERO;
+					BigDecimal limitUsageEqOld =limitModel.getLimitUsageEquivalent()!=null?limitModel.getLimitUsageEquivalent():BigDecimal.ZERO;
 					BigDecimal coverUsage = new BigDecimal((String) bankForexLimitMap.get("coverUsage"));
 					returnRate = (ExchangeRateModel) rateMap.get(limitModel.getCurrency().getCode());
 					
-					BigDecimal currencyQuantity = new BigDecimal(returnRate.getCurrencyQuantity());
+					//BigDecimal currencyQuantity = new BigDecimal(returnRate.getCurrencyQuantity());
+					BigDecimal currencyQuantity = new BigDecimal(1); //ikut dari calculateamoutn equivalentnya
 					BigDecimal coverUsageEq = coverUsage.multiply(returnRate.getTransactionSellRate()).divide(currencyQuantity, ApplicationConstants.ROUND_SCALE, ApplicationConstants.ROUND_MODE_UP);
 					
 					limitModel.setLimitUsage(limitUsageOld.subtract(coverUsage));

@@ -91,6 +91,9 @@ public class CustomerBeneficiaryListDomesticModel implements Serializable{
 	@JoinColumn(name = "BENEFICIARY_TYPE")
 	protected BeneficiaryTypeModel benType;
 	
+	@Column(name = "IS_BEN_ONLINE")
+	protected String isBenOnline;
+	
 	@Column(name="CREATED_BY")
 	protected String createdBy;
 	
@@ -293,6 +296,14 @@ public class CustomerBeneficiaryListDomesticModel implements Serializable{
 
 	public void setBenType(BeneficiaryTypeModel benType) {
 		this.benType = benType;
+	}
+	
+	public String getIsBenOnline() {
+		return isBenOnline;
+	}
+
+	public void setIsBenOnline(String isBenOnline) {
+		this.isBenOnline = isBenOnline;
 	}
 	
 }

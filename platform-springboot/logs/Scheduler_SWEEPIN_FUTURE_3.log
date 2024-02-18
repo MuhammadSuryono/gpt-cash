@@ -1,3 +1,3 @@
-[10692] 06:24:44.209 D -                      SchedulerHelper(47) [            Scheduler_Worker-7] [ -670860386913073066] : [SWEEPIN_FUTURE_3] Scheduled Fire Time : Sun Aug 15 13:00:00 ICT 2021
-[10692] 06:24:44.209 D -                      SchedulerHelper(48) [            Scheduler_Worker-7] [ -670860386913073066] : [SWEEPIN_FUTURE_3] Next Fire Time      : Mon Aug 16 13:00:00 ICT 2021
-[10692] 06:24:44.218 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-7] [ -670860386913073066] : [SWEEPIN_FUTURE_3] Next Fire Time (New): Mon Aug 16 13:00:00 ICT 2021
+[23180] 13:00:01.104 D -                      SchedulerHelper(47) [            Scheduler_Worker-8] [ 3480137388442011171] : [SWEEPIN_FUTURE_3] Scheduled Fire Time : Tue Sep 20 13:00:00 ICT 2022
+[23180] 13:00:01.105 D -                      SchedulerHelper(48) [            Scheduler_Worker-8] [ 3480137388442011171] : [SWEEPIN_FUTURE_3] Next Fire Time      : Sat Sep 24 13:00:00 ICT 2022
+[23180] 13:00:01.116 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-8] [ 3480137388442011171] : [SWEEPIN_FUTURE_3] Next Fire Time (New): Sat Sep 24 13:00:00 ICT 2022

@@ -71,8 +71,10 @@ import com.gpt.product.gpcash.corporate.corporateaccountgroup.model.CorporateAcc
 import com.gpt.product.gpcash.corporate.corporatecharge.model.CorporateChargeModel;
 import com.gpt.product.gpcash.corporate.corporatecharge.repository.CorporateChargeRepository;
 import com.gpt.product.gpcash.corporate.corporatecharge.services.CorporateChargeService;
+import com.gpt.product.gpcash.corporate.corporatespecialrate.services.SpecialRateService;
 import com.gpt.product.gpcash.corporate.corporateuser.model.CorporateUserModel;
 import com.gpt.product.gpcash.corporate.corporateusergroup.model.CorporateUserGroupModel;
+import com.gpt.product.gpcash.corporate.forwardcontract.repository.ForwardContractRepository;
 import com.gpt.product.gpcash.corporate.pendingtaskuser.model.CorporateUserPendingTaskModel;
 import com.gpt.product.gpcash.corporate.pendingtaskuser.repository.CorporateUserPendingTaskRepository;
 import com.gpt.product.gpcash.corporate.pendingtaskuser.services.CorporateUserPendingTaskService;
@@ -175,6 +177,13 @@ public class InternationalTransferServiceImpl implements InternationalTransferSe
 	
 	@Autowired
 	private CorporateWFEngine wfEngine;
+	
+	@Autowired
+	private SpecialRateService specialRateService;
+	
+	@Autowired
+	private ForwardContractRepository forwardContractRepo;
+	
 	
 	@Value("${gpcash.report.folder}")
 	private String reportFolder;
@@ -398,6 +407,9 @@ public class InternationalTransferServiceImpl implements InternationalTransferSe
 		
 		vo.setTaskExpiryDate(transactionValidationService.validateExpiryDate(instructionMode, instructionDate));
 		
+		String refNoSpecialRate = (String) map.get("treasuryCode");		
+		vo.setRefNoSpecialRate(refNoSpecialRate);
+		
 		return vo;
 	}
 
@@ -469,7 +481,7 @@ public class InternationalTransferServiceImpl implements InternationalTransferSe
 		internationalTransfer.setTransactionAmount(new BigDecimal(map.get(ApplicationConstants.TRANS_AMOUNT).toString()));
 		internationalTransfer.setTransactionCurrency((String) map.get(ApplicationConstants.TRANS_CURRENCY));
 		internationalTransfer.setTotalChargeEquivalentAmount(
-				new BigDecimal(map.get(ApplicationConstants.TRANS_TOTAL_CHARGE).toString()));
+				new BigDecimal(map.get(ApplicationConstants.TRANS_TOTAL_CHARGE_EQ).toString()));
 		internationalTransfer.setTotalDebitedEquivalentAmount(
 				new BigDecimal(map.get(ApplicationConstants.TRANS_TOTAL_DEBIT_AMOUNT).toString()));
 
@@ -512,6 +524,8 @@ public class InternationalTransferServiceImpl implements InternationalTransferSe
 		internationalTransfer.setBranch(branch);
 		
 		internationalTransfer.setUnderlyingCode((String)map.get("underlyingCode"));
+
+		internationalTransfer.setRefNoSpecialRate(vo.getRefNoSpecialRate());
 				
 		return internationalTransfer;
 	}
@@ -675,9 +689,19 @@ public class InternationalTransferServiceImpl implements InternationalTransferSe
 					saveInternational(internationalTransfer, vo.getCreatedBy(), ApplicationConstants.YES);
 					
 					internationalTransfer.setIsError(ApplicationConstants.NO);
-					//doTransfer(internationalTransfer, (String)map.get(ApplicationConstants.APP_CODE));
+					doTransfer(internationalTransfer, (String)map.get(ApplicationConstants.APP_CODE));
+					
 					vo.setErrorCode(internationalTransfer.getErrorCode());
 					vo.setIsError(internationalTransfer.getIsError());
+					
+					if(internationalTransfer.getRefNoSpecialRate()!=null) {
+						if("FC".equals((String)map.get("exchangeRate"))){
+							this.updateForwardContractUsage(internationalTransfer);
+						}else if("SR".equals((String)map.get("exchangeRate"))){
+							this.updateSpecialRateStatus(internationalTransfer);
+						}
+					}
+					
 				} else {
 					saveInternational(internationalTransfer, vo.getCreatedBy(), ApplicationConstants.NO);
 				}
@@ -787,9 +811,9 @@ public class InternationalTransferServiceImpl implements InternationalTransferSe
 			checkCustomValidation(map);
 
 			resultMap.put("benAccountInfo", benAccountInfo);			
-			resultMap.putAll(corporateChargeService.getCorporateCharges((String) map.get(ApplicationConstants.APP_CODE),
+			resultMap.putAll(corporateChargeService.getCorporateChargesEquivalent((String) map.get(ApplicationConstants.APP_CODE),
 					(String) map.get(ApplicationConstants.TRANS_SERVICE_CODE),
-					(String) map.get(ApplicationConstants.LOGIN_CORP_ID)));
+					(String) map.get(ApplicationConstants.LOGIN_CORP_ID), (String) map.get("sourceAccountCurrency")));
 			
 			resultMap.put("amountEquivalent", map.get("equivalentAmount"));
 			if (currencyCode.equals(map.get("sourceAccountCurrency"))) {
@@ -799,6 +823,8 @@ public class InternationalTransferServiceImpl implements InternationalTransferSe
 				resultMap.put("trxMidRate", exchangeRate.getTransactionMidRate());
 				resultMap.put("trxBuyRate", exchangeRate.getTransactionBuyRate());
 			}
+			
+			resultMap.put(ApplicationConstants.TRANS_AMOUNT_EQ, map.get("equivalentAmount"));
 			
 		} catch (BusinessException e) {
 			throw e;
@@ -814,21 +840,41 @@ public class InternationalTransferServiceImpl implements InternationalTransferSe
 		boolean limitUpdated = false;
 		
 		try {
+			//untuk hitung totalcharge dalam IDR(localcurrency) charge salalu IDR
+			BigDecimal totalCharge = model.getChargeTypeAmount1()!=null?model.getChargeTypeAmount1():BigDecimal.ZERO
+					.add(model.getChargeTypeAmount2()!=null?model.getChargeTypeAmount2():BigDecimal.ZERO)
+					.add(model.getChargeTypeAmount3()!=null?model.getChargeTypeAmount3():BigDecimal.ZERO)
+					.add(model.getChargeTypeAmount4()!=null?model.getChargeTypeAmount4():BigDecimal.ZERO)
+					.add(model.getChargeTypeAmount5()!=null?model.getChargeTypeAmount5():BigDecimal.ZERO);
+			
 			//update transaction limit
-			transactionValidationService.updateTransactionLimit(model.getCorporate().getId(), 
+			transactionValidationService.updateTransactionLimitEquivalent(model.getCorporate().getId(), 
 					model.getService().getCode(), 
 					model.getSourceAccount().getCurrency().getCode(), 
 					model.getTransactionCurrency(), 
 					model.getCorporateUserGroup().getId(), 
 					model.getTotalDebitedEquivalentAmount(),
-					model.getApplication().getCode());
+					model.getApplication().getCode(),
+					totalCharge);
+			
+			//update bank forex limit
+			transactionValidationService.updateBankForexLimit(
+					model.getSourceAccount().getCurrency().getCode(),
+					model.getTransactionCurrency(),
+					model.getTransactionAmount(),
+					totalCharge);
+			
 			limitUpdated = true;
 			
-//			Map<String, Object> inputs = prepareInputsForEAI(model, appCode);
-			//eaiAdapter.invokeService(EAIConstants.INTERNATIONAL_TRANSFER, inputs);
+			Map<String, Object> inputs = prepareInputsForEAI(model, appCode);
+			eaiAdapter.invokeService(EAIConstants.INTERNATIONAL_TRANSFER, inputs);
 			
 			model.setStatus("GPT-0100130");
 			model.setIsError(ApplicationConstants.NO);
+			
+			
+
+			
 		} catch (BusinessException e) {
 			String errorMsg = e.getMessage();
 			if (errorMsg!=null && errorMsg.startsWith("EAI-")) {
@@ -933,6 +979,8 @@ public class InternationalTransferServiceImpl implements InternationalTransferSe
 		
 		inputs.put("trxCurrencyCode", model.getTransactionCurrency());
 		inputs.put("trxAmount", model.getTransactionAmount());
+		inputs.put("totalDebitAmount", model.getTotalDebitedEquivalentAmount());
+		inputs.put("totalChargeEquivalent", model.getTotalChargeEquivalentAmount());
 		
 		inputs.put("chargeType1", model.getChargeType1());
 		inputs.put("chargeTypeCurrencyCode1", model.getChargeTypeCurrency1());
@@ -1156,6 +1204,7 @@ public class InternationalTransferServiceImpl implements InternationalTransferSe
 
 			doTransfer(international, ApplicationConstants.APP_GPCASHBO);
 			success = true;
+			
 		} catch (BusinessException e) {
 			errorCode = e.getErrorCode();
 			logger.error(e.getMessage(), e);
@@ -1340,24 +1389,23 @@ public class InternationalTransferServiceImpl implements InternationalTransferSe
 		modelMap.put("systemReferenceNo", model.getId());
 		modelMap.put("debitAccount", sourceAccount.getAccountNo());
 		modelMap.put("debitAccountName", sourceAccount.getAccountName());
-//		modelMap.put("debitAccountCurrency", sourceAccount.getCurrency().getCode());
+		modelMap.put("debitAccountCurrency", sourceAccount.getCurrency().getCode());
 		modelMap.put("debitAccountCurrencyName", sourceAccount.getCurrency().getName());
 		modelMap.put("transactionCurrency", model.getTransactionCurrency());
 		modelMap.put("transactionAmount", model.getTransactionAmount());
 		modelMap.put("creditAccount", ValueUtils.getValue(model.getBenAccountNo()));
 		modelMap.put("creditAccountName", ValueUtils.getValue(model.getBenAccountName()));
-//		modelMap.put("creditAccountCurrency", ValueUtils.getValue(model.getBenAccountCurrency()));
+		modelMap.put("creditAccountCurrency", ValueUtils.getValue(model.getBenAccountCurrency()));
 		modelMap.put("senderRefNo", ValueUtils.getValue(model.getSenderRefNo()));
 		modelMap.put("benRefNo", ValueUtils.getValue(model.getBenRefNo()));
 		
 		//TODO diganti jika telah implement rate
-		modelMap.put("debitTransactionCurrency", model.getTransactionCurrency());
-		modelMap.put("debitEquivalentAmount", model.getTransactionAmount());
+		modelMap.put("debitTransactionCurrency", model.getSourceAccount().getCurrency().getCode());
+		modelMap.put("debitEquivalentAmount", model.getTotalDebitedEquivalentAmount());
 		modelMap.put("debitExchangeRate", ApplicationConstants.ZERO);
-		modelMap.put("debitAccountCurrency", model.getTransactionCurrency());
 		modelMap.put("creditTransactionCurrency", model.getTransactionCurrency());
 		modelMap.put("creditAccountCurrency", model.getTransactionCurrency());
-		modelMap.put("creditEquivalentAmount", model.getTotalDebitedEquivalentAmount());
+		modelMap.put("creditEquivalentAmount", model.getTransactionAmount());
 		modelMap.put("creditExchangeRate", ApplicationConstants.ZERO);
 		//--------------------------------------------
 		
@@ -1943,5 +1991,23 @@ CorporateUserPendingTaskModel pt = pendingTaskRepo.findByReferenceNo(model.getRe
 		international.setUpdatedDate(DateUtils.getCurrentTimestamp());
 		international.setUpdatedBy(updatedBy);
 		internationalTransferRepo.save(international);
+	}
+	
+	private void updateSpecialRateStatus(InternationalTransferModel model) {
+		// TODO Auto-generated method stub
+		try {
+			specialRateService.updateStatus(model.getRefNoSpecialRate(), ApplicationConstants.SPECIAL_RATE_SETTLED, model.getCreatedBy());
+		} catch (Exception e) {
+			logger.error("ERROR update special ref no"+ e.getMessage());
+		}
+	}
+	
+	private void updateForwardContractUsage(InternationalTransferModel model) {
+		// TODO Auto-generated method stub
+		try {
+			forwardContractRepo.updateContractAmountLimit(model.getTransactionAmount(), model.getRefNoSpecialRate());			
+		} catch (Exception e) {
+			logger.error("ERROR update Forward COntract"+ e.getMessage());
+		}
 	}
 }

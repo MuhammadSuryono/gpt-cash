@@ -53,4 +53,13 @@ public interface PendingUploadRepository extends JpaRepository<PendingUploadMode
 			+ "and pud.finalizeFlag = 'Y' ")
 	List<PendingUploadDetailModel> findTransactionForFinalPaymentFlag(String id, String corporateId);
 	
+	@Query("from PendingUploadDetailModel pud "
+			+ "where pud.parent.id <> ?1 "
+			+ "and pud.parent.corporate.id = ?2 "
+			+ "and pud.parent.isProcessed = 'Y' "
+			+ "and pud.parent.isError='N' "
+			+ "and pud.senderRefNo in (?3)"
+			+ "and pud.finalizeFlag = 'Y' ")
+	List<PendingUploadDetailModel> findTransactionForFinalPaymentFlagBySenderRefNo(String id, String corporateId,List senderRefNoList);
+	
 }

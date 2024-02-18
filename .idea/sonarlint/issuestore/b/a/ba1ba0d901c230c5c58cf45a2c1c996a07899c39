@@ -1,0 +1,55 @@
+
+i
+java:S1192d"NDefine a constant instead of duplicating this literal "lastLoginDate" 3 times.(¤ôÊıÿÿÿÿ
+\
+java:S1192Q"FDefine a constant instead of duplicating this literal "
+
+
+
+
+" 4 times.(¨ã³å
+l
+java:S1192Í"PDefine a constant instead of duplicating this literal "CorporateUserSC" 3 times.(å“–üÿÿÿÿ
+^
+java:S1192f"HDefine a constant instead of duplicating this literal "message" 3 times.(ˆòôå
+^
+java:S1192f"HDefine a constant instead of duplicating this literal "success" 3 times.(ˆòôå
+X
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ
+X
+java:S6813!"BRemove this field injection and use constructor injection instead.(êæÄŞ
+W
+java:S3457R"AFormat specifiers should be used instead of string concatenation.(îÅöÆ
+W
+java:S3457S"AFormat specifiers should be used instead of string concatenation.(»ÿö‚
+\
+java:S3457T"AFormat specifiers should be used instead of string concatenation.(ØÁù³üÿÿÿÿ
+D
+java:S1905X")Remove this unnecessary cast to "String".(ÎÓ†‚üÿÿÿÿ
+>
+java:S1905Y")Remove this unnecessary cast to "String".(‘f
+D
+java:S1905`")Remove this unnecessary cast to "String".(’³£üüÿÿÿÿ
+V	java:S125p"<This block of commented-out lines of code should be removed.(¯³şˆüÿÿÿÿ
+X
+java:S3457š"AFormat specifiers should be used instead of string concatenation.(îÅöÆ
+X
+java:S3457›"AFormat specifiers should be used instead of string concatenation.(»ÿö‚
+]
+java:S3457œ"AFormat specifiers should be used instead of string concatenation.(ØÁù³üÿÿÿÿ
+E
+java:S1905 ")Remove this unnecessary cast to "String".(ÎÓ†‚üÿÿÿÿ
+?
+java:S1905¡")Remove this unnecessary cast to "String".(‘f
+E
+java:S1905¨")Remove this unnecessary cast to "String".(’³£üüÿÿÿÿ
+E
+java:S1905­")Remove this unnecessary cast to "String".(„–»ãÿÿÿÿÿ
+E
+java:S1905®")Remove this unnecessary cast to "String".(ù½¹¹øÿÿÿÿ
+@
+java:S1905¯")Remove this unnecessary cast to "String".(·É®º
+E
+java:S1905Ï")Remove this unnecessary cast to "String".(¬É»Çøÿÿÿÿ
+f
+java:S3252ç"OUse static access with "com.gpt.component.common.Constants" for "EMPTY_STRING".(–ğÕò

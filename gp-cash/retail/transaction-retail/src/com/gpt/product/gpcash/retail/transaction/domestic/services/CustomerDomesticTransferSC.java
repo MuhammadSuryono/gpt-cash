@@ -30,6 +30,8 @@ public interface CustomerDomesticTransferSC extends CustomerUserWorkflowService 
 	Map<String, Object> searchBankForDroplist(Map<String, Object> map) throws ApplicationException, BusinessException;
 
 	Map<String, Object> searchCountryForDroplist(Map<String, Object> map) throws ApplicationException, BusinessException;
+	
+	Map<String, Object> searchOnlineBeneficiary(Map<String, Object> map) throws ApplicationException, BusinessException;
 
 	Map<String, Object> detailExecutedTransaction(Map<String, Object> map)
 			throws ApplicationException, BusinessException;
@@ -38,4 +40,10 @@ public interface CustomerDomesticTransferSC extends CustomerUserWorkflowService 
 
 	Map<String, Object> downloadTransactionStatus(Map<String, Object> map)
 			throws ApplicationException, BusinessException;
+	
+	void executeOnlineFutureTransactionScheduler(String parameter) throws ApplicationException, BusinessException;
+	
+	void executeOnlineRecurringTransactionScheduler(String parameter) throws ApplicationException, BusinessException;
+	
+	Map<String, Object> checkRate(Map<String, Object> map) throws ApplicationException, BusinessException;
 }

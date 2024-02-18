@@ -312,7 +312,7 @@ public class PayrollServiceImpl implements PayrollService {
 	}
 	
 	private void validateFinalPayment(String pendingUploadId, String corporateId) throws Exception {
-		List<PendingUploadDetailModel> existingDtls = pendingUploadRepo.findTransactionForFinalPaymentFlag(pendingUploadId, corporateId);
+		/*List<PendingUploadDetailModel> existingDtls = pendingUploadRepo.findTransactionForFinalPaymentFlag(pendingUploadId, corporateId);
 		if (existingDtls.size() > 0) {			
 			// put to the map to get better perfomance to check each existing sender ref no
 			Map<String, String> existingRefNo = new HashMap<>();
@@ -330,6 +330,23 @@ public class PayrollServiceImpl implements PayrollService {
 					)
 					throw new BusinessException("GPT-0100199", new String[] { dtl.getSenderRefNo() });
 			}			
+		}*/
+		
+		List senderRefNoList = new ArrayList();
+		PendingUploadModel pum = pendingUploadRepo.detailPendingUploadById(pendingUploadId);
+		List<PendingUploadDetailModel> details = pum.getDetails();			
+		for (PendingUploadDetailModel dtl : details) {
+			if (dtl.getSenderRefNo()!=null && dtl.getSenderRefNo().trim().length() > 0 )
+				senderRefNoList.add(dtl.getSenderRefNo());
+		}	
+		
+		if (senderRefNoList.size() > 0) {
+		List<PendingUploadDetailModel> existingDtls = pendingUploadRepo.findTransactionForFinalPaymentFlagBySenderRefNo(pendingUploadId, corporateId, senderRefNoList);
+		if (existingDtls.size() > 0) {	
+			PendingUploadDetailModel dtl = existingDtls.get(0);
+			throw new BusinessException("GPT-0100199", new String[] { dtl.getSenderRefNo() });
+		}
+			
 		}
 	}
 

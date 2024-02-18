@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: com.gpt.component:json:1.0.0" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.gpt.component" artifactId="json" version="1.0.0" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.gpt.component/json/1.0.0/29979bd59e9bda347dfb3697cc8a58edc1f0ff44/json-1.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

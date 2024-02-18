@@ -1,0 +1,64 @@
+
+h
+java:S1192"LDefine a constant instead of duplicating this literal "GPT-0100032" 8 times.(‘³ûòşÿÿÿÿ
+e
+java:S1192‚"NDefine a constant instead of duplicating this literal "lastLoginDate" 3 times.(äÊ¥ï
+j
+java:S1192°"NDefine a constant instead of duplicating this literal "loginMenuTree" 4 times.(˜±¡üÿÿÿÿ
+h
+java:S1192¦"LDefine a constant instead of duplicating this literal "GPT-0100135" 5 times.(§ˆÒÂşÿÿÿÿ
+X
+java:S6813,"BRemove this field injection and use constructor injection instead.(êæÄŞ
+X
+java:S6813/"BRemove this field injection and use constructor injection instead.(êæÄŞ
+X
+java:S68132"BRemove this field injection and use constructor injection instead.(êæÄŞ
+X
+java:S68135"BRemove this field injection and use constructor injection instead.(êæÄŞ
+X
+java:S68138"BRemove this field injection and use constructor injection instead.(êæÄŞ
+X
+java:S6813;"BRemove this field injection and use constructor injection instead.(êæÄŞ
+X
+java:S6813>"BRemove this field injection and use constructor injection instead.(êæÄŞ
+X
+java:S6813A"BRemove this field injection and use constructor injection instead.(êæÄŞ
+X
+java:S6813D"BRemove this field injection and use constructor injection instead.(êæÄŞ
+C
+java:S1874N"-Remove this use of "login"; it is deprecated.(òš¥ù
+e
+java:S3252Z"OUse static access with "com.gpt.component.common.Constants" for "EMPTY_STRING".(ºêÔ
+e
+java:S3252]"OUse static access with "com.gpt.component.common.Constants" for "EMPTY_STRING".(®åìà
+T
+java:S4719`"9Replace charset name argument with StandardCharsets.UTF_8(Š‰ı¨ùÿÿÿÿ
+T
+java:S4719`"9Replace charset name argument with StandardCharsets.UTF_8(Š‰ı¨ùÿÿÿÿ
+K
+java:S1133n"5Do not forget to remove this deprecated code someday.(ºåËõ
+Q
+java:S1133–"5Do not forget to remove this deprecated code someday.(û–­”ÿÿÿÿÿ
+¨
+java:S1130—"Remove the declaration of thrown exception 'com.gpt.component.common.exceptions.BusinessException' which is a subclass of 'java.lang.Exception'.(˜µ³Á
+U
+java:S4719·"9Replace charset name argument with StandardCharsets.UTF_8(ˆûçœûÿÿÿÿ
+¨
+java:S1130ë"Remove the declaration of thrown exception 'com.gpt.component.common.exceptions.BusinessException' which is a subclass of 'java.lang.Exception'.(˜µ³Á
+U
+java:S4719‹"9Replace charset name argument with StandardCharsets.UTF_8(ˆûçœûÿÿÿÿ
+X
+java:S3457¶"AFormat specifiers should be used instead of string concatenation.(·¼ú
+]
+java:S3457·"AFormat specifiers should be used instead of string concatenation.(Àô¥ßşÿÿÿÿ
+W
+java:S3457É"AFormat specifiers should be used instead of string concatenation.(å³×
+]
+java:S3457Ê"AFormat specifiers should be used instead of string concatenation.(¾¨Øúÿÿÿÿ
+W	java:S125Ø"<This block of commented-out lines of code should be removed.(‡Ìëèûÿÿÿÿ
+U
+java:S1155®">Use isEmpty() to check whether the collection is empty or not.(şºÜ×
+U
+java:S1155®">Use isEmpty() to check whether the collection is empty or not.(şºÜ×
+Z
+java:S1155µ">Use isEmpty() to check whether the collection is empty or not.(ÌÂ¡ûÿÿÿÿ

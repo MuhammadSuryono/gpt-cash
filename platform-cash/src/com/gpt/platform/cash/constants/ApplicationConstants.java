@@ -294,10 +294,12 @@ public interface ApplicationConstants extends Constants {
 	
 	String TRANS_TOTAL_CHARGE = "totalCharge";
 	
+	String TRANS_TOTAL_CHARGE_EQ = "totalChargeEquivalent";
+	
 	String TRANS_CHARGE_LIST = "chargeList";
 	
 	String TRANS_TOTAL_CHARGE_CURRENCY = "totalChargeCurrency";
-	
+		
 	String TRANS_CURRENCY = "transactionCurrency";
 	
 	String TRANS_SERVICE_CODE = "transactionServiceCode";
@@ -476,6 +478,8 @@ public interface ApplicationConstants extends Constants {
 	String RATE_COUNTER = "CR";
 	
 	String RATE_SPECIAL = "SR";
+	
+	String RATE_FORWARD_CONTRACT = "FC";
 	
 	int MAX_LENGTH_ACCOUNT_REG = 13;
 	

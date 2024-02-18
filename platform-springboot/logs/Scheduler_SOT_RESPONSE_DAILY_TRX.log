@@ -1,16 +1,6 @@
-[9820] 10:06:00.277 D -                      SchedulerHelper(47) [            Scheduler_Worker-6] [ 4636494700940707745] : [SOT_RESPONSE_DAILY_TRX] Scheduled Fire Time : Mon Jun 07 05:00:00 ICT 2021
-[9820] 10:06:00.277 D -                      SchedulerHelper(48) [            Scheduler_Worker-6] [ 4636494700940707745] : [SOT_RESPONSE_DAILY_TRX] Next Fire Time      : Mon Jun 07 05:00:00 ICT 2021
-[9820] 10:06:00.411 E -                SchedulerServiceImpl(296) [            Scheduler_Worker-6] [ 4636494700940707745] : Bean ID: TransactionHistorySC, Method: executeSOTProcess
-java.lang.NoSuchMethodException: Bean ID: TransactionHistorySC, Method: executeSOTProcess
-	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:58)
-	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:85)
-	at com.gpt.component.scheduler.services.SchedulerServiceImpl.execute(SchedulerServiceImpl.java:291)
-	at com.gpt.component.scheduler.services.SchedulerServiceImpl.executeJob(SchedulerServiceImpl.java:308)
-	at com.gpt.component.scheduler.services.SchedulerServiceImpl$$FastClassBySpringCGLIB$$12cd3956.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:669)
-	at com.gpt.component.scheduler.services.SchedulerServiceImpl$$EnhancerBySpringCGLIB$$4622cbb.executeJob(<generated>)
-	at com.gpt.component.scheduler.JobExecutor.execute(JobExecutor.java:29)
-	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
-	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
-[9820] 10:06:00.859 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-6] [ 4636494700940707745] : [SOT_RESPONSE_DAILY_TRX] Next Fire Time (New): Wed Jul 28 05:00:00 ICT 2021
+[4184] 05:30:00.059 D -                      SchedulerHelper(47) [            Scheduler_Worker-6] [-5107014378305990862] : [SOT_RESPONSE_DAILY_TRX] Scheduled Fire Time : Mon Sep 12 05:30:00 ICT 2022
+[4184] 05:30:00.059 D -                      SchedulerHelper(48) [            Scheduler_Worker-6] [-5107014378305990862] : [SOT_RESPONSE_DAILY_TRX] Next Fire Time      : Mon Sep 12 05:30:00 ICT 2022
+[4184] 05:30:00.064 D -       TransactionHistoryServiceImpl(577) [            Scheduler_Worker-6] [-5107014378305990862] : executeSOTResponseScheduler inputs : {filename=, batchSizeThreshold=1000, requestDate=Tue Sep 13 00:00:00 ICT 2022, isNew=false, timeout=3600000}
+[4184] 05:30:00.065 D -                        QueueInvoker(126) [            Scheduler_Worker-6] [-5107014378305990862] : [AutoDiscoveryQueueInvoker] - EAIEngine#invokeService(DoSOTResponse, {filename=, batchSizeThreshold=1000, requestDate=Tue Sep 13 00:00:00 ICT 2022, isNew=false, timeout=3600000})
+[4184] 05:30:21.140 D -                        QueueInvoker(201) [     ServiceInvoker-Response-3] [-5107014378305990862] : Execution Time: 21075 ms
+[4184] 05:30:21.175 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-6] [-5107014378305990862] : [SOT_RESPONSE_DAILY_TRX] Next Fire Time (New): Thu Sep 15 05:30:00 ICT 2022

@@ -67,12 +67,12 @@ public class CustomerInHouseTransferController extends CustomerUserBaseControlle
 		BigDecimal totalCharge = BigDecimal.ZERO;
 		BigDecimal transactionAmount = BigDecimal.ZERO;
 
-		if(confirmationDataMap.get(ApplicationConstants.TRANS_TOTAL_CHARGE) != null) {
-			totalCharge = Helper.getBigDecimalValue(confirmationDataMap.get(ApplicationConstants.TRANS_TOTAL_CHARGE), BigDecimal.ZERO);
+		if(confirmationDataMap.get(ApplicationConstants.TRANS_TOTAL_CHARGE_EQ) != null) {
+			totalCharge = Helper.getBigDecimalValue(confirmationDataMap.get(ApplicationConstants.TRANS_TOTAL_CHARGE_EQ), BigDecimal.ZERO);
 		}
 		
-		if(confirmationDataMap.get(ApplicationConstants.TRANS_AMOUNT) != null) {
-			transactionAmount = Helper.getBigDecimalValue(confirmationDataMap.get(ApplicationConstants.TRANS_AMOUNT), BigDecimal.ZERO);
+		if(confirmationDataMap.get(ApplicationConstants.TRANS_AMOUNT_EQ) != null) {
+			transactionAmount = Helper.getBigDecimalValue(confirmationDataMap.get(ApplicationConstants.TRANS_AMOUNT_EQ), BigDecimal.ZERO);
 		}
 		param.put(ApplicationConstants.TRANS_TOTAL_DEBIT_AMOUNT, transactionAmount.add(totalCharge));
 		//END count totalDebitedAmount

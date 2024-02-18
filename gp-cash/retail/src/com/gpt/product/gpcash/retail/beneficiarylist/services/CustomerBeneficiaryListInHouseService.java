@@ -23,8 +23,12 @@ public interface CustomerBeneficiaryListInHouseService extends CustomerUserWorkf
 	Map<String, Object> searchCustomerBeneficiary(String customerId) throws ApplicationException, BusinessException;
 	
 	void saveCustomerBeneficiary(String customerId, String benAccountNo, String benAccountName, String benAccountCurrency,
-			String isNotifyFlag, String email, String createdBy) throws Exception;
+			String isNotifyFlag, String email, String createdBy, String isVirtualAccount) throws Exception;
 
 	CustomerBeneficiaryListInHouseModel getExistingRecord(String accountNo, String customerId, boolean isThrowError)
 			throws Exception;
+	
+	Map<String, Object> searchBeneficiaryGroup(String customerId) throws ApplicationException, BusinessException;
+	
+	Map<String, Object> inquiryVirtualAccount(Map<String, Object> map) throws ApplicationException, BusinessException;
 }

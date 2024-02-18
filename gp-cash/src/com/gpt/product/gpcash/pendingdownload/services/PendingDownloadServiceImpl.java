@@ -1,5 +1,6 @@
 package com.gpt.product.gpcash.pendingdownload.services;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -18,6 +19,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gpt.component.common.exceptions.ApplicationException;
 import com.gpt.component.common.exceptions.BusinessException;
@@ -70,10 +73,21 @@ public class PendingDownloadServiceImpl implements PendingDownloadService {
 		try {
 			String loginUserId = (String) map.get(ApplicationConstants.LOGIN_USERID);
 			String menuCode = (String) map.get(ApplicationConstants.STR_MENUCODE);
-			Page<PendingDownloadModel> result = pendingDownloadRepo.searchPendingDownloadByUser(
-					loginUserId, menuCode, PagingUtils.createPageRequest(map));
+			String isCorporate = (String) map.get("isCorporate");
+			
+			Page<PendingDownloadModel> result = null;
+			boolean downloadCorp = false;
+			if (ValueUtils.hasValue(isCorporate) && ValueUtils.getValue(isCorporate).equals(ApplicationConstants.YES)) {
+				String corpId = (String) map.get(ApplicationConstants.LOGIN_CORP_ID);
+				result = pendingDownloadRepo.searchPendingDownloadByUserCorporate(
+						loginUserId, menuCode, corpId, PagingUtils.createPageRequest(map));
+				downloadCorp = true;
+			} else {
+				result = pendingDownloadRepo.searchPendingDownloadByUser(
+						loginUserId, menuCode, PagingUtils.createPageRequest(map));
+			}
 
-			resultMap.put("result", setPendingDownloadModelToMap(result.getContent()));
+			resultMap.put("result", setPendingDownloadModelToMap(result.getContent(), downloadCorp));
 			
 			PagingUtils.setPagingInfo(resultMap, result);
 			
@@ -86,7 +100,7 @@ public class PendingDownloadServiceImpl implements PendingDownloadService {
 		return resultMap;		
 	}
 	
-	private List<Map<String, Object>> setPendingDownloadModelToMap(List<PendingDownloadModel> list) {
+	private List<Map<String, Object>> setPendingDownloadModelToMap(List<PendingDownloadModel> list, boolean isCorpDownload) {
 		List<Map<String, Object>> resultList = new ArrayList<>();
 
 		for (PendingDownloadModel model : list) {
@@ -100,6 +114,19 @@ public class PendingDownloadServiceImpl implements PendingDownloadService {
 			map.put("createdDate", model.getCreatedDate());
 			map.put("statusDescription", message.getMessage(model.getStatus(), null, model.getStatus(), locale));
 			map.put("isReadyForDownload", model.getIsReadyForDownload());
+			
+			if (isCorpDownload) {
+				
+				try {
+					HashMap<String,Object> value = new ObjectMapper().readValue(model.getValuesStr(), HashMap.class);
+					map.put("isZip", value.get("isZip"));
+					map.put("ext", getDownloadFileExtention(model.getFileFormat()));
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
 			
 			resultList.add(map);
 		}
@@ -126,6 +153,11 @@ public class PendingDownloadServiceImpl implements PendingDownloadService {
 			pendingDownload.setIsReadyForDownload(ApplicationConstants.NO);
 			pendingDownload.setCreatedBy(loginUserId);
 			pendingDownload.setCreatedDate(DateUtils.getCurrentTimestamp());
+			pendingDownload.setDeleteFlag(ApplicationConstants.NO);
+			
+			if (ValueUtils.hasValue(map.get("isCorporate")) && ValueUtils.getValue(map.get("isCorporate")).equals(ApplicationConstants.YES)) {
+				pendingDownload.setCorporateId((String) ValueUtils.getValue(map.get(ApplicationConstants.LOGIN_CORP_ID)));
+			}
 			
 			String jsonObj = objectMapper.writeValueAsString(map);
 			pendingDownload.setValues(jsonObj);
@@ -252,5 +284,27 @@ public class PendingDownloadServiceImpl implements PendingDownloadService {
 		}
 		
 		return "txt";
+	}
+
+	@Override
+	public Map<String, Object> deletePendingDownload(List<String> pendingDownloadList, String downloadBy) throws ApplicationException, BusinessException {
+		
+		try {
+			for(String pendingDownloadId : pendingDownloadList) {
+				PendingDownloadModel pendingDownload = pendingDownloadRepo.findOne(pendingDownloadId);
+				pendingDownload.setDeleteFlag(ApplicationConstants.YES);
+				pendingDownload.setUpdatedDate(DateUtils.getCurrentTimestamp());
+				pendingDownload.setUpdatedBy(downloadBy);
+				pendingDownloadRepo.save(pendingDownload);
+			}
+			
+			Map<String, Object> result = new HashMap<>();
+			result.put(ApplicationConstants.WF_FIELD_MESSAGE, "GPT-0100242");
+			
+			return result;
+		
+		} catch (Exception e) {
+			throw new ApplicationException(e);
+		}
 	}
 }

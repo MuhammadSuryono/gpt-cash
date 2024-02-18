@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionSynchronizationAdapter;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 
+import com.gpt.component.calendar.services.CalendarService;
 import com.gpt.component.common.exceptions.ApplicationException;
 import com.gpt.component.common.exceptions.BusinessException;
 import com.gpt.component.common.utils.PagingUtils;
@@ -27,6 +28,7 @@ import com.gpt.component.common.utils.ValueUtils;
 import com.gpt.component.idm.menu.model.IDMMenuModel;
 import com.gpt.component.idm.user.model.IDMUserModel;
 import com.gpt.component.idm.utils.IDMRepository;
+import com.gpt.component.maintenance.exchangerate.services.ExchangeRateService;
 import com.gpt.component.maintenance.sysparam.SysParamConstants;
 import com.gpt.component.maintenance.sysparam.services.SysParamService;
 import com.gpt.component.maintenance.utils.MaintenanceRepository;
@@ -48,6 +50,7 @@ import com.gpt.product.gpcash.corporate.pendingtaskuser.valueobject.CorporateUse
 import com.gpt.product.gpcash.corporate.transactionstatus.TransactionActivityType;
 import com.gpt.product.gpcash.corporate.transactionstatus.TransactionStatus;
 import com.gpt.product.gpcash.corporate.transactionstatus.services.TransactionStatusService;
+import com.gpt.product.gpcash.cot.system.services.SystemCOTService;
 import com.gpt.product.gpcash.service.model.ServiceModel;
 
 @Service
@@ -87,6 +90,15 @@ public class CorporateUserPendingTaskServiceImpl implements CorporateUserPending
 
 	@Autowired
 	private MaintenanceRepository maintenanceRepo;
+	
+	@Autowired
+	private SystemCOTService systemCOTService;
+	
+	@Autowired
+	private CalendarService calendarService;
+	
+	@Autowired
+	private ExchangeRateService exchangeRate;
 	
 	@Override
 	public Map<String, Object> search(Map<String, Object> map) throws ApplicationException, BusinessException {
@@ -222,6 +234,8 @@ public class CorporateUserPendingTaskServiceImpl implements CorporateUserPending
 			if (model != null) {
 				result.put("service", model.getService()); // put service
 				result.put("details", getPendingTaskValue(model));
+				
+//				result.put("latestExchangeRate", exchangeRate.getLatestRate());
 			}
 
 			return result;
@@ -470,7 +484,18 @@ public class CorporateUserPendingTaskServiceImpl implements CorporateUserPending
 			vo.setActionBy(userId);
 			
 			executedDate = DateUtils.getCurrentTimestamp();
-			service.approve(vo);
+			vo = service.approve(vo);
+			
+			if("N".equals(pendingTask.getCheckCOTFlag())) { // for cases continue next working day
+				pendingTask.setSessionTime(vo.getSessionTime());
+				pendingTask.setInstructionMode(vo.getInstructionMode());
+				pendingTask.setInstructionDate(vo.getInstructionDate());						
+				if (vo.getJsonObject() != null) {
+					String jsonObj = objectMapper.writeValueAsString(vo.getJsonObject());
+					pendingTask.setValues(jsonObj);
+				}
+				pendingTaskRepo.save(pendingTask);
+			}
 			
 			if(ApplicationConstants.SINGLE_TRANSACTION.equals(menu.getSubType())) {
 				if(vo.getInstructionMode().equals(ApplicationConstants.SI_IMMEDIATE)) {
@@ -491,11 +516,9 @@ public class CorporateUserPendingTaskServiceImpl implements CorporateUserPending
 						}
 						
 					}else {
-						if ("MNU_GPCASH_F_FUND_INT".equals(vo.getMenuCode())) { // International Transfer
-							pendingTaskRepo.updatePendingTask(pendingTask.getId(), ApplicationConstants.WF_STATUS_APPROVED, executedDate, userId, TransactionStatus.IN_PROGRESS_OFFLINE);
-						} else {
+						
 						pendingTaskRepo.updatePendingTask(pendingTask.getId(), ApplicationConstants.WF_STATUS_APPROVED, executedDate, userId, TransactionStatus.EXECUTE_SUCCESS);
-					}
+					
 					}
 				} else {
 					pendingTaskRepo.updatePendingTask(pendingTask.getId(), ApplicationConstants.WF_STATUS_APPROVED, executedDate, userId, TransactionStatus.PENDING_EXECUTE);
@@ -549,12 +572,8 @@ public class CorporateUserPendingTaskServiceImpl implements CorporateUserPending
 								}
 														
 							} else {
-								if (!"MNU_GPCASH_F_FUND_INT".equals(vo.getMenuCode())) {
-									//insert into trx status EXECUTE_SUCCESS
-									trxStatusService.addTransactionStatus(pendingTaskId, executedDate, TransactionActivityType.EXECUTE_TO_HOST, ApplicationConstants.CREATED_BY_SYSTEM, TransactionStatus.EXECUTE_SUCCESS, pendingTaskId, false, null);										
-								}else {
-									trxStatusService.addTransactionStatus(pendingTaskId, executedDate, TransactionActivityType.RELEASE, ApplicationConstants.CREATED_BY_SYSTEM, TransactionStatus.IN_PROGRESS_OFFLINE, pendingTaskId, false, null);
-								}
+								//insert into trx status EXECUTE_SUCCESS
+								trxStatusService.addTransactionStatus(pendingTaskId, executedDate, TransactionActivityType.EXECUTE_TO_HOST, ApplicationConstants.CREATED_BY_SYSTEM, TransactionStatus.EXECUTE_SUCCESS, pendingTaskId, false, null);	
 							}
 						}
 					} else {
@@ -565,6 +584,13 @@ public class CorporateUserPendingTaskServiceImpl implements CorporateUserPending
 					//insert into trx status PENDING_EXECUTE
 					trxStatusService.addTransactionStatus(pendingTaskId, pendingExecuteDate, TransactionActivityType.RELEASE, userId, TransactionStatus.PENDING_EXECUTE, null, false, null);
 					
+					if (approved) {	
+						if (ApplicationConstants.YES.equals(vo.getIsError())) {
+							trxStatusService.addTransactionStatus(pendingTaskId, pendingExecuteDate, TransactionActivityType.EXECUTE_TO_HOST, ApplicationConstants.CREATED_BY_SYSTEM, TransactionStatus.EXECUTE_FAIL, pendingTaskId, true, vo.getErrorCode());
+						}
+					} else {
+						trxStatusService.addTransactionStatus(pendingTaskId, DateUtils.getCurrentTimestamp(), TransactionActivityType.EXECUTE_TO_HOST, ApplicationConstants.CREATED_BY_SYSTEM, TransactionStatus.EXECUTE_FAIL, pendingTaskId, true, errorCode);
+					}
 					//jika ada yg mau di lakukan sesuatu untuk bulk transaksi maka letakin di sini 
 				} else {
 					//untuk yg menu type cd nya adalah M seperti beneficiary list
@@ -721,6 +747,8 @@ public class CorporateUserPendingTaskServiceImpl implements CorporateUserPending
 		vo.setBillExpiryDate(pendingTask.getBillExpiryDate());
 		
 		vo.setRefNoSpecialRate(pendingTask.getRefNoSpecialRate());
+		
+		vo.setIsCheckCOT(pendingTask.getCheckCOTFlag());
 		
 		Class<?> clazz = Class.forName(pendingTask.getModel());
 
@@ -979,7 +1007,33 @@ public class CorporateUserPendingTaskServiceImpl implements CorporateUserPending
 			throw new BusinessException("GPT-0100031");
 		
 		//get users yg dapat mengakses menuCode yg di kirim
-		List<String> userList = idmRepo.getUserRepo().findAuthorizedUserForWorkflow(menuCode, userByApprovalMap);
+		//List<String> userList = idmRepo.getUserRepo().findAuthorizedUserForWorkflow(menuCode, userByApprovalMap); // masuk ke dalam loop
+		
+		List<String> userList = new ArrayList<String>();
+		// start split the list per 1000, to not get error max 1000 query IN		
+		int counter = userByApprovalMap.size()/1000 + 1;
+		int startIndex = 0;
+		int endIndex = 0;
+		if(counter > 1) {
+			for (int i = 0; i < counter-1; i++) {
+				endIndex += 1000;
+				if(userByApprovalMap.size()<endIndex) {
+					endIndex = userByApprovalMap.size();
+				}
+				List<String> userByApprovalMap1000 = new ArrayList<String>();
+				userByApprovalMap1000 = userByApprovalMap.subList(startIndex, endIndex);
+				
+				//get users yg dapat mengakses menuCode yg di kirim
+				if(userByApprovalMap1000.size()>0){
+				    userList.addAll(idmRepo.getUserRepo().findAuthorizedUserForWorkflow(menuCode, userByApprovalMap1000));
+				}
+				
+				startIndex += 1000;
+			}
+		}else {
+			userList.addAll(idmRepo.getUserRepo().findAuthorizedUserForWorkflow(menuCode, userByApprovalMap));
+		}
+		//end split
 		
 		if(logger.isDebugEnabled()) {
 			logger.debug("userList : " + userList);
@@ -1010,7 +1064,100 @@ public class CorporateUserPendingTaskServiceImpl implements CorporateUserPending
 		if(authorizedUserByMenu.isEmpty())
 			throw new BusinessException("GPT-0100031");
 
+		// start split the list per 1000, to not get error max 1000 query IN		
+		counter = authorizedUserByMenu.size()/1000 + 1;
+		startIndex = 0;
+		endIndex = 0;
+		
 		List<CorporateUserModel> authorizedUserByOption = new ArrayList<>();
+		
+		if(counter > 1) {
+			for (int i = 0; i < counter-1; i++) {
+				endIndex += 1000;
+				if(authorizedUserByMenu.size()<endIndex) {
+					endIndex = authorizedUserByMenu.size();
+				}
+				List<String> authorizedUserByMenu1000 = new ArrayList<String>();
+				authorizedUserByMenu1000 = authorizedUserByMenu.subList(startIndex, endIndex);
+				
+				//get users yg dapat mengakses menuCode yg di kirim
+				if(authorizedUserByMenu1000.size()>0){
+					authorizedUserByOption.addAll(findAuthorizedUserByOptionList(authorizedUserByOption,corporateId,userGroupId,sourceAccountGroupDetailId,
+							authorizedUserByMenu,approvalMapList,profileContext,pendingTask,isReleaser,userGroupOption,isTransactionMenu));
+				}
+				
+				startIndex += 1000;
+			}
+		}else { //existing method
+			authorizedUserByOption = findAuthorizedUserByOptionList(authorizedUserByOption,corporateId,userGroupId,sourceAccountGroupDetailId,
+					authorizedUserByMenu,approvalMapList,profileContext,pendingTask,isReleaser,userGroupOption,isTransactionMenu);
+		}
+		//end split
+		
+		//dijadikan method terpisah findAuthorizedUserByOptionList
+		
+		/*if (userGroupOption.equals(ApplicationConstants.USER_GROUP_OPTION_INTRA_GROUP)) {
+			authorizedUserByOption = corporateUserRepo.findUserIncludeUserGroupIdForWorkflow(corporateId,
+					userGroupId, sourceAccountGroupDetailId, authorizedUserByMenu, approvalMapList);
+		}
+
+		if (userGroupOption.equals(ApplicationConstants.USER_GROUP_OPTION_CROSS_GROUP)) {
+			//mencari cross group tetapi role harus approver
+			authorizedUserByOption = corporateUserRepo.findUserNotIncludeUserGroupIdForWorkflow(corporateId,
+					userGroupId, sourceAccountGroupDetailId, authorizedUserByMenu, approvalMapList);
+		}
+
+		if (userGroupOption.equals(ApplicationConstants.USER_GROUP_OPTION_SPECIFY_GROUP)) {
+			//jika any group maka search by account number bukan accountGroupDetailId karena sourceAccountGroupDetailId spesific dimiliki account group maker
+			if(!isTransactionMenu) {
+				authorizedUserByOption = corporateUserRepo.findUserForWorkflowSpesificGroupNonTransaction(corporateId,
+						profileContext.getUserGroup(), authorizedUserByMenu, approvalMapList);
+			} else {
+				authorizedUserByOption = corporateUserRepo.findUserForWorkflowSpesificGroup(corporateId,
+						profileContext.getUserGroup(), pendingTask.getSourceAccount(), authorizedUserByMenu, approvalMapList);
+			}
+			
+		}
+
+		// jika releaser atau user group any maka wildcard
+		if (isReleaser.equals(ApplicationConstants.YES)
+				|| userGroupOption.equals(ApplicationConstants.USER_GROUP_OPTION_ANY_GROUP)) {
+			//jika any group maka search by account number bukan accountGroupDetailId karena sourceAccountGroupDetailId spesific dimiliki account group maker
+			if(!isTransactionMenu) {
+				authorizedUserByOption = corporateUserRepo.findUserForWorkflowNonTransaction(corporateId,
+						authorizedUserByMenu);
+			} else {
+				authorizedUserByOption = corporateUserRepo.findUserForWorkflow(corporateId, pendingTask.getSourceAccount(),
+						authorizedUserByMenu);
+			}
+		}*/
+		//end method findAuthorizedUserByOptionList
+		
+		if(logger.isDebugEnabled()) {
+			logger.debug("authorizedUserByOption : " + authorizedUserByOption.size());
+		}
+		
+		List<CorporateUserModel> wfUsers = new ArrayList<>();
+		for (CorporateUserModel userCorporate : authorizedUserByOption) {
+			// validasi user yg di routing tidak boleh sama dengan maker dan
+			// user tidak double
+			IDMUserModel user = userCorporate.getUser();
+			
+			if (!userMaker.equals(user.getCode()) && ValueUtils.hasValue(user.getCode())
+					&& !wfUsers.contains(userCorporate)) {
+				
+				wfUsers.add(userCorporate);
+			}
+		}
+		
+		return wfUsers;
+	}
+	
+	private List<CorporateUserModel> findAuthorizedUserByOptionList(List<CorporateUserModel> authorizedUserByOption,
+			String corporateId, String userGroupId, String sourceAccountGroupDetailId,
+			List<String> authorizedUserByMenu, List<String> approvalMapList, CorporateUserWFContext profileContext,
+			CorporateUserPendingTaskModel pendingTask, String isReleaser,String userGroupOption,boolean isTransactionMenu) throws Exception {
+		// TODO Auto-generated method stub
 		if (userGroupOption.equals(ApplicationConstants.USER_GROUP_OPTION_INTRA_GROUP)) {
 			authorizedUserByOption = corporateUserRepo.findUserIncludeUserGroupIdForWorkflow(corporateId,
 					userGroupId, sourceAccountGroupDetailId, authorizedUserByMenu, approvalMapList);
@@ -1046,27 +1193,11 @@ public class CorporateUserPendingTaskServiceImpl implements CorporateUserPending
 						authorizedUserByMenu);
 			}
 		}
-		
-		if(logger.isDebugEnabled()) {
-			logger.debug("authorizedUserByOption : " + authorizedUserByOption.size());
-		}
-		
-		List<CorporateUserModel> wfUsers = new ArrayList<>();
-		for (CorporateUserModel userCorporate : authorizedUserByOption) {
-			// validasi user yg di routing tidak boleh sama dengan maker dan
-			// user tidak double
-			IDMUserModel user = userCorporate.getUser();
-			
-			if (!userMaker.equals(user.getCode()) && ValueUtils.hasValue(user.getCode())
-					&& !wfUsers.contains(userCorporate)) {
-				
-				wfUsers.add(userCorporate);
-			}
-		}
-		
-		return wfUsers;
+		return authorizedUserByOption;
 	}
+
 	
+
 	private List<String> getUserListByUserGroupOption(String userGroupOption, String corporateId, String userGroupId, 
 			String spesifyUserGroupId,List<String> approvalMapList) throws Exception{
 		List<String> userByApprovalMap = null;
@@ -1272,6 +1403,40 @@ public class CorporateUserPendingTaskServiceImpl implements CorporateUserPending
 		}
 
 		return null;
+	}
+	
+	@Override
+	public boolean isPopupCOT(Map<String, Object> map) throws ApplicationException, BusinessException{
+		List<Map<String, Object>> pendingTaskList = (ArrayList<Map<String,Object>>)map.get("pendingTaskList");
+		boolean isCOT = false;
+		for(Map<String, Object> pendingTaskMap: pendingTaskList){
+			String referenceNo = (String) pendingTaskMap.get(ApplicationConstants.WF_FIELD_REFERENCE_NO);
+			CorporateUserPendingTaskModel model = pendingTaskRepo.findByReferenceNo(referenceNo);
+			if(ApplicationConstants.SI_IMMEDIATE.equals(model.getInstructionMode()) && 
+					model.getTrxStatus().equals(TransactionStatus.PENDING_RELEASE) &&
+					model.getTransactionService()!=null &&
+					(ApplicationConstants.SRVC_GPT_FTR_DOM_LLG.equals(model.getTransactionService().getCode())||ApplicationConstants.SRVC_GPT_FTR_DOM_RTGS.equals(model.getTransactionService().getCode()))){
+				
+				try {
+					if(systemCOTService.validateSystemCOTForChecking(model.getTransactionService().getCode(), ApplicationConstants.APP_GPCASHIB)) {
+						pendingTaskRepo.updateCheckCOTFlagPendingTask(model.getId(), "Y");
+						isCOT = true;
+					}
+					
+					if(calendarService.isHoliday(DateUtils.getCurrentTimestamp())) {
+						pendingTaskRepo.updateCheckCOTFlagPendingTask(model.getId(), "Y");
+						isCOT = true;
+					}
+					
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+		}
+		
+		return isCOT;
 	}
 	
 	class NotificationSender extends TransactionSynchronizationAdapter {

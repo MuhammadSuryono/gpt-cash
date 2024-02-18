@@ -34,4 +34,25 @@ public interface CustomerDomesticTransferRepository extends JpaRepository<Custom
 	@Query("select dom from CustomerDomesticTransferModel dom "
 			+ "where dom.isProcessed = 'Y' and dom.customer.id = ?1 and referenceNo = ?2 order by instructionDate desc")	
 	List<CustomerDomesticTransferModel> findTransactionStatusLatest(String customerId, String referenceNo);
+	
+	@Query("select dom from CustomerDomesticTransferModel dom "
+			+ "where dom.isProcessed = 'Y' "
+			+ "and dom.instructionMode = 'R' "
+			+ "and dom.pendingTaskId = ?1 "
+			+ "and dom.instructionDate between ?2 and ?3 "
+			+ "order by instructionDate Asc")
+	List<CustomerDomesticTransferModel> findRecurringTransactionForReport(String pendingTaskId, Timestamp startInstructionDate, Timestamp endInstructionDate);
+	
+	@Query("select dom from CustomerDomesticTransferModel dom "
+			+ "join fetch dom.customer "
+			+ "join fetch dom.service "
+			+ "join fetch dom.sourceAccount acct "
+			+ "join fetch acct.currency "
+			+ "join fetch acct.accountType "
+			+ "join fetch dom.application "
+			+ "join fetch dom.benDomesticBankCode "
+			+ "where dom.isProcessed = 'N' and dom.service.code = 'GPT_FTR_DOM_ONLINE' and dom.instructionMode = ?1 and dom.instructionDate between ?2 and ?3")	
+	List<CustomerDomesticTransferModel> findOnlineTransactionForSchedulerByInstructionMode(String instructionMode, Timestamp startInstructionDate, Timestamp endInstructionDate);
+	
+	
 }

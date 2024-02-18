@@ -34,13 +34,13 @@ dependencies {
 
     provided("org.springframework.boot:spring-boot-devtools")
     
-    jarOnly('com.zaxxer:HikariCP:2.5.1') {
+    jarOnly('com.zaxxer:HikariCP:2.7.9') {
         transitive = false                    
     }
     
     jarOnly (
         [group: 'com.oracle',               name: 'ojdbc',                          version: '12.1.0.1.0'],
-        [group: 'mysql',                    name: 'mysql-connector-java',           version: '5.1.42'],
+        [group: 'mysql',                    name: 'mysql-connector-java',           version: '5.1.42']        
     )
 	
 	modularConfiguration configurations.jarOnly.allDependencies

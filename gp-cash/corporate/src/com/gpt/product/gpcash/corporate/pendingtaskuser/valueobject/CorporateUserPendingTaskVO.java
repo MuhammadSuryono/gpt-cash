@@ -66,7 +66,16 @@ public class CorporateUserPendingTaskVO {
 	
 	protected String refNoSpecialRate;
 	
+	protected String isCheckCOT;
 	
+	public String getIsCheckCOT() {
+		return isCheckCOT;
+	}
+
+	public void setIsCheckCOT(String isCheckCOT) {
+		this.isCheckCOT = isCheckCOT;
+	}
+
 	public String getRefNoSpecialRate() {
 		return refNoSpecialRate;
 	}

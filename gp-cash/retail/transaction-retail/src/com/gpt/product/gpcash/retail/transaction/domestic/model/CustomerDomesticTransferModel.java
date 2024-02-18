@@ -151,6 +151,9 @@ public class CustomerDomesticTransferModel implements Serializable {
 
 	@Column(name = "CH_TYP_1_AMT", precision=25, scale=7)
 	protected BigDecimal chargeTypeAmount1;
+	
+	@Column(name = "CH_TYP_1_AMT_EQ", precision=25, scale=7)
+	protected BigDecimal chargeTypeAmountEquivalent1;
 
 	@Column(name = "CH_TYP_2_CD")
 	protected String chargeType2;
@@ -161,6 +164,9 @@ public class CustomerDomesticTransferModel implements Serializable {
 	@Column(name = "CH_TYP_2_AMT", precision=25, scale=7)
 	protected BigDecimal chargeTypeAmount2;
 
+	@Column(name = "CH_TYP_2_AMT_EQ", precision=25, scale=7)
+	protected BigDecimal chargeTypeAmountEquivalent2;
+	
 	@Column(name = "CH_TYP_3_CD")
 	protected String chargeType3;
 
@@ -169,6 +175,9 @@ public class CustomerDomesticTransferModel implements Serializable {
 
 	@Column(name = "CH_TYP_3_AMT", precision=25, scale=7)
 	protected BigDecimal chargeTypeAmount3;
+	
+	@Column(name = "CH_TYP_3_AMT_EQ", precision=25, scale=7)
+	protected BigDecimal chargeTypeAmountEquivalent3;
 
 	@Column(name = "CH_TYP_4_CD")
 	protected String chargeType4;
@@ -178,6 +187,9 @@ public class CustomerDomesticTransferModel implements Serializable {
 
 	@Column(name = "CH_TYP_4_AMT", precision=25, scale=7)
 	protected BigDecimal chargeTypeAmount4;
+	
+	@Column(name = "CH_TYP_4_AMT_EQ", precision=25, scale=7)
+	protected BigDecimal chargeTypeAmountEquivalent4;
 
 	@Column(name = "CH_TYP_5_CD")
 	protected String chargeType5;
@@ -187,6 +199,9 @@ public class CustomerDomesticTransferModel implements Serializable {
 
 	@Column(name = "CH_TYP_5_AMT", precision=25, scale=7)
 	protected BigDecimal chargeTypeAmount5;
+	
+	@Column(name = "CH_TYP_5_AMT_EQ", precision=25, scale=7)
+	protected BigDecimal chargeTypeAmountEquivalent5;
 	
 	@Column(name = "TOTAL_CH_AMT", precision=25, scale=7)
 	protected BigDecimal totalChargeEquivalentAmount;
@@ -243,6 +258,17 @@ public class CustomerDomesticTransferModel implements Serializable {
 	
 	@Column(name = "STATUS")
 	protected String status;
+
+	@Column(name="REFNO_SPECIALRATE")
+	protected String refNoSpecialRate;
+	
+	public String getRefNoSpecialRate() {
+		return refNoSpecialRate;
+	}
+
+	public void setRefNoSpecialRate(String refNoSpecialRate) {
+		this.refNoSpecialRate = refNoSpecialRate;
+	}
 
 	public String getReferenceNo() {
 		return referenceNo;
@@ -771,4 +797,46 @@ public class CustomerDomesticTransferModel implements Serializable {
 	public void setPendingTaskId(String pendingTaskId) {
 		this.pendingTaskId = pendingTaskId;
 	}
+
+	public BigDecimal getChargeTypeAmountEquivalent1() {
+		return chargeTypeAmountEquivalent1;
+	}
+
+	public void setChargeTypeAmountEquivalent1(BigDecimal chargeTypeAmountEquivalent1) {
+		this.chargeTypeAmountEquivalent1 = chargeTypeAmountEquivalent1;
+	}
+
+	public BigDecimal getChargeTypeAmountEquivalent2() {
+		return chargeTypeAmountEquivalent2;
+	}
+
+	public void setChargeTypeAmountEquivalent2(BigDecimal chargeTypeAmountEquivalent2) {
+		this.chargeTypeAmountEquivalent2 = chargeTypeAmountEquivalent2;
+	}
+
+	public BigDecimal getChargeTypeAmountEquivalent3() {
+		return chargeTypeAmountEquivalent3;
+	}
+
+	public void setChargeTypeAmountEquivalent3(BigDecimal chargeTypeAmountEquivalent3) {
+		this.chargeTypeAmountEquivalent3 = chargeTypeAmountEquivalent3;
+	}
+
+	public BigDecimal getChargeTypeAmountEquivalent4() {
+		return chargeTypeAmountEquivalent4;
+	}
+
+	public void setChargeTypeAmountEquivalent4(BigDecimal chargeTypeAmountEquivalent4) {
+		this.chargeTypeAmountEquivalent4 = chargeTypeAmountEquivalent4;
+	}
+
+	public BigDecimal getChargeTypeAmountEquivalent5() {
+		return chargeTypeAmountEquivalent5;
+	}
+
+	public void setChargeTypeAmountEquivalent5(BigDecimal chargeTypeAmountEquivalent5) {
+		this.chargeTypeAmountEquivalent5 = chargeTypeAmountEquivalent5;
+	}
+	
+	
 }

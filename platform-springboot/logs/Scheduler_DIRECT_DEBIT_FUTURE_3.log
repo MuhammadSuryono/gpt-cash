@@ -1,5 +1,5 @@
-[9820] 13:00:00.242 D -                      SchedulerHelper(47) [           Scheduler_Worker-10] [ 6685410373354340732] : [DIRECT_DEBIT_FUTURE_3] Scheduled Fire Time : Sat Jun 05 13:00:00 ICT 2021
-[9820] 13:00:00.242 D -                      SchedulerHelper(48) [           Scheduler_Worker-10] [ 6685410373354340732] : [DIRECT_DEBIT_FUTURE_3] Next Fire Time      : Sat Jun 05 13:00:00 ICT 2021
-[9820] 13:00:00.250 D -              DirectDebitServiceImpl(626) [           Scheduler_Worker-10] [ 6685410373354340732] : Future start : 2021-07-27 00:00:00.0
-[9820] 13:00:00.250 D -              DirectDebitServiceImpl(627) [           Scheduler_Worker-10] [ 6685410373354340732] : Future end : 2021-07-27 13:00:00.0
-[9820] 13:00:00.326 D -                SchedulerServiceImpl(313) [           Scheduler_Worker-10] [ 6685410373354340732] : [DIRECT_DEBIT_FUTURE_3] Next Fire Time (New): Wed Jul 28 13:00:00 ICT 2021
+[4184] 13:00:00.178 D -                      SchedulerHelper(47) [            Scheduler_Worker-2] [  382095136186649836] : [DIRECT_DEBIT_FUTURE_3] Scheduled Fire Time : Wed Sep 14 13:00:00 ICT 2022
+[4184] 13:00:00.179 D -                      SchedulerHelper(48) [            Scheduler_Worker-2] [  382095136186649836] : [DIRECT_DEBIT_FUTURE_3] Next Fire Time      : Wed Sep 14 13:00:00 ICT 2022
+[4184] 13:00:00.246 D -              DirectDebitServiceImpl(626) [            Scheduler_Worker-2] [  382095136186649836] : Future start : 2022-09-14 00:00:00.0
+[4184] 13:00:00.261 D -              DirectDebitServiceImpl(627) [            Scheduler_Worker-2] [  382095136186649836] : Future end : 2022-09-14 13:00:00.0
+[4184] 13:00:00.329 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-2] [  382095136186649836] : [DIRECT_DEBIT_FUTURE_3] Next Fire Time (New): Thu Sep 15 13:00:00 ICT 2022

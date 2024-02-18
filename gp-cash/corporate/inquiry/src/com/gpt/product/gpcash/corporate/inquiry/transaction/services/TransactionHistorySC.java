@@ -30,4 +30,14 @@ public interface TransactionHistorySC {
 	void executeSOTRequestScheduler(String parameter) throws ApplicationException, BusinessException;
 
 	void executeSOTResponseScheduler(String parameter) throws ApplicationException, BusinessException;
+	
+	Map<String, Object> submit(Map<String, Object> map) throws ApplicationException, BusinessException;
+	
+	Map<String, Object> search(Map<String, Object> map) throws ApplicationException, BusinessException;
+	
+	void doGenerateReport(Map<String, Object> map) throws ApplicationException, BusinessException;
+	
+	Map<String, Object> downloadPending(Map<String, Object> map) throws ApplicationException, BusinessException;
+	
+	Map<String, Object> deletePendingDownload(Map<String, Object> map) throws ApplicationException, BusinessException;
 }

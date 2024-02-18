@@ -236,7 +236,7 @@ public class BeneficiaryListDomesticServiceImpl implements BeneficiaryListDomest
 			maintenanceRepo.isDomesticBankValid((String) map.get("bankCode"));
 			maintenanceRepo.isBeneficiaryTypeValid((String) map.get("beneficiaryTypeCode"));
 			
-			if(ApplicationConstants.YES.equals((String) map.get("isBenResident"))){
+			if(ApplicationConstants.NO.equals((String) map.get("isBenResident"))){
 				if(ValueUtils.hasValue(map.get("benResidentCountryCode"))){
 					maintenanceRepo.isCountryValid((String) map.get("benResidentCountryCode"));
 				} else {
@@ -244,7 +244,7 @@ public class BeneficiaryListDomesticServiceImpl implements BeneficiaryListDomest
 				}
 			}
 			
-			if(ApplicationConstants.YES.equals((String) map.get("isBenCitizen"))){
+			if(ApplicationConstants.NO.equals((String) map.get("isBenCitizen"))){
 				if(ValueUtils.hasValue(map.get("benCitizenCountryCode"))){
 					maintenanceRepo.isCountryValid((String) map.get("benCitizenCountryCode"));
 				} else {

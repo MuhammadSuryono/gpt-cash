@@ -122,6 +122,7 @@ public class CustomerMobileController extends CustomerUserBaseController {
 		Map<String, Object> deviceInfo = (HashMap<String, Object>)param.get("device");
 		
 		param = prepareAuthenticationParam(request, param);
+		String userId = (String) param.get(ApplicationConstants.LOGIN_USERID);
 		
 		return invoke("CustomerMobileSC", "authenticate", (DeferredResult<Map<String, Object>> deferredResult, Map<String, Object> map) -> {
 			String custId =  (String) map.get(ApplicationConstants.CUST_ID);
@@ -143,6 +144,7 @@ public class CustomerMobileController extends CustomerUserBaseController {
 			}
 			
 			session.setAttribute(ApplicationConstants.CUST_ID, custId);
+			session.setAttribute(ApplicationConstants.LOGIN_USERID, userId);
 			session.setAttribute(ApplicationConstants.LOGIN_DATE, loginDate);
 			session.setAttribute("device", (Serializable) deviceInfo);
 			
@@ -225,6 +227,7 @@ public class CustomerMobileController extends CustomerUserBaseController {
 		session.setAttribute(ApplicationConstants.LOGIN_DATE, loginDate);
 
 		resultMap.put(ApplicationConstants.LOGIN_USERNAME, loginUserName);
+		resultMap.put("forceChangePassword", map.get("forceChangePassword"));
 		resultMap.put("lastLoginDate", map.get("lastLoginDate"));
 		//END remark if stress test
 		resultMap.put("message", "success");
@@ -261,9 +264,10 @@ public class CustomerMobileController extends CustomerUserBaseController {
 	public DeferredResult<Map<String, Object>> registerFP(HttpServletRequest request, HttpServletResponse response, @RequestBody Map<String, Object> param) {
 		HttpSession session = request.getSession(false);
 		String custId = (String) session.getAttribute(ApplicationConstants.CUST_ID);
-		Map<String, Object> deviceInfo = (HashMap<String, Object>)session.getAttribute("device");
+		String userId = (String) session.getAttribute(ApplicationConstants.LOGIN_USERID);
 		
-		param.put("key", heartbeatHandler.getRecordedHeartBeat(custId)); // we never use the key provided by the UI
+		Map<String, Object> deviceInfo = (HashMap<String, Object>)session.getAttribute("device");
+		param.put("key", heartbeatHandler.getRecordedHeartBeat(userId)); // we never use the key provided by the UI
 		param.put("device", deviceInfo);
 		
 		return invoke("CustomerMobileSC", "registerFP", (DeferredResult<Map<String, Object>> deferredResult, Map<String, Object> map) -> {
@@ -276,6 +280,13 @@ public class CustomerMobileController extends CustomerUserBaseController {
 			deferredResult.setResult(resultMap);
 	
 		}, this::defaultOnException, param);
+	}
+	
+	@RequestMapping(baseCustUserUrl +"/mobileForceChangePassword")
+	public DeferredResult<Map<String, Object>> mobileForceChangePassword(HttpServletRequest request, @RequestBody Map<String, Object> param) {
+		String userId = (String) param.get(ApplicationConstants.LOGIN_USERID);
+		param.put("key", heartbeatHandler.getRecordedHeartBeat(userId)); // we never use the key provided by the UI
+		return invoke("CustomerMobileSC", "mobileForceChangePassword", param);
 	}
 	
 	private String getLoginIPAddress(HttpServletRequest request){

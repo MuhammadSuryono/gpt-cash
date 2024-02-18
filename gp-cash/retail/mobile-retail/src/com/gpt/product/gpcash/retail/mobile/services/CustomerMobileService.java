@@ -18,4 +18,6 @@ public interface CustomerMobileService {
 	Map<String, Object> mobileCustFPLogin(Map<String, Object> map) throws ApplicationException, BusinessException;
 
 	void activateDevice(Map<String, Object> map) throws ApplicationException, BusinessException;
+	
+	Map<String, Object> mobileForceChangePassword(Map<String, Object> map) throws ApplicationException, BusinessException;
 }

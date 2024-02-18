@@ -1,5 +1,6 @@
 package com.gpt.component.maintenance.promo.services;
 
+import java.util.Date;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.gpt.component.common.exceptions.ApplicationException;
 import com.gpt.component.common.exceptions.BusinessException;
 import com.gpt.component.common.validation.annotation.Input;
+import com.gpt.component.common.validation.annotation.Option;
 import com.gpt.component.common.validation.annotation.Output;
 import com.gpt.component.common.validation.annotation.Validate;
 import com.gpt.component.common.validation.annotation.Variable;
@@ -26,9 +28,13 @@ public class PromoSCImpl implements PromoSC{
 	@EnableActivityLog
 	@Validate
 	@Input({
-		@Variable(name = ApplicationConstants.STR_CODE, format = Format.UPPER_CASE),
-		@Variable(name = ApplicationConstants.STR_NAME),
-		@Variable(name = ApplicationConstants.CORP_ID),
+		@Variable(name = "fileId"),
+		@Variable(name = "fileName"),
+		@Variable(name = "fileFormat", format = Format.UPPER_CASE),
+		@Variable(name = "description"),
+		@Variable(name = "infoType"),
+		@Variable(name = "uploadedDate", format = Format.DATE_TIME, type = Date.class),
+		@Variable(name = ApplicationConstants.CORP_ID, required = false),
 		@Variable(name = ApplicationConstants.LOGIN_USERID, format = Format.UPPER_CASE), 
 		@Variable(name = ApplicationConstants.WF_ACTION, options = {
 			ApplicationConstants.WF_ACTION_CREATE, 
@@ -48,8 +54,8 @@ public class PromoSCImpl implements PromoSC{
 	
 	@Validate
 	@Input({
-		@Variable(name = ApplicationConstants.STR_CODE, format = Format.UPPER_CASE),
-		@Variable(name = "modelCode"),
+		@Variable(name = "id"),
+		@Variable(name = "fileId"),
 		@Variable(name = ApplicationConstants.LOGIN_USERID, format = Format.UPPER_CASE), 
 		@Variable(name = ApplicationConstants.WF_ACTION, options = {
 			ApplicationConstants.WF_ACTION_DELETE
@@ -66,8 +72,11 @@ public class PromoSCImpl implements PromoSC{
 		return parameterMaintenanceService.submit(map);
 	}
 	
-	@Validate
+	@Validate(paging = Option.REQUIRED, sorting = Option.OPTIONAL)
 	@Input({
+		@Variable(name = "id", required = false),
+		@Variable(name = "infoType", required = false),
+		@Variable(name = ApplicationConstants.LOGIN_CORP_ID, required = false),
 		@Variable(name = ApplicationConstants.LOGIN_USERID, format = Format.UPPER_CASE), 
 		@Variable(name = ApplicationConstants.WF_ACTION, options = {
 			ApplicationConstants.WF_ACTION_SEARCH, 
@@ -90,6 +99,16 @@ public class PromoSCImpl implements PromoSC{
 	@Override
 	public PendingTaskVO reject(PendingTaskVO vo) throws ApplicationException, BusinessException {
 		return parameterMaintenanceService.reject(vo);
+	}
+
+	@Output({
+		@Variable(name = "fileId"),
+		@Variable(name = ApplicationConstants.FILENAME),
+		@Variable(name = "uploadDateTime", type = Date.class, format = Format.DATE_TIME)
+	})
+	@Override
+	public Map<String, Object> upload(Map<String, Object> map) throws ApplicationException, BusinessException {
+		return parameterMaintenanceService.upload(map);
 	}
 
 }

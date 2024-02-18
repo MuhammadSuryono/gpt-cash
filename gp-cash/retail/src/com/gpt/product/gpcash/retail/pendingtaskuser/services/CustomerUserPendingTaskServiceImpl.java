@@ -23,6 +23,8 @@ import com.gpt.component.common.utils.ValueUtils;
 import com.gpt.component.idm.menu.model.IDMMenuModel;
 import com.gpt.component.idm.user.model.IDMUserModel;
 import com.gpt.component.idm.utils.IDMRepository;
+import com.gpt.component.maintenance.sysparam.SysParamConstants;
+import com.gpt.component.maintenance.utils.MaintenanceRepository;
 import com.gpt.platform.cash.constants.ApplicationConstants;
 import com.gpt.platform.cash.utils.DateUtils;
 import com.gpt.platform.cash.utils.Helper;
@@ -59,6 +61,9 @@ public class CustomerUserPendingTaskServiceImpl implements CustomerUserPendingTa
 	
 	@Autowired
 	private CustomerTransactionStatusService trxStatusService;
+	
+	@Autowired
+	private MaintenanceRepository maintenanceRepo;
 
 	@Override
 	public Map<String, Object> searchPendingTask(Map<String, Object> map)
@@ -234,6 +239,14 @@ public class CustomerUserPendingTaskServiceImpl implements CustomerUserPendingTa
 			pendingTask.setRemark1(vo.getRemark1());
 			pendingTask.setRemark2(vo.getRemark2());
 			pendingTask.setRemark3(vo.getRemark3());
+			
+			if (vo.getRefNoSpecialRate() != null) {
+				pendingTask.setRefNoSpecialRate(vo.getRefNoSpecialRate());
+			}
+			
+			if(vo.getTransactionCurrency()!=null && vo.getSourceAccountCurrencyCode()!=null) {
+				pendingTask.setServiceCurrencyMatrix(getCurrencyMatrixCode(vo.getSourceAccountCurrencyCode(), vo.getTransactionCurrency()));
+			}
 			
 			if(ValueUtils.hasValue(vo.getTransactionServiceCode())){
 				ServiceModel service = new ServiceModel();
@@ -561,6 +574,28 @@ public class CustomerUserPendingTaskServiceImpl implements CustomerUserPendingTa
 			CustomerTransactionStatus trxStatus) {
 		pendingTaskRepo.flush(); //harus di flush, jika tidak execute query yg masih di EntityManager bakal di drop
 		pendingTaskRepo.updatePendingTask(pendingTaskId, activityDate, activityBy, trxStatus);
+	}
+	
+	private String getCurrencyMatrixCode(String fromCurrency, String toCurrency)
+			throws Exception {
+		String localCurrency = maintenanceRepo.isSysParamValid(SysParamConstants.LOCAL_CURRENCY_CODE).getValue();
+		
+		if (fromCurrency.equalsIgnoreCase(localCurrency) && fromCurrency.equalsIgnoreCase(toCurrency)) {
+			return ApplicationConstants.CCY_MTRX_LL;
+		} else if (fromCurrency.equalsIgnoreCase(localCurrency) 
+				&& !toCurrency.equalsIgnoreCase(fromCurrency)) {
+			return ApplicationConstants.CCY_MTRX_LF;
+		} else if (toCurrency.equalsIgnoreCase(localCurrency) 
+				&& !toCurrency.equalsIgnoreCase(fromCurrency)) {
+			return ApplicationConstants.CCY_MTRX_FL;
+		}else if (!fromCurrency.equalsIgnoreCase(localCurrency) && fromCurrency.equalsIgnoreCase(toCurrency)) {
+			return ApplicationConstants.CCY_MTRX_FS;
+		} else if (!fromCurrency.equalsIgnoreCase(localCurrency) && !toCurrency.equalsIgnoreCase(localCurrency)
+				&& !fromCurrency.equalsIgnoreCase(toCurrency)) {
+			return ApplicationConstants.CCY_MTRX_FC;
+		}
+
+		return null;
 	}
 	
 }

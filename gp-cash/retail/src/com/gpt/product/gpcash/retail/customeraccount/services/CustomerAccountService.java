@@ -45,10 +45,20 @@ public interface CustomerAccountService extends WorkflowService {
 
 	Map<String, Object> findCASAAccountByCustomerAndAccountTypeForInquiryOnlyGetMap(String customerId,
 			List<String> casaAccountType) throws ApplicationException, BusinessException;
+	
+	Map<String, Object> findCASAAccountByCustomerAndVirtualAccountTypeForInquiryOnlyGetMap(String customerId,
+			List<String> casaAccountType) throws ApplicationException, BusinessException;
 
 	Map<String, Object> findByCustomerIdAndIsCredit(String customerId) throws ApplicationException, BusinessException;
 
 	Map<String, Object> searchByCustomerId(Map<String, Object> map) throws ApplicationException, BusinessException;
 
 	int getCountCustomerAccount(String customerId) throws ApplicationException, BusinessException;
+	
+
+	Map<String, Object> findByCustomerIdAndIsDebitMultiCurrency(String customerId)
+			throws ApplicationException, BusinessException;
+	
+	
+	Map<String, Object> findByCustomerIdAndIsCreditMultiCurrency(String customerId) throws ApplicationException, BusinessException;
 }

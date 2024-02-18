@@ -1,3 +1,6 @@
-[17856] 17:11:28.196 D -                      SchedulerHelper(47) [            Scheduler_Worker-8] [-8222750657813068200] : [VA_SOT_RESPONSE_ALL] Scheduled Fire Time : Fri Feb 26 06:30:00 ICT 2021
-[17856] 17:11:28.197 D -                      SchedulerHelper(48) [            Scheduler_Worker-8] [-8222750657813068200] : [VA_SOT_RESPONSE_ALL] Next Fire Time      : Sat Feb 27 06:30:00 ICT 2021
-[17856] 17:11:28.235 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-8] [-8222750657813068200] : [VA_SOT_RESPONSE_ALL] Next Fire Time (New): Sat Feb 27 06:30:00 ICT 2021
+[4184] 06:30:00.082 D -                      SchedulerHelper(47) [            Scheduler_Worker-9] [-7304687800504532409] : [VA_SOT_RESPONSE_ALL] Scheduled Fire Time : Mon Sep 12 06:30:00 ICT 2022
+[4184] 06:30:00.083 D -                      SchedulerHelper(48) [            Scheduler_Worker-9] [-7304687800504532409] : [VA_SOT_RESPONSE_ALL] Next Fire Time      : Mon Sep 12 06:30:00 ICT 2022
+[4184] 06:30:00.089 D -     VATransactionHistoryServiceImpl(577) [            Scheduler_Worker-9] [-7304687800504532409] : executeVASOTResponseScheduler inputs : {filename=, batchSizeThreshold=1000, requestDate=Tue Sep 13 00:00:00 ICT 2022, isNew=false, timeout=3600000}
+[4184] 06:30:00.089 D -                        QueueInvoker(126) [            Scheduler_Worker-9] [-7304687800504532409] : [AutoDiscoveryQueueInvoker] - EAIEngine#invokeService(DoVASOTResponse, {filename=, batchSizeThreshold=1000, requestDate=Tue Sep 13 00:00:00 ICT 2022, isNew=false, timeout=3600000})
+[4184] 06:30:21.134 D -                        QueueInvoker(201) [     ServiceInvoker-Response-1] [-7304687800504532409] : Execution Time: 21045 ms
+[4184] 06:30:21.137 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-9] [-7304687800504532409] : [VA_SOT_RESPONSE_ALL] Next Fire Time (New): Thu Sep 15 06:30:00 ICT 2022

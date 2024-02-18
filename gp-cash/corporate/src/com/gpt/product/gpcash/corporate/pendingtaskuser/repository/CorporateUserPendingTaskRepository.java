@@ -74,4 +74,12 @@ public interface CorporateUserPendingTaskRepository extends JpaRepository<Corpor
     @Query("from CorporateUserPendingTaskModel p where p.refNoSpecialRate = ?1 and p.status = 'PENDING'")
 	CorporateUserPendingTaskModel findByRefNoSpecialRateAndStatusIsPending(String refNoSpecialRate);
     
+    @Modifying
+	@Query("update CorporateUserPendingTaskModel p set p.checkCOTFlag = ?2 where p.id = ?1")
+	void updateCheckCOTFlagPendingTask(String pendingTaskID, String checkCOTFlag) throws Exception;
+    
+    @Modifying
+	@Query("update CorporateUserPendingTaskModel p set p.instructionDate = ?2,p.instructionMode = ?3, p.sessionTime = ?4 where p.id = ?1")
+	void updateInstructionModePendingTask(String pendingTaskId, Timestamp instructionDate,String instructionMode,String sessionTime);
+    
 }

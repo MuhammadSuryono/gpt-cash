@@ -6,12 +6,15 @@ import java.sql.Timestamp;
 import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 @Cacheable
-@Table(name = "MT_PROMO")
+@Table(name = "MT_INFO_UPLOAD")
 public class PromoModel implements Serializable {
 	/**
 	 * MUST use protected for parameter maintenance model if not got error using clazz.getDeclaredField in
@@ -19,38 +22,66 @@ public class PromoModel implements Serializable {
 	 */
 	
 	@Id
+	@GeneratedValue(generator = "uuid")
+	@GenericGenerator(name = "uuid", strategy = "uuid2")
+	@Column(name = "ID")
+	private String id;
+	
 	@Column(name = "CD")
-	public String code;
+	private String code;
 
 	@Column(name = "NM")
-	public String name;
+	private String name;
 	
 	@Column(name = "DSCP")
-	public String dscp;
+	private String dscp;
 
 	@Column(name = "IS_DELETE")
-	public String deleteFlag;
+	private String deleteFlag;
 	
 	@Column(name="CREATED_BY")
-	public String createdBy;
+	private String createdBy;
 	
 	@Column(name="CREATED_DT")
-	public Timestamp createdDate;
+	private Timestamp createdDate;
 	
 	@Column(name="UPDATED_BY")
-	public String updatedBy;
+	private String updatedBy;
 	
 	@Column(name="UPDATED_DT")
-	public Timestamp updatedDate;
+	private Timestamp updatedDate;
 	
 	@Column(name = "CORP_ID")
-	public String corpId;
+	private String corpId;
 	
-	@Column(name = "IMG_URL")
-	protected String promoImgUrl;
+	@Column(name = "FILE_URL")
+	private String fileUrl;
 	
-	@Column(name = "IMG_FILE_NAME")
-	protected String promoImgFileName;
+	@Column(name = "INFO_TYPE")
+	private String infoType;
+	
+	@Column(name = "FILE_NM")
+	private String fileName;
+	
+	@Column(name = "FILE_FORMAT")
+	private String fileFormat;
+	
+	@Column(name = "UPLOAD_DATE")
+	private Timestamp uploadDate;
+	
+	@Column(name = "TITLE")
+	private String title;
+	
+	@Column(name = "UPLOAD_ID")
+	private String uploadId;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public String getCode() {
 		return code;
@@ -124,20 +155,60 @@ public class PromoModel implements Serializable {
 		this.corpId = corpId;
 	}
 
-	public String getPromoImgUrl() {
-		return promoImgUrl;
+	public String getFileUrl() {
+		return fileUrl;
 	}
 
-	public void setPromoImgUrl(String promoImgUrl) {
-		this.promoImgUrl = promoImgUrl;
+	public void setFileUrl(String fileUrl) {
+		this.fileUrl = fileUrl;
 	}
 
-	public String getPromoImgFileName() {
-		return promoImgFileName;
+	public String getInfoType() {
+		return infoType;
 	}
 
-	public void setPromoImgFileName(String promoImgFileName) {
-		this.promoImgFileName = promoImgFileName;
+	public void setInfoType(String infoType) {
+		this.infoType = infoType;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public String getFileFormat() {
+		return fileFormat;
+	}
+
+	public void setFileFormat(String fileFormat) {
+		this.fileFormat = fileFormat;
+	}
+
+	public Timestamp getUploadDate() {
+		return uploadDate;
+	}
+
+	public void setUploadDate(Timestamp uploadDate) {
+		this.uploadDate = uploadDate;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getUploadId() {
+		return uploadId;
+	}
+
+	public void setUploadId(String uploadId) {
+		this.uploadId = uploadId;
 	}
 	
 }

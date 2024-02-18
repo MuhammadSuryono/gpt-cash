@@ -1,5 +1,3 @@
-[9820] 10:06:06.299 D -                      SchedulerHelper(47) [            Scheduler_Worker-8] [-8199879585644065280] : [SWEEPOUT_FUTURE_1] Scheduled Fire Time : Mon Jun 07 07:00:00 ICT 2021
-[9820] 10:06:06.299 D -                      SchedulerHelper(48) [            Scheduler_Worker-8] [-8199879585644065280] : [SWEEPOUT_FUTURE_1] Next Fire Time      : Mon Jun 07 07:00:00 ICT 2021
-[9820] 10:06:07.237 D -                 SweepOutServiceImpl(966) [            Scheduler_Worker-8] [-8199879585644065280] : Future start : 2021-07-27 00:00:00.0
-[9820] 10:06:07.238 D -                 SweepOutServiceImpl(967) [            Scheduler_Worker-8] [-8199879585644065280] : Future end : 2021-07-27 07:00:00.0
-[9820] 10:06:10.935 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-8] [-8199879585644065280] : [SWEEPOUT_FUTURE_1] Next Fire Time (New): Wed Jul 28 07:00:00 ICT 2021
+[23180] 07:00:00.932 D -                      SchedulerHelper(47) [            Scheduler_Worker-6] [ 2522607968562138390] : [SWEEPOUT_FUTURE_1] Scheduled Fire Time : Tue Sep 20 07:00:00 ICT 2022
+[23180] 07:00:00.932 D -                      SchedulerHelper(48) [            Scheduler_Worker-6] [ 2522607968562138390] : [SWEEPOUT_FUTURE_1] Next Fire Time      : Sat Sep 24 07:00:00 ICT 2022
+[23180] 07:00:00.942 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-6] [ 2522607968562138390] : [SWEEPOUT_FUTURE_1] Next Fire Time (New): Sat Sep 24 07:00:00 ICT 2022

@@ -1,46 +1,49 @@
-[3680] 15:53:08.159 D -                  PaymentVAController(65) [          http-nio-8005-exec-6] [-1177436638916230375] : [preInvoke] - [cbe07f86-6413-411a-8777-cd5566d50842] - PaymentVASC#getLocalCurrency({action=SEARCH, loginId=GDBANK|GDUSERMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=GDBANK|GDUSERMAKER})
-[3680] 15:53:08.164 D -                        QueueInvoker(126) [          http-nio-8005-exec-6] [-1177436638916230375] : [AutoDiscoveryQueueInvoker] - PaymentVASC#getLocalCurrency({action=SEARCH, loginId=GDBANK|GDUSERMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=GDBANK|GDUSERMAKER})
-[3680] 15:53:08.167 D -                    ValidationAspect(266) [            ServerThreadPool-2] [-1177436638916230375] : [Validation - Input] - PaymentVASCImpl#getLocalCurrency({action=SEARCH, loginId=GDBANK|GDUSERMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=GDBANK|GDUSERMAKER})
-[3680] 15:53:08.208 D -                    ValidationAspect(280) [            ServerThreadPool-2] [-1177436638916230375] : [Validation - Output] - PaymentVASCImpl#getLocalCurrency({transactionCurrency=IDR})
-[3680] 15:53:08.208 D -                 PaymentVAController(156) [            ServerThreadPool-2] [-1177436638916230375] : onSuccess : {transactionCurrency=IDR}
-[3680] 15:53:08.209 D -                        QueueInvoker(201) [            ServerThreadPool-2] [-1177436638916230375] : Execution Time: 44 ms
-[3680] 15:53:08.232 D -                  PaymentVAController(65) [          http-nio-8005-exec-9] [-8155542595354735904] : [preInvoke] - [cbe07f86-6413-411a-8777-cd5566d50842] - PaymentVASC#searchSourceAccount({action=SEARCH, loginId=GDBANK|GDUSERMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=GDBANK|GDUSERMAKER})
-[3680] 15:53:08.236 D -                        QueueInvoker(126) [          http-nio-8005-exec-9] [-8155542595354735904] : [AutoDiscoveryQueueInvoker] - PaymentVASC#searchSourceAccount({action=SEARCH, loginId=GDBANK|GDUSERMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=GDBANK|GDUSERMAKER})
-[3680] 15:53:08.237 D -                    ValidationAspect(266) [            ServerThreadPool-3] [-8155542595354735904] : [Validation - Input] - PaymentVASCImpl#searchSourceAccount({action=SEARCH, loginId=GDBANK|GDUSERMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=GDBANK|GDUSERMAKER})
-[3680] 15:53:08.653 D -                    ValidationAspect(280) [            ServerThreadPool-3] [-8155542595354735904] : [Validation - Output] - PaymentVASCImpl#searchSourceAccount({accounts=[{accountCurrencyCode=USD, accountName=POC IBANK CORP USD, accountNo=0056789098765, accountTypeCode=001, accountCurrencyName=USD, accountTypeName=Savings Accounts, accountGroupDtlId=6802d520-6424-4ac5-87d1-37fbd5138c1e}, {accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=POC IBANK CORP1, accountNo=0078464437001, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=6c671d4e-765a-4213-b97c-8a5c1ac54aef, accountBranchCode=0000}, {accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=POC IBANK CORP1, accountNo=0078464445002, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=82af1ac4-26ea-49ce-b3c2-5d52af738c9c, accountBranchCode=0000}, {accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=POC IBANK CORP1, accountNo=0078464453003, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=210a47e4-7a41-463f-8505-19bca693e27d, accountBranchCode=0000}]})
-[3680] 15:53:08.654 D -                 PaymentVAController(156) [            ServerThreadPool-3] [-8155542595354735904] : onSuccess : {accounts=[{accountCurrencyCode=USD, accountBranchName=, accountName=POC IBANK CORP USD, accountNo=0056789098765, accountTypeCode=001, accountCurrencyName=USD, accountTypeName=Savings Accounts, accountGroupDtlId=6802d520-6424-4ac5-87d1-37fbd5138c1e, accountBranchCode=}, {accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=POC IBANK CORP1, accountNo=0078464437001, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=6c671d4e-765a-4213-b97c-8a5c1ac54aef, accountBranchCode=0000}, {accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=POC IBANK CORP1, accountNo=0078464445002, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=82af1ac4-26ea-49ce-b3c2-5d52af738c9c, accountBranchCode=0000}, {accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=POC IBANK CORP1, accountNo=0078464453003, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=210a47e4-7a41-463f-8505-19bca693e27d, accountBranchCode=0000}]}
-[3680] 15:53:08.655 D -                        QueueInvoker(201) [            ServerThreadPool-3] [-8155542595354735904] : Execution Time: 419 ms
-[3680] 15:53:08.688 D -                  PaymentVAController(65) [          http-nio-8005-exec-2] [ -525095529091150073] : [preInvoke] - [cbe07f86-6413-411a-8777-cd5566d50842] - PaymentVASC#getTransactionSessionTime({action=SEARCH, loginId=GDBANK|GDUSERMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=GDBANK|GDUSERMAKER})
-[3680] 15:53:08.694 D -                        QueueInvoker(126) [          http-nio-8005-exec-2] [ -525095529091150073] : [AutoDiscoveryQueueInvoker] - PaymentVASC#getTransactionSessionTime({action=SEARCH, loginId=GDBANK|GDUSERMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=GDBANK|GDUSERMAKER})
-[3680] 15:53:08.695 D -                    ValidationAspect(266) [            ServerThreadPool-5] [ -525095529091150073] : [Validation - Input] - PaymentVASCImpl#getTransactionSessionTime({action=SEARCH, loginId=GDBANK|GDUSERMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=GDBANK|GDUSERMAKER})
-[3680] 15:53:08.723 D -                    ValidationAspect(280) [            ServerThreadPool-5] [ -525095529091150073] : [Validation - Output] - PaymentVASCImpl#getTransactionSessionTime({sessionTime=[07:00, 11:00, 13:00, 16:00]})
-[3680] 15:53:08.723 D -                 PaymentVAController(156) [            ServerThreadPool-5] [ -525095529091150073] : onSuccess : {sessionTime=[07:00, 11:00, 13:00, 16:00]}
-[3680] 15:53:08.725 D -                        QueueInvoker(201) [            ServerThreadPool-5] [ -525095529091150073] : Execution Time: 30 ms
-[3680] 15:53:16.331 D -                  PaymentVAController(65) [          http-nio-8005-exec-5] [-2261741597391896230] : [preInvoke] - [cbe07f86-6413-411a-8777-cd5566d50842] - PaymentVASC#confirm({accountGroupDtlId=6802d520-6424-4ac5-87d1-37fbd5138c1e, vaAccountNo=00213123123, transactionServiceCode=GPT_FTR_VA_PAY, instructionMode=I, instructionDate=21/05/2021 00:00:00, sessionTime=00:00, loginId=GDBANK|GDUSERMAKER, loginCorporateId=GDBANK, senderRefNo=, isFinalPayment=N, transactionCurrency=IDR, action=CONFIRM, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=GDBANK|GDUSERMAKER})
-[3680] 15:53:16.335 D -                        QueueInvoker(126) [          http-nio-8005-exec-5] [-2261741597391896230] : [AutoDiscoveryQueueInvoker] - PaymentVASC#confirm({accountGroupDtlId=6802d520-6424-4ac5-87d1-37fbd5138c1e, vaAccountNo=00213123123, transactionServiceCode=GPT_FTR_VA_PAY, instructionMode=I, instructionDate=21/05/2021 00:00:00, sessionTime=00:00, loginId=GDBANK|GDUSERMAKER, loginCorporateId=GDBANK, senderRefNo=, isFinalPayment=N, transactionCurrency=IDR, action=CONFIRM, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=GDBANK|GDUSERMAKER})
-[3680] 15:53:16.352 D -                    ValidationAspect(266) [            ServerThreadPool-1] [-2261741597391896230] : [Validation - Input] - PaymentVASCImpl#confirm({accountGroupDtlId=6802d520-6424-4ac5-87d1-37fbd5138c1e, vaAccountNo=00213123123, transactionServiceCode=GPT_FTR_VA_PAY, instructionMode=I, instructionDate=21/05/2021 00:00:00, sessionTime=00:00, loginId=GDBANK|GDUSERMAKER, loginCorporateId=GDBANK, senderRefNo=, isFinalPayment=N, transactionCurrency=IDR, action=CONFIRM, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=GDBANK|GDUSERMAKER})
-[3680] 15:53:16.354 D -    TransactionValidationServiceImpl(540) [            ServerThreadPool-1] [-2261741597391896230] : 
+[7288] 14:49:22.199 D -                  PaymentVAController(69) [          http-nio-8005-exec-5] [-6561876021737602606] : [preInvoke] - [ba0183d3-e6a8-41b9-946d-b8093bfacedc] - PaymentVASC#getLocalCurrency({action=SEARCH, loginId=MHCORP|MHMAKER, loginCorporateId=MHCORP, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=MHCORP|MHMAKER, loginTokenNo=0023123321, isOneSigner=Y})
+[7288] 14:49:22.206 D -                        QueueInvoker(126) [          http-nio-8005-exec-5] [-6561876021737602606] : [AutoDiscoveryQueueInvoker] - PaymentVASC#getLocalCurrency({action=SEARCH, loginId=MHCORP|MHMAKER, loginCorporateId=MHCORP, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=MHCORP|MHMAKER, loginTokenNo=0023123321, isOneSigner=Y})
+[7288] 14:49:22.209 D -                    ValidationAspect(266) [            ServerThreadPool-3] [-6561876021737602606] : [Validation - Input] - PaymentVASCImpl#getLocalCurrency({action=SEARCH, loginId=MHCORP|MHMAKER, loginCorporateId=MHCORP, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=MHCORP|MHMAKER, loginTokenNo=0023123321, isOneSigner=Y})
+[7288] 14:49:22.247 D -                    ValidationAspect(280) [            ServerThreadPool-3] [-6561876021737602606] : [Validation - Output] - PaymentVASCImpl#getLocalCurrency({transactionCurrency=IDR})
+[7288] 14:49:22.247 D -                 PaymentVAController(156) [            ServerThreadPool-3] [-6561876021737602606] : onSuccess : {transactionCurrency=IDR}
+[7288] 14:49:22.248 D -                        QueueInvoker(201) [            ServerThreadPool-3] [-6561876021737602606] : Execution Time: 41 ms
+[7288] 14:49:22.295 D -                  PaymentVAController(69) [         http-nio-8005-exec-10] [ 2291657989301554462] : [preInvoke] - [ba0183d3-e6a8-41b9-946d-b8093bfacedc] - PaymentVASC#searchSourceAccount({action=SEARCH, loginId=MHCORP|MHMAKER, loginCorporateId=MHCORP, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=MHCORP|MHMAKER, loginTokenNo=0023123321, isOneSigner=Y})
+[7288] 14:49:22.304 D -                        QueueInvoker(126) [         http-nio-8005-exec-10] [ 2291657989301554462] : [AutoDiscoveryQueueInvoker] - PaymentVASC#searchSourceAccount({action=SEARCH, loginId=MHCORP|MHMAKER, loginCorporateId=MHCORP, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=MHCORP|MHMAKER, loginTokenNo=0023123321, isOneSigner=Y})
+[7288] 14:49:22.307 D -                    ValidationAspect(266) [            ServerThreadPool-4] [ 2291657989301554462] : [Validation - Input] - PaymentVASCImpl#searchSourceAccount({action=SEARCH, loginId=MHCORP|MHMAKER, loginCorporateId=MHCORP, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=MHCORP|MHMAKER, loginTokenNo=0023123321, isOneSigner=Y})
+[7288] 14:49:22.410 D -                    ValidationAspect(280) [            ServerThreadPool-4] [ 2291657989301554462] : [Validation - Output] - PaymentVASCImpl#searchSourceAccount({accounts=[{accountCurrencyCode=IDR, accountName=POC IBANK CORP1, accountNo=00133299023329, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountGroupDtlId=5020d4a8-03f4-4136-89f0-663a6c215abf}, {accountCurrencyCode=IDR, accountName=POC IBANK CORP1, accountNo=00188990022988, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountGroupDtlId=c1ec29e5-a02e-40a0-a9a5-d18c5e58715e}, {accountCurrencyCode=IDR, accountName=POC IBANK CORP1, accountNo=00239909938901, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=ddcf65ff-e86d-4640-be78-45fb7cae33b0}]})
+[7288] 14:49:22.411 D -                 PaymentVAController(156) [            ServerThreadPool-4] [ 2291657989301554462] : onSuccess : {accounts=[{accountCurrencyCode=IDR, accountBranchName=, accountName=POC IBANK CORP1, accountNo=00133299023329, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountGroupDtlId=5020d4a8-03f4-4136-89f0-663a6c215abf, accountBranchCode=}, {accountCurrencyCode=IDR, accountBranchName=, accountName=POC IBANK CORP1, accountNo=00188990022988, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountGroupDtlId=c1ec29e5-a02e-40a0-a9a5-d18c5e58715e, accountBranchCode=}, {accountCurrencyCode=IDR, accountBranchName=, accountName=POC IBANK CORP1, accountNo=00239909938901, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=ddcf65ff-e86d-4640-be78-45fb7cae33b0, accountBranchCode=}]}
+[7288] 14:49:22.411 D -                        QueueInvoker(201) [            ServerThreadPool-4] [ 2291657989301554462] : Execution Time: 105 ms
+[7288] 14:49:22.431 D -                  PaymentVAController(69) [          http-nio-8005-exec-2] [  521561562819414100] : [preInvoke] - [ba0183d3-e6a8-41b9-946d-b8093bfacedc] - PaymentVASC#getTransactionSessionTime({action=SEARCH, loginId=MHCORP|MHMAKER, loginCorporateId=MHCORP, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=MHCORP|MHMAKER, loginTokenNo=0023123321, isOneSigner=Y})
+[7288] 14:49:22.435 D -                        QueueInvoker(126) [          http-nio-8005-exec-2] [  521561562819414100] : [AutoDiscoveryQueueInvoker] - PaymentVASC#getTransactionSessionTime({action=SEARCH, loginId=MHCORP|MHMAKER, loginCorporateId=MHCORP, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=MHCORP|MHMAKER, loginTokenNo=0023123321, isOneSigner=Y})
+[7288] 14:49:22.436 D -                    ValidationAspect(266) [            ServerThreadPool-1] [  521561562819414100] : [Validation - Input] - PaymentVASCImpl#getTransactionSessionTime({action=SEARCH, loginId=MHCORP|MHMAKER, loginCorporateId=MHCORP, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=MHCORP|MHMAKER, loginTokenNo=0023123321, isOneSigner=Y})
+[7288] 14:49:22.457 D -                    ValidationAspect(280) [            ServerThreadPool-1] [  521561562819414100] : [Validation - Output] - PaymentVASCImpl#getTransactionSessionTime({sessionTime=[07:00, 11:00, 13:00, 16:00]})
+[7288] 14:49:22.458 D -                 PaymentVAController(156) [            ServerThreadPool-1] [  521561562819414100] : onSuccess : {sessionTime=[07:00, 11:00, 13:00, 16:00]}
+[7288] 14:49:22.458 D -                        QueueInvoker(201) [            ServerThreadPool-1] [  521561562819414100] : Execution Time: 22 ms
+[7288] 14:49:29.564 D -                  PaymentVAController(69) [          http-nio-8005-exec-6] [ 6745131561125039917] : [preInvoke] - [ba0183d3-e6a8-41b9-946d-b8093bfacedc] - PaymentVASC#confirm({accountGroupDtlId=5020d4a8-03f4-4136-89f0-663a6c215abf, vaAccountNo=0012312312331231, transactionServiceCode=GPT_FTR_VA_PAY, instructionMode=I, instructionDate=30/09/2021 00:00:00, sessionTime=00:00, loginId=MHCORP|MHMAKER, loginCorporateId=MHCORP, senderRefNo=, isFinalPayment=N, transactionCurrency=IDR, action=CONFIRM, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=MHCORP|MHMAKER, loginTokenNo=0023123321, isOneSigner=Y})
+[7288] 14:49:29.568 D -                        QueueInvoker(126) [          http-nio-8005-exec-6] [ 6745131561125039917] : [AutoDiscoveryQueueInvoker] - PaymentVASC#confirm({accountGroupDtlId=5020d4a8-03f4-4136-89f0-663a6c215abf, vaAccountNo=0012312312331231, transactionServiceCode=GPT_FTR_VA_PAY, instructionMode=I, instructionDate=30/09/2021 00:00:00, sessionTime=00:00, loginId=MHCORP|MHMAKER, loginCorporateId=MHCORP, senderRefNo=, isFinalPayment=N, transactionCurrency=IDR, action=CONFIRM, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=MHCORP|MHMAKER, loginTokenNo=0023123321, isOneSigner=Y})
+[7288] 14:49:29.688 D -                    ValidationAspect(266) [            ServerThreadPool-5] [ 6745131561125039917] : [Validation - Input] - PaymentVASCImpl#confirm({accountGroupDtlId=5020d4a8-03f4-4136-89f0-663a6c215abf, vaAccountNo=0012312312331231, transactionServiceCode=GPT_FTR_VA_PAY, instructionMode=I, instructionDate=30/09/2021 00:00:00, sessionTime=00:00, loginId=MHCORP|MHMAKER, loginCorporateId=MHCORP, senderRefNo=, isFinalPayment=N, transactionCurrency=IDR, action=CONFIRM, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=MHCORP|MHMAKER, loginTokenNo=0023123321, isOneSigner=Y})
+[7288] 14:49:29.690 D -    TransactionValidationServiceImpl(540) [            ServerThreadPool-5] [ 6745131561125039917] : 
 
 
 
 
 
-[3680] 15:53:16.355 D -    TransactionValidationServiceImpl(541) [            ServerThreadPool-1] [-2261741597391896230] : instructionMode : I
-[3680] 15:53:16.355 D -    TransactionValidationServiceImpl(542) [            ServerThreadPool-1] [-2261741597391896230] : serviceCode : GPT_FTR_VA_PAY
-[3680] 15:53:16.355 D -    TransactionValidationServiceImpl(543) [            ServerThreadPool-1] [-2261741597391896230] : currencyCode : IDR
-[3680] 15:53:16.355 D -    TransactionValidationServiceImpl(544) [            ServerThreadPool-1] [-2261741597391896230] : applicationCode : GPCASHIB
-[3680] 15:53:16.355 D -    TransactionValidationServiceImpl(545) [            ServerThreadPool-1] [-2261741597391896230] : sessionTime : 00:00
-[3680] 15:53:16.356 D -    TransactionValidationServiceImpl(546) [            ServerThreadPool-1] [-2261741597391896230] : isReleaseTrx : false
-[3680] 15:53:16.356 D -    TransactionValidationServiceImpl(547) [            ServerThreadPool-1] [-2261741597391896230] : 
+[7288] 14:49:29.690 D -    TransactionValidationServiceImpl(541) [            ServerThreadPool-5] [ 6745131561125039917] : instructionMode : I
+[7288] 14:49:29.691 D -    TransactionValidationServiceImpl(542) [            ServerThreadPool-5] [ 6745131561125039917] : serviceCode : GPT_FTR_VA_PAY
+[7288] 14:49:29.692 D -    TransactionValidationServiceImpl(543) [            ServerThreadPool-5] [ 6745131561125039917] : currencyCode : IDR
+[7288] 14:49:29.693 D -    TransactionValidationServiceImpl(544) [            ServerThreadPool-5] [ 6745131561125039917] : applicationCode : GPCASHIB
+[7288] 14:49:29.693 D -    TransactionValidationServiceImpl(545) [            ServerThreadPool-5] [ 6745131561125039917] : sessionTime : 00:00
+[7288] 14:49:29.694 D -    TransactionValidationServiceImpl(546) [            ServerThreadPool-5] [ 6745131561125039917] : isReleaseTrx : false
+[7288] 14:49:29.695 D -    TransactionValidationServiceImpl(547) [            ServerThreadPool-5] [ 6745131561125039917] : 
 
 
 
 
 
-[3680] 15:53:16.941 D -                 PaymentVAController(163) [            ServerThreadPool-1] [-2261741597391896230] : onException : com.gpt.component.common.exceptions.ApplicationException: java.lang.NullPointerException
-[3680] 15:53:16.959 E -        GlobalDefaultExceptionHandler(68) [          http-nio-8005-exec-6] [-2261741597391896230] : java.lang.NullPointerException
-com.gpt.component.common.exceptions.ApplicationException: java.lang.NullPointerException
-	at com.gpt.product.gpcash.corporate.transaction.va.paymentva.service.PaymentVAServiceImpl.confirm(PaymentVAServiceImpl.java:560)
+[7288] 14:49:29.793 D -                        QueueInvoker(126) [            ServerThreadPool-5] [ 6745131561125039917] : [AutoDiscoveryQueueInvoker] - EAIEngine#invokeService(DoVAInquiry, {debitAccountNo=00133299023329, vaAccountNo=0012312312331231})
+[7288] 14:49:29.913 D -                        QueueInvoker(201) [     ServiceInvoker-Response-4] [ 6745131561125039917] : Execution Time: 119 ms
+[7288] 14:49:29.934 D -                 PaymentVAController(163) [            ServerThreadPool-5] [ 6745131561125039917] : onException : com.gpt.component.common.exceptions.ApplicationException: com.netflix.hystrix.exception.HystrixRuntimeException: EAIEngine#invokeService failed and no fallback available.
+[7288] 14:49:29.935 D -                        QueueInvoker(201) [            ServerThreadPool-5] [ 6745131561125039917] : Execution Time: 366 ms
+[7288] 14:49:29.938 E -        GlobalDefaultExceptionHandler(68) [          http-nio-8005-exec-5] [ 6745131561125039917] : com.netflix.hystrix.exception.HystrixRuntimeException: EAIEngine#invokeService failed and no fallback available.
+com.gpt.component.common.exceptions.ApplicationException: com.netflix.hystrix.exception.HystrixRuntimeException: EAIEngine#invokeService failed and no fallback available.
+	at com.gpt.product.gpcash.corporate.transaction.va.paymentva.service.PaymentVAServiceImpl.confirm(PaymentVAServiceImpl.java:562)
 	at com.gpt.product.gpcash.corporate.transaction.va.paymentva.service.PaymentVAServiceImpl$$FastClassBySpringCGLIB$$a5f59361.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
@@ -50,15 +53,15 @@ com.gpt.component.common.exceptions.ApplicationException: java.lang.NullPointerE
 	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
-	at com.gpt.product.gpcash.corporate.transaction.va.paymentva.service.PaymentVAServiceImpl$$EnhancerBySpringCGLIB$$95ea102.confirm(<generated>)
-	at com.gpt.product.gpcash.corporate.transaction.va.paymentva.service.PaymentVASCImpl.confirm(PaymentVASCImpl.java:177)
+	at com.gpt.product.gpcash.corporate.transaction.va.paymentva.service.PaymentVAServiceImpl$$EnhancerBySpringCGLIB$$7859eec6.confirm(<generated>)
+	at com.gpt.product.gpcash.corporate.transaction.va.paymentva.service.PaymentVASCImpl.confirm(PaymentVASCImpl.java:228)
 	at com.gpt.product.gpcash.corporate.transaction.va.paymentva.service.PaymentVASCImpl$$FastClassBySpringCGLIB$$6941004.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
 	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
 	at com.gpt.component.common.validation.ValidationAspect.validate(ValidationAspect.java:270)
-	at sun.reflect.GeneratedMethodAccessor144.invoke(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor156.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
@@ -71,8 +74,7 @@ com.gpt.component.common.exceptions.ApplicationException: java.lang.NullPointerE
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
 	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
 	at com.gpt.product.gpcash.corporate.logging.CorporateActivityLogAspect.log(CorporateActivityLogAspect.java:54)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor169.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
@@ -82,7 +84,7 @@ com.gpt.component.common.exceptions.ApplicationException: java.lang.NullPointerE
 	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
-	at com.gpt.product.gpcash.corporate.transaction.va.paymentva.service.PaymentVASCImpl$$EnhancerBySpringCGLIB$$a542b6b4.confirm(<generated>)
+	at com.gpt.product.gpcash.corporate.transaction.va.paymentva.service.PaymentVASCImpl$$EnhancerBySpringCGLIB$$950ccd10.confirm(<generated>)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -93,70 +95,132 @@ com.gpt.component.common.exceptions.ApplicationException: java.lang.NullPointerE
 	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:25)
 	at com.gpt.component.common.invoker.queue.consumer.handler.QueueHandler.processMessage(QueueHandler.java:40)
 	at com.gpt.component.common.invoker.queue.consumer.QueueConsumer$Worker.run(QueueConsumer.java:212)
-Caused by: java.lang.NullPointerException: null
-	at com.gpt.product.gpcash.corporate.transaction.va.paymentva.service.PaymentVAServiceImpl.checkCustomValidation(PaymentVAServiceImpl.java:232)
-	at com.gpt.product.gpcash.corporate.transaction.va.paymentva.service.PaymentVAServiceImpl.confirm(PaymentVAServiceImpl.java:533)
-	... 52 common frames omitted
-[3680] 15:53:16.966 W -   ExceptionHandlerExceptionResolver(189) [          http-nio-8005-exec-6] [-2261741597391896230] : Resolved exception caused by Handler execution: com.gpt.component.common.exceptions.ApplicationException: java.lang.NullPointerException
-[3680] 15:53:16.979 D -                        QueueInvoker(201) [            ServerThreadPool-1] [-2261741597391896230] : Execution Time: 644 ms
-[3680] 15:55:19.624 D -                  PaymentVAController(65) [          http-nio-8005-exec-8] [ 6502222681264703385] : [preInvoke] - [cbe07f86-6413-411a-8777-cd5566d50842] - PaymentVASC#confirm({accountGroupDtlId=6802d520-6424-4ac5-87d1-37fbd5138c1e, vaAccountNo=00213123123, transactionServiceCode=GPT_FTR_VA_PAY, instructionMode=I, instructionDate=21/05/2021 00:00:00, sessionTime=00:00, loginId=GDBANK|GDUSERMAKER, loginCorporateId=GDBANK, senderRefNo=, isFinalPayment=N, transactionCurrency=IDR, action=CONFIRM, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=GDBANK|GDUSERMAKER})
-[3680] 15:55:19.625 D -                        QueueInvoker(126) [          http-nio-8005-exec-8] [ 6502222681264703385] : [AutoDiscoveryQueueInvoker] - PaymentVASC#confirm({accountGroupDtlId=6802d520-6424-4ac5-87d1-37fbd5138c1e, vaAccountNo=00213123123, transactionServiceCode=GPT_FTR_VA_PAY, instructionMode=I, instructionDate=21/05/2021 00:00:00, sessionTime=00:00, loginId=GDBANK|GDUSERMAKER, loginCorporateId=GDBANK, senderRefNo=, isFinalPayment=N, transactionCurrency=IDR, action=CONFIRM, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=GDBANK|GDUSERMAKER})
-[3680] 15:55:19.646 D -                    ValidationAspect(266) [            ServerThreadPool-4] [ 6502222681264703385] : [Validation - Input] - PaymentVASCImpl#confirm({accountGroupDtlId=6802d520-6424-4ac5-87d1-37fbd5138c1e, vaAccountNo=00213123123, transactionServiceCode=GPT_FTR_VA_PAY, instructionMode=I, instructionDate=21/05/2021 00:00:00, sessionTime=00:00, loginId=GDBANK|GDUSERMAKER, loginCorporateId=GDBANK, senderRefNo=, isFinalPayment=N, transactionCurrency=IDR, action=CONFIRM, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=GDBANK|GDUSERMAKER})
-[3680] 15:55:19.647 D -    TransactionValidationServiceImpl(540) [            ServerThreadPool-4] [ 6502222681264703385] : 
-
-
-
-
-
-[3680] 15:55:19.647 D -    TransactionValidationServiceImpl(541) [            ServerThreadPool-4] [ 6502222681264703385] : instructionMode : I
-[3680] 15:55:19.647 D -    TransactionValidationServiceImpl(542) [            ServerThreadPool-4] [ 6502222681264703385] : serviceCode : GPT_FTR_VA_PAY
-[3680] 15:55:19.648 D -    TransactionValidationServiceImpl(543) [            ServerThreadPool-4] [ 6502222681264703385] : currencyCode : IDR
-[3680] 15:55:19.648 D -    TransactionValidationServiceImpl(544) [            ServerThreadPool-4] [ 6502222681264703385] : applicationCode : GPCASHIB
-[3680] 15:55:19.648 D -    TransactionValidationServiceImpl(545) [            ServerThreadPool-4] [ 6502222681264703385] : sessionTime : 00:00
-[3680] 15:55:19.648 D -    TransactionValidationServiceImpl(546) [            ServerThreadPool-4] [ 6502222681264703385] : isReleaseTrx : false
-[3680] 15:55:19.648 D -    TransactionValidationServiceImpl(547) [            ServerThreadPool-4] [ 6502222681264703385] : 
-
-
-
-
-
-[3680] 15:55:20.150 D -                 PaymentVAController(163) [            ServerThreadPool-4] [ 6502222681264703385] : onException : com.gpt.component.common.exceptions.ApplicationException: java.lang.NullPointerException
-[3680] 15:55:20.152 D -                        QueueInvoker(201) [            ServerThreadPool-4] [ 6502222681264703385] : Execution Time: 526 ms
-[3680] 15:55:20.157 E -        GlobalDefaultExceptionHandler(68) [          http-nio-8005-exec-9] [ 6502222681264703385] : java.lang.NullPointerException
-com.gpt.component.common.exceptions.ApplicationException: java.lang.NullPointerException
-	at com.gpt.product.gpcash.corporate.transaction.va.paymentva.service.PaymentVAServiceImpl.confirm(PaymentVAServiceImpl.java:560)
-	at com.gpt.product.gpcash.corporate.transaction.va.paymentva.service.PaymentVAServiceImpl$$FastClassBySpringCGLIB$$a5f59361.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
-	at com.gpt.product.gpcash.corporate.transaction.va.paymentva.service.PaymentVAServiceImpl$$EnhancerBySpringCGLIB$$95ea102.confirm(<generated>)
-	at com.gpt.product.gpcash.corporate.transaction.va.paymentva.service.PaymentVASCImpl.confirm(PaymentVASCImpl.java:177)
-	at com.gpt.product.gpcash.corporate.transaction.va.paymentva.service.PaymentVASCImpl$$FastClassBySpringCGLIB$$6941004.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+Caused by: com.netflix.hystrix.exception.HystrixRuntimeException: EAIEngine#invokeService failed and no fallback available.
+	at com.netflix.hystrix.AbstractCommand$22.call(AbstractCommand.java:819)
+	at com.netflix.hystrix.AbstractCommand$22.call(AbstractCommand.java:804)
+	at rx.internal.operators.OperatorOnErrorResumeNextViaFunction$4.onError(OperatorOnErrorResumeNextViaFunction.java:140)
+	at rx.internal.operators.OnSubscribeDoOnEach$DoOnEachSubscriber.onError(OnSubscribeDoOnEach.java:87)
+	at rx.internal.operators.OnSubscribeDoOnEach$DoOnEachSubscriber.onError(OnSubscribeDoOnEach.java:87)
+	at com.netflix.hystrix.AbstractCommand$DeprecatedOnFallbackHookApplication$1.onError(AbstractCommand.java:1472)
+	at com.netflix.hystrix.AbstractCommand$FallbackHookApplication$1.onError(AbstractCommand.java:1397)
+	at rx.internal.operators.OnSubscribeDoOnEach$DoOnEachSubscriber.onError(OnSubscribeDoOnEach.java:87)
+	at rx.observers.Subscribers$5.onError(Subscribers.java:230)
+	at rx.internal.operators.OnSubscribeThrow.call(OnSubscribeThrow.java:44)
+	at rx.internal.operators.OnSubscribeThrow.call(OnSubscribeThrow.java:28)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDefer.call(OnSubscribeDefer.java:51)
+	at rx.internal.operators.OnSubscribeDefer.call(OnSubscribeDefer.java:35)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:41)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:30)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:41)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:30)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:41)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:30)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:41)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:30)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OperatorOnErrorResumeNextViaFunction$4.onError(OperatorOnErrorResumeNextViaFunction.java:142)
+	at rx.internal.operators.OnSubscribeDoOnEach$DoOnEachSubscriber.onError(OnSubscribeDoOnEach.java:87)
+	at rx.internal.operators.OnSubscribeDoOnEach$DoOnEachSubscriber.onError(OnSubscribeDoOnEach.java:87)
+	at rx.observers.Subscribers$5.onError(Subscribers.java:230)
+	at com.netflix.hystrix.AbstractCommand$DeprecatedOnRunHookApplication$1.onError(AbstractCommand.java:1431)
+	at com.netflix.hystrix.AbstractCommand$ExecutionHookApplication$1.onError(AbstractCommand.java:1362)
+	at rx.observers.Subscribers$5.onError(Subscribers.java:230)
+	at rx.observers.Subscribers$5.onError(Subscribers.java:230)
+	at rx.internal.operators.OnSubscribeThrow.call(OnSubscribeThrow.java:44)
+	at rx.internal.operators.OnSubscribeThrow.call(OnSubscribeThrow.java:28)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDefer.call(OnSubscribeDefer.java:51)
+	at rx.internal.operators.OnSubscribeDefer.call(OnSubscribeDefer.java:35)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDefer.call(OnSubscribeDefer.java:51)
+	at rx.internal.operators.OnSubscribeDefer.call(OnSubscribeDefer.java:35)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:41)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:30)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:41)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:30)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:41)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:30)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:41)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:30)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:41)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:30)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDefer.call(OnSubscribeDefer.java:51)
+	at rx.internal.operators.OnSubscribeDefer.call(OnSubscribeDefer.java:35)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeMap.call(OnSubscribeMap.java:48)
+	at rx.internal.operators.OnSubscribeMap.call(OnSubscribeMap.java:33)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:41)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:30)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:41)
+	at rx.internal.operators.OnSubscribeDoOnEach.call(OnSubscribeDoOnEach.java:30)
+	at rx.Observable.unsafeSubscribe(Observable.java:10151)
+	at rx.internal.operators.OnSubscribeDefer.call(OnSubscribeDefer.java:51)
+	at rx.internal.operators.OnSubscribeDefer.call(OnSubscribeDefer.java:35)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+	at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+	at rx.Observable.subscribe(Observable.java:10247)
+	at rx.Observable.subscribe(Observable.java:10214)
+	at rx.internal.operators.BlockingOperatorToFuture.toFuture(BlockingOperatorToFuture.java:51)
+	at rx.observables.BlockingObservable.toFuture(BlockingObservable.java:411)
+	at com.netflix.hystrix.HystrixCommand.queue(HystrixCommand.java:378)
+	at com.netflix.hystrix.HystrixCommand.execute(HystrixCommand.java:344)
+	at com.gpt.component.common.configuration.AutoDiscoveryConfiguration$RemoteInvocationHandler.invoke(AutoDiscoveryConfiguration.java:492)
+	at com.sun.proxy.$Proxy213.invokeService(Unknown Source)
+	at com.gpt.product.gpcash.corporate.transaction.va.paymentva.service.PaymentVAServiceImpl.confirm(PaymentVAServiceImpl.java:544)
+	... 51 common frames omitted
+Caused by: java.util.concurrent.ExecutionException: com.gpt.component.common.exceptions.BusinessException: EAI-EAI-00
+	at com.gpt.component.common.invoker.QueueInvoker$FutureActionResponse.lambda$new$33(QueueInvoker.java:232)
+	at com.gpt.component.common.invoker.QueueInvoker$ActionResponse.handle(QueueInvoker.java:196)
+	at com.gpt.component.common.invoker.QueueInvoker$FutureActionResponse.handle(QueueInvoker.java:224)
+	at com.gpt.component.common.invoker.QueueInvoker$1.onMessage(QueueInvoker.java:59)
+	at com.gpt.component.common.invoker.queue.consumer.handler.QueueHandler.processMessage(QueueHandler.java:54)
+	at com.gpt.component.common.invoker.queue.consumer.MultiQueuesConsumer$ResponseWorker.run(MultiQueuesConsumer.java:163)
+Caused by: com.gpt.component.common.exceptions.BusinessException: EAI-EAI-00
+	at com.gpt.product.cash.eai.bjb.service.gpcash.paymentva.DoVAInquiry.executeService(DoVAInquiry.java:51)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:333)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:741)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
 	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
 	at com.gpt.component.common.validation.ValidationAspect.validate(ValidationAspect.java:270)
-	at sun.reflect.GeneratedMethodAccessor144.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
-	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
-	at com.gpt.product.gpcash.corporate.logging.CorporateActivityLogAspect.log(CorporateActivityLogAspect.java:54)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor48.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
@@ -166,9 +230,10 @@ com.gpt.component.common.exceptions.ApplicationException: java.lang.NullPointerE
 	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
-	at com.gpt.product.gpcash.corporate.transaction.va.paymentva.service.PaymentVASCImpl$$EnhancerBySpringCGLIB$$a542b6b4.confirm(<generated>)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at com.gpt.product.cash.eai.bjb.service.gpcash.paymentva.DoVAInquiry$$EnhancerBySpringCGLIB$$e47c43df.executeService(<generated>)
+	at com.gpt.platform.eai.service.BaseService.execute(BaseService.java:32)
+	at com.gpt.platform.eai.service.ServiceLocator.invokeService(ServiceLocator.java:31)
+	at sun.reflect.GeneratedMethodAccessor54.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:63)
@@ -177,8 +242,22 @@ com.gpt.component.common.exceptions.ApplicationException: java.lang.NullPointerE
 	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:25)
 	at com.gpt.component.common.invoker.queue.consumer.handler.QueueHandler.processMessage(QueueHandler.java:40)
 	at com.gpt.component.common.invoker.queue.consumer.QueueConsumer$Worker.run(QueueConsumer.java:212)
-Caused by: java.lang.NullPointerException: null
-	at com.gpt.product.gpcash.corporate.transaction.va.paymentva.service.PaymentVAServiceImpl.checkCustomValidation(PaymentVAServiceImpl.java:232)
-	at com.gpt.product.gpcash.corporate.transaction.va.paymentva.service.PaymentVAServiceImpl.confirm(PaymentVAServiceImpl.java:533)
-	... 52 common frames omitted
-[3680] 15:55:20.159 W -   ExceptionHandlerExceptionResolver(189) [          http-nio-8005-exec-9] [ 6502222681264703385] : Resolved exception caused by Handler execution: com.gpt.component.common.exceptions.ApplicationException: java.lang.NullPointerException
+[7288] 14:49:29.941 W -   ExceptionHandlerExceptionResolver(189) [          http-nio-8005-exec-5] [ 6745131561125039917] : Resolved exception caused by Handler execution: com.gpt.component.common.exceptions.ApplicationException: com.netflix.hystrix.exception.HystrixRuntimeException: EAIEngine#invokeService failed and no fallback available.
+[7288] 14:51:18.305 D -                  PaymentVAController(69) [          http-nio-8005-exec-2] [-3318528580224136852] : [preInvoke] - [ba0183d3-e6a8-41b9-946d-b8093bfacedc] - PaymentVASC#getLocalCurrency({action=SEARCH, loginId=MHCORP|MHMAKER, loginCorporateId=MHCORP, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=MHCORP|MHMAKER, loginTokenNo=0023123321, isOneSigner=Y})
+[7288] 14:51:18.306 D -                        QueueInvoker(126) [          http-nio-8005-exec-2] [-3318528580224136852] : [AutoDiscoveryQueueInvoker] - PaymentVASC#getLocalCurrency({action=SEARCH, loginId=MHCORP|MHMAKER, loginCorporateId=MHCORP, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=MHCORP|MHMAKER, loginTokenNo=0023123321, isOneSigner=Y})
+[7288] 14:51:18.308 D -                    ValidationAspect(266) [            ServerThreadPool-5] [-3318528580224136852] : [Validation - Input] - PaymentVASCImpl#getLocalCurrency({action=SEARCH, loginId=MHCORP|MHMAKER, loginCorporateId=MHCORP, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=MHCORP|MHMAKER, loginTokenNo=0023123321, isOneSigner=Y})
+[7288] 14:51:18.395 D -                    ValidationAspect(280) [            ServerThreadPool-5] [-3318528580224136852] : [Validation - Output] - PaymentVASCImpl#getLocalCurrency({transactionCurrency=IDR})
+[7288] 14:51:18.396 D -                 PaymentVAController(156) [            ServerThreadPool-5] [-3318528580224136852] : onSuccess : {transactionCurrency=IDR}
+[7288] 14:51:18.396 D -                        QueueInvoker(201) [            ServerThreadPool-5] [-3318528580224136852] : Execution Time: 89 ms
+[7288] 14:51:18.432 D -                  PaymentVAController(69) [          http-nio-8005-exec-3] [-8348351038015979103] : [preInvoke] - [ba0183d3-e6a8-41b9-946d-b8093bfacedc] - PaymentVASC#searchSourceAccount({action=SEARCH, loginId=MHCORP|MHMAKER, loginCorporateId=MHCORP, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=MHCORP|MHMAKER, loginTokenNo=0023123321, isOneSigner=Y})
+[7288] 14:51:18.434 D -                        QueueInvoker(126) [          http-nio-8005-exec-3] [-8348351038015979103] : [AutoDiscoveryQueueInvoker] - PaymentVASC#searchSourceAccount({action=SEARCH, loginId=MHCORP|MHMAKER, loginCorporateId=MHCORP, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=MHCORP|MHMAKER, loginTokenNo=0023123321, isOneSigner=Y})
+[7288] 14:51:18.437 D -                    ValidationAspect(266) [            ServerThreadPool-2] [-8348351038015979103] : [Validation - Input] - PaymentVASCImpl#searchSourceAccount({action=SEARCH, loginId=MHCORP|MHMAKER, loginCorporateId=MHCORP, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=MHCORP|MHMAKER, loginTokenNo=0023123321, isOneSigner=Y})
+[7288] 14:51:18.569 D -                    ValidationAspect(280) [            ServerThreadPool-2] [-8348351038015979103] : [Validation - Output] - PaymentVASCImpl#searchSourceAccount({accounts=[{accountCurrencyCode=IDR, accountName=POC IBANK CORP1, accountNo=00133299023329, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountGroupDtlId=5020d4a8-03f4-4136-89f0-663a6c215abf}, {accountCurrencyCode=IDR, accountName=POC IBANK CORP1, accountNo=00188990022988, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountGroupDtlId=c1ec29e5-a02e-40a0-a9a5-d18c5e58715e}, {accountCurrencyCode=IDR, accountName=POC IBANK CORP1, accountNo=00239909938901, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=ddcf65ff-e86d-4640-be78-45fb7cae33b0}]})
+[7288] 14:51:18.569 D -                 PaymentVAController(156) [            ServerThreadPool-2] [-8348351038015979103] : onSuccess : {accounts=[{accountCurrencyCode=IDR, accountBranchName=, accountName=POC IBANK CORP1, accountNo=00133299023329, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountGroupDtlId=5020d4a8-03f4-4136-89f0-663a6c215abf, accountBranchCode=}, {accountCurrencyCode=IDR, accountBranchName=, accountName=POC IBANK CORP1, accountNo=00188990022988, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountGroupDtlId=c1ec29e5-a02e-40a0-a9a5-d18c5e58715e, accountBranchCode=}, {accountCurrencyCode=IDR, accountBranchName=, accountName=POC IBANK CORP1, accountNo=00239909938901, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=ddcf65ff-e86d-4640-be78-45fb7cae33b0, accountBranchCode=}]}
+[7288] 14:51:18.570 D -                        QueueInvoker(201) [            ServerThreadPool-2] [-8348351038015979103] : Execution Time: 135 ms
+[7288] 14:51:18.589 D -                  PaymentVAController(69) [          http-nio-8005-exec-5] [-4837224125719820756] : [preInvoke] - [ba0183d3-e6a8-41b9-946d-b8093bfacedc] - PaymentVASC#getTransactionSessionTime({action=SEARCH, loginId=MHCORP|MHMAKER, loginCorporateId=MHCORP, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=MHCORP|MHMAKER, loginTokenNo=0023123321, isOneSigner=Y})
+[7288] 14:51:18.589 D -                        QueueInvoker(126) [          http-nio-8005-exec-5] [-4837224125719820756] : [AutoDiscoveryQueueInvoker] - PaymentVASC#getTransactionSessionTime({action=SEARCH, loginId=MHCORP|MHMAKER, loginCorporateId=MHCORP, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=MHCORP|MHMAKER, loginTokenNo=0023123321, isOneSigner=Y})
+[7288] 14:51:18.590 D -                    ValidationAspect(266) [            ServerThreadPool-3] [-4837224125719820756] : [Validation - Input] - PaymentVASCImpl#getTransactionSessionTime({action=SEARCH, loginId=MHCORP|MHMAKER, loginCorporateId=MHCORP, menuCode=MNU_GPCASH_F_PAYMENT_VA, appCode=GPCASHIB, loginUserCode=MHCORP|MHMAKER, loginTokenNo=0023123321, isOneSigner=Y})
+[7288] 14:51:18.604 D -                    ValidationAspect(280) [            ServerThreadPool-3] [-4837224125719820756] : [Validation - Output] - PaymentVASCImpl#getTransactionSessionTime({sessionTime=[07:00, 11:00, 13:00, 16:00]})
+[7288] 14:51:18.604 D -                 PaymentVAController(156) [            ServerThreadPool-3] [-4837224125719820756] : onSuccess : {sessionTime=[07:00, 11:00, 13:00, 16:00]}
+[7288] 14:51:18.604 D -                        QueueInvoker(201) [            ServerThreadPool-3] [-4837224125719820756] : Execution Time: 14 ms

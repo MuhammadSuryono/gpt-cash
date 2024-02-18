@@ -50,7 +50,7 @@ public class InternationalTransferController extends CorporateUserBaseController
 		}, this::defaultOnException, param);
 	}
 	
-	@RequestMapping(baseCorpUserUrl + "/" + menuCode + "/submit")
+	/*@RequestMapping(baseCorpUserUrl + "/" + menuCode + "/submit")
 	public DeferredResult<Map<String, Object>> approve(HttpServletRequest request,
 			@RequestBody Map<String, Object> param) {
 		HttpSession session = request.getSession(false);
@@ -73,7 +73,7 @@ public class InternationalTransferController extends CorporateUserBaseController
 		//END count totalDebitedAmount
 		
 		return invoke("InternationalTransferSC", "submit", param);
-	}
+	}*/
 	
 	@RequestMapping(path = baseCorpUserUrl + "/" + menuCode + "/downloadTransactionStatus", method = RequestMethod.POST)
 	public DeferredResult<Map<String, Object>> downloadPeriodicTransaction(HttpServletRequest request, HttpServletResponse response, @RequestBody Map<String, Object> param) {

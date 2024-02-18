@@ -16,4 +16,11 @@ public interface CustomerChargeService extends WorkflowService {
 
 	Map<String, Object> getCustomerChargesPerRecord(String applicationCode, String transactionServiceCode,
 			String customerId, Long records) throws ApplicationException, BusinessException;
+	
+	
+	Map<String, Object> getCustomerChargesEquivalent(String applicationCode, String transactionServiceCode, String customerId, String transactionCurrency)
+			throws ApplicationException, BusinessException;
+
+	Map<String, Object> getCustomerChargesPerRecordEquivalent(String applicationCode, String transactionServiceCode,
+			String customerId, Long records, String transactionCurrency) throws ApplicationException, BusinessException;
 }

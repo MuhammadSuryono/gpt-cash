@@ -30,22 +30,47 @@ public class CorporateUserMultiPendingTaskServiceImpl implements CorporateUserMu
 		List<Map<String, Object>> pendingTaskList = (ArrayList<Map<String,Object>>)map.get("pendingTaskList");
 		
 		for(Map<String, Object> pendingTaskMap: pendingTaskList){
-			String taskId = (String) pendingTaskMap.get("taskId");
-			String referenceNo = (String) pendingTaskMap.get(ApplicationConstants.WF_FIELD_REFERENCE_NO);
-			
-			Map<String, Object> inputMap = new HashMap<>();
-			inputMap.put(ApplicationConstants.LOGIN_USERCODE, (String) map.get(ApplicationConstants.LOGIN_USERCODE));
-			inputMap.put(ApplicationConstants.WF_FIELD_REFERENCE_NO, referenceNo);
-			inputMap.put("taskId", taskId);
-			
-			try {
-				pendingTaskMap.putAll(pendingTaskService.approve(inputMap));
-			} catch (Exception e) {
-				pendingTaskMap.put("message", e.getMessage());
-				logger.error(e.getMessage(), e);
+			String pendingTaskMenuName = (String) pendingTaskMap.get("pendingTaskMenuName");
+			if("Overbooking".equals(pendingTaskMenuName)){
+				String taskId = (String) pendingTaskMap.get("taskId");
+				String referenceNo = (String) pendingTaskMap.get(ApplicationConstants.WF_FIELD_REFERENCE_NO);
+				
+				Map<String, Object> inputMap = new HashMap<>();
+				inputMap.put(ApplicationConstants.LOGIN_USERCODE, (String) map.get(ApplicationConstants.LOGIN_USERCODE));
+				inputMap.put(ApplicationConstants.WF_FIELD_REFERENCE_NO, referenceNo);
+				inputMap.put("taskId", taskId);
+				
+				try {
+					pendingTaskMap.putAll(pendingTaskService.approve(inputMap));
+				} catch (Exception e) {
+					pendingTaskMap.put("message", e.getMessage());
+					logger.error(e.getMessage(), e);
+				}
+				
+				resultList.add(pendingTaskMap);
 			}
-			
-			resultList.add(pendingTaskMap);
+		}
+		
+		for(Map<String, Object> pendingTaskMap: pendingTaskList){
+			String pendingTaskMenuName = (String) pendingTaskMap.get("pendingTaskMenuName");
+			if(!"Overbooking".equals(pendingTaskMenuName)){
+				String taskId = (String) pendingTaskMap.get("taskId");
+				String referenceNo = (String) pendingTaskMap.get(ApplicationConstants.WF_FIELD_REFERENCE_NO);
+				
+				Map<String, Object> inputMap = new HashMap<>();
+				inputMap.put(ApplicationConstants.LOGIN_USERCODE, (String) map.get(ApplicationConstants.LOGIN_USERCODE));
+				inputMap.put(ApplicationConstants.WF_FIELD_REFERENCE_NO, referenceNo);
+				inputMap.put("taskId", taskId);
+				
+				try {
+					pendingTaskMap.putAll(pendingTaskService.approve(inputMap));
+				} catch (Exception e) {
+					pendingTaskMap.put("message", e.getMessage());
+					logger.error(e.getMessage(), e);
+				}
+				
+				resultList.add(pendingTaskMap);
+			}
 		}
 
 		resultMap.put("result", resultList);

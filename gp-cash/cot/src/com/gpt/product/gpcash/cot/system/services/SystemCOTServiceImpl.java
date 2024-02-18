@@ -403,4 +403,51 @@ public class SystemCOTServiceImpl implements SystemCOTService {
 
 		return resultMap;
 	}
+	
+	@Override
+	public boolean validateSystemCOTForChecking(String code, String applicationCode)
+			throws Exception {
+		SystemCOTModel systemCOT = systemCOTRepo.findByCodeAndApplicationCode(code, applicationCode);
+		
+		if(logger.isDebugEnabled()) {
+			logger.info("COT Code : " + code);
+			logger.info("COT Application Code : " + applicationCode);
+		}
+		
+		if(systemCOT == null){
+			throw new BusinessException("GPT-0100110");
+		}
+		
+		String[] startTime = systemCOT.getStartTime().split(":");
+		Calendar cotStart = Calendar.getInstance();
+		cotStart.set(Calendar.HOUR_OF_DAY, Integer.parseInt(startTime[0]));
+		cotStart.set(Calendar.MINUTE, Integer.parseInt(startTime[1]));
+		cotStart.set(Calendar.SECOND, 0);
+		cotStart.set(Calendar.MILLISECOND, 0);
+		
+		String[] endTime = systemCOT.getEndTime().split(":");
+		Calendar cotEnd = Calendar.getInstance();
+		cotEnd.set(Calendar.HOUR_OF_DAY, Integer.parseInt(endTime[0]));
+		cotEnd.set(Calendar.MINUTE, Integer.parseInt(endTime[1]));
+		cotEnd.set(Calendar.SECOND, 0);
+		cotEnd.set(Calendar.MILLISECOND, 0);
+		
+		Calendar instructionDateCal = Calendar.getInstance();
+		
+		if (logger.isDebugEnabled()){
+			logger.debug("\n\n\n\n\n\n");
+			logger.debug("code: " + code);
+			logger.debug("applicationCode: " + applicationCode);
+			logger.debug("COT start : " + cotStart.getTime());
+			logger.debug("COT end : " + cotEnd.getTime());
+			logger.debug("Today Date : " + instructionDateCal.getTime());
+			logger.debug("\n\n\n\n\n\n");
+		}
+		
+		if(!(instructionDateCal.compareTo(cotStart) >= 0 && instructionDateCal.compareTo(cotEnd) <= 0)){
+			return true;
+		}
+		
+		return false;
+	}
 }

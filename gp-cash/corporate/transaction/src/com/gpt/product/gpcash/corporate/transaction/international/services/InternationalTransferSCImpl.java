@@ -123,7 +123,8 @@ public class InternationalTransferSCImpl implements InternationalTransferSC {
 		@Variable(name = "remark3", required = false),
 		@Variable(name = "exchangeRate", options = { 
 				ApplicationConstants.RATE_COUNTER, 
-				ApplicationConstants.RATE_SPECIAL
+				ApplicationConstants.RATE_SPECIAL,
+				ApplicationConstants.RATE_FORWARD_CONTRACT
 			}, required = false, defaultValue = ApplicationConstants.RATE_COUNTER),
 		@Variable(name = "instructionMode", options = { 
 			ApplicationConstants.SI_IMMEDIATE, 
@@ -244,7 +245,8 @@ public class InternationalTransferSCImpl implements InternationalTransferSC {
 		@Variable(name = "underlyingCode", required = false),
 		@Variable(name = "exchangeRate", options = { 
 				ApplicationConstants.RATE_COUNTER, 
-				ApplicationConstants.RATE_SPECIAL
+				ApplicationConstants.RATE_SPECIAL,
+				ApplicationConstants.RATE_FORWARD_CONTRACT
 			}, required = false, defaultValue = ApplicationConstants.RATE_COUNTER),
 		@Variable(name = "instructionMode", options = {
 			ApplicationConstants.SI_IMMEDIATE, 
@@ -293,6 +295,8 @@ public class InternationalTransferSCImpl implements InternationalTransferSC {
 				(String) map.get(ApplicationConstants.TRANS_CURRENCY), (String)map.get(ApplicationConstants.APP_CODE),
 				(String) map.get("sessionTime"), false, true);
 		
+		String treasuryCode = map.get("treasuryCode")!=null?(String)map.get("treasuryCode"):"";
+		
 		Map<String, Object> limitMap = transactionValidationService.validateLimitEquivalent((String) map.get(ApplicationConstants.LOGIN_USERCODE), 
 				(String) map.get(ApplicationConstants.LOGIN_CORP_ID), (String) map.get(ApplicationConstants.TRANS_SERVICE_CODE), 
 				(String) map.get(ApplicationConstants.ACCOUNT_GRP_DTL_ID), 
@@ -302,7 +306,8 @@ public class InternationalTransferSCImpl implements InternationalTransferSC {
 				map.get("instructionDate"),
 				(String)map.get("instructionMode"),
 				map.get("recurringStartDate"),
-				ApplicationConstants.RATE_COUNTER,"");
+				(String)map.get("exchangeRate"),
+				treasuryCode);
 		
 		map.putAll(limitMap);
 		
@@ -594,5 +599,55 @@ public class InternationalTransferSCImpl implements InternationalTransferSC {
 	@Override
 	public Map<String, Object> searchBranchForDroplist(Map<String, Object> map) throws ApplicationException, BusinessException {
 		return branchService.search(map);
+	}
+	
+	@Validate
+	@Input({ 
+		@Variable(name = ApplicationConstants.LOGIN_USERID, format = Format.UPPER_CASE),
+		@Variable(name = ApplicationConstants.LOGIN_CORP_ID, format = Format.UPPER_CASE),
+		@Variable(name = "treasuryCode", required = false),
+		@Variable(name = ApplicationConstants.STR_MENUCODE, options = menuCode),
+		@Variable(name = ApplicationConstants.TRANS_CURRENCY),
+		@Variable(name = "sourceAccountCurrency"), 
+		@Variable(name = ApplicationConstants.TRANS_AMOUNT, type = BigDecimal.class),
+		@Variable(name = "exchangeRate", options = { 
+			ApplicationConstants.RATE_COUNTER, 
+			ApplicationConstants.RATE_SPECIAL,
+			ApplicationConstants.RATE_FORWARD_CONTRACT
+		}),
+		@Variable(name = "instructionMode", options = { 
+				ApplicationConstants.SI_IMMEDIATE, 
+				ApplicationConstants.SI_FUTURE_DATE, 
+				ApplicationConstants.SI_RECURRING 
+			}),
+		@Variable(name = "currencyMatrix", options = { 
+				ApplicationConstants.CCY_MTRX_FL
+			}),
+		@Variable(name = "instructionDate", type = Timestamp.class, format = Format.DATE_TIME, required = false),
+	})
+	@Override
+	public Map<String, Object> checkRate(Map<String, Object> map) throws ApplicationException, BusinessException {
+		
+		if (String.valueOf(map.get("exchangeRate")).equals(ApplicationConstants.RATE_COUNTER)) {
+			return transactionValidationService.validateCounterRate((String) map.get("sourceAccountCurrency"), (String) map.get(ApplicationConstants.TRANS_CURRENCY),new BigDecimal((map.get(ApplicationConstants.TRANS_AMOUNT).toString())));
+		} else if (String.valueOf(map.get("exchangeRate")).equals(ApplicationConstants.RATE_SPECIAL))  {
+			String treasuryCode = (String) map.get("treasuryCode");
+			String sourceAccountCurrency = (String) map.get("sourceAccountCurrency");
+			String transactionCurrency = (String) map.get(ApplicationConstants.TRANS_CURRENCY);
+			BigDecimal trxAmount = new BigDecimal((map.get(ApplicationConstants.TRANS_AMOUNT).toString()));
+			Timestamp instructionDate = (Timestamp) map.get("instructionDate");
+			String instructionMode = (String) map.get("instructionMode");
+			String corporateID = (String) map.get(ApplicationConstants.LOGIN_CORP_ID);
+			return transactionValidationService.checkSpecialRate(treasuryCode,sourceAccountCurrency, transactionCurrency,trxAmount,instructionDate,corporateID,instructionMode);
+		}else {
+			String treasuryCode = (String) map.get("treasuryCode");
+			String sourceAccountCurrency = (String) map.get("sourceAccountCurrency");
+			String transactionCurrency = (String) map.get(ApplicationConstants.TRANS_CURRENCY);
+			BigDecimal trxAmount = new BigDecimal((map.get(ApplicationConstants.TRANS_AMOUNT).toString()));
+			Timestamp instructionDate = (Timestamp) map.get("instructionDate");
+			String instructionMode = (String) map.get("instructionMode");
+			String corporateID = (String) map.get(ApplicationConstants.LOGIN_CORP_ID);
+			return transactionValidationService.checkForwardContract(treasuryCode,sourceAccountCurrency, transactionCurrency,trxAmount,instructionDate,corporateID,instructionMode);
+		}
 	}
 }

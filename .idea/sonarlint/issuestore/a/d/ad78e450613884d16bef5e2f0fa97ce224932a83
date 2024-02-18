@@ -1,0 +1,201 @@
+
+a	java:S112Ğ"FDefine and throw a dedicated exception instead of using a generic one.(™µ„øøÿÿÿÿ
+a	java:S112ı"FDefine and throw a dedicated exception instead of using a generic one.(Öı¦Åıÿÿÿÿ
+j
+java:S1192¨	"SDefine a constant instead of duplicating this literal "chargeExchangeRate" 5 times.(é­¡ï
+b
+java:S1192®"KDefine a constant instead of duplicating this literal "branchCode" 4 times.(°Ö·À
+n
+java:S1192•"RDefine a constant instead of duplicating this literal "serviceChargeName" 5 times.(ä…„‚üÿÿÿÿ
+f
+java:S1192¦	"ODefine a constant instead of duplicating this literal "chargeCurrency" 5 times.(ÌÛ‘
+g
+java:S1192ê"KDefine a constant instead of duplicating this literal "statusCode" 4 times.(¿ øÄıÿÿÿÿ
+c
+java:S1192"GDefine a constant instead of duplicating this literal "status" 5 times.(ˆÂşÿÿÿÿ
+c
+java:S1192Ô"GDefine a constant instead of duplicating this literal "result" 6 times.(Ë±ïâûÿÿÿÿ
+b
+java:S1192ë"KDefine a constant instead of duplicating this literal "statusName" 4 times.(ÔÔÒ
+o
+java:S1192€"SDefine a constant instead of duplicating this literal "GPT-ILLEGAL-ACTION" 3 times.(êùÇçşÿÿÿÿ
+d
+java:S1192ı"MDefine a constant instead of duplicating this literal "chequeNoFrom" 3 times.(Œøò
+j
+java:S1192Ì"NDefine a constant instead of duplicating this literal "chequeOrderId" 7 times.(ğ²×‰úÿÿÿÿ
+d
+java:S1192ş"MDefine a constant instead of duplicating this literal "GPT-0200008|" 3 times.(«³Ìù
+i
+java:S1192™"MDefine a constant instead of duplicating this literal "currencyCode" 6 times.(çææ¦ıÿÿÿÿ
+g
+java:S1192¥	"KDefine a constant instead of duplicating this literal "chargeType" 5 times.(ëğúÿÿÿÿ
+a
+java:S1192Û"JDefine a constant instead of duplicating this literal "noOfPages" 5 times.(‘í¡’
+c
+java:S1192ı"LDefine a constant instead of duplicating this literal "GPT-0200009" 3 times.(±Âš€
+d
+java:S1192ÿ"MDefine a constant instead of duplicating this literal "chequeSerial" 4 times.(×Ûâ®
+_
+java:S1192Í"HDefine a constant instead of duplicating this literal "orderNo" 5 times.(Ï¶ÁÔ
+`
+java:S1192·"IDefine a constant instead of duplicating this literal "chequeNo" 4 times.(…ô–î
+d
+java:S1192š"MDefine a constant instead of duplicating this literal "currencyName" 5 times.(¬ÅªÇ
+a
+java:S1192í"JDefine a constant instead of duplicating this literal "accountNo" 3 times.(½§¯Õ
+g
+java:S1192ş"KDefine a constant instead of duplicating this literal "chequeNoTo" 3 times.(‡ŸëÃùÿÿÿÿ
+]
+java:S1192–"FDefine a constant instead of duplicating this literal "value" 6 times.(¯ü³‡
+g
+java:S1192ß"KDefine a constant instead of duplicating this literal "branchName" 3 times.(ñù’„øÿÿÿÿ
+b
+java:S1192à"KDefine a constant instead of duplicating this literal "chargeList" 3 times.(¹Æª
+n
+java:S1192§	"WDefine a constant instead of duplicating this literal "chargeEquivalentAmount" 5 times.(Œ¢†Ì
+Q
+java:S1141ê"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+X
+java:S6813k"BRemove this field injection and use constructor injection instead.(êæÄŞ
+X
+java:S6813n"BRemove this field injection and use constructor injection instead.(êæÄŞ
+X
+java:S6813q"BRemove this field injection and use constructor injection instead.(êæÄŞ
+X
+java:S6813t"BRemove this field injection and use constructor injection instead.(êæÄŞ
+X
+java:S6813w"BRemove this field injection and use constructor injection instead.(êæÄŞ
+X
+java:S6813z"BRemove this field injection and use constructor injection instead.(êæÄŞ
+X
+java:S6813}"BRemove this field injection and use constructor injection instead.(êæÄŞ
+Y
+java:S6813€"BRemove this field injection and use constructor injection instead.(êæÄŞ
+Y
+java:S6813ƒ"BRemove this field injection and use constructor injection instead.(êæÄŞ
+Y
+java:S6813†"BRemove this field injection and use constructor injection instead.(êæÄŞ
+Y
+java:S6813‰"BRemove this field injection and use constructor injection instead.(êæÄŞ
+Y
+java:S6813Œ"BRemove this field injection and use constructor injection instead.(êæÄŞ
+Y
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ
+Y
+java:S6813’"BRemove this field injection and use constructor injection instead.(êæÄŞ
+Y
+java:S6813•"BRemove this field injection and use constructor injection instead.(êæÄŞ
+Y
+java:S6813˜"BRemove this field injection and use constructor injection instead.(êæÄŞ
+Y
+java:S6813›"BRemove this field injection and use constructor injection instead.(êæÄŞ
+Y
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ
+Y
+java:S6813­"BRemove this field injection and use constructor injection instead.(êæÄŞ
+H
+java:S6857§",Correct this malformed property placeholder.(ÂâÄÕúÿÿÿÿ
+Z
+java:S1155À">Use isEmpty() to check whether the collection is empty or not.(†ë«ıüÿÿÿÿ
+e
+java:S3252Ã"OUse static access with "com.gpt.component.common.Constants" for "EMPTY_STRING".(†“š
+k
+java:S3252Ô"OUse static access with "com.gpt.component.common.Constants" for "EMPTY_STRING".(¥ç™ßşÿÿÿÿ
+N
+java:S1172ı"2Remove this unused method parameter "isGetDetail".(É½³åÿÿÿÿÿ
+R
+java:S1854";Remove this useless assignment to local variable "sdfDate".(Š—¨¨
+C
+java:S1481",Remove this unused "sdfDate" local variable.(Š—¨¨
+N
+java:S1135"2Complete the task associated to this TODO comment.(Ìê›¿şÿÿÿÿ
+N
+java:S1135‘"2Complete the task associated to this TODO comment.(ß¢ü¿ıÿÿÿÿ
+k
+java:S3252§"OUse static access with "com.gpt.component.common.Constants" for "EMPTY_STRING".(ÿ½Ğ¬ıÿÿÿÿ
+Z
+java:S1155°">Use isEmpty() to check whether the collection is empty or not.(öÖè¥úÿÿÿÿ
+[
+java:S1854Ò"?Remove this useless assignment to local variable "corporateId".(ˆßÂĞÿÿÿÿÿ
+­
+java:S1130Ğ"Remove the declaration of thrown exception 'com.gpt.component.common.exceptions.BusinessException' which is a subclass of 'java.lang.Exception'.(™µ„øøÿÿÿÿ
+n
+java:S2737Ú"WAdd logic to this catch clause or eliminate it and rethrow the exception automatically.(ö™û
+L
+java:S1481Ò"0Remove this unused "corporateId" local variable.(ˆßÂĞÿÿÿÿÿ
+R	java:S125×"<This block of commented-out lines of code should be removed.(Ó¸°Ã
+N
+java:S1135Ö"2Complete the task associated to this TODO comment.(Ğ‰ªØûÿÿÿÿ
+H
+java:S1172˜",Remove this unused method parameter "isNew".(”ÿÅ¡øÿÿÿÿ
+@
+java:S1172õ"*Remove this unused method parameter "map".(ï¹Í*
+\
+java:S2147—"ECombine this catch with the one at line 789, which has the same body.(Îø»ö
+©
+java:S1130©"‘Remove the declaration of thrown exception 'com.gpt.component.common.exceptions.ApplicationException', as it cannot be thrown from method's body.(‡¤œø
+¦
+java:S1130©"Remove the declaration of thrown exception 'com.gpt.component.common.exceptions.BusinessException', as it cannot be thrown from method's body.(‡¤œø
+©
+java:S1130»"‘Remove the declaration of thrown exception 'com.gpt.component.common.exceptions.ApplicationException', as it cannot be thrown from method's body.(‡¤œø
+¦
+java:S1130»"Remove the declaration of thrown exception 'com.gpt.component.common.exceptions.BusinessException', as it cannot be thrown from method's body.(‡¤œø
+j
+java:S3252ş"SUse static access with "com.gpt.component.common.Helper" for "DATE_TIME_FORMATTER".(«³Ìù
+U
+java:S1155">Use isEmpty() to check whether the collection is empty or not.(ôª§®
+H
+java:S1135»"2Complete the task associated to this TODO comment.(‡ÀŠT
+j
+java:S3252è"SUse static access with "com.gpt.component.common.Helper" for "DATE_TIME_FORMATTER".(åÍ´¥
+j
+java:S3252"SUse static access with "com.gpt.component.common.Helper" for "DATE_TIME_FORMATTER".(Ô¢š
+X
+java:S3457æ"AFormat specifiers should be used instead of string concatenation.(ö÷¯ß
+X
+java:S3457í"AFormat specifiers should be used instead of string concatenation.(èõŒ†
+ˆ
+java:S1130ı"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(Öı¦Åıÿÿÿÿ
+k
+java:S3252‰	"OUse static access with "com.gpt.component.common.Constants" for "EMPTY_STRING".(ˆö¢Íşÿÿÿÿ
+k
+java:S3252‹	"OUse static access with "com.gpt.component.common.Constants" for "EMPTY_STRING".(ë¼Áòùÿÿÿÿ
+e
+java:S3252Œ	"OUse static access with "com.gpt.component.common.Constants" for "EMPTY_STRING".(Ğ¥îT
+f
+java:S3252	"OUse static access with "com.gpt.component.common.Constants" for "EMPTY_STRING".(–ìÇ’
+k
+java:S3252	"OUse static access with "com.gpt.component.common.Constants" for "EMPTY_STRING".(İ÷Æÿÿÿÿÿ
+f
+java:S3252	"OUse static access with "com.gpt.component.common.Constants" for "EMPTY_STRING".(ÑÀßû
+N
+java:S1135‘	"2Complete the task associated to this TODO comment.(©ûµÎøÿÿÿÿ
+k
+java:S3252’	"OUse static access with "com.gpt.component.common.Constants" for "EMPTY_STRING".(ÈşÂÃúÿÿÿÿ
+k
+java:S3252•	"OUse static access with "com.gpt.component.common.Constants" for "EMPTY_STRING".( Ú˜ıÿÿÿÿ
+N
+java:S1135š	"2Complete the task associated to this TODO comment.(„²ØÆûÿÿÿÿ
+f
+java:S3252›	"OUse static access with "com.gpt.component.common.Constants" for "EMPTY_STRING".(°‹¶‚
+f
+java:S3252İ	"OUse static access with "com.gpt.component.common.Constants" for "EMPTY_STRING".(•±É×
+k
+java:S3252á	"OUse static access with "com.gpt.component.common.Constants" for "EMPTY_STRING".(‘§»ºúÿÿÿÿ
+Y
+java:S1117ù	"=Rename "bankLogo" which hides the field declared at line 164.(¨÷ÌÊıÿÿÿÿ
+i
+java:S3776™
+"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(ÙÎ”ª
+š
+java:S1130™
+"‚Remove the declaration of thrown exception 'org.codehaus.jackson.JsonParseException' which is a subclass of 'java.io.IOException'.(ÙÎ”ª
+ 
+java:S1130™
+"ˆRemove the declaration of thrown exception 'org.codehaus.jackson.map.JsonMappingException' which is a subclass of 'java.io.IOException'.(ÙÎ”ª
+
+java:S1130™
+"yRemove the declaration of thrown exception 'java.lang.ClassNotFoundException', as it cannot be thrown from method's body.(ÙÎ”ª
+ƒ
+java:S1130™
+"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(ÙÎ”ª

@@ -1,16 +1,6 @@
-[16700] 05:00:00.177 D -                      SchedulerHelper(47) [            Scheduler_Worker-9] [-7927491825569870971] : [VA_SOT_REQUEST_DAILY_TRX] Scheduled Fire Time : Sat May 08 05:00:00 ICT 2021
-[16700] 05:00:00.177 D -                      SchedulerHelper(48) [            Scheduler_Worker-9] [-7927491825569870971] : [VA_SOT_REQUEST_DAILY_TRX] Next Fire Time      : Sat May 08 05:00:00 ICT 2021
-[16700] 05:00:00.444 E -                SchedulerServiceImpl(296) [            Scheduler_Worker-9] [-7927491825569870971] : Bean ID: VATransactionHistorySC, Method: executeVASOTRequestScheduler
-java.lang.NoSuchMethodException: Bean ID: VATransactionHistorySC, Method: executeVASOTRequestScheduler
-	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:58)
-	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:85)
-	at com.gpt.component.scheduler.services.SchedulerServiceImpl.execute(SchedulerServiceImpl.java:291)
-	at com.gpt.component.scheduler.services.SchedulerServiceImpl.executeJob(SchedulerServiceImpl.java:308)
-	at com.gpt.component.scheduler.services.SchedulerServiceImpl$$FastClassBySpringCGLIB$$12cd3956.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:669)
-	at com.gpt.component.scheduler.services.SchedulerServiceImpl$$EnhancerBySpringCGLIB$$19e8fd5b.executeJob(<generated>)
-	at com.gpt.component.scheduler.JobExecutor.execute(JobExecutor.java:29)
-	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
-	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
-[16700] 05:00:00.831 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-9] [-7927491825569870971] : [VA_SOT_REQUEST_DAILY_TRX] Next Fire Time (New): Sun May 09 05:00:00 ICT 2021
+[25164] 05:00:00.092 D -                      SchedulerHelper(47) [            Scheduler_Worker-7] [-2246650659774771662] : [VA_SOT_REQUEST_DAILY_TRX] Scheduled Fire Time : Thu Sep 15 05:00:00 ICT 2022
+[25164] 05:00:00.093 D -                      SchedulerHelper(48) [            Scheduler_Worker-7] [-2246650659774771662] : [VA_SOT_REQUEST_DAILY_TRX] Next Fire Time      : Thu Sep 15 05:00:00 ICT 2022
+[25164] 05:00:00.111 D -     VATransactionHistoryServiceImpl(522) [            Scheduler_Worker-7] [-2246650659774771662] : executeVASOTRequestScheduler inputs : {requestDate=Wed Sep 14 00:00:00 ICT 2022, isNew=false, maxLenghtAccountRegular=13}
+[25164] 05:00:00.132 D -                        QueueInvoker(126) [            Scheduler_Worker-7] [-2246650659774771662] : [AutoDiscoveryQueueInvoker] - EAIEngine#invokeService(DoVASOTRequest, {requestDate=Wed Sep 14 00:00:00 ICT 2022, isNew=false, maxLenghtAccountRegular=13})
+[25164] 05:00:00.268 D -                        QueueInvoker(201) [     ServiceInvoker-Response-1] [-2246650659774771662] : Execution Time: 136 ms
+[25164] 05:00:00.274 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-7] [-2246650659774771662] : [VA_SOT_REQUEST_DAILY_TRX] Next Fire Time (New): Fri Sep 16 05:00:00 ICT 2022

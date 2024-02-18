@@ -1,6 +1,7 @@
 package com.gpt.product.gpcash.corporate.transaction.validation.services;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -41,6 +42,8 @@ import com.gpt.product.gpcash.corporate.corporateuser.model.CorporateUserModel;
 import com.gpt.product.gpcash.corporate.corporateusergroup.model.CorporateUserGroupDetailModel;
 import com.gpt.product.gpcash.corporate.corporateusergroup.model.CorporateUserGroupModel;
 import com.gpt.product.gpcash.corporate.corporateusergroup.spi.CorporateUserGroupListener;
+import com.gpt.product.gpcash.corporate.forwardcontract.model.ForwardContractModel;
+import com.gpt.product.gpcash.corporate.forwardcontract.repository.ForwardContractRepository;
 import com.gpt.product.gpcash.corporate.pendingtaskuser.model.CorporateUserPendingTaskModel;
 import com.gpt.product.gpcash.corporate.pendingtaskuser.repository.CorporateUserPendingTaskRepository;
 import com.gpt.product.gpcash.corporate.transaction.utils.InstructionModeUtils;
@@ -48,6 +51,7 @@ import com.gpt.product.gpcash.corporate.utils.CorporateUtilsRepository;
 import com.gpt.product.gpcash.cot.currency.services.CurrencyCOTService;
 import com.gpt.product.gpcash.cot.system.services.SystemCOTService;
 import com.gpt.product.gpcash.utils.ProductRepository;
+import com.ibm.icu.text.DecimalFormat;
 
 @Service
 @Transactional(rollbackFor = Exception.class)
@@ -86,6 +90,9 @@ public class TransactionValidationServiceImpl implements TransactionValidationSe
 	
 	@Autowired
 	private SpecialRateRepository specialRateRepo;
+	
+	@Autowired
+	private ForwardContractRepository forwardContractRepo;
 	
 	@Override
 	public void validateLimit(String userCode, String corporateId, String transactionServiceCode, String accountGroupDtlId,
@@ -616,6 +623,33 @@ public class TransactionValidationServiceImpl implements TransactionValidationSe
 		
 		updateCorporateLimit(corporateId, serviceCode, currencyMatrixCode, transactionCurrency, transactionAmount, applicationCode);		
 	}
+	
+	@Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
+	@Override
+	public void updateTransactionLimitEquivalent(String corporateId, String serviceCode, String sourceAccountCurrency,
+			String transactionCurrency, String corporateUserGroupId, BigDecimal transactionAmount, String applicationCode, BigDecimal totalCharge) throws Exception {
+		
+		String localCurrency = maintenanceRepo.isSysParamValid(SysParamConstants.LOCAL_CURRENCY_CODE).getValue();
+		String currencyMatrixCode = getCurrencyMatrixCode(sourceAccountCurrency, transactionCurrency);
+		
+		Map<String, Object> rateMap = getLatestExchangeRate();
+		
+		BigDecimal amountEquivalent = calculateAmountEquivalentForLimit(localCurrency, transactionCurrency, localCurrency, transactionAmount, currencyMatrixCode, rateMap);
+		BigDecimal totalChargeEquivalent = calculateAmountEquivalentForLimit(localCurrency, transactionCurrency, localCurrency, totalCharge, currencyMatrixCode, rateMap);
+		BigDecimal totalDebitAmountEquivalent = amountEquivalent.add(totalChargeEquivalent);//ikut exsiting chargenya di include
+		
+		//limit currency harus selalu IDR
+		
+		CorporateUserGroupDetailModel corporateUserGroupDetail = corporateUtilsRepo
+				.isCorporateUserGroupDetailValid(corporateId, serviceCode, currencyMatrixCode, corporateUserGroupId);
+		
+		// locking here
+		corporateUtilsRepo.getCorporateUserGroupRepo().findByIdWithLocking(corporateUserGroupId);
+		
+		updateUserGroupLimit(corporateId, serviceCode, currencyMatrixCode, corporateUserGroupId, transactionAmount, corporateUserGroupDetail.getId());
+		
+		updateCorporateLimit(corporateId, serviceCode, currencyMatrixCode, localCurrency,totalDebitAmountEquivalent , applicationCode);
+	}
 
 	private void updateUserGroupLimit(String corporateId, String serviceCode, String currencyMatrixCode, String corporateUserGroupId, 
 			BigDecimal transactionAmount, String corporateUserGroupDetailId) throws Exception {
@@ -908,6 +942,9 @@ public class TransactionValidationServiceImpl implements TransactionValidationSe
 			BigDecimal equivalentAmount = BigDecimal.ZERO;
 			if (exchangeRate.equals(ApplicationConstants.RATE_COUNTER)) {
 				equivalentAmount = calculateAmountEquivalent(transactionCurrency, sourceAccountCurrency, localCurrency, transactionAmount, rateMap);
+			} else if (exchangeRate.equals(ApplicationConstants.RATE_FORWARD_CONTRACT)) {
+				Map<String, Object> contractMap = checkForwardContract(treasuryCode, sourceAccountCurrency, transactionCurrency, transactionAmount, (Timestamp) instructionDate, corporateId, instructionMode);
+				equivalentAmount = (BigDecimal) contractMap.get("equivalentAmount");
 			}else {
 				Map<String, Object> specialRateMap = checkSpecialRate(treasuryCode, sourceAccountCurrency, transactionCurrency, transactionAmount, (Timestamp) instructionDate, corporateId, instructionMode);
 				equivalentAmount = (BigDecimal) specialRateMap.get("equivalentAmount");
@@ -1131,12 +1168,14 @@ public class TransactionValidationServiceImpl implements TransactionValidationSe
 			BigDecimal equivalentAmount = calculateAmountEquivalent(transactionCurrency, sourceAccountCurrency, localCurrency, transactionAmount, rateMap);
 			ExchangeRateModel exchangeRate = getRate(sourceAccountCurrency, rateMap);
 			
+			DecimalFormat df = new DecimalFormat("###.####");
+			
 			if (!sourceAccountCurrency.equals(localCurrency) && !transactionCurrency.equals(localCurrency)) {
 				
 				ExchangeRateModel exchangeRate1 = getRate(transactionCurrency, rateMap);
 				ExchangeRateModel exchangeRate2 = getRate(sourceAccountCurrency, rateMap);
-				returnMap.put("counterRate", "Sell Rate " + transactionCurrency + " : " + ValueUtils.getValue(exchangeRate1.getTransactionSellRate()) 
-				+ ",  Buy Rate " + transactionCurrency + " : " + ValueUtils.getValue(exchangeRate2.getTransactionBuyRate()));
+				returnMap.put("counterRate", "Sell Rate " + transactionCurrency + " : " + localCurrency + " " + ValueUtils.getValue(df.format(exchangeRate1.getTransactionSellRate())) 
+				+ ", Buy Rate " + sourceAccountCurrency + " : " + localCurrency + " " + ValueUtils.getValue(df.format(exchangeRate2.getTransactionBuyRate())));
 			} else {
 				
 				if (sourceAccountCurrency.equals(localCurrency)) {					
@@ -1189,12 +1228,12 @@ public class TransactionValidationServiceImpl implements TransactionValidationSe
 				map.put("foreignCurrency1", sourceAccountCurrency);
 				map.put("foreignCurrency2", transactionCurrency);
 				SpecialRateModel specialRateModel =  getSpecialRate(map);
-				if(specialRateModel.getTransactionAmountRate() == transactionAmount) {
+				if(specialRateModel.getTransactionAmountRate().compareTo(transactionAmount) == 0) {
 					// 1. bank buy foreigncurrency1/sourceaccoutncurrency to IDR
-					BigDecimal eqAmount = transactionAmount.multiply(specialRateModel.getTransactionBuyRate());
+					BigDecimal eqAmount = transactionAmount.multiply(specialRateModel.getTransactionSellRate());
 					
 					//2. bank sell foreigncurrency 2/trasactionCurrency from IDR
-					eqAmount = eqAmount.divide(specialRateModel.getTransactionSellRate());
+					eqAmount = eqAmount.divide(specialRateModel.getTransactionBuyRate(),2, RoundingMode.HALF_UP);
 					
 					returnMap.put("equivalentAmount", eqAmount);
 					returnMap.put("specialRate", "Buy Rate " + sourceAccountCurrency +" : "+ specialRateModel.getTransactionBuyRate()+" , Sell Rate "+transactionCurrency +" : "+ specialRateModel.getTransactionSellRate());
@@ -1293,7 +1332,138 @@ public class TransactionValidationServiceImpl implements TransactionValidationSe
 				productRepo.getBankForexLimitRepo().updateBankForexSellLimitUsage(transactionCurrency,transactionAmount,totalDebitedEquivalentAmount);
 			}else if(currencyMatrixCode.equals(ApplicationConstants.CCY_MTRX_FL)) {
 				productRepo.getBankForexLimitRepo().updateBankForexBuyLimitUsage(sourceAccoutnCurrency,transactionAmount,totalDebitedEquivalentAmount);
+			}else if (currencyMatrixCode.equals(ApplicationConstants.CCY_MTRX_FC)) {
+				productRepo.getBankForexLimitRepo().updateBankForexSellLimitUsage(transactionCurrency,transactionAmount,totalDebitedEquivalentAmount);
 			}
 		
+	}
+
+	@Override
+	public Map<String, Object> checkForwardContract(String treasuryCode, String sourceAccountCurrency, String transactionCurrency, BigDecimal transactionAmount, Timestamp instructionDate, String corporateId,
+			String instructionMode) throws ApplicationException, BusinessException {
+		
+		Map<String, Object> returnMap = new HashMap<>();
+		
+		try {
+			
+			// preparing input
+			Map<String, Object> map = new HashMap<>();
+			map.put("refNoContract", treasuryCode);
+			map.put("instructionDate", instructionDate);	
+			map.put("corporateId", corporateId);
+//			map.put("status", ApplicationConstants.SPECIAL_RATE_OPEN);
+			
+			
+			String localCurrency = sysParamService.getLocalCurrency();		
+			
+			if(!localCurrency.equals(transactionCurrency) && !localCurrency.equals(sourceAccountCurrency)) {
+				//foreign Special Rate cross currency
+				map.put("rateType", "FOREIGN");
+				map.put("foreignCurrency1", sourceAccountCurrency);
+				map.put("foreignCurrency2", transactionCurrency);
+				
+				ForwardContractModel contractModel =  getForwardContract(map);
+				if(contractModel.getTrxAmountLimit().subtract(contractModel.getTrxAmountLimitUsage()).compareTo(transactionAmount) >= 0) {
+					// 1. bank buy foreigncurrency1/sourceaccoutncurrency to IDR
+					BigDecimal eqAmount = transactionAmount.multiply(contractModel.getTransactionSellRate());
+					
+					//2. bank sell foreigncurrency 2/trasactionCurrency from IDR
+					eqAmount = eqAmount.divide(contractModel.getTransactionBuyRate(),2, RoundingMode.HALF_UP);
+					
+					returnMap.put("equivalentAmount", eqAmount);
+					returnMap.put("forwardContract", "Buy Rate " + sourceAccountCurrency +" : "+ contractModel.getTransactionBuyRate()+" , Sell Rate "+transactionCurrency +" : "+ contractModel.getTransactionSellRate());
+					returnMap.put("validDate", Helper.DATE_TIME_FORMATTER.format(contractModel.getCreatedDate()));
+					
+				} else {
+					throw new BusinessException("Forward Contract amount limit exceeded"); //limit exceeded
+				}
+			} else { //local sepcial rate
+				if(localCurrency.equals(sourceAccountCurrency)) { //local special rate sell rate
+					map.put("rateType", "LOCAL");
+					map.put("foreignCurrency1",transactionCurrency);
+					
+					ForwardContractModel contractModel =  getForwardContract(map);
+					if(contractModel.getTransactionSellRate()!=null) {
+						if(contractModel.getTrxAmountLimit().subtract(contractModel.getTrxAmountLimitUsage()).compareTo(transactionAmount) >= 0) {
+
+							BigDecimal eqAmount = contractModel.getSellAmountRate().divide(contractModel.getTransactionSellRate());
+							
+							returnMap.put("equivalentAmount", eqAmount);
+							returnMap.put("forwardContract", localCurrency +" "+ contractModel.getTransactionSellRate());
+							returnMap.put("validDate", Helper.DATE_TIME_FORMATTER.format(contractModel.getCreatedDate()));
+						} else {
+							throw new BusinessException("Forward Contract amount limit exceeded"); //limit exceeded
+						}
+						
+					} else {
+						throw new BusinessException("Invalid Forward Contract rate"); //invalid special rate
+					}
+				} else if(localCurrency.equals(transactionCurrency)) {
+					//localSpecialRate BuyRate
+					map.put("rateType", "LOCAL");
+					map.put("foreignCurrency1",sourceAccountCurrency);
+					
+					ForwardContractModel contractModel =  getForwardContract(map);
+					if(contractModel.getTransactionBuyRate()!=null) {
+						if(contractModel.getTrxAmountLimit().subtract(contractModel.getTrxAmountLimitUsage()).compareTo(transactionAmount) >= 0) {
+							
+							BigDecimal eqAmount = contractModel.getBuyAmountRate().multiply(contractModel.getTransactionBuyRate());
+							
+							returnMap.put("equivalentAmount", eqAmount);
+							returnMap.put("forwardContract", localCurrency +" "+ contractModel.getTransactionBuyRate());
+							returnMap.put("validDate", Helper.DATE_TIME_FORMATTER.format(contractModel.getCreatedDate()));
+						} else {
+							throw new BusinessException("Forward Contract amount limit exceeded"); //limit exceeded
+						}
+						
+					} else {
+						throw new BusinessException("Invalid Forward Contract rate"); //invalid special rate
+					}
+				}
+					
+			}
+			
+			
+		} catch (BusinessException e) {
+			throw e;
+		} catch (Exception e) {
+			throw new ApplicationException(e);
+		}		
+		
+		return returnMap;
+	}
+	
+	private ForwardContractModel getForwardContract(Map<String, Object> map) throws ApplicationException, BusinessException, Exception {
+			
+//			ForwardContractModel contract = null;
+			
+			Timestamp minExpiryDate = (Timestamp) map.get("instructionDate");
+			Calendar calExpiry = DateUtils.getEarliestDate(minExpiryDate);
+			
+			ForwardContractModel contract = forwardContractRepo.findByRefNoContractAndRateTypeAndCorporate_IdAndStatusAndDeleteFlagAndExpiryDateGreaterThanEqual((String) map.get("refNoContract"), (String) map.get("rateType"), (String) map.get("corporateId"), ApplicationConstants.SPECIAL_RATE_OPEN, ApplicationConstants.NO, new Timestamp(calExpiry.getTimeInMillis()));
+			
+			if (contract == null) {
+				throw new BusinessException("Invalid Forward Contract rate"); //invalid special rate
+			}else{
+				if (String.valueOf(map.get("rateType")).equals("FOREIGN")) {
+					if (!contract.getForeignCurrency1().getCode().equals((String)map.get("foreignCurrency1")) || !contract.getForeignCurrency2().getCode().equals((String)map.get("foreignCurrency2"))) {
+						throw new BusinessException("Invalid Forward Contract rate"); //invalid special rate
+					}
+				} else {
+					if (!contract.getForeignCurrency1().getCode().equals((String)map.get("foreignCurrency1"))) {
+						throw new BusinessException("Invalid Forward Contract rate"); //invalid special rate
+					}
+				}
+			}
+			
+			// get pending task by reference
+			CorporateUserPendingTaskModel pendingTask = pendingTaskRepo.findByRefNoSpecialRateAndStatusIsPending((String) map.get("refNoContract"));
+			
+			if (pendingTask != null) {
+				throw new BusinessException("GPT-131197"); //Treasury Code is already in use in pending transaction
+			}
+			
+			
+			return contract;
 	}
 }

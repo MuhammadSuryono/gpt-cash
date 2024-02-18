@@ -37,6 +37,8 @@ public interface EAIConstants {
 	
 	String TRANSFER_VA_INQUIRY = "DoTransferVAInquiry";
 	
+	String INTERNATIONAL_TRANSFER = "DoInternationalTransfer";
+	
 	
 	// NOTIFICATION SERVICES	
 	String BENEFICIARY_TRANSFER_NOTIFICATION = "BeneficiaryTransferNotification";
@@ -60,6 +62,8 @@ public interface EAIConstants {
 	String MONITORING_EMAIL_NOTIFICATION = "MonitoringEmailNotification";
 	
 	String BENEFICIARY_BP_NOTIFICATION = "BeneficiaryBillPaymentNotification";
+	
+	String UPDATE_INS_DATE_NOTIFICATION = "UpdateInstructionDateNotification";
 	
 	// END OF NOTIFICATION SERVICES
 
@@ -114,6 +118,8 @@ public interface EAIConstants {
 		
 		String BULK_RESPONSE = "DoBulkPaymentResponse";
 		
+		String BULK_POC_RESPONSE = "DoBulkPaymentPutResponse";
+		
 	//SOT
 	String SOT_REQUEST = "DoSOTRequest";
 	
@@ -158,5 +164,5 @@ public interface EAIConstants {
  	// Time Deposit Placement
  	String TIME_DEPOSIT_PLACEMENT = "DoTimeDepositPlacement";
 
- 	
+ 	String TIME_DEPOSIT_PLACEMENT_ACCOUNT_INQ = "DoTimeDepositInterestAccountInquiry";
 }

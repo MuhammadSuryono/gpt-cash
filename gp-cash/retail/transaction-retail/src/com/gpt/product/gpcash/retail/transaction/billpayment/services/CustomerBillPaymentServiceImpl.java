@@ -501,6 +501,7 @@ public class CustomerBillPaymentServiceImpl implements CustomerBillPaymentServic
 					vo.setIsError(billPayment.getIsError());
 				} else {
 					saveCustomerBillPayment(billPayment, vo.getCreatedBy(), ApplicationConstants.NO);
+					vo.setIsError(ApplicationConstants.NO);
 				}
 			}
 		} catch (BusinessException e) {

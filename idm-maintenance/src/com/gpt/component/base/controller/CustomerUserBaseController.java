@@ -33,6 +33,7 @@ public class CustomerUserBaseController extends BaseController {
 					// for mobile
 					"authenticate",
 					"mobileCustLogin",
+					"mobileForceChangePassword",
 					"mobileCustFPLogin"
 				)
 			));

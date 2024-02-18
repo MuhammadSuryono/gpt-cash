@@ -20,4 +20,6 @@ public interface SystemCOTService extends WorkflowService {
 			throws ApplicationException, BusinessException;
 
 	void validateSystemCOTWithSessionTime(String code, String applicationCode, String sessionTime) throws Exception;
+	
+	boolean validateSystemCOTForChecking(String code, String applicationCode) throws Exception;
 }

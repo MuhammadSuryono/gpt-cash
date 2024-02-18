@@ -14,10 +14,14 @@ import com.gpt.product.gpcash.pendingdownload.model.PendingDownloadModel;
 @Repository
 public interface PendingDownloadRepository extends JpaRepository<PendingDownloadModel, String>, CashRepository<PendingDownloadModel> {
 	@Query("from PendingDownloadModel pd "
-			+ "where pd.createdBy = ?1 and menuCode = ?2 order by pd.createdDate desc")	
+			+ "where pd.createdBy = ?1 and menuCode = ?2 and pd.deleteFlag = 'N' order by pd.createdDate desc")	
 	Page<PendingDownloadModel> searchPendingDownloadByUser(String userId, String menuCode, Pageable pageInfo) throws Exception;
 	
 	@Query("from PendingDownloadModel pd "
-			+ "where pd.status = ?1")	
+			+ "where pd.createdBy = ?1 and menuCode = ?2 and pd.corporateId = ?3 and pd.deleteFlag = 'N' order by pd.createdDate desc")	
+	Page<PendingDownloadModel> searchPendingDownloadByUserCorporate(String userId, String menuCode, String corpId, Pageable pageInfo) throws Exception;
+	
+	@Query("from PendingDownloadModel pd "
+			+ "where pd.status = ?1 and pd.deleteFlag = 'N'")	
 	List<PendingDownloadModel> searchAllNew(String newStatus) throws Exception;
 }

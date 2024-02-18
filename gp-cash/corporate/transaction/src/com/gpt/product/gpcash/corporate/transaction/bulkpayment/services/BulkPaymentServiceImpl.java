@@ -76,6 +76,7 @@ import com.gpt.product.gpcash.corporate.transaction.bulkpayment.model.BulkPaymen
 import com.gpt.product.gpcash.corporate.transaction.bulkpayment.model.BulkPaymentModel;
 import com.gpt.product.gpcash.corporate.transaction.bulkpayment.repository.BulkPaymentRepository;
 import com.gpt.product.gpcash.corporate.transaction.globaltransaction.services.GlobalTransactionService;
+import com.gpt.product.gpcash.corporate.transaction.pendingupload.constants.PendingUploadConstants;
 import com.gpt.product.gpcash.corporate.transaction.pendingupload.model.PendingUploadDetailModel;
 import com.gpt.product.gpcash.corporate.transaction.pendingupload.model.PendingUploadModel;
 import com.gpt.product.gpcash.corporate.transaction.pendingupload.repository.PendingUploadRepository;
@@ -200,7 +201,19 @@ public class BulkPaymentServiceImpl implements BulkPaymentService {
 
 		if (rawdata == null)
 			throw new BusinessException("GPT-0100113"); // Please select a file to upload
-
+		
+		//========================= untuk validasi nominal ketika validate file =====================
+		BigDecimal sknThreshold = null;
+		BigDecimal rtgsThreshold = null;
+		try {
+			sknThreshold = new BigDecimal(maintenanceRepo.isSysParamValid(SysParamConstants.SKN_THRESHOLD).getValue());
+			rtgsThreshold = new BigDecimal(maintenanceRepo.isSysParamValid(SysParamConstants.MIN_RTGS_TRANSACTION).getValue());
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+		//========================= untuk validasi nominal ketika validate file =====================
+		
+		
         try {
         	String id = Helper.generateHibernateUUIDGenerator();
             Path path = Paths.get(pathUpload + File.separator + filename + "_" + id);
@@ -210,6 +223,11 @@ public class BulkPaymentServiceImpl implements BulkPaymentService {
 			result.put("fileId", id);
 			result.put(ApplicationConstants.FILENAME, filename);
 			result.put("uploadDateTime", new Date());
+			
+			result.put("sknThreshold", sknThreshold);
+			result.put("rtgsThreshold", rtgsThreshold);
+			
+			
 			
 			return result;
         } catch (IOException e) {
@@ -383,6 +401,7 @@ public class BulkPaymentServiceImpl implements BulkPaymentService {
 		bulkPaymentModel.setService(pum.getService());
 		bulkPaymentModel.setSourceAccount(pum.getSourceAccount());
 		bulkPaymentModel.setReferenceNo(vo.getReferenceNo());
+		bulkPaymentModel.setIsSummaryOpt((String)map.get("isSummary"));
 		
 		bulkPaymentModel.setInstructionMode(pum.getInstructionMode());
 		Timestamp instructionDate = pum.getInstructionDate();
@@ -761,8 +780,24 @@ public class BulkPaymentServiceImpl implements BulkPaymentService {
 					bulkPaymentModel.getApplication().getCode());
 			limitUpdated = true;
 
-			//Map<String, Object> inputs = prepareInputsForEAI(bulkPaymentModel, appCode);
-			//eaiAdapter.invokeService(EAIConstants.BULK_TRANSFER, inputs);
+			Map<String, Object> inputs = prepareInputsForEAI(bulkPaymentModel, appCode);
+			
+			if (bulkPaymentModel.getIsSummaryOpt().equals(ApplicationConstants.YES)) {
+//				if (bulkPaymentModel.getService().getCode().equals(PendingUploadConstants.SRVC_GPT_MFT_BULK_IH)) {
+				
+					String escrowAccount = maintenanceRepo.isSysParamValid(SysParamConstants.BULK_ESCROW_ACCOUNT).getValue();
+					inputs.put("benAccountNo", escrowAccount);
+					inputs.put("benAccountCurrencyCode", bulkPaymentModel.getTrxCurrencyCode());
+					inputs.put("totalDebitAmount", bulkPaymentModel.getTotalDebitedEquivalentAmount());
+					inputs.put("totalChargeEquivalent", bulkPaymentModel.getTotalChargeEquivalentAmount());
+					eaiAdapter.invokeService(EAIConstants.INHOUSE_TRANSFER, inputs);
+//				}
+			}
+			
+			eaiAdapter.invokeService(EAIConstants.BULK_TRANSFER, inputs);
+			
+			//for POC only, create response file
+			eaiAdapter.invokeService(EAIConstants.BULK_POC_RESPONSE, inputs);
 			
 			bulkPaymentModel.setStatus("GPT-0100185"); // IN-PROGRESS
 			bulkPaymentModel.setIsError(ApplicationConstants.NO);
@@ -819,7 +854,7 @@ public class BulkPaymentServiceImpl implements BulkPaymentService {
 		}
 	}
 	
-	private Map<String, Object> prepareInputsForEAI(BulkPaymentModel model, String appCode) {
+	private Map<String, Object> prepareInputsForEAI(BulkPaymentModel model, String appCode) throws Exception {
 		Map<String, Object> inputs = new HashMap<>();
 		
 		inputs.put("channel", appCode);
@@ -831,6 +866,8 @@ public class BulkPaymentServiceImpl implements BulkPaymentService {
 		inputs.put("debitAccountName", sourceAccountModel.getAccountName());
 		inputs.put("debitAccountType", sourceAccountModel.getAccountType().getCode());
 		inputs.put("debitAccountCurrencyCode", sourceAccountModel.getCurrency().getCode());
+		
+		inputs.put("isSummary", model.getIsSummaryOpt());
 		
 		inputs.put("trxCurrencyCode", model.getTrxCurrencyCode());
 		inputs.put("trxAmount", model.getTotalAmount());
@@ -862,7 +899,9 @@ public class BulkPaymentServiceImpl implements BulkPaymentService {
 		inputs.put("serviceName", model.getService().getName());
 
 		inputs.put("refNo", model.getReferenceNo());
-		inputs.put("maxLenghtAccountRegular", ApplicationConstants.MAX_LENGTH_ACCOUNT_REG);
+		inputs.put("servicingBranch", model.getCorporate().getBranch().getCode());
+		inputs.put("corpId", model.getCorporate().getId());
+		inputs.put("userId", model.getCreatedBy());
 		
 		return inputs;
 		
@@ -896,9 +935,24 @@ public class BulkPaymentServiceImpl implements BulkPaymentService {
 	@Override
 	public void executeBulkPaymentResponseScheduler(String parameter) throws ApplicationException, BusinessException {
 		try {
+			String filename = "";
+			
+			
+				String[] requestDateArr = parameter.split("\\=");
+				if(ValueUtils.hasValue(requestDateArr[0])) {
+						if(ValueUtils.hasValue(requestDateArr[1])){
+							if("filename".equals(requestDateArr[0])) {
+								filename = requestDateArr[1];
+							}
+						}					
+				}
+				
+			
+			
 			Map<String, Object> inputs = new HashMap<>();
 			inputs.put("timeout", timeout);
 			inputs.put("batchSizeThreshold", batchSizeThreshold);
+			inputs.put("filename", filename);
 			
 			if(logger.isDebugEnabled()) {
 				logger.debug("executeBulkPaymentResponseScheduler inputs : " + inputs);
@@ -943,13 +997,52 @@ public class BulkPaymentServiceImpl implements BulkPaymentService {
 			sourceInfo.put("debitAccountNo", sourceAccountModel.getAccountNo());
 			sourceInfo.put("debitAccountName", sourceAccountModel.getAccountName());
 			
+			Map<String, Object> inputs = prepareInputsForEAI(bulkPaymentModel, ApplicationConstants.APP_GPCASHIB);
+			
+			if (bulkPaymentModel.getIsSummaryOpt().equals(ApplicationConstants.YES)) {
+				String escrowAccount = maintenanceRepo.isSysParamValid(SysParamConstants.BULK_ESCROW_ACCOUNT).getValue();
+				inputs.put("debitAccountNo", escrowAccount);
+			}else {
+				//debitcharge
+				if(bulkPaymentModel.getTotalChargeEquivalentAmount()!=null) {
+					inputs.put("remark1", "Fee");
+					String glAccount = maintenanceRepo.isSysParamValid(SysParamConstants.GL_ACCOUNT).getValue();
+					inputs.put("benAccountNo", glAccount);
+					inputs.put("benAccountName", glAccount);
+					inputs.put("trxAmount", bulkPaymentModel.getTotalChargeEquivalentAmount());
+					inputs.put("totalDebitAmount", bulkPaymentModel.getTotalChargeEquivalentAmount());
+					inputs.put("totalChargeEquivalent", BigDecimal.ZERO);
+					
+					inputs.put("benAccountCurrencyCode", bulkPaymentModel.getTrxCurrencyCode());
+					inputs.put("channelRefNo", bulkPaymentModel.getId().concat(glAccount));
+					
+					eaiAdapter.invokeService(EAIConstants.INHOUSE_TRANSFER, inputs); //for debit credit  FEE (only for POC Resona)
+				}
+			}
+			
+			//debit credit detail
 			for (BulkPaymentDetailModel dtl : bulkPaymentModel.getBulkPaymentDetail()) {
-				if (ApplicationConstants.YES.equals(dtl.getIsHostProcessed()) && 
+				
+				inputs.put("remark1", dtl.getRemark1());
+				inputs.put("remark2", dtl.getRemark2());
+				inputs.put("remark3", dtl.getRemark3());
+				inputs.put("benAccountName", dtl.getBenAccountName());
+				
+				inputs.put("trxAmount", dtl.getTrxAmount());
+				inputs.put("totalDebitAmount", dtl.getTrxAmount());
+				inputs.put("totalChargeEquivalent", BigDecimal.ZERO);
+				
+				inputs.put("benAccountNo", dtl.getBenAccountNo());
+				inputs.put("benAccountCurrencyCode", dtl.getTrxCurrencyCode());
+				inputs.put("channelRefNo", dtl.getId());
+				eaiAdapter.invokeService(EAIConstants.INHOUSE_TRANSFER, inputs); //for debit credit (only for POC Resona)
+				
+				/*if (ApplicationConstants.YES.equals(dtl.getIsHostProcessed()) && 
 					ApplicationConstants.YES.equals(dtl.getBenNotificationFlag()) &&
 					ApplicationConstants.NO.equals(dtl.getIsError())) {
 					
 					notifyBeneficiary(dtl, sourceInfo);					
-				}
+				}*/				
 			}
 		}
 	}

@@ -1,16 +1,3 @@
-[13032] 13:00:00.827 D -                      SchedulerHelper(47) [           Scheduler_Worker-10] [ 7152151454832869808] : [DOMESTIC_ONLINE_RECURRING_3] Scheduled Fire Time : Tue Jan 05 13:00:00 SGT 2021
-[13032] 13:00:00.828 D -                      SchedulerHelper(48) [           Scheduler_Worker-10] [ 7152151454832869808] : [DOMESTIC_ONLINE_RECURRING_3] Next Fire Time      : Tue Jan 05 13:00:00 SGT 2021
-[13032] 13:00:00.833 E -                SchedulerServiceImpl(296) [           Scheduler_Worker-10] [ 7152151454832869808] : Bean ID: DomesticTransferSC, Method: executeOnlineRecurringTransactionScheduler
-java.lang.NoSuchMethodException: Bean ID: DomesticTransferSC, Method: executeOnlineRecurringTransactionScheduler
-	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:58)
-	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:85)
-	at com.gpt.component.scheduler.services.SchedulerServiceImpl.execute(SchedulerServiceImpl.java:291)
-	at com.gpt.component.scheduler.services.SchedulerServiceImpl.executeJob(SchedulerServiceImpl.java:308)
-	at com.gpt.component.scheduler.services.SchedulerServiceImpl$$FastClassBySpringCGLIB$$12cd3956.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:669)
-	at com.gpt.component.scheduler.services.SchedulerServiceImpl$$EnhancerBySpringCGLIB$$5c0d0e9a.executeJob(<generated>)
-	at com.gpt.component.scheduler.JobExecutor.execute(JobExecutor.java:29)
-	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
-	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
-[13032] 13:00:00.837 D -                SchedulerServiceImpl(313) [           Scheduler_Worker-10] [ 7152151454832869808] : [DOMESTIC_ONLINE_RECURRING_3] Next Fire Time (New): Wed Jan 06 13:00:00 SGT 2021
+[8792] 20:19:33.812 D -                      SchedulerHelper(47) [            Scheduler_Worker-5] [-4027678113964474169] : [DOMESTIC_ONLINE_RECURRING_3] Scheduled Fire Time : Wed Jun 22 13:00:00 ICT 2022
+[8792] 20:19:33.812 D -                      SchedulerHelper(48) [            Scheduler_Worker-5] [-4027678113964474169] : [DOMESTIC_ONLINE_RECURRING_3] Next Fire Time      : Mon Jun 27 13:00:00 ICT 2022
+[8792] 20:19:34.216 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-5] [-4027678113964474169] : [DOMESTIC_ONLINE_RECURRING_3] Next Fire Time (New): Mon Jun 27 13:00:00 ICT 2022

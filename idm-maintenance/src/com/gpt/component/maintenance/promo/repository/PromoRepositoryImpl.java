@@ -22,7 +22,7 @@ public class PromoRepositoryImpl extends CashRepositoryImpl<PromoModel> {
 
 	@Override
 	protected Sort getDefaultSort() {
-		return new Sort(new Order(Direction.ASC, "code"));
+		return new Sort(new Order(Direction.ASC, "createdDate"));
 	}
 	
 	@Override
@@ -33,18 +33,16 @@ public class PromoRepositoryImpl extends CashRepositoryImpl<PromoModel> {
 		Root<PromoModel> root = query.from(PromoModel.class);
 
 		Predicate predicate = null;
-		if (ValueUtils.hasValue(paramMap.get("code"))) {
-			predicate = builder.like(
-							root.get("code"), "%" +  ((String)paramMap.get("code")) + "%");
+		if (ValueUtils.hasValue(paramMap.get("id"))) {
+			predicate = builder.equal(root.get("id"), (String)paramMap.get("id"));
 		}
 		
-		if (ValueUtils.hasValue(paramMap.get("name"))) {
-			Predicate namePredicate = builder.like(
-								          builder.upper(root.get("name")), "%" + ((String)paramMap.get("name")).toUpperCase() + "%");
+		if (ValueUtils.hasValue(paramMap.get("infoType"))) {
+			Predicate infoPredicate = builder.like( builder.upper(root.get("infoType")), "%" + (String)paramMap.get("infoType") + "%" );
 			if(predicate!=null)
-				predicate = builder.and(predicate, namePredicate);
+				predicate = builder.and(predicate, infoPredicate);
 			else
-				predicate = namePredicate;
+				predicate = infoPredicate;
 		}
 		
 		if (ValueUtils.hasValue(paramMap.get("corporateId"))) {

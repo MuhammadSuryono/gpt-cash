@@ -23,7 +23,7 @@ public interface CustomerBeneficiaryListDomesticService extends CustomerUserWork
 	void saveCustomerBeneficiary(String customerId, String benAccountNo, String benAccountName, String benAccountCurrency,
 			String isNotifyFlag, String email, String benAliasName, String address1, String address2, String address3, String isBenResident,
 			String benResidentCountryCode, String isBenCitizen, String benCitizenCountryCode, String beneficiaryTypeCode,
-			String bankCode, String createdBy) throws Exception;
+			String bankCode, String createdBy, boolean isBenOnline) throws Exception;
 
 	CustomerBeneficiaryListDomesticModel findCustomerBeneficiary(String benId) throws Exception;
 
@@ -32,4 +32,6 @@ public interface CustomerBeneficiaryListDomesticService extends CustomerUserWork
 
 	Map<String, Object> searchCustomerBeneficiary(String customerId)
 			throws ApplicationException, BusinessException;
+	
+	Map<String, Object> searchOnlineBeneficiary(String corporateId) throws ApplicationException, BusinessException;
 }

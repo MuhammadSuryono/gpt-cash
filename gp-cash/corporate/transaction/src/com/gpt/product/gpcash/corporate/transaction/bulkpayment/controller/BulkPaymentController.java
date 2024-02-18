@@ -116,8 +116,17 @@ public class BulkPaymentController extends CorporateUserBaseController {
 			result.put(ApplicationConstants.FILENAME, fileName);
 			result.put("uploadDateTime", DateUtils.getCurrentTimestamp());
 			
+			//====== untuk kebutuhan validate file =======
+			result.put("sknThreshold", (BigDecimal) map.get("sknThreshold"));
+			result.put("rtgsThreshold", (BigDecimal) map.get("rtgsThreshold"));
+			//====== untuk kebutuhan validate file =======
+			
 			HttpSession session = request.getSession(false);
 			session.setAttribute(ApplicationConstants.FILENAME, fileName);
+			
+			/*//====== untuk kebutuhan validate file =======
+			session.setAttribute("sknThreshold", (BigDecimal) map.get("sknThreshold"));
+			session.setAttribute("rtgsThreshold", (BigDecimal) map.get("rtgsThreshold"));*/
 			
 			deferredResult.setResult(result);
 		}, this::defaultOnException, param);
@@ -126,8 +135,8 @@ public class BulkPaymentController extends CorporateUserBaseController {
 	@RequestMapping(path = baseCorpUserUrl + "/" + menuCode + "/downloadSample", method = RequestMethod.GET, produces = {"text/csv", 
 			"text/plain", "application/octet-stream"} )
 	public byte[] downloadSample(HttpServletRequest request, HttpServletResponse response,
-			@RequestParam("fileFormat") String fileFormat) throws IOException {	
-		String filename = downloadSampleFileName + "." + fileFormat.toLowerCase();
+			@RequestParam("fileFormat") String fileFormat,@RequestParam("trxTypeName") String trxTypeName) throws IOException {	
+		String filename = downloadSampleFileName +"_" +trxTypeName+"." + fileFormat.toLowerCase();
 		Path path = Paths.get(pathDownloadSampleFile + File.separator + filename);
 			
 		String mimeType = request.getServletContext().getMimeType(filename);
@@ -147,6 +156,14 @@ public class BulkPaymentController extends CorporateUserBaseController {
 //		HttpSession session = request.getSession(false);
 //		param.put("uploadDateTime", session.getAttribute("uploadDateTime"));
 		
+		/*//====== untuk kebutuhan validate file =======
+			BigDecimal sknThreshold = (BigDecimal) request.getSession().getAttribute("sknThreshold");
+			BigDecimal rtgsThreshold = (BigDecimal) request.getSession().getAttribute("rtgsThreshold");
+			
+			param.put("sknThreshold", sknThreshold);
+			param.put("rtgsThreshold", rtgsThreshold);
+		//====== untuk kebutuhan validate file =======
+*/		
 		String filename = (String) request.getSession().getAttribute(ApplicationConstants.FILENAME);
 		param.put(ApplicationConstants.FILENAME, filename);
 		

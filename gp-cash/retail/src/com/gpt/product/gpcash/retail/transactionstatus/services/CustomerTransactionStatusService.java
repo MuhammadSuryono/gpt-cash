@@ -18,7 +18,8 @@ public interface CustomerTransactionStatusService {
 
 	Map<String, Object> detailTransactionStatus(Map<String, Object> map) throws ApplicationException, BusinessException;
 
-	Map<String, Object> detailExecutedTransaction(Map<String, Object> map)
-			throws ApplicationException, BusinessException;
+	Map<String, Object> detailExecutedTransaction(Map<String, Object> map) throws ApplicationException, BusinessException;
+	
+	Map<String, Object> searchTransactionStatusForBank(Map<String, Object> map) throws ApplicationException, BusinessException;
 	
 }

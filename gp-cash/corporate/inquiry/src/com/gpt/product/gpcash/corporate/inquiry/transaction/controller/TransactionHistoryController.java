@@ -104,6 +104,21 @@ public class TransactionHistoryController extends CorporateUserBaseController {
 				}, this::defaultOnException, param);		
 	}
 	
+	@RequestMapping(path = baseCorpUserUrl + "/" + menuCode + "/downloadPending", method = RequestMethod.POST)
+	public DeferredResult<Map<String, Object>> downloadReport(HttpServletRequest request, HttpServletResponse response, @RequestBody Map<String, Object> param) {
+		return invoke("TransactionHistorySC", "downloadPending", 
+				(DeferredResult<Map<String, Object>> deferredResult, Map<String, Object> map) -> {
+					
+					HttpSession session = request.getSession(false);
+					if(logger.isDebugEnabled()) {
+						logger.debug(" download fileName : " + map.get(ApplicationConstants.FILENAME));
+					}
+					session.setAttribute(ApplicationConstants.KEY_DOWNLOAD_FILE, (String) map.get(ApplicationConstants.FILENAME));
+					
+					deferredResult.setResult(param);
+				}, this::defaultOnException, param);		
+	}
+	
 	@RequestMapping(baseCorpUserUrl + "/" + menuCode + "/fileFormatToday")
 	public Map<String, Object> fileFormatToday(@RequestBody Map<String, Object> param) {
 		Map<String, Object> resultMap = new HashMap<>(3,1);

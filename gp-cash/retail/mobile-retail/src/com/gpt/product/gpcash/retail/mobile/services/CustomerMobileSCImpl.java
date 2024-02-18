@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.gpt.component.common.exceptions.ApplicationException;
 import com.gpt.component.common.exceptions.BusinessException;
 import com.gpt.component.common.validation.annotation.Input;
+import com.gpt.component.common.validation.annotation.Output;
 import com.gpt.component.common.validation.annotation.Validate;
 import com.gpt.component.common.validation.annotation.Variable;
 import com.gpt.component.common.validation.converter.Format;
@@ -30,8 +31,8 @@ public class CustomerMobileSCImpl implements CustomerMobileSC {
 	private IDMLoginService idmLoginService;
 	
 	@Autowired
-	private CustomerMobileService mobileService;
-
+	private CustomerMobileService mobileService;	
+	
 	@SuppressWarnings("unchecked")
 	private void handleLogoutIfNeeded(Map<String, Object> map) throws BusinessException, ApplicationException {
 		if(map.get(ApplicationConstants.LOGIN_HANDLES_LOGOUT) != null) {
@@ -100,7 +101,7 @@ public class CustomerMobileSCImpl implements CustomerMobileSC {
 	@Validate
 	@Input({ 
 		@Variable(name = ApplicationConstants.LOGIN_USERID, format = Format.UPPER_CASE),
-		@Variable(name = "nonce"),  // encrypted with heartBeat
+		@Variable(name = "nonce", required = false),  // encrypted with heartBeat
 		@Variable(name = "sign"),  // the signature of the nonce
 		@Variable(name = "device", required = false, type = Map.class)  //sengaja dibuat false agar tidak di validate
 	})
@@ -109,5 +110,22 @@ public class CustomerMobileSCImpl implements CustomerMobileSC {
 			throws ApplicationException, BusinessException {
 		handleLogoutIfNeeded(map);
 		return mobileService.mobileCustFPLogin(map);
+	}
+	
+	@Validate
+	@Input({
+		@Variable(name = "oldPassword"),
+		@Variable(name = "newPassword"),
+		@Variable(name = "newPassword2"),
+		@Variable(name = ApplicationConstants.LOGIN_USERID, format = Format.UPPER_CASE), 
+		@Variable(name = ApplicationConstants.WF_ACTION, options = {"RESET"}),
+		@Variable(name = "key", required = false) //sengaja dibuat false agar tidak di validate 
+	})
+	@Output({
+		@Variable(name = ApplicationConstants.WF_FIELD_MESSAGE, format = Format.I18N),
+	})
+	@Override
+	public Map<String, Object> mobileForceChangePassword(Map<String, Object> map) throws ApplicationException, BusinessException {
+		return mobileService.mobileForceChangePassword(map);
 	}
 }

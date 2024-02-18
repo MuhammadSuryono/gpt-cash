@@ -24,9 +24,13 @@ server.undertow.worker-threads=100
 #spring.datasource.url = jdbc:oracle:thin:@103.58.101.227:1521:GPT
 #spring.datasource.username = CASH_PRODUCT
 #spring.datasource.password = CASH_PRODUCT
-spring.datasource.url = jdbc:mysql://localhost:3306/cash
-spring.datasource.username = user
-spring.datasource.password = password
+#spring.datasource.url = jdbc:mysql://localhost:3306/cash
+#spring.datasource.username = user
+#spring.datasource.password = password
+
+spring.datasource.url = jdbc:oracle:thin:@//125.213.129.119:1521/pdb1
+spring.datasource.username = CASH_PRODUCT_DEV
+spring.datasource.password = CASH_PRODUCT_DEV_BARU
 
 spring.datasource.hikari.maximum-pool-size = 150
 

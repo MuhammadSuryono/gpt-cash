@@ -47,6 +47,14 @@ public class CustomerBeneficiaryListInHouseRepositoryImpl extends CashRepository
 				predicate = namePredicate;
 		}
 
+		if (ValueUtils.hasValue(paramMap.get("isBenVA"))) {
+			Predicate isVAPredicate = builder.equal(builder.upper(root.get("isBenVirtualAccount")), ((String)paramMap.get("isBenVA")).toUpperCase());
+			if(predicate!=null)
+				predicate = builder.and(predicate, isVAPredicate);
+			else
+				predicate = isVAPredicate;
+		}
+
 		Join<Object, Object> joinCustomer = root.join("customer");
 		joinCustomer.alias("customer");
 		Predicate customerIsEqual = builder.equal(builder.upper(joinCustomer.get("id")), ((String)paramMap.get("customerId")).toUpperCase());

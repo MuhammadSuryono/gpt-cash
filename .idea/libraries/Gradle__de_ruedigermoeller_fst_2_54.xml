@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: de.ruedigermoeller:fst:2.54" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="de.ruedigermoeller" artifactId="fst" version="2.54" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/de.ruedigermoeller/fst/2.54/c335fa0446871ffe0dd9ac6fbf9abdb2ecde42a8/fst-2.54.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/de.ruedigermoeller/fst/2.54/4d8c0dfd23e8f541d5557ef06e7b25e21b529258/fst-2.54-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

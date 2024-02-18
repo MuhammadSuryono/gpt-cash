@@ -19,6 +19,8 @@ public interface CustomerInHouseTransferSC extends CustomerUserWorkflowService {
 	
 	Map<String, Object> searchBeneficiary(Map<String, Object> map) throws ApplicationException, BusinessException;
 	
+	Map<String, Object> searchBeneficiaryMobile(Map<String, Object> map) throws ApplicationException, BusinessException;
+		
 	Map<String, Object> getTransactionSessionTime(Map<String, Object> map) throws ApplicationException, BusinessException;
 
 	void executeFutureTransactionScheduler(String parameter) throws ApplicationException, BusinessException;
@@ -36,4 +38,7 @@ public interface CustomerInHouseTransferSC extends CustomerUserWorkflowService {
 
 	Map<String, Object> downloadTransactionStatus(Map<String, Object> map)
 			throws ApplicationException, BusinessException;
+		
+	Map<String, Object> checkRate(Map<String, Object> map) throws ApplicationException, BusinessException;
+
 }

@@ -76,6 +76,20 @@ public interface CustomerAccountRepository extends JpaRepository<CustomerAccount
 			+ "order by custAccount.account.accountNo")
 	Page<CustomerAccountModel> findByCustomerIdAndIsCredit(String customerId, List<String> accountTypeList, String localCurrency, Pageable pageInfo) throws Exception;
 	
+	@Query("from CustomerAccountModel custAccount "
+			+ "where custAccount.customer.id = ?1 "
+			+ "and custAccount.account.accountType.code in (?2)"
+			+ "and custAccount.isDebit = 'Y'"
+			+ "order by custAccount.account.accountNo")
+	Page<CustomerAccountModel> findByCustomerIdAndIsDebitMultiCurrency(String customerId, List<String> accountTypeList, Pageable pageInfo) throws Exception;
+	
+	@Query("from CustomerAccountModel custAccount "
+			+ "where custAccount.customer.id = ?1 "
+			+ "and custAccount.account.accountType.code in (?2)"
+			+ "and custAccount.isCredit = 'Y'"
+			+ "order by custAccount.account.accountNo")
+	Page<CustomerAccountModel> findByCustomerIdAndIsCreditMultiCurrency(String customerId, List<String> accountTypeList, Pageable pageInfo) throws Exception;
+	
 	@Query("select count(*) as count from CustomerAccountModel custAccount "
 			+ "where custAccount.customer.id = ?1 ")
 	Object getCountByCustomerId(String customerId) throws Exception;

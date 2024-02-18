@@ -74,4 +74,6 @@ public interface CorporateUserPendingTaskService {
 	Map<String, Object> searchPendingTaskHistoryByPendingTaskId(String pendingTaskId)
 			throws ApplicationException, BusinessException;
 	
+	boolean isPopupCOT(Map<String, Object> map)throws ApplicationException, BusinessException;
+	
 }

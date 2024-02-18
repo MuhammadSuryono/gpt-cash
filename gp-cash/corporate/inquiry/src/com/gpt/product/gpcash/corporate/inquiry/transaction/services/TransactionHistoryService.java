@@ -5,9 +5,10 @@ import java.util.Map;
 import com.gpt.component.common.exceptions.ApplicationException;
 import com.gpt.component.common.exceptions.BusinessException;
 import com.gpt.component.common.invoker.discovery.AutoDiscoveryImpl;
+import com.gpt.product.gpcash.corporate.IGenerateReport;
 
 @AutoDiscoveryImpl
-public interface TransactionHistoryService {
+public interface TransactionHistoryService extends IGenerateReport {
 	
 	Map<String, Object> periodicTransaction(Map<String, Object> map) throws ApplicationException, BusinessException;
 	
@@ -21,6 +22,9 @@ public interface TransactionHistoryService {
 
 	void executeSOTResponseScheduler(String parameter) throws ApplicationException, BusinessException;
 
-	Map<String, Object> downloadPeriodicTransactionMultiAccountForPDF(Map<String, Object> map)
-			throws ApplicationException, BusinessException;
+	Map<String, Object> downloadPeriodicTransactionMultiAccountForPDF(Map<String, Object> map) throws ApplicationException, BusinessException;
+	
+	Map<String, Object> downloadPending(Map<String, Object> map, String requestBy) throws ApplicationException;
+	
+	Map<String, Object> deletePendingDownload(Map<String, Object> map) throws ApplicationException, BusinessException;
 }

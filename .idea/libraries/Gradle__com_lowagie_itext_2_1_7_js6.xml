@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.lowagie:itext:2.1.7.js6" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.lowagie" artifactId="itext" version="2.1.7.js6" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.lowagie/itext/2.1.7.js6/6d16b69482c32d7ecf6fd513749db6f04c97ec8/itext-2.1.7.js6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.lowagie/itext/2.1.7.js6/e6292e14ed6d2afc75b868c339b81f8ca27d4a26/itext-2.1.7.js6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

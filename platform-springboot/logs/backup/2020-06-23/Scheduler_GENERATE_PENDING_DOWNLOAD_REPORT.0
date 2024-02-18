@@ -1,9 +1,0 @@
-[8640] 23:45:00.134 D -                      SchedulerHelper(47) [            Scheduler_Worker-1] [-1226596460548568121] : [GENERATE_PENDING_DOWNLOAD_REPORT] Scheduled Fire Time : Thu Jun 18 21:05:00 ICT 2020
-[8640] 23:45:00.134 D -                      SchedulerHelper(48) [            Scheduler_Worker-1] [-1226596460548568121] : [GENERATE_PENDING_DOWNLOAD_REPORT] Next Fire Time      : Thu Jun 18 21:05:00 ICT 2020
-[8640] 23:45:00.750 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-1] [-1226596460548568121] : [GENERATE_PENDING_DOWNLOAD_REPORT] Next Fire Time (New): Tue Jun 23 23:50:00 ICT 2020
-[8640] 23:50:00.032 D -                      SchedulerHelper(47) [            Scheduler_Worker-5] [-6160921504093748441] : [GENERATE_PENDING_DOWNLOAD_REPORT] Scheduled Fire Time : Tue Jun 23 23:50:00 ICT 2020
-[8640] 23:50:00.033 D -                      SchedulerHelper(48) [            Scheduler_Worker-5] [-6160921504093748441] : [GENERATE_PENDING_DOWNLOAD_REPORT] Next Fire Time      : Tue Jun 23 23:50:00 ICT 2020
-[8640] 23:50:00.153 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-5] [-6160921504093748441] : [GENERATE_PENDING_DOWNLOAD_REPORT] Next Fire Time (New): Tue Jun 23 23:55:00 ICT 2020
-[8640] 23:55:00.018 D -                      SchedulerHelper(47) [            Scheduler_Worker-7] [-4571997930515906033] : [GENERATE_PENDING_DOWNLOAD_REPORT] Scheduled Fire Time : Tue Jun 23 23:55:00 ICT 2020
-[8640] 23:55:00.019 D -                      SchedulerHelper(48) [            Scheduler_Worker-7] [-4571997930515906033] : [GENERATE_PENDING_DOWNLOAD_REPORT] Next Fire Time      : Tue Jun 23 23:55:00 ICT 2020
-[8640] 23:55:00.119 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-7] [-4571997930515906033] : [GENERATE_PENDING_DOWNLOAD_REPORT] Next Fire Time (New): Wed Jun 24 00:00:00 ICT 2020

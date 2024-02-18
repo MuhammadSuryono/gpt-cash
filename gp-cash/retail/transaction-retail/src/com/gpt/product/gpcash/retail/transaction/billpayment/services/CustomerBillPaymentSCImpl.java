@@ -173,7 +173,7 @@ public class CustomerBillPaymentSCImpl implements CustomerBillPaymentSC {
 			resultMap = new HashMap<>();
 			String strDateTime = Helper.DATE_TIME_FORMATTER.format(vo.getCreatedDate());
 			resultMap.put(ApplicationConstants.WF_FIELD_REFERENCE_NO, vo.getReferenceNo());
-			resultMap.put(ApplicationConstants.WF_FIELD_MESSAGE, "GPT-R-0200005");
+			resultMap.put(ApplicationConstants.WF_FIELD_MESSAGE, "GPT-R-0200006");
 			resultMap.put(ApplicationConstants.WF_FIELD_DATE_TIME_INFO, "GPT-0200008|" + strDateTime);
 		} else {
 			throw new BusinessException(vo.getErrorCode());

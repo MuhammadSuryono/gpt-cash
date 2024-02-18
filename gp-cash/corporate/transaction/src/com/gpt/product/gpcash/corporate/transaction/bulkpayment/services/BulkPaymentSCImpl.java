@@ -167,7 +167,8 @@ public class BulkPaymentSCImpl implements BulkPaymentSC {
 				PendingUploadConstants.SRVC_GPT_MFT_BULK_DOM_LLG,
 				PendingUploadConstants.SRVC_GPT_MFT_BULK_DOM_RTGS,
 				PendingUploadConstants.SRVC_GPT_MFT_BULK_DOM_ONLINE
-				}), 		
+				}),
+		@Variable(name = "isSummary"),
 		@Variable(name = ApplicationConstants.LOGIN_USERID, format = Format.UPPER_CASE),
 		@Variable(name = ApplicationConstants.LOGIN_CORP_ID, format = Format.UPPER_CASE),
 		@Variable(name = ApplicationConstants.WF_ACTION, options = { ApplicationConstants.WF_ACTION_CONFIRM}),
@@ -241,7 +242,8 @@ public class BulkPaymentSCImpl implements BulkPaymentSC {
 				PendingUploadConstants.SRVC_GPT_MFT_BULK_DOM_LLG,
 				PendingUploadConstants.SRVC_GPT_MFT_BULK_DOM_RTGS,
 				PendingUploadConstants.SRVC_GPT_MFT_BULK_DOM_ONLINE 
-				}), 		
+				}),
+		@Variable(name = "isSummary"),
 		@Variable(name = ApplicationConstants.LOGIN_USERID, format = Format.UPPER_CASE),
 		@Variable(name = ApplicationConstants.LOGIN_CORP_ID, format = Format.UPPER_CASE),
 		@Variable(name = ApplicationConstants.WF_ACTION, options = { ApplicationConstants.WF_ACTION_CREATE}),

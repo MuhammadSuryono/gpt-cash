@@ -23,6 +23,7 @@ import com.gpt.component.common.validation.converter.Format;
 import com.gpt.platform.cash.constants.ApplicationConstants;
 import com.gpt.product.gpcash.corporate.corporateaccountgroup.services.CorporateAccountGroupService;
 import com.gpt.product.gpcash.corporate.logging.annotation.EnableCorporateActivityLog;
+import com.gpt.product.gpcash.pendingdownload.services.PendingDownloadSC;
 
 @Validate
 @Service
@@ -33,6 +34,9 @@ public class TransactionHistorySCImpl implements TransactionHistorySC {
 	
 	@Autowired
 	private CorporateAccountGroupService corporateAccountGroupService;
+	
+	@Autowired
+	private PendingDownloadSC pendingDownloadSC;
 	
 	@EnableCorporateActivityLog
 	@Validate(paging = Option.REQUIRED, sorting = Option.OPTIONAL)
@@ -312,5 +316,94 @@ public class TransactionHistorySCImpl implements TransactionHistorySC {
 	@Override
 	public void executeSOTResponseScheduler(String parameter) throws ApplicationException, BusinessException {
 		transactionHistoryService.executeSOTResponseScheduler(parameter);
+	}
+	
+	@EnableCorporateActivityLog
+	@Validate
+	@Input({
+		@Variable(name = ApplicationConstants.LOGIN_CORP_ID, format = Format.UPPER_CASE),	
+		@Variable(name = ApplicationConstants.LOGIN_USERID, format = Format.UPPER_CASE),
+		@Variable(name = ApplicationConstants.WF_ACTION, options = {ApplicationConstants.WF_ACTION_SEARCH}),
+		@Variable(name = ApplicationConstants.STR_MENUCODE, options = menuCode)
+	})
+	@Override
+	public Map<String, Object> search(Map<String, Object> map) throws ApplicationException, BusinessException {
+		return pendingDownloadSC.search(map);
+	}
+	
+	@Validate
+	@Input({
+		@Variable(name = "fromDate", type = Date.class, format = Format.DATE),
+		@Variable(name = "toDate", type = Date.class, format = Format.DATE),
+		@Variable(name = ApplicationConstants.FILENAME),
+		@Variable(name = "downloadId"),
+		@Variable(name = "fileFormat", options = {
+				ApplicationConstants.FILE_FORMAT_CSV, 
+				ApplicationConstants.FILE_FORMAT_TXT,
+				ApplicationConstants.FILE_FORMAT_MT_940,
+				ApplicationConstants.FILE_FORMAT_MT_942,
+				ApplicationConstants.FILE_FORMAT_PDF,
+				ApplicationConstants.FILE_FORMAT_EXCEL}),
+		@Variable(name = ApplicationConstants.LOGIN_CORP_ID, format = Format.UPPER_CASE),	
+		@Variable(name = ApplicationConstants.LOGIN_USERID, format = Format.UPPER_CASE),
+		@Variable(name = ApplicationConstants.STR_MENUCODE, options = menuCode)
+	})
+	@Override
+	public void doGenerateReport(Map<String, Object> map) throws ApplicationException, BusinessException {
+		transactionHistoryService.doGenerateReport(map, (String) map.get(ApplicationConstants.LOGIN_USERID));
+	}
+	
+	@EnableCorporateActivityLog
+	@Validate
+	@Input({
+		@Variable(name = "fromDate", type = Date.class, format = Format.DATE),
+		@Variable(name = "toDate", type = Date.class, format = Format.DATE),
+		@Variable(name = "fileFormat", options = {
+				ApplicationConstants.FILE_FORMAT_CSV, 
+				ApplicationConstants.FILE_FORMAT_TXT,
+				ApplicationConstants.FILE_FORMAT_MT_940,
+				ApplicationConstants.FILE_FORMAT_MT_942,
+				ApplicationConstants.FILE_FORMAT_PDF,
+				ApplicationConstants.FILE_FORMAT_EXCEL}),
+		@Variable(name = ApplicationConstants.LOGIN_CORP_ID, format = Format.UPPER_CASE),
+		@Variable(name = ApplicationConstants.LOGIN_USERID),
+		@Variable(name = ApplicationConstants.WF_ACTION, options = {ApplicationConstants.WF_ACTION_REQUEST_DOWNLOAD}),
+		@Variable(name = ApplicationConstants.STR_MENUCODE, options = menuCode)
+	})
+	@Override
+	public Map<String, Object> submit(Map<String, Object> map) throws ApplicationException, BusinessException {
+		return pendingDownloadSC.submit(map);
+	}
+
+	@EnableCorporateActivityLog
+	@Validate
+	@Input({
+		@Variable(name = "downloadId"),
+		@Variable(name = ApplicationConstants.LOGIN_CORP_ID, format = Format.UPPER_CASE),
+		@Variable(name = ApplicationConstants.LOGIN_USERID),
+		@Variable(name = ApplicationConstants.WF_ACTION, options = {ApplicationConstants.WF_ACTION_DOWNLOAD}),
+		@Variable(name = ApplicationConstants.STR_MENUCODE, options = menuCode)
+	})
+	@Override
+	public Map<String, Object> downloadPending(Map<String, Object> map) throws ApplicationException, BusinessException {
+		return transactionHistoryService.downloadPending(map, (String) map.get(ApplicationConstants.LOGIN_USERID));
+	}
+	
+	@EnableCorporateActivityLog
+	@Validate
+	@Input({
+		@Variable(name = "downloadIdList", type = List.class),
+		@Variable(name = ApplicationConstants.LOGIN_CORP_ID, format = Format.UPPER_CASE),
+		@Variable(name = ApplicationConstants.LOGIN_USERID),
+		@Variable(name = ApplicationConstants.WF_ACTION, options = {ApplicationConstants.WF_ACTION_DELETE}),
+		@Variable(name = ApplicationConstants.STR_MENUCODE, options = menuCode)
+	})
+	@Output({
+		@Variable(name = ApplicationConstants.WF_FIELD_MESSAGE, format = Format.I18N)
+	})	
+	@Override
+	public Map<String, Object> deletePendingDownload(Map<String, Object> map) throws ApplicationException, BusinessException {
+		return transactionHistoryService.deletePendingDownload(map);
+		
 	}
 }

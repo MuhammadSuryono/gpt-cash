@@ -65,6 +65,7 @@ import com.gpt.product.gpcash.corporate.corporatecharge.repository.CorporateChar
 import com.gpt.product.gpcash.corporate.corporatecharge.services.CorporateChargeService;
 import com.gpt.product.gpcash.corporate.corporateuser.model.CorporateUserModel;
 import com.gpt.product.gpcash.corporate.corporateusergroup.model.CorporateUserGroupModel;
+import com.gpt.product.gpcash.corporate.pendingtaskuser.model.CorporateUserPendingTaskModel;
 import com.gpt.product.gpcash.corporate.pendingtaskuser.repository.CorporateUserPendingTaskRepository;
 import com.gpt.product.gpcash.corporate.pendingtaskuser.services.CorporateUserPendingTaskService;
 import com.gpt.product.gpcash.corporate.pendingtaskuser.valueobject.CorporateUserPendingTaskVO;
@@ -941,6 +942,8 @@ public class DirectDebitServiceImpl implements DirectDebitService {
 			String executedId = (String) map.get("executedId");
 			TransactionStatusModel trxStatus = trxStatusRepo.findOne(executedId);			
 			
+			if(trxStatus.getStatus().equals(TransactionStatus.EXECUTE_SUCCESS) || trxStatus.getStatus().equals(TransactionStatus.EXECUTE_PARTIAL_SUCCESS)) {
+				
 			DirectDebitModel directDebitModel = directDebitRepo.findOne(trxStatus.getEaiRefNo());
 			if (directDebitModel==null)
 				throw new BusinessException("GPT-0100001");
@@ -960,6 +963,19 @@ public class DirectDebitServiceImpl implements DirectDebitService {
 			PagingUtils.setPagingInfo(resultMap, result);
 			
 			resultMap.put("executedResult", details);
+			} else {
+				CorporateUserPendingTaskModel model = pendingTaskRepo.findOne(trxStatus.getPendingTaskId());
+				List<Map<String, Object>> executedTransactionList = globalTransactionService.prepareDetailTransactionMapFromPendingTask(model, trxStatus);
+				
+				for (Map<String, Object> infoMap : executedTransactionList) { // override for mandatory output checks in SC
+					infoMap.put("creditAccount", ApplicationConstants.NOT_AVAILABLE);
+					infoMap.put("creditAccountName", ApplicationConstants.NOT_AVAILABLE);
+				}
+				resultMap.put("totalRecord", 1);
+				resultMap.put("totalPage", 1);
+				resultMap.put("executedResult", executedTransactionList);
+			}
+			
 		
 		} catch (BusinessException e) {
 			throw e;

@@ -26,6 +26,11 @@ public interface TransactionValidationService {
 	void updateTransactionLimit(String corporateId, String serviceCode, String sourceAccountCurrency,
 			String transactionCurrency, String corporateUserGroupId, BigDecimal transactionAmount,
 			String applicationCode) throws Exception;
+	
+	void updateTransactionLimitEquivalent(String corporateId, String serviceCode, String sourceAccountCurrency,
+			String transactionCurrency, String corporateUserGroupId, BigDecimal transactionAmount,
+			String applicationCode, BigDecimal totalCharge) throws Exception;
+		
 
 	void reverseUpdateTransactionLimit(String corporateId, String serviceCode, String sourceAccountCurrency,
 			String transactionCurrency, String corporateUserGroupId, BigDecimal transactionAmount,
@@ -66,5 +71,8 @@ public interface TransactionValidationService {
 
 	void updateBankForexLimit(String code, String transactionCurrency, BigDecimal transactionAmount,
 			BigDecimal totalDebitedEquivalentAmount) throws Exception;
+	
+	Map<String, Object> checkForwardContract(String treasuryCode, String sourceAccountCurrency, String transactionCurrency, BigDecimal transactionAmount, Timestamp instructionDate, 
+			String corporateId, String instructionMode) throws ApplicationException, BusinessException;
 	
 }

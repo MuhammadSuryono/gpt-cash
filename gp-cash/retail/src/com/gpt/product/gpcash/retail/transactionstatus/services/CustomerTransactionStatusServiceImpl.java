@@ -15,10 +15,12 @@ import org.springframework.transaction.annotation.Transactional;
 import com.gpt.component.common.exceptions.ApplicationException;
 import com.gpt.component.common.exceptions.BusinessException;
 import com.gpt.component.common.spring.Util;
+import com.gpt.component.common.utils.ValueUtils;
 import com.gpt.component.idm.menu.model.IDMMenuModel;
 import com.gpt.component.idm.user.model.IDMUserModel;
 import com.gpt.component.idm.utils.IDMRepository;
 import com.gpt.platform.cash.constants.ApplicationConstants;
+import com.gpt.platform.cash.utils.Helper;
 import com.gpt.product.gpcash.retail.pendingtaskuser.model.CustomerUserPendingTaskModel;
 import com.gpt.product.gpcash.retail.pendingtaskuser.repository.CustomerUserPendingTaskRepository;
 import com.gpt.product.gpcash.retail.pendingtaskuser.services.CustomerUserPendingTaskService;
@@ -178,6 +180,19 @@ public class CustomerTransactionStatusServiceImpl implements CustomerTransaction
 		
 		transactionStatusRepo.save(model);
 		
+	}
+
+	@Override
+	public Map<String, Object> searchTransactionStatusForBank(Map<String, Object> map) throws ApplicationException, BusinessException {
+		try {
+			
+			return customerUserPendingTaskService.searchPendingTask(map);
+
+		} catch (BusinessException e) {
+			throw e;
+		} catch (Exception e) {
+			throw new ApplicationException(e);
+		}
 	}
 
 }

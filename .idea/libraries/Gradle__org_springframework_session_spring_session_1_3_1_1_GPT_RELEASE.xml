@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: org.springframework.session:spring-session:1.3.1.1.GPT_RELEASE" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="org.springframework.session" artifactId="spring-session" version="1.3.1.1.GPT_RELEASE" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.session/spring-session/1.3.1.1.GPT_RELEASE/d7aac112bf73a16953feb4e80efff93b6e01015b/spring-session-1.3.1.1.GPT_RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -219,7 +219,17 @@ public class CorporateUserPendingTaskModel implements Serializable {
 	
 	@Column(name = "SRVC_CCY_MTRX_CD")
 	protected String serviceCurrencyMatrix;
+	
+	@Column(name = "IS_CHECK_COT")
+	protected String checkCOTFlag;
+	
+	public String getCheckCOTFlag() {
+		return checkCOTFlag;
+	}
 
+	public void setCheckCOTFlag(String checkCOTFlag) {
+		this.checkCOTFlag = checkCOTFlag;
+	}
 	
     public String getServiceCurrencyMatrix() {
 		return serviceCurrencyMatrix;

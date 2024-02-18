@@ -24,6 +24,7 @@ import javax.imageio.ImageIO;
 
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,11 +67,11 @@ import com.gpt.product.gpcash.retail.customeraccount.services.CustomerAccountSer
 import com.gpt.product.gpcash.retail.customercharge.model.CustomerChargeModel;
 import com.gpt.product.gpcash.retail.customercharge.repository.CustomerChargeRepository;
 import com.gpt.product.gpcash.retail.customercharge.services.CustomerChargeService;
+import com.gpt.product.gpcash.retail.customerspecialrate.services.CustomerSpecialRateService;
 import com.gpt.product.gpcash.retail.pendingtaskuser.model.CustomerUserPendingTaskModel;
 import com.gpt.product.gpcash.retail.pendingtaskuser.repository.CustomerUserPendingTaskRepository;
 import com.gpt.product.gpcash.retail.pendingtaskuser.services.CustomerUserPendingTaskService;
 import com.gpt.product.gpcash.retail.pendingtaskuser.valueobject.CustomerUserPendingTaskVO;
-import com.gpt.product.gpcash.retail.transaction.domestic.services.CustomerDomesticTransferSC;
 import com.gpt.product.gpcash.retail.transaction.globaltransaction.services.CustomerGlobalTransactionService;
 import com.gpt.product.gpcash.retail.transaction.inhouse.model.CustomerInHouseTransferModel;
 import com.gpt.product.gpcash.retail.transaction.inhouse.repository.CustomerInHouseTransferRepository;
@@ -166,6 +167,9 @@ public class CustomerInHouseTransferServiceImpl implements CustomerInHouseTransf
 	
 	@Autowired
 	private CustomerBeneficiaryListInHouseRepository beneficiaryListInHouseRepo;
+
+        @Autowired
+	private CustomerSpecialRateService specialRateService;
 	
 	@Value("${gpcash.report.folder}")
 	private String reportFolder;
@@ -181,6 +185,9 @@ public class CustomerInHouseTransferServiceImpl implements CustomerInHouseTransf
 	
 	@Autowired
 	private MessageSource message;
+	
+	@Autowired
+	private ObjectMapper objectMapper;
 	
 	@Override
 	public Map<String, Object> submit(Map<String, Object> map) throws ApplicationException, BusinessException {
@@ -330,7 +337,7 @@ public class CustomerInHouseTransferServiceImpl implements CustomerInHouseTransf
 		}
 		//------------------------------------------------------------------
 		
-		vo.setTotalChargeEquivalentAmount((BigDecimal) map.get(ApplicationConstants.TRANS_TOTAL_CHARGE));
+		vo.setTotalChargeEquivalentAmount((BigDecimal) map.get(ApplicationConstants.TRANS_TOTAL_CHARGE_EQ));
 		vo.setTotalDebitedEquivalentAmount((BigDecimal) map.get(ApplicationConstants.TRANS_TOTAL_DEBIT_AMOUNT));
 		vo.setInstructionMode(instructionMode);
 		
@@ -354,6 +361,9 @@ public class CustomerInHouseTransferServiceImpl implements CustomerInHouseTransf
 		
 		checkSourceAccountAndBenAccountCannotSame(vo.getSourceAccount(), vo.getBenAccount());
 		
+		String refNoSpecialRate = (String) map.get("treasuryCode");		
+		vo.setRefNoSpecialRate(refNoSpecialRate);
+		
 		return vo;
 	}
 	
@@ -376,6 +386,7 @@ public class CustomerInHouseTransferServiceImpl implements CustomerInHouseTransf
 		String isBeneficiaryFlag = (String) map.get("isBeneficiaryFlag");
 		String isSaveBenFlag = (String) map.get("isSaveBenFlag");
 		String instructionMode = (String) map.get("instructionMode");
+		String isVirtualAccount = (String) map.get("isVirtualAccount");
 		
 		Timestamp instructionDate = vo.getInstructionDate();
 		if(ApplicationConstants.SI_RECURRING.equals(vo.getInstructionMode())) {
@@ -410,7 +421,7 @@ public class CustomerInHouseTransferServiceImpl implements CustomerInHouseTransf
 		inHouseTransfer.setTransactionAmount(new BigDecimal(map.get(ApplicationConstants.TRANS_AMOUNT).toString()));
 		inHouseTransfer.setTransactionCurrency((String) map.get(ApplicationConstants.TRANS_CURRENCY));
 		inHouseTransfer.setTotalChargeEquivalentAmount(
-				new BigDecimal(map.get(ApplicationConstants.TRANS_TOTAL_CHARGE).toString()));
+				new BigDecimal(map.get(ApplicationConstants.TRANS_TOTAL_CHARGE_EQ).toString()));
 		inHouseTransfer.setTotalDebitedEquivalentAmount(
 				new BigDecimal(map.get(ApplicationConstants.TRANS_TOTAL_DEBIT_AMOUNT).toString()));
 
@@ -421,7 +432,7 @@ public class CustomerInHouseTransferServiceImpl implements CustomerInHouseTransf
 
 		// set benAccountNo based on benId
 		setBenAccountInfo(inHouseTransfer, benId, transactionServiceCode, isSaveBenFlag,
-				vo.getCustomerId(), isBeneficiaryFlag, vo.getCreatedBy());
+				vo.getCustomerId(), isBeneficiaryFlag, vo.getCreatedBy(), isVirtualAccount);
 
 		// set additional information
 		inHouseTransfer.setRemark1((String) map.get("remark1"));
@@ -434,6 +445,7 @@ public class CustomerInHouseTransferServiceImpl implements CustomerInHouseTransf
 		
 		setCharge(inHouseTransfer, (ArrayList<Map<String,Object>>) map.get("chargeList"));
 		
+		inHouseTransfer.setRefNoSpecialRate(vo.getRefNoSpecialRate());
 
 		return inHouseTransfer;
 	}
@@ -443,27 +455,33 @@ public class CustomerInHouseTransferServiceImpl implements CustomerInHouseTransf
 			Map<String, Object> chargeMap = chargeList.get(i - 1);
 			String chargeId = (String) chargeMap.get("id");
 			BigDecimal value = new BigDecimal(chargeMap.get("value").toString());
+			BigDecimal valueEquivalent = new BigDecimal(chargeMap.get("valueEq").toString());
 			String currencyCode = (String) chargeMap.get("currencyCode");
 			
 			if(i == 1){
 				inHouseTransfer.setChargeType1(chargeId);
 				inHouseTransfer.setChargeTypeAmount1(value);
+				inHouseTransfer.setChargeTypeAmountEquivalent1(valueEquivalent);
 				inHouseTransfer.setChargeTypeCurrency1(currencyCode);
 			} else if(i == 2){
 				inHouseTransfer.setChargeType2(chargeId);
 				inHouseTransfer.setChargeTypeAmount2(value);
+				inHouseTransfer.setChargeTypeAmountEquivalent2(valueEquivalent);
 				inHouseTransfer.setChargeTypeCurrency2(currencyCode);
 			} else if(i == 3){
 				inHouseTransfer.setChargeType3(chargeId);
 				inHouseTransfer.setChargeTypeAmount3(value);
+				inHouseTransfer.setChargeTypeAmountEquivalent3(valueEquivalent);
 				inHouseTransfer.setChargeTypeCurrency3(currencyCode);
 			} else if(i == 4){
 				inHouseTransfer.setChargeType4(chargeId);
 				inHouseTransfer.setChargeTypeAmount4(value);
+				inHouseTransfer.setChargeTypeAmountEquivalent4(valueEquivalent);
 				inHouseTransfer.setChargeTypeCurrency4(currencyCode);
 			} else if(i == 5){
 				inHouseTransfer.setChargeType5(chargeId);
 				inHouseTransfer.setChargeTypeAmount5(value);
+				inHouseTransfer.setChargeTypeAmountEquivalent5(valueEquivalent);
 				inHouseTransfer.setChargeTypeCurrency5(currencyCode);
 			} 
 		}
@@ -495,7 +513,7 @@ public class CustomerInHouseTransferServiceImpl implements CustomerInHouseTransf
 	}
 
 	private void setBenAccountInfo(CustomerInHouseTransferModel inHouseTransfer,String benId, String transactionServiceCode, 
-			String isSaveBenFlag, String customerId, String isBeneficiaryFlag, String createdBy) throws Exception {
+			String isSaveBenFlag, String customerId, String isBeneficiaryFlag, String createdBy, String isVirtualAccount) throws Exception {
 		
 		String benAccountNo = null;
 		String benAccountName = null;
@@ -512,19 +530,35 @@ public class CustomerInHouseTransferServiceImpl implements CustomerInHouseTransf
 				benAccountCurrency = beneficiaryListInHouse.getBenAccountCurrency();
 			} else {
 				// benId from third party account
-				benAccountNo = benId;
 				
-				Map<String, Object> inputs = new HashMap<>();
-				inputs.put("accountNo", benAccountNo);			
-				Map<String, Object> outputs = customerAccountService.searchOnlineByAccountNo(inputs);
+				if (ApplicationConstants.YES.equals(isVirtualAccount)) {
+					
+					Map<String, Object> inputs = new HashMap<>();
+					inputs.put("accountNo", benId);
+					
+					Map<String, Object> outputs = eaiAdapter.invokeService(EAIConstants.TRANSFER_VA_INQUIRY, inputs);
+					
+					benAccountNo = (String) outputs.get("accountNo");
+					benAccountName = (String) outputs.get("accountName");
+					benAccountCurrency = (String)outputs.get("accountCurrencyCode");
+					
+				} else {
+					
+					benAccountNo = benId;
+					
+					Map<String, Object> inputs = new HashMap<>();
+					inputs.put("accountNo", benAccountNo);			
+					Map<String, Object> outputs = customerAccountService.searchOnlineByAccountNo(inputs);
+					
+					benAccountName = (String)outputs.get("accountName");
+					benAccountCurrency = (String)outputs.get("accountCurrencyName");								
+				}
 				
-				benAccountName = (String)outputs.get("accountName");
-				benAccountCurrency = (String)outputs.get("accountCurrencyName");								
 				
 				if (ApplicationConstants.YES.equals(isSaveBenFlag)) {
 					// save to bene table
 					beneficiaryListInHouseService.saveCustomerBeneficiary(customerId, benAccountNo,
-							benAccountName, benAccountCurrency, ApplicationConstants.NO, null, createdBy);
+							benAccountName, benAccountCurrency, ApplicationConstants.NO, null, createdBy, isVirtualAccount);
 
 				}
 			}
@@ -612,6 +646,7 @@ public class CustomerInHouseTransferServiceImpl implements CustomerInHouseTransf
 			String transactionServiceCode = (String) map.get(ApplicationConstants.TRANS_SERVICE_CODE);
 			String customerId = (String)map.get(ApplicationConstants.CUST_ID);
 			String accountGroupDtlId = (String)map.get(ApplicationConstants.ACCOUNT_DTL_ID);
+			String isVirtualAccount = (String) map.get("isVirtualAccount");
 			
 			if (ApplicationConstants.SRVC_GPT_FTR_IH_3RD.equals(transactionServiceCode)) {
 				if (ApplicationConstants.YES.equals((String) map.get("isBeneficiaryFlag"))) {
@@ -624,14 +659,30 @@ public class CustomerInHouseTransferServiceImpl implements CustomerInHouseTransf
 					benAccountCurrency = beneficiaryListInHouse.getBenAccountCurrency();								
 				} else {
 					// benId from third party account
-					benAccountNo = benId;
 					
-					Map<String, Object> inputs = new HashMap<>();
-					inputs.put("accountNo", benAccountNo);			
-					Map<String, Object> outputs = customerAccountService.searchOnlineByAccountNo(inputs);
+					if (ApplicationConstants.YES.equals(isVirtualAccount)) {
+						
+						Map<String, Object> inputs = new HashMap<>();
+						inputs.put("accountNo", benId);
+						
+						Map<String, Object> outputs = eaiAdapter.invokeService(EAIConstants.TRANSFER_VA_INQUIRY, inputs);
+						
+						benAccountNo = (String) outputs.get("accountNo");
+						benAccountName = (String) outputs.get("accountName");
+						benAccountCurrency = (String)outputs.get("accountCurrencyCode");
+						
+					} else {
+						
+						benAccountNo = benId;
+						
+						Map<String, Object> inputs = new HashMap<>();
+						inputs.put("accountNo", benAccountNo);			
+						Map<String, Object> outputs = customerAccountService.searchOnlineByAccountNo(inputs);
+						
+						benAccountName = (String)outputs.get("accountName");
+						benAccountCurrency = (String)outputs.get("accountCurrencyName");								
+					}
 					
-					benAccountName = (String)outputs.get("accountName");
-					benAccountCurrency = (String)outputs.get("accountCurrencyName");								
 				}		
 			} else if (ApplicationConstants.SRVC_GPT_FTR_IH_OWN.equals(transactionServiceCode)) {
 				// get benAccountNo from customer account group detail
@@ -659,9 +710,11 @@ public class CustomerInHouseTransferServiceImpl implements CustomerInHouseTransf
 			//----------------------------------------------
 			
 			resultMap.put("benAccountInfo", benAccountInfo);			
-			resultMap.putAll(customerChargeService.getCustomerCharges((String) map.get(ApplicationConstants.APP_CODE),
+			resultMap.putAll(customerChargeService.getCustomerChargesEquivalent((String) map.get(ApplicationConstants.APP_CODE),
 					(String) map.get(ApplicationConstants.TRANS_SERVICE_CODE),
-					(String) map.get(ApplicationConstants.CUST_ID)));
+					(String) map.get(ApplicationConstants.CUST_ID),(String) map.get("sourceAccountCurrency")));
+
+			resultMap.put(ApplicationConstants.TRANS_AMOUNT_EQ, map.get("equivalentAmount"));
 		} catch (BusinessException e) {
 			throw e;
 		} catch (Exception e) {
@@ -676,13 +729,37 @@ public class CustomerInHouseTransferServiceImpl implements CustomerInHouseTransf
 		boolean limitUpdated = false;
 		
 		try {
-			//update transaction limit
-			transactionValidationService.updateTransactionLimit(model.getCustomer().getId(), 
+			
+			//untuk hitung totalcharge dalam IDR(localcurrency) charge salalu IDR
+			BigDecimal totalCharge = model.getChargeTypeAmount1()!=null?model.getChargeTypeAmount1():BigDecimal.ZERO
+					.add(model.getChargeTypeAmount2()!=null?model.getChargeTypeAmount2():BigDecimal.ZERO)
+					.add(model.getChargeTypeAmount3()!=null?model.getChargeTypeAmount3():BigDecimal.ZERO)
+					.add(model.getChargeTypeAmount4()!=null?model.getChargeTypeAmount4():BigDecimal.ZERO)
+					.add(model.getChargeTypeAmount5()!=null?model.getChargeTypeAmount5():BigDecimal.ZERO);
+			
+			/*transactionValidationService.updateTransactionLimit(model.getCustomer().getId(), 
 					model.getService().getCode(), 
 					model.getSourceAccount().getCurrency().getCode(), 
 					model.getTransactionCurrency(), 
 					model.getTotalDebitedEquivalentAmount(),
-					model.getApplication().getCode());
+					model.getApplication().getCode());*/
+			
+			//untuk multi currency limit harus selalu IDR
+			transactionValidationService.updateTransactionLimitEquivalent(model.getCustomer().getId(), 
+					model.getService().getCode(), 
+					model.getSourceAccount().getCurrency().getCode(), 
+					model.getTransactionCurrency(), 
+					model.getTransactionAmount(),
+					model.getApplication().getCode(),
+					totalCharge);
+			
+			//update bank forex limit
+			transactionValidationService.updateBankForexLimit(
+					model.getSourceAccount().getCurrency().getCode(),
+					model.getTransactionCurrency(),
+					model.getTransactionAmount(),
+					totalCharge);
+			
 			limitUpdated = true;
 
 			Map<String, Object> inputs = prepareInputsForEAI(model, appCode);
@@ -690,6 +767,8 @@ public class CustomerInHouseTransferServiceImpl implements CustomerInHouseTransf
 			
 			model.setStatus("GPT-0100130");
 			model.setIsError(ApplicationConstants.NO);
+			
+			this.updateSpecialRateStatus(model);
 		} catch (BusinessException e) {
 			String errorMsg = e.getMessage();
 			if (errorMsg!=null && errorMsg.startsWith("EAI-")) {
@@ -751,6 +830,16 @@ public class CustomerInHouseTransferServiceImpl implements CustomerInHouseTransf
 					// ignore any error, just in case something bad happens
 				}
 			}
+		}
+	}
+
+
+	private void updateSpecialRateStatus(CustomerInHouseTransferModel model) {
+		// TODO Auto-generated method stub
+		try {
+			specialRateService.updateStatus(model.getRefNoSpecialRate(), ApplicationConstants.SPECIAL_RATE_SETTLED, model.getCreatedBy());
+		} catch (Exception e) {
+			logger.error("ERROR update special ref no"+ e.getMessage());
 		}
 	}
 	
@@ -1019,6 +1108,7 @@ public class CustomerInHouseTransferServiceImpl implements CustomerInHouseTransf
 			*/
 			
 			boolean isExpired = false;
+			boolean isRecurring = false;
 			try {
 				if(ApplicationConstants.SI_RECURRING.equals(inhouse.getInstructionMode())) {					
 					Timestamp newInstructionDate = InstructionModeUtils.getStandingInstructionDate(inhouse.getRecurringParamType(), inhouse.getRecurringParam(), inhouse.getInstructionDate());
@@ -1030,6 +1120,8 @@ public class CustomerInHouseTransferServiceImpl implements CustomerInHouseTransf
 						logger.debug("Recurring new instruction date : " + calNewInstructionDate.getTime());
 						logger.debug("Recurring expired date : " + calExpired.getTime());
 					}
+					
+					isRecurring = true;
 					
 					if(calNewInstructionDate.compareTo(calExpired) <= 0) {
 						Calendar oldInstructionDate = Calendar.getInstance();
@@ -1054,8 +1146,11 @@ public class CustomerInHouseTransferServiceImpl implements CustomerInHouseTransf
 				
 					trxStatusService.addTransactionStatus(inhouse.getPendingTaskId(),  activityDate, CustomerTransactionActivityType.EXECUTE_TO_HOST, ApplicationConstants.CREATED_BY_SYSTEM, CustomerTransactionStatus.EXECUTE_FAIL, inhouse.getId(), true, inhouse.getErrorCode());
 				} else {
-					pendingTaskRepo.updatePendingTask(inhouse.getPendingTaskId(), ApplicationConstants.WF_STATUS_RELEASED, activityDate, ApplicationConstants.CREATED_BY_SYSTEM, CustomerTransactionStatus.EXECUTE_SUCCESS);
-					
+	if (isRecurring) {
+					pendingTaskRepo.updatePendingTask(inhouse.getPendingTaskId(), ApplicationConstants.WF_STATUS_RELEASED, activityDate, ApplicationConstants.CREATED_BY_SYSTEM, CustomerTransactionStatus.PENDING_EXECUTE);
+			}else{
+pendingTaskRepo.updatePendingTask(inhouse.getPendingTaskId(), ApplicationConstants.WF_STATUS_RELEASED, activityDate, ApplicationConstants.CREATED_BY_SYSTEM, CustomerTransactionStatus.EXECUTE_SUCCESS);
+}		
 					trxStatusService.addTransactionStatus(inhouse.getPendingTaskId(),  activityDate, CustomerTransactionActivityType.EXECUTE_TO_HOST, ApplicationConstants.CREATED_BY_SYSTEM, CustomerTransactionStatus.EXECUTE_SUCCESS, inhouse.getId(), false, null);
 				}
 			} else {
@@ -1098,11 +1193,11 @@ public class CustomerInHouseTransferServiceImpl implements CustomerInHouseTransf
 			//TODO recalculate all if implement forex trx
 			
 			//calculate new charge for recurring
-			Map<String, Object> chargesInfo =  customerChargeService.getCustomerCharges(model.getApplication().getCode(),
-					model.getService().getCode(), model.getCustomer().getId());
+			Map<String, Object> chargesInfo =  customerChargeService.getCustomerChargesEquivalent(model.getApplication().getCode(),
+					model.getService().getCode(), model.getCustomer().getId(),model.getTransactionCurrency());
 			
-			BigDecimal totalChargeFromTable = new BigDecimal((String) chargesInfo.get(ApplicationConstants.TRANS_TOTAL_CHARGE));
-			BigDecimal totalTransaction = model.getTransactionAmount().add(totalChargeFromTable);
+			BigDecimal totalChargeFromTable = new BigDecimal((String) chargesInfo.get(ApplicationConstants.TRANS_TOTAL_CHARGE_EQ));
+			BigDecimal totalTransaction = model.getTotalDebitedEquivalentAmount().add(totalChargeFromTable);
 			
 			newModel.setTotalChargeEquivalentAmount(totalChargeFromTable);
 			newModel.setTotalDebitedEquivalentAmount(totalTransaction);
@@ -1179,7 +1274,7 @@ public class CustomerInHouseTransferServiceImpl implements CustomerInHouseTransf
 		try {
 			//cancelId = pendingTaskId
 			String pendingTaskId = (String) map.get("cancelId");
-			String loginUserCode = (String) map.get(ApplicationConstants.LOGIN_USERCODE);
+			String loginUserCode = (String) map.get(ApplicationConstants.CUST_ID);
 			
 			if(logger.isDebugEnabled()) {
 				logger.debug("cancel pendingTaskId : " + pendingTaskId);
@@ -1216,8 +1311,8 @@ public class CustomerInHouseTransferServiceImpl implements CustomerInHouseTransf
 		modelMap.put("creditAccountCurrency", ValueUtils.getValue(model.getBenAccountCurrency()));
 		
 		//TODO diganti jika telah implement rate
-		modelMap.put("debitTransactionCurrency", model.getTransactionCurrency());
-		modelMap.put("debitEquivalentAmount", model.getTransactionAmount());
+		modelMap.put("debitTransactionCurrency", sourceAccount.getCurrency().getCode());
+		modelMap.put("debitEquivalentAmount", model.getTotalDebitedEquivalentAmount());
 		modelMap.put("debitExchangeRate", ApplicationConstants.ZERO);
 		modelMap.put("creditTransactionCurrency", model.getTransactionCurrency());
 		modelMap.put("creditEquivalentAmount", model.getTransactionAmount());
@@ -1231,13 +1326,14 @@ public class CustomerInHouseTransferServiceImpl implements CustomerInHouseTransf
 		
 		Map<String, Object> chargeMap = null;
 		
-		if(model.getChargeType1() != null) {
+		/*if(model.getChargeType1() != null) {
 			chargeMap = new HashMap<>();
 			CustomerChargeModel customerCharge = customerChargeRepo.findOne(model.getChargeType1());
 			ServiceChargeModel serviceCharge = customerCharge.getServiceCharge();
 			chargeMap.put("chargeType", serviceCharge.getName());
 			chargeMap.put("chargeCurrency", model.getChargeTypeCurrency1());
-			chargeMap.put("chargeEquivalentAmount", model.getChargeTypeAmount1());
+			chargeMap.put("chargeAmount", model.getChargeTypeAmount1());
+			chargeMap.put("chargeEquivalentAmount", model.getChargeTypeAmountEquivalent1());
 			chargeMap.put("chargeExchangeRate", ApplicationConstants.ZERO);
 			chargeList.add(chargeMap);
 		}
@@ -1248,7 +1344,8 @@ public class CustomerInHouseTransferServiceImpl implements CustomerInHouseTransf
 			ServiceChargeModel serviceCharge = customerCharge.getServiceCharge();
 			chargeMap.put("chargeType", serviceCharge.getName());
 			chargeMap.put("chargeCurrency", model.getChargeTypeCurrency2());
-			chargeMap.put("chargeEquivalentAmount", model.getChargeTypeAmount2());
+			chargeMap.put("chargeAmount", model.getChargeTypeAmount2());
+			chargeMap.put("chargeEquivalentAmount", model.getChargeTypeAmountEquivalent2());
 			chargeMap.put("chargeExchangeRate", ApplicationConstants.ZERO);
 			chargeList.add(chargeMap);
 		}
@@ -1259,7 +1356,8 @@ public class CustomerInHouseTransferServiceImpl implements CustomerInHouseTransf
 			ServiceChargeModel serviceCharge = customerCharge.getServiceCharge();
 			chargeMap.put("chargeType", serviceCharge.getName());
 			chargeMap.put("chargeCurrency", model.getChargeTypeCurrency3());
-			chargeMap.put("chargeEquivalentAmount", model.getChargeTypeAmount3());
+			chargeMap.put("chargeAmount", model.getChargeTypeAmount3());
+			chargeMap.put("chargeEquivalentAmount", model.getChargeTypeAmountEquivalent3());
 			chargeMap.put("chargeExchangeRate", ApplicationConstants.ZERO);
 			chargeList.add(chargeMap);
 		}
@@ -1270,7 +1368,8 @@ public class CustomerInHouseTransferServiceImpl implements CustomerInHouseTransf
 			ServiceChargeModel serviceCharge = customerCharge.getServiceCharge();
 			chargeMap.put("chargeType", serviceCharge.getName());
 			chargeMap.put("chargeCurrency", model.getChargeTypeCurrency4());
-			chargeMap.put("chargeEquivalentAmount", model.getChargeTypeAmount4());
+			chargeMap.put("chargeAmount", model.getChargeTypeAmount4());
+			chargeMap.put("chargeEquivalentAmount", model.getChargeTypeAmountEquivalent4());
 			chargeMap.put("chargeExchangeRate", ApplicationConstants.ZERO);
 			chargeList.add(chargeMap);
 		}
@@ -1281,9 +1380,81 @@ public class CustomerInHouseTransferServiceImpl implements CustomerInHouseTransf
 			ServiceChargeModel serviceCharge = customerCharge.getServiceCharge();
 			chargeMap.put("chargeType", serviceCharge.getName());
 			chargeMap.put("chargeCurrency", model.getChargeTypeCurrency5());
-			chargeMap.put("chargeEquivalentAmount", model.getChargeTypeAmount5());
+			chargeMap.put("chargeAmount", model.getChargeTypeAmount5());
+			chargeMap.put("chargeEquivalentAmount", model.getChargeTypeAmountEquivalent5());
 			chargeMap.put("chargeExchangeRate", ApplicationConstants.ZERO);
 			chargeList.add(chargeMap);
+		}*/
+		
+		//ikut existing corporate
+		
+		CustomerUserPendingTaskModel pt = pendingTaskRepo.findByReferenceNo(model.getReferenceNo());
+		
+		String strValues = pt.getValuesStr();
+		if (strValues != null) {
+			try {
+				Map<String, Object> valueMap = (Map<String, Object>) objectMapper.readValue(strValues, Class.forName(pt.getModel()));
+				List<Map<String,Object>> listCharge = (List<Map<String,Object>>)valueMap.get("chargeList");
+				
+				for (int i = 0; i < listCharge.size(); i++) {
+					Map<String, Object> mapCharge = listCharge.get(i);
+					if (model.getChargeType1() != null && model.getChargeType1().equals(mapCharge.get("id"))) {
+						chargeMap = new HashMap<>();
+						chargeMap.put("chargeType", mapCharge.get("serviceChargeName"));
+						chargeMap.put("chargeCurrency", model.getChargeTypeCurrency1());
+						chargeMap.put("chargeAmount", model.getChargeTypeAmount1());
+						chargeMap.put("chargeEquivalentAmount", model.getChargeTypeAmountEquivalent1());
+						chargeMap.put("debitCurrency", sourceAccount.getCurrency().getCode());
+						chargeMap.put("chargeExchangeRate", ApplicationConstants.ZERO);
+						chargeList.add(chargeMap);
+						continue;
+					}
+					if (model.getChargeType2() != null && model.getChargeType2().equals(mapCharge.get("id"))) {
+						chargeMap = new HashMap<>();
+						chargeMap.put("chargeType", mapCharge.get("serviceChargeName"));
+						chargeMap.put("chargeAmount", model.getChargeTypeAmount2());
+						chargeMap.put("chargeEquivalentAmount", model.getChargeTypeAmountEquivalent2());
+						chargeMap.put("debitCurrency", sourceAccount.getCurrency().getCode());
+						chargeMap.put("chargeExchangeRate", ApplicationConstants.ZERO);
+						chargeList.add(chargeMap);
+						continue;
+					}
+					if (model.getChargeType3() != null && model.getChargeType3().equals(mapCharge.get("id"))) {
+						chargeMap = new HashMap<>();
+						chargeMap.put("chargeType", mapCharge.get("serviceChargeName"));
+						chargeMap.put("chargeAmount", model.getChargeTypeAmount3());
+						chargeMap.put("chargeEquivalentAmount", model.getChargeTypeAmountEquivalent3());
+						chargeMap.put("debitCurrency", sourceAccount.getCurrency().getCode());
+						chargeMap.put("chargeExchangeRate", ApplicationConstants.ZERO);
+						chargeList.add(chargeMap);
+						continue;
+					}
+					if (model.getChargeType4() != null && model.getChargeType4().equals(mapCharge.get("id"))) {
+						chargeMap = new HashMap<>();
+						chargeMap.put("chargeType", mapCharge.get("serviceChargeName"));
+						chargeMap.put("chargeAmount", model.getChargeTypeAmount4());
+						chargeMap.put("chargeEquivalentAmount", model.getChargeTypeAmountEquivalent4());
+						chargeMap.put("debitCurrency", sourceAccount.getCurrency().getCode());
+						chargeMap.put("chargeExchangeRate", ApplicationConstants.ZERO);
+						chargeList.add(chargeMap);
+						continue;
+					}
+					if (model.getChargeType5() != null && model.getChargeType5().equals(mapCharge.get("id"))) {
+						chargeMap = new HashMap<>();
+						chargeMap.put("chargeType", mapCharge.get("serviceChargeName"));
+						chargeMap.put("chargeAmount", model.getChargeTypeAmount5());
+						chargeMap.put("chargeEquivalentAmount", model.getChargeTypeAmountEquivalent5());
+						chargeMap.put("debitCurrency", sourceAccount.getCurrency().getCode());
+						chargeMap.put("chargeExchangeRate", ApplicationConstants.ZERO);
+						chargeList.add(chargeMap);
+						continue;
+					}
+					
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			} 
 		}
 		
 		modelMap.put("chargeList", chargeList);
@@ -1423,5 +1594,56 @@ public class CustomerInHouseTransferServiceImpl implements CustomerInHouseTransf
 			reportParams.put("remark1", ValueUtils.getValue(model.getRemark1()));
 			reportParams.put("refNo", model.getReferenceNo());
 		} 
+	}
+
+	@Override
+	public Map<String, Object> searchOnline(Map<String, Object> map) throws ApplicationException, BusinessException {
+		
+		String isVirtualAccount = (String) map.get("isVirtualAccount");
+		
+		try {
+			
+			Map<String, Object> inputs = new HashMap<>();
+			inputs.put("accountNo", map.get("benAccountNo"));
+			
+			Map<String, Object> result = new HashMap<>(12,1);
+			if (ApplicationConstants.YES.equals(isVirtualAccount)) {
+				Map<String, Object> outputs = eaiAdapter.invokeService(EAIConstants.TRANSFER_VA_INQUIRY, inputs);
+				result.put("benAccountNo", outputs.get("accountNo"));
+				result.put("benAccountName", outputs.get("accountName"));
+				result.put("benAccountCurrency", outputs.get("accountCurrencyCode"));
+			} else {
+				Map<String, Object> outputs = eaiAdapter.invokeService(EAIConstants.ACCOUNT_INQUIRY, inputs);
+				result.put("benAccountNo", outputs.get("accountNo"));
+				result.put("benAccountName", outputs.get("accountName"));
+				result.put("benAccountCurrency", outputs.get("accountCurrencyCode"));							
+			}
+			
+			return result;
+		} catch (BusinessException e) {
+			throw e;
+		} catch (Exception e) {
+			throw new ApplicationException(e);
+		}
+	}
+	
+	private String getCurrencyMatrixCode(String fromCurrency, String toCurrency, String localCurrency)
+			throws Exception {
+		
+		if (fromCurrency.equalsIgnoreCase(localCurrency) && fromCurrency.equalsIgnoreCase(toCurrency)) {
+			return ApplicationConstants.CCY_MTRX_LL;
+		} else if (fromCurrency.equalsIgnoreCase(localCurrency) 
+				&& !toCurrency.equalsIgnoreCase(fromCurrency)) {
+			return ApplicationConstants.CCY_MTRX_LF;
+		} else if (toCurrency.equalsIgnoreCase(localCurrency) 
+				&& !toCurrency.equalsIgnoreCase(fromCurrency)) {
+			return ApplicationConstants.CCY_MTRX_FL;
+		}else if (!fromCurrency.equalsIgnoreCase(localCurrency) && fromCurrency.equalsIgnoreCase(toCurrency)) {
+			return ApplicationConstants.CCY_MTRX_FS;
+		} else if (!fromCurrency.equalsIgnoreCase(localCurrency) && !toCurrency.equalsIgnoreCase(localCurrency)
+				&& !fromCurrency.equalsIgnoreCase(toCurrency)) {
+			return ApplicationConstants.CCY_MTRX_FC;
+		}
+		return null;
 	}
 }

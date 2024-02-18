@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" external-system-id="GRADLE" name="Gradle : com.gpt.product.cash : platform-springboot-0.0.1.war">
+    <output-path>$PROJECT_DIR$/platform-springboot/platform-springboot-war/build/libs</output-path>
+    <properties id="gradle-properties">
+      <options external-project-path="$PROJECT_DIR$">
+        <buildTaskPath>:platform-springboot:platform-springboot-war:war</buildTaskPath>
+        <cleanTaskPath>:platform-springboot:platform-springboot-war:cleanWar</cleanTaskPath>
+      </options>
+    </properties>
+    <root id="archive" name="platform-springboot-0.0.1.war">
+      <element id="artifact" artifact-name="Gradle : com.gpt.product.cash : platform-springboot-0.0.1.war (exploded)" />
+    </root>
+  </artifact>
+</component>

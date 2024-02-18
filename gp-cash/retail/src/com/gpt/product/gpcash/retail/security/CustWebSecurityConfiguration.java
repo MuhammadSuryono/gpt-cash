@@ -46,6 +46,7 @@ public class CustWebSecurityConfiguration extends BaseWebSecurityConfiguration {
 				baseURL + "/validateRegistrationUserId",
 				baseURL + "/validateRegistrationExistingUserId",
 				baseURL + "/mobileCustLogin",
+				baseURL + "/mobileForceChangePassword",
 				baseURL + "/mobileCustFPLogin"};
 	}
 	

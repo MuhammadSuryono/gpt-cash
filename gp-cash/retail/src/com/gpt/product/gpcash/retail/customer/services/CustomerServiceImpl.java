@@ -21,8 +21,10 @@ import com.gpt.component.common.utils.ValueUtils;
 import com.gpt.component.idm.menu.model.IDMMenuModel;
 import com.gpt.component.idm.role.model.IDMRoleModel;
 import com.gpt.component.idm.user.model.IDMUserModel;
+import com.gpt.component.idm.user.repository.IDMUserRepository;
 import com.gpt.component.idm.user.services.IDMUserService;
 import com.gpt.component.idm.userapp.services.IDMUserAppService;
+import com.gpt.component.idm.userrole.repository.IDMUserRoleRepository;
 import com.gpt.component.idm.userrole.services.IDMUserRoleService;
 import com.gpt.component.idm.utils.IDMRepository;
 import com.gpt.component.maintenance.branch.model.BranchModel;
@@ -107,6 +109,12 @@ public class CustomerServiceImpl implements CustomerService {
 	
 	@Autowired
 	private CustomerUtilsRepository customerUtilsRepo;
+	
+	@Autowired
+	private IDMUserRoleRepository userRoleRepo;
+	
+	@Autowired
+	private IDMUserRepository idmUserRepo;
 
 	@Autowired
 	private EAIEngine eaiAdapter;
@@ -840,6 +848,18 @@ public class CustomerServiceImpl implements CustomerService {
 					updateCustomerLimitAndCharges(customerExisting, customerNew, vo.getCreatedBy());
 				}
 
+				//update role jika menu package berubah
+				if(!customerExisting.getServicePackage().getMenuPackage().getCode().equals(customerNew.getServicePackage().getMenuPackage().getCode())) {				
+					IDMUserModel idmUser = idmUserRepo.findOne(customerExisting.getUser().getCode());
+					// delete old user role
+					userRoleRepo.deleteByUserCode(customerExisting.getUser().getCode());
+					userRoleRepo.flush();
+					
+					idmUserRoleService.saveUserRole(idmUser, customerNew.getServicePackage().getMenuPackage().getRole().getCode(), vo.getCreatedBy());
+										
+				}
+				//--------------------------
+				
 				// set value yg boleh di edit
 				customerExisting.setName(customerNew.getName());
 				customerExisting.setAddress1(customerNew.getAddress1());
@@ -1067,8 +1087,9 @@ public class CustomerServiceImpl implements CustomerService {
 
 			for (CustomerModel model : result) {
 				Map<String, Object> map = new HashMap<>();
-				map.put(ApplicationConstants.CUST_ID, model.getUserId());
+				map.put(ApplicationConstants.CUST_ID, model.getId());
 				map.put("customerName", model.getId());
+				map.put("userId", model.getUserId());
 				resultList.add(map);
 			}
 			

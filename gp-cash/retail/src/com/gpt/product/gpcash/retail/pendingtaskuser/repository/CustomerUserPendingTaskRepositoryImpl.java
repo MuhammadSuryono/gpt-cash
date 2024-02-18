@@ -43,57 +43,98 @@ public class CustomerUserPendingTaskRepositoryImpl extends CashRepositoryImpl<Cu
 
 		Root<CustomerUserPendingTaskModel> pt = query.from(CustomerUserPendingTaskModel.class);
 		pt.alias("pt");
-
+		
+		Predicate predicate= null;
 		String custId = (String) map.get(ApplicationConstants.CUST_ID);
-		Path<Object> pathCustomerId = pt.get("customer").get("id");
-		Predicate predicate = builder.equal(pathCustomerId, custId);
+		if (ValueUtils.hasValue(custId)) {
+			Path<Object> pathCustomerId = pt.get("customer").get("id");
+			 predicate = builder.equal(pathCustomerId, custId);
+		}
 
 		String referenceNo = (String) map.get(ApplicationConstants.WF_FIELD_REFERENCE_NO);
 		if (ValueUtils.hasValue(referenceNo)) {
-			predicate = builder.and(predicate, builder.like(pt.get("referenceNo"), "%" + referenceNo + "%"));
+			Predicate predicateRefno = builder.like(pt.get("referenceNo"), "%" + referenceNo + "%");
+			
+			if (predicate != null)
+				predicate = builder.and(predicate, predicateRefno);
+			else
+				predicate = predicateRefno;
 		}
 
 		Date creationDateFrom = (Date) map.get("creationDateFrom");
 		if (creationDateFrom != null) {
 			creationDateFrom = DateUtils.getEarliestDate(creationDateFrom).getTime();
-			predicate = builder.and(predicate, builder.greaterThanOrEqualTo(pt.get("createdDate"), creationDateFrom));
+			Predicate predicateDateFrom = builder.greaterThanOrEqualTo(pt.get("createdDate"), creationDateFrom);
+			
+			if (predicate != null)
+				predicate = builder.and(predicate, predicateDateFrom);
+			else
+				predicate = predicateDateFrom;
 		}
 
 		Date creationDateTo = (Date) map.get("creationDateTo");
 		if (creationDateTo != null) {
 			creationDateTo = DateUtils.getNextEarliestDate(creationDateTo).getTime();
-			predicate = builder.and(predicate, builder.lessThan(pt.get("createdDate"), creationDateTo));
+			Predicate predicateDateTo = builder.lessThan(pt.get("createdDate"), creationDateTo);
+			
+			if (predicate != null)
+				predicate = builder.and(predicate, predicateDateTo);
+			else
+				predicate = predicateDateTo;
 		}
 
 		Date instructionDateFrom = (Date) map.get("instructionDateFrom");
 		if (instructionDateFrom != null) {
 			instructionDateFrom = DateUtils.getEarliestDate(instructionDateFrom).getTime();
-			predicate = builder.and(predicate,
-					builder.greaterThanOrEqualTo(pt.get("instructionDate"), instructionDateFrom));
+			Predicate predicateInstDateFrom = builder.greaterThanOrEqualTo(pt.get("instructionDate"), instructionDateFrom);
+			
+			if (predicate != null)
+				predicate = builder.and(predicate, predicateInstDateFrom);
+			else
+				predicate = predicateInstDateFrom;
 		}
 
 		Date instructionDateTo = (Date) map.get("instructionDateTo");
 		if (instructionDateTo != null) {
 			instructionDateTo = DateUtils.getNextEarliestDate(instructionDateTo).getTime();
-			predicate = builder.and(predicate, builder.lessThan(pt.get("instructionDate"), instructionDateTo));
+			Predicate predicateInstDateTo = builder.lessThan(pt.get("instructionDate"), instructionDateTo);
+			
+			if (predicate != null)
+				predicate = builder.and(predicate, predicateInstDateTo);
+			else
+				predicate = predicateInstDateTo;
 		}
 
 		String custAccount = (String) map.get("custAccount");
 		if (ValueUtils.hasValue(custAccount)) {
-			predicate = builder.and(predicate, builder.equal(pt.get("sourceAccount"), custAccount));
+			Predicate predicateAccount = builder.equal(pt.get("sourceAccount"), custAccount);
+			
+			if (predicate != null)
+				predicate = builder.and(predicate, predicateAccount);
+			else
+				predicate = predicateAccount;
 		}
 
 		Path<Object> pathMenuCode = pt.get("menu").get("code");
 
 		String menuCode = (String) map.get("pendingTaskMenuCode");
 		if (ValueUtils.hasValue(menuCode)) {
-			predicate = builder.and(predicate, builder.equal(pathMenuCode, menuCode));
+			Predicate predicateMenu = builder.equal(pathMenuCode, menuCode);
+			
+			if (predicate != null)
+				predicate = builder.and(predicate, predicateMenu);
+			else
+				predicate = predicateMenu;
 		}
 
 		String status = (String) map.get("status");
 		if (ValueUtils.hasValue(status)) {
-			predicate = builder.and(predicate,
-					builder.equal(pt.get("trxStatus"), CustomerTransactionStatus.valueOf(status)));
+			Predicate predicateStatus = builder.equal(pt.get("trxStatus"), CustomerTransactionStatus.valueOf(status));
+			
+			if (predicate != null)
+				predicate = builder.and(predicate, predicateStatus);
+			else
+				predicate = predicateStatus;
 		}
 
 		Map<String, Path<Object>> paths = new HashMap<>(6, 1);

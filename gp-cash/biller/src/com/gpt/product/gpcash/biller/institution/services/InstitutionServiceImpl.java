@@ -224,7 +224,7 @@ public class InstitutionServiceImpl implements InstitutionService {
 						nameList.add(key);
 					}
 					
-					if(ValueUtils.hasValue(model.getName())) {
+					if(ValueUtils.hasValue(model.getName4())) {
 						key = new HashMap<>();
 						key.put(ApplicationConstants.STR_NAME, ValueUtils.getValue(model.getName4()));
 						key.put("type", ValueUtils.getValue(model.getType4()));
@@ -233,7 +233,7 @@ public class InstitutionServiceImpl implements InstitutionService {
 						nameList.add(key);
 					}
 					
-					if(ValueUtils.hasValue(model.getName())) {
+					if(ValueUtils.hasValue(model.getName5())) {
 						key = new HashMap<>();
 						key.put(ApplicationConstants.STR_NAME, ValueUtils.getValue(model.getName5()));
 						key.put("type", ValueUtils.getValue(model.getType5()));

@@ -293,6 +293,18 @@ public class InternationalTransferModel implements Serializable {
 		@ManyToOne(fetch = FetchType.LAZY)
 		@JoinColumn(name = "BRANCH_CD", nullable = false)
 		protected BranchModel branch;
+		
+		@Column(name="REFNO_SPECIALRATE")
+		protected String refNoSpecialRate;
+		
+		public String getRefNoSpecialRate() {
+			return refNoSpecialRate;
+		}
+
+		public void setRefNoSpecialRate(String refNoSpecialRate) {
+			this.refNoSpecialRate = refNoSpecialRate;
+		}
+
 
 		public String getReferenceNo() {
 			return referenceNo;

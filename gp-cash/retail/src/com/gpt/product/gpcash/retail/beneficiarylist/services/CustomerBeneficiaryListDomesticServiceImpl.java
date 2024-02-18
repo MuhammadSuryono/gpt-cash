@@ -99,23 +99,26 @@ public class CustomerBeneficiaryListDomesticServiceImpl implements CustomerBenef
 		map.put("branchCode", ValueUtils.getValue(domesticBank.getOrganizationUnitCode()));
 		map.put("branchName", ValueUtils.getValue(domesticBank.getOrganizationUnitName()));
 		
-		map.put("address1", ValueUtils.getValue(model.getBenAddr1()));
-		map.put("address2", ValueUtils.getValue(model.getBenAddr2()));
-		map.put("address3", ValueUtils.getValue(model.getBenAddr3()));
-		
-		map.put("isBenResident", ValueUtils.getValue(model.getLldIsBenResidence()));
-		CountryModel benResidentCountry = model.getLldBenResidenceCountry();
-		map.put("benResidentCountryCode", benResidentCountry.getCode());
-		map.put("benResidentCountryName", benResidentCountry.getName());
-		
-		map.put("isBenCitizen", ValueUtils.getValue(model.getLldIsBenCitizen()));
-		CountryModel benCitizenCountry = model.getLldBenCitizenCountry();
-		map.put("benCitizenCountryCode", benCitizenCountry.getCode());
-		map.put("benCitizenCountryName", benCitizenCountry.getName());
-		
-		BeneficiaryTypeModel benType = model.getBenType();
-		map.put("beneficiaryTypeCode", benType.getCode());
-		map.put("beneficiaryTypeName", benType.getName());
+		if (ApplicationConstants.NO.equals(model.getIsBenOnline())) {
+			
+			map.put("address1", ValueUtils.getValue(model.getBenAddr1()));
+			map.put("address2", ValueUtils.getValue(model.getBenAddr2()));
+			map.put("address3", ValueUtils.getValue(model.getBenAddr3()));
+			
+			map.put("isBenResident", ValueUtils.getValue(model.getLldIsBenResidence()));
+			CountryModel benResidentCountry = model.getLldBenResidenceCountry();
+			map.put("benResidentCountryCode", benResidentCountry.getCode());
+			map.put("benResidentCountryName", benResidentCountry.getName());
+			
+			map.put("isBenCitizen", ValueUtils.getValue(model.getLldIsBenCitizen()));
+			CountryModel benCitizenCountry = model.getLldBenCitizenCountry();
+			map.put("benCitizenCountryCode", benCitizenCountry.getCode());
+			map.put("benCitizenCountryName", benCitizenCountry.getName());
+			
+			BeneficiaryTypeModel benType = model.getBenType();
+			map.put("beneficiaryTypeCode", benType.getCode());
+			map.put("beneficiaryTypeName", benType.getName());
+		}
 		
 		map.put("isNotify", model.getIsNotifyBen());
 		map.put("email", ValueUtils.getValue(model.getEmail()));
@@ -167,6 +170,36 @@ public class CustomerBeneficiaryListDomesticServiceImpl implements CustomerBenef
 					getExistingRecord((String) benAccountMap.get("benAccountNo"), customerId, true);
 				}
 				
+			} else if (map.get(ApplicationConstants.WF_ACTION).equals("CREATE_DOMESTIC_ONLINE")) {
+				maintenanceRepo.isDomesticBankValid((String) map.get("bankCode"));
+
+				vo.setAction("CREATE_DOMESTIC_ONLINE");
+				checkUniqueRecordforOnline(benAccountNo, customerId);
+				
+			} else if (map.get(ApplicationConstants.WF_ACTION).equals("UPDATE_DOMESTIC_ONLINE")) {
+				maintenanceRepo.isDomesticBankValid((String) map.get("bankCode"));
+
+				vo.setAction("UPDATE_DOMESTIC_ONLINE");
+
+				// check existing record exist or not
+				CustomerBeneficiaryListDomesticModel beneficiaryDomesticOld = getExistingOnlineRecord(benAccountNo, customerId, true);
+				vo.setJsonObjectOld(setModelToMap(beneficiaryDomesticOld));
+				
+			} else if (map.get(ApplicationConstants.WF_ACTION).equals("DELETE_DOMESTIC_ONLINE")) {
+				vo.setAction("DELETE_DOMESTIC_ONLINE");
+
+				// check existing record exist or not
+				getExistingOnlineRecord(benAccountNo, customerId, true);
+			} else if (map.get(ApplicationConstants.WF_ACTION).equals("DELETE_DOMESTIC_ONLINE_LIST")) {
+				vo.setAction("DELETE_DOMESTIC_ONLINE_LIST");
+
+				List<Map<String, Object>> benAccountList = (ArrayList<Map<String,Object>>)map.get("benAccountList");
+				for(Map<String, Object> benAccountMap : benAccountList) {
+					
+					// check existing record exist or not
+					getExistingOnlineRecord((String) benAccountMap.get("benAccountNo"), customerId, true);
+				}
+				
 			} else {
 				throw new BusinessException("GPT-0100003");
 			}
@@ -186,9 +219,21 @@ public class CustomerBeneficiaryListDomesticServiceImpl implements CustomerBenef
 		return resultMap;
 	}
 	
+	private void checkUniqueRecordforOnline(String benAccountNo, String customerId) throws Exception{
+		List<CustomerBeneficiaryListDomesticModel> modelList = beneficiaryDomesticRepo.findByBenAccountNoAndCustomerIdAndIsBenOnline(benAccountNo, customerId, ApplicationConstants.YES);
+
+		if (modelList.size() > 0) {
+			CustomerBeneficiaryListDomesticModel model = modelList.get(0);
+			if (model != null && ApplicationConstants.NO.equals(model.getDeleteFlag())) {
+				throw new BusinessException("GPT-0100004");
+			}
+		}
+	}
+	
 	private void checkCustomValidation(Map<String, Object> map) throws BusinessException, Exception {
 		try {
 			maintenanceRepo.isDomesticBankValid((String) map.get("bankCode"));
+			maintenanceRepo.isBeneficiaryTypeValid((String) map.get("beneficiaryTypeCode"));
 			
 			if(ApplicationConstants.YES.equals((String) map.get("isBenResident"))){
 				if(ValueUtils.hasValue(map.get("benResidentCountryCode"))){
@@ -210,6 +255,27 @@ public class CustomerBeneficiaryListDomesticServiceImpl implements CustomerBenef
 		} catch (Exception e) {
 			throw e;
 		}
+	}
+	
+	public CustomerBeneficiaryListDomesticModel getExistingOnlineRecord(String accountNo, String customerId, boolean isThrowError) throws Exception {
+		List<CustomerBeneficiaryListDomesticModel> modelList = beneficiaryDomesticRepo.findByBenAccountNoAndCustomerIdAndIsBenOnline(accountNo, customerId, ApplicationConstants.YES);
+
+		CustomerBeneficiaryListDomesticModel model = null;
+		if (modelList.size() == 0) {
+			if (isThrowError)
+				throw new BusinessException("GPT-0100001");
+		} else {
+			model = modelList.get(0);
+			if (ApplicationConstants.YES.equals(model.getDeleteFlag())) {
+				if (isThrowError) {
+					throw new BusinessException("GPT-0100001");
+				} else {
+					return null;
+				}
+			}
+		}
+
+		return model;
 	}
 
 	@Override
@@ -240,6 +306,10 @@ public class CustomerBeneficiaryListDomesticServiceImpl implements CustomerBenef
 		CustomerModel maker = customerUtilsRepo.isCustomerValid(customerId);
 				
 		CustomerUserPendingTaskVO vo = new CustomerUserPendingTaskVO();
+		vo.setMenuCode((String) map.get(ApplicationConstants.STR_MENUCODE));
+		vo.setCustomerId(customerId);
+		
+		
 		if(map.get(ApplicationConstants.WF_ACTION).equals("DELETE_DOMESTIC_LIST")) {
 			String uniqueKeyAppend = ApplicationConstants.EMPTY_STRING;
 			
@@ -266,9 +336,7 @@ public class CustomerBeneficiaryListDomesticServiceImpl implements CustomerBenef
 		}
 		
 		vo.setCreatedBy((String) map.get(ApplicationConstants.CUST_ID));
-		vo.setMenuCode((String) map.get(ApplicationConstants.STR_MENUCODE));
 		vo.setService("CustomerBeneficiaryListSC");
-		vo.setCustomerId(customerId);
 		vo.setTransactionAmount(new BigDecimal(ApplicationConstants.APPROVAL_MATRIX_NON_TRANSACTION));
 		
 		return vo;
@@ -287,18 +355,22 @@ public class CustomerBeneficiaryListDomesticServiceImpl implements CustomerBenef
 		beneficiaryDomestic.setBenAddr3((String) map.get("address3"));
 		
 		beneficiaryDomestic.setLldIsBenResidence((String) map.get("isBenResident"));
-		if(ValueUtils.hasValue(map.get("benResidentCountryCode"))){
+		if(ApplicationConstants.YES.equals(beneficiaryDomestic.getLldIsBenResidence())){
 			CountryModel benResidentCountry = new CountryModel();
 			benResidentCountry.setCode((String) map.get("benResidentCountryCode"));
 			beneficiaryDomestic.setLldBenResidenceCountry(benResidentCountry);
 		}
 		
 		beneficiaryDomestic.setLldIsBenCitizen((String) map.get("isBenCitizen"));
-		if(ValueUtils.hasValue(map.get("benCitizenCountryCode"))){
+		if(ApplicationConstants.YES.equals(beneficiaryDomestic.getLldIsBenCitizen())){
 			CountryModel benCitizenCountry = new CountryModel();
 			benCitizenCountry.setCode((String) map.get("benCitizenCountryCode"));
 			beneficiaryDomestic.setLldBenCitizenCountry(benCitizenCountry);
 		}
+		
+		BeneficiaryTypeModel beneficiaryType = new BeneficiaryTypeModel();
+		beneficiaryType.setCode((String)map.get("beneficiaryTypeCode"));
+		beneficiaryDomestic.setBenType(beneficiaryType);
 		
 		DomesticBankModel domBank = new DomesticBankModel();
 		domBank.setCode((String) map.get("bankCode"));
@@ -310,12 +382,9 @@ public class CustomerBeneficiaryListDomesticServiceImpl implements CustomerBenef
 		CustomerModel customer = new CustomerModel();
 		customer.setId(customerId);
 		beneficiaryDomestic.setCustomer(customer);
-
-		BeneficiaryTypeModel beneficiaryType = new BeneficiaryTypeModel();
-		beneficiaryType.setCode((String)map.get("beneficiaryTypeCode"));
-		beneficiaryDomestic.setBenType(beneficiaryType);
 		
-
+		beneficiaryDomestic.setIsBenOnline(ApplicationConstants.NO);
+		
 		return beneficiaryDomestic;
 	}
 
@@ -382,7 +451,44 @@ public class CustomerBeneficiaryListDomesticServiceImpl implements CustomerBenef
 
 					deleteCustomerBeneficiaryDomestic(beneficiaryDomestic, vo.getCreatedBy());
 				}
-			}
+			} else if ("CREATE_DOMESTIC_ONLINE".equals(vo.getAction())) {
+				List<CustomerBeneficiaryListDomesticModel> modelList = beneficiaryDomesticRepo.findByBenAccountNoAndCustomerIdAndIsBenOnline(benAccountNo, customerId, ApplicationConstants.YES);
+
+				CustomerBeneficiaryListDomesticModel beneficiaryDomesticExisting = null;
+				if (modelList.size() > 0) {
+					beneficiaryDomesticExisting = modelList.get(0);
+				}
+
+				// cek jika record replacement
+				if (beneficiaryDomesticExisting != null && ApplicationConstants.YES.equals(beneficiaryDomesticExisting.getDeleteFlag())) {
+					setMapToModelOnline(beneficiaryDomesticExisting, map);
+
+					saveCustomerBeneficiaryDomestic(beneficiaryDomesticExisting, vo.getCreatedBy());
+				} else {
+					CustomerBeneficiaryListDomesticModel beneficiaryDomestic = new CustomerBeneficiaryListDomesticModel();
+					setMapToModelOnline(beneficiaryDomestic, map);
+
+					saveCustomerBeneficiaryDomestic(beneficiaryDomestic, vo.getCreatedBy());
+				}
+			} else if ("UPDATE_DOMESTIC_ONLINE".equals(vo.getAction())) {
+				CustomerBeneficiaryListDomesticModel beneficiaryDomesticExisting = getExistingOnlineRecord(benAccountNo, customerId, true);
+
+				setMapToModelOnline(beneficiaryDomesticExisting, map);
+
+				updateCustomerBeneficiaryDomestic(beneficiaryDomesticExisting, vo.getCreatedBy());
+			} else if ("DELETE_DOMESTIC_ONLINE".equals(vo.getAction())) {
+				// check existing record exist or not
+				CustomerBeneficiaryListDomesticModel beneficiaryDomestic = getExistingOnlineRecord(benAccountNo, customerId, true);
+
+				deleteCustomerBeneficiaryDomestic(beneficiaryDomestic, vo.getCreatedBy());
+			} else if("DELETE_DOMESTIC_ONLINE_LIST".equals(vo.getAction())) {
+				List<Map<String, Object>> benAccountList = (ArrayList<Map<String,Object>>)map.get("benAccountList");
+				for(Map<String, Object> benAccountMap : benAccountList) {
+					CustomerBeneficiaryListDomesticModel beneficiaryDomestic = getExistingOnlineRecord((String) benAccountMap.get("benAccountNo"), customerId, true);
+
+					deleteCustomerBeneficiaryDomestic(beneficiaryDomestic, vo.getCreatedBy());
+				}
+			} 
 		} catch (BusinessException e) {
 			throw e;
 		} catch (Exception e) {
@@ -390,6 +496,32 @@ public class CustomerBeneficiaryListDomesticServiceImpl implements CustomerBenef
 		}
 
 		return vo;
+	}
+	
+	private CustomerBeneficiaryListDomesticModel setMapToModelOnline(CustomerBeneficiaryListDomesticModel beneficiaryDomestic, Map<String, Object> map) throws Exception {
+		String customerId = (String) map.get(ApplicationConstants.CUST_ID);
+		CustomerModel corpUser = customerUtilsRepo.isCustomerValid(customerId);
+
+		beneficiaryDomestic.setBenAccountNo((String) map.get("benAccountNo"));
+		beneficiaryDomestic.setBenAccountName((String) map.get("benAccountName"));
+		beneficiaryDomestic.setBenAccountCurrency((String) map.get("benAccountCurrency"));
+		beneficiaryDomestic.setBenAliasName((String) map.get("benAliasName"));
+		
+		DomesticBankModel domBank = new DomesticBankModel();
+		domBank.setCode((String) map.get("bankCode"));
+		beneficiaryDomestic.setBenDomesticBankCode(domBank);
+		
+		beneficiaryDomestic.setIsNotifyBen((String) map.get("isNotify"));
+		beneficiaryDomestic.setEmail((String) map.get("email"));
+
+		CustomerModel customer = new CustomerModel();
+		customer.setId(customerId);
+		beneficiaryDomestic.setCustomer(customer);
+		
+		beneficiaryDomestic.setIsBenOnline(ApplicationConstants.YES);
+
+		return beneficiaryDomestic;
+		
 	}
 
 	@Override
@@ -435,12 +567,15 @@ public class CustomerBeneficiaryListDomesticServiceImpl implements CustomerBenef
 	public Map<String, Object> searchOnline(Map<String, Object> map) throws ApplicationException, BusinessException {
 		try {
 			Map<String, Object> inputs = new HashMap<>();
+			DomesticBankModel domBank = maintenanceRepo.isDomesticBankValid((String) map.get("bankCode"));
 			inputs.put("accountNo", map.get("benAccountNo"));
-			inputs.put("bankCode", map.get("bankCode"));
+			inputs.put("onlineBankCode", domBank.getOnlineBankCode());
+			inputs.put("chargeTo", map.get("chargeTo"));
+			inputs.put("channel", domBank.getChannel());
 			
 			Map<String, Object> outputs = eaiAdapter.invokeService(EAIConstants.DOMESTIC_ONLINE_ACCOUNT_INQUIRY, inputs);
 			
-			Map<String, Object> result = new HashMap<>(12,1);
+			Map<String, Object> result = new HashMap<>();
 			result.put("benAccountNo", outputs.get("accountNo"));
 			result.put("benAccountName", outputs.get("accountName"));
 			
@@ -488,7 +623,7 @@ public class CustomerBeneficiaryListDomesticServiceImpl implements CustomerBenef
 	public void saveCustomerBeneficiary(String customerId, String benAccountNo, String benAccountName, String benAccountCurrency,
 			String isNotifyFlag, String email, String benAliasName, String address1, String address2, String address3, String isBenResident,
 			String benResidentCountryCode, String isBenCitizen, String benCitizenCountryCode, String beneficiaryTypeCode,
-			String bankCode, String createdBy) throws Exception {
+			String bankCode, String createdBy, boolean isBenOnline) throws Exception {
 		
 		
 		List<CustomerBeneficiaryListDomesticModel> modelList = beneficiaryDomesticRepo
@@ -511,35 +646,60 @@ public class CustomerBeneficiaryListDomesticServiceImpl implements CustomerBenef
 			beneficiaryDomestic.setBenAddr1(address1);
 			beneficiaryDomestic.setBenAddr2(address2);
 			beneficiaryDomestic.setBenAddr3(address3);
-			
-			beneficiaryDomestic.setLldIsBenResidence(isBenResident);
-			
-			String localCountryCode = maintenanceRepo.isSysParamValid(SysParamConstants.LOCAL_COUNTRY_CODE).getValue();
-			
-			if(ApplicationConstants.YES.equals(beneficiaryDomestic.getLldIsBenResidence())){
-				benResidentCountryCode = localCountryCode;
-			}
-			CountryModel benResidentCountry = maintenanceRepo.isCountryValid(benResidentCountryCode);
-			beneficiaryDomestic.setLldBenResidenceCountry(benResidentCountry);
-			
-			beneficiaryDomestic.setLldIsBenCitizen(isBenCitizen);
-			if(ApplicationConstants.YES.equals(beneficiaryDomestic.getLldIsBenCitizen())){
-				benCitizenCountryCode = localCountryCode;
-			}
-			CountryModel benCitizenCountry = maintenanceRepo.isCountryValid(benCitizenCountryCode);
-			beneficiaryDomestic.setLldBenCitizenCountry(benCitizenCountry);
+			if (isBenOnline) {
+				beneficiaryDomestic.setIsBenOnline(ApplicationConstants.YES);
+			} else {
+				beneficiaryDomestic.setIsBenOnline(ApplicationConstants.NO);
+				beneficiaryDomestic.setLldIsBenResidence(isBenResident);
+				
+				String localCountryCode = maintenanceRepo.isSysParamValid(SysParamConstants.LOCAL_COUNTRY_CODE).getValue();
+				
+				if(ApplicationConstants.YES.equals(beneficiaryDomestic.getLldIsBenResidence())){
+					benResidentCountryCode = localCountryCode;
+				}
+				CountryModel benResidentCountry = maintenanceRepo.isCountryValid(benResidentCountryCode);
+				beneficiaryDomestic.setLldBenResidenceCountry(benResidentCountry);
+				
+				beneficiaryDomestic.setLldIsBenCitizen(isBenCitizen);
+				if(ApplicationConstants.YES.equals(beneficiaryDomestic.getLldIsBenCitizen())){
+					benCitizenCountryCode = localCountryCode;
+				}
+				CountryModel benCitizenCountry = maintenanceRepo.isCountryValid(benCitizenCountryCode);
+				beneficiaryDomestic.setLldBenCitizenCountry(benCitizenCountry);
+				
+				BeneficiaryTypeModel beneficiaryType = new BeneficiaryTypeModel();
+				beneficiaryType.setCode(beneficiaryTypeCode);
+				beneficiaryDomestic.setBenType(beneficiaryType);
+			}	
 			
 			DomesticBankModel domBank = new DomesticBankModel();
 			domBank.setCode(bankCode);
 			beneficiaryDomestic.setBenDomesticBankCode(domBank);
 			
-			BeneficiaryTypeModel beneficiaryType = new BeneficiaryTypeModel();
-			beneficiaryType.setCode(beneficiaryTypeCode);
-			beneficiaryDomestic.setBenType(beneficiaryType);
 			
 			saveCustomerBeneficiaryDomestic(beneficiaryDomestic, createdBy);
 		}
 		//-------------------------------
+	}
+
+	@Override
+	public Map<String, Object> searchOnlineBeneficiary(String customerId) throws ApplicationException, BusinessException {
+		Map<String, Object> resultMap = new HashMap<>();
+		try {
+			Map<String, Object> map = new HashMap<>();
+			map.put("customerId", customerId);
+			map.put("isOnline", ApplicationConstants.YES);
+			Page<CustomerBeneficiaryListDomesticModel> result = beneficiaryDomesticRepo.search(map, null);
+
+			resultMap.put("result", setModelToMap(result.getContent()));
+
+		} catch (BusinessException e) {
+			throw e;
+		} catch (Exception e) {
+			throw new ApplicationException(e);
+		}
+
+		return resultMap;
 	}
 
 }

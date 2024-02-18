@@ -37,6 +37,8 @@ public interface CustomerBeneficiaryListSC extends CustomerUserWorkflowService {
 
 	Map<String, Object> searchCountryForDroplist(Map<String, Object> map) throws ApplicationException, BusinessException;
 	
+	Map<String, Object> submitDomesticOnline(Map<String, Object> map) throws ApplicationException, BusinessException;
+	
 	//-----------------------------------International----------------------------------------------------
 	
 	Map<String, Object> searchInternational(Map<String, Object> map) throws ApplicationException, BusinessException;
@@ -52,4 +54,7 @@ public interface CustomerBeneficiaryListSC extends CustomerUserWorkflowService {
 	Map<String, Object> searchBeneficiaryTypeForDroplist(Map<String, Object> map)
 			throws ApplicationException, BusinessException;
 	
+	//------------------------------------Virtual Account---------------------------------------------------------
+	
+		Map<String, Object> searchVirtualAccount(Map<String, Object> map) throws ApplicationException, BusinessException;
 }

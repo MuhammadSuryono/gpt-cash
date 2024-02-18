@@ -48,8 +48,9 @@ public interface CustomerUserPendingTaskRepository extends JpaRepository<Custome
 			+ "where transactionService.code=?1 "
 			+ "and instructionDate>=?2 "
 			+ "and instructionDate<?3 "
-			+ "and status in (?4) ")
-	Object getCountAndTotalByServiceCodeAndInstructionDate(String serviceCode, Date instructionDateFrom, Date instructionDateTo, List<String> pendingTaskStatus);
+			+ "and status in (?4) "
+			+ "and serviceCurrencyMatrix = ?5 ")
+	Object getCountAndTotalByServiceCodeAndInstructionDate(String serviceCode, Date instructionDateFrom, Date instructionDateTo, List<String> pendingTaskStatus, String currencyMatrixCode);
 
 	@Query("from CustomerUserPendingTaskModel p where p.senderRefNo = ?1 and p.menu.code = ?2 and p.customer.id = ?3 and isFinalPayment = 'Y' ")
 	List<CustomerUserPendingTaskModel> findBySenderRefNoAndMenuCodeAndCustomerId(String senderRefNo, String menuCode, String customerId);

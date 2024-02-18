@@ -26,6 +26,8 @@ public interface CustomerTransactionHistorySC {
 	Map<String, Object> downloadTodayTransactionMultiAccount(Map<String, Object> map) throws ApplicationException, BusinessException;
 	
 	Map<String, Object> searchCustomerAccountForInquiry(Map<String, Object> map) throws ApplicationException, BusinessException;
+	
+	Map<String, Object> searchCustomerVirtualAccountForInquiry(Map<String, Object> map) throws ApplicationException, BusinessException;
 
 	void executeSOTRequestScheduler(String parameter) throws ApplicationException, BusinessException;
 

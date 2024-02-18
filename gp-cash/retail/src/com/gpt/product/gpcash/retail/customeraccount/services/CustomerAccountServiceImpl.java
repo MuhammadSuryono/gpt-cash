@@ -553,6 +553,28 @@ public class CustomerAccountServiceImpl implements CustomerAccountService {
 	}
 	
 	@Override
+	public Map<String, Object> findCASAAccountByCustomerAndVirtualAccountTypeForInquiryOnlyGetMap(String customerId, List<String> casaAccountType) throws ApplicationException, BusinessException {
+		Map<String, Object> resultMap = new HashMap<>();
+		try {
+			if(casaAccountType == null) {
+				casaAccountType = new ArrayList<>();
+			    casaAccountType.add(ApplicationConstants.ACCOUNT_TYPE_SAVING);
+			    casaAccountType.add(ApplicationConstants.ACCOUNT_TYPE_CURRENT);
+			}
+			
+			List<CustomerAccountModel> result = findCASAAccountByCustomerAndAccountTypeForInquiryOnly(customerId, casaAccountType);
+			
+			resultMap.put("accounts", getVirtualAccountList(result));
+			
+			return resultMap;
+		} catch (BusinessException e) {
+			throw e;
+		} catch (Exception e) {
+			throw new ApplicationException(e);
+		}
+	}
+	
+	@Override
 	public Map<String, Object> findByCustomerIdAndIsDebit(String customerId) throws ApplicationException, BusinessException {
 		Map<String, Object> resultMap = new HashMap<>();
 		try {
@@ -598,39 +620,125 @@ public class CustomerAccountServiceImpl implements CustomerAccountService {
 		}
 	}
 	
+	@Override
+	public Map<String, Object> findByCustomerIdAndIsDebitMultiCurrency(String customerId) throws ApplicationException, BusinessException {
+		Map<String, Object> resultMap = new HashMap<>();
+		try {
+			List<String> casaAccountType = new ArrayList<>();
+	    	casaAccountType.add(ApplicationConstants.ACCOUNT_TYPE_SAVING);
+	    	casaAccountType.add(ApplicationConstants.ACCOUNT_TYPE_CURRENT);
+	    	
+	    	//String localCurrencyCode = maintenanceRepo.isSysParamValid(SysParamConstants.LOCAL_CURRENCY_CODE).getValue();
+	    	
+			Page<CustomerAccountModel> result = customerAccountRepo.findByCustomerIdAndIsDebitMultiCurrency(customerId,
+					casaAccountType, null);
+			
+			resultMap.put("accounts", getAccountList(result.getContent()));
+			
+			return resultMap;
+		} catch (BusinessException e) {
+			throw e;
+		} catch (Exception e) {
+			throw new ApplicationException(e);
+		}
+	}
+	
+	@Override
+	public Map<String, Object> findByCustomerIdAndIsCreditMultiCurrency(String customerId) throws ApplicationException, BusinessException {
+		Map<String, Object> resultMap = new HashMap<>();
+		try {
+			List<String> casaAccountType = new ArrayList<>();
+	    	casaAccountType.add(ApplicationConstants.ACCOUNT_TYPE_SAVING);
+	    	casaAccountType.add(ApplicationConstants.ACCOUNT_TYPE_CURRENT);
+	    	
+	    	//String localCurrencyCode = maintenanceRepo.isSysParamValid(SysParamConstants.LOCAL_CURRENCY_CODE).getValue();
+	    	
+			Page<CustomerAccountModel> result = customerAccountRepo.findByCustomerIdAndIsCreditMultiCurrency(customerId,
+					casaAccountType, null);
+			
+			resultMap.put("accounts", getAccountList(result.getContent()));
+			
+			return resultMap;
+		} catch (BusinessException e) {
+			throw e;
+		} catch (Exception e) {
+			throw new ApplicationException(e);
+		}
+	}
+	
 	private List<Map<String, Object>> getAccountList(List<CustomerAccountModel> modelList){
 		List<Map<String, Object>> accountList = new ArrayList<>();
 		for(CustomerAccountModel acct : modelList){
 			Map<String, Object> account = new HashMap<>();
 			
 			AccountModel accountModel = acct.getAccount();
-			
-			account.put(ApplicationConstants.ACCOUNT_DTL_ID, acct.getId());
-			account.put("accountNo", accountModel.getAccountNo());
-			account.put("accountName", accountModel.getAccountName());
-
-			AccountTypeModel accountType = accountModel.getAccountType();
-			account.put("accountTypeCode", accountType.getCode());
-			account.put("accountTypeName", accountType.getName());
-
-			CurrencyModel accountCurrency = accountModel.getCurrency();
-			account.put("accountCurrencyCode", accountCurrency.getCode());
-			account.put("accountCurrencyName", accountCurrency.getName());
-
-			BranchModel branch = accountModel.getBranch();
-
-			if (branch != null) {
-				account.put("accountBranchCode", branch.getCode());
-				account.put("accountBranchName", branch.getName());
+			if (accountModel.getAccountNo().length() <= ApplicationConstants.MAX_LENGTH_ACCOUNT_REG) {
+				account.put(ApplicationConstants.ACCOUNT_DTL_ID, acct.getId());
+				account.put("accountNo", accountModel.getAccountNo());
+				account.put("accountName", accountModel.getAccountName());
+	
+				AccountTypeModel accountType = accountModel.getAccountType();
+				account.put("accountTypeCode", accountType.getCode());
+				account.put("accountTypeName", accountType.getName());
+	
+				CurrencyModel accountCurrency = accountModel.getCurrency();
+				account.put("accountCurrencyCode", accountCurrency.getCode());
+				account.put("accountCurrencyName", accountCurrency.getName());
+	
+				BranchModel branch = accountModel.getBranch();
+	
+				if (branch != null) {
+					account.put("accountBranchCode", branch.getCode());
+					account.put("accountBranchName", branch.getName());
+				}
+				
+				AccountProductTypeModel productType = accountModel.getAccountProductType();
+				if (productType != null) {
+					account.put("accountProductCode", productType.getCode());
+					account.put("accountProductName", productType.getName());
+				}
+				
+				accountList.add(account);
 			}
+		}
+		
+		return accountList;
+	}
+	
+	private List<Map<String, Object>> getVirtualAccountList(List<CustomerAccountModel> modelList){
+		List<Map<String, Object>> accountList = new ArrayList<>();
+		for(CustomerAccountModel acct : modelList){
+			Map<String, Object> account = new HashMap<>();
 			
-			AccountProductTypeModel productType = accountModel.getAccountProductType();
-			if (productType != null) {
-				account.put("accountProductCode", productType.getCode());
-				account.put("accountProductName", productType.getName());
+			AccountModel accountModel = acct.getAccount();
+			if (accountModel.getAccountNo().length() > ApplicationConstants.MAX_LENGTH_ACCOUNT_REG) {
+				account.put(ApplicationConstants.ACCOUNT_DTL_ID, acct.getId());
+				account.put("accountNo", accountModel.getAccountNo());
+				account.put("accountName", accountModel.getAccountName());
+	
+				AccountTypeModel accountType = accountModel.getAccountType();
+				account.put("accountTypeCode", accountType.getCode());
+				account.put("accountTypeName", accountType.getName());
+	
+				CurrencyModel accountCurrency = accountModel.getCurrency();
+				account.put("accountCurrencyCode", accountCurrency.getCode());
+				account.put("accountCurrencyName", accountCurrency.getName());
+	
+				BranchModel branch = accountModel.getBranch();
+	
+				if (branch != null) {
+					account.put("accountBranchCode", branch.getCode());
+					account.put("accountBranchName", branch.getName());
+				}
+				
+				AccountProductTypeModel productType = accountModel.getAccountProductType();
+				if (productType != null) {
+					account.put("accountProductCode", productType.getCode());
+					account.put("accountProductName", productType.getName());
+				}
+				
+				accountList.add(account);
 			}
-			
-			accountList.add(account);
 		}
 		
 		return accountList;

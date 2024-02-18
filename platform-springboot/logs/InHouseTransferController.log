@@ -1,21 +1,810 @@
-[10692] 16:22:10.939 D -            InHouseTransferController(65) [          http-nio-8005-exec-9] [ -511896617292380952] : [preInvoke] - [eaa66d71-1a86-451e-bfaf-e1db99e18980] - InHouseTransferSC#searchSourceAccount({action=SEARCH, loginId=GDBANK|GDUSERMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDUSERMAKER})
-[10692] 16:22:10.951 D -                        QueueInvoker(126) [          http-nio-8005-exec-9] [ -511896617292380952] : [AutoDiscoveryQueueInvoker] - InHouseTransferSC#searchSourceAccount({action=SEARCH, loginId=GDBANK|GDUSERMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDUSERMAKER})
-[10692] 16:22:10.954 D -                    ValidationAspect(266) [            ServerThreadPool-3] [ -511896617292380952] : [Validation - Input] - InHouseTransferSCImpl#searchSourceAccount({action=SEARCH, loginId=GDBANK|GDUSERMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDUSERMAKER})
-[10692] 16:22:11.064 D -                    ValidationAspect(280) [            ServerThreadPool-3] [ -511896617292380952] : [Validation - Output] - InHouseTransferSCImpl#searchSourceAccount({accounts=[{accountCurrencyCode=USD, accountName=POC IBANK CORP USD, accountNo=0056789098765, accountTypeCode=001, accountCurrencyName=USD, accountTypeName=Savings Accounts, accountGroupDtlId=b332da0c-2316-48b7-a86d-8a40ac5ea128}, {accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=POC IBANK CORP1, accountNo=0078464445002, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=a5d7138b-86c6-41d4-bd45-79b7c1b4dc07, accountBranchCode=0000}, {accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=POC IBANK CORP1, accountNo=0078464453003, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=92cd2a25-a732-4fe1-9340-bae104f4dc03, accountBranchCode=0000}, {accountCurrencyCode=IDR, accountName=REKENING KAS UMUM DAERAH KOTA BANDA ACEH, accountNo=50001021210219, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=2a903f9b-21e5-4a78-a2d1-88f8989f6c8f}]})
-[10692] 16:22:11.064 D -           InHouseTransferController(156) [            ServerThreadPool-3] [ -511896617292380952] : onSuccess : {accounts=[{accountCurrencyCode=USD, accountBranchName=, accountName=POC IBANK CORP USD, accountNo=0056789098765, accountTypeCode=001, accountCurrencyName=USD, accountTypeName=Savings Accounts, accountGroupDtlId=b332da0c-2316-48b7-a86d-8a40ac5ea128, accountBranchCode=}, {accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=POC IBANK CORP1, accountNo=0078464445002, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=a5d7138b-86c6-41d4-bd45-79b7c1b4dc07, accountBranchCode=0000}, {accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=POC IBANK CORP1, accountNo=0078464453003, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=92cd2a25-a732-4fe1-9340-bae104f4dc03, accountBranchCode=0000}, {accountCurrencyCode=IDR, accountBranchName=, accountName=REKENING KAS UMUM DAERAH KOTA BANDA ACEH, accountNo=50001021210219, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=2a903f9b-21e5-4a78-a2d1-88f8989f6c8f, accountBranchCode=}]}
-[10692] 16:22:11.065 D -                        QueueInvoker(201) [            ServerThreadPool-3] [ -511896617292380952] : Execution Time: 113 ms
-[10692] 16:22:11.087 D -            InHouseTransferController(65) [          http-nio-8005-exec-6] [ 5335199271001737531] : [preInvoke] - [eaa66d71-1a86-451e-bfaf-e1db99e18980] - InHouseTransferSC#searchOwnAccount({action=SEARCH, loginId=GDBANK|GDUSERMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDUSERMAKER})
-[10692] 16:22:11.091 D -                        QueueInvoker(126) [          http-nio-8005-exec-6] [ 5335199271001737531] : [AutoDiscoveryQueueInvoker] - InHouseTransferSC#searchOwnAccount({action=SEARCH, loginId=GDBANK|GDUSERMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDUSERMAKER})
-[10692] 16:22:11.217 D -           InHouseTransferController(156) [            ServerThreadPool-5] [ 5335199271001737531] : onSuccess : {accounts=[{accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=POC IBANK CORP1, accountNo=0078464445002, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=a5d7138b-86c6-41d4-bd45-79b7c1b4dc07, accountBranchCode=0000}, {accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=POC IBANK CORP1, accountNo=0078464453003, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=92cd2a25-a732-4fe1-9340-bae104f4dc03, accountBranchCode=0000}, {accountCurrencyCode=IDR, accountName=REKENING KAS UMUM DAERAH KOTA BANDA ACEH, accountNo=50001021210219, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=2a903f9b-21e5-4a78-a2d1-88f8989f6c8f}]}
-[10692] 16:22:11.218 D -                        QueueInvoker(201) [            ServerThreadPool-5] [ 5335199271001737531] : Execution Time: 126 ms
-[10692] 16:22:11.248 D -            InHouseTransferController(65) [          http-nio-8005-exec-4] [ 3177434640370319982] : [preInvoke] - [eaa66d71-1a86-451e-bfaf-e1db99e18980] - InHouseTransferSC#searchBeneficiary({action=SEARCH, loginId=GDBANK|GDUSERMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDUSERMAKER})
-[10692] 16:22:11.254 D -                        QueueInvoker(126) [          http-nio-8005-exec-4] [ 3177434640370319982] : [AutoDiscoveryQueueInvoker] - InHouseTransferSC#searchBeneficiary({action=SEARCH, loginId=GDBANK|GDUSERMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDUSERMAKER})
-[10692] 16:22:11.263 D - eneficiaryListInHouseRepositoryImpl(111) [            ServerThreadPool-1] [ 3177434640370319982] : order : [benAccountNo: ASC]
-[10692] 16:22:11.307 D -           InHouseTransferController(156) [            ServerThreadPool-1] [ 3177434640370319982] : onSuccess : {result={Other Account=[], Virtual Account=[]}}
-[10692] 16:22:11.308 D -                        QueueInvoker(201) [            ServerThreadPool-1] [ 3177434640370319982] : Execution Time: 53 ms
-[10692] 16:22:11.330 D -            InHouseTransferController(65) [         http-nio-8005-exec-10] [-9192855790110357575] : [preInvoke] - [eaa66d71-1a86-451e-bfaf-e1db99e18980] - InHouseTransferSC#getTransactionSessionTime({action=SEARCH, loginId=GDBANK|GDUSERMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDUSERMAKER})
-[10692] 16:22:11.334 D -                        QueueInvoker(126) [         http-nio-8005-exec-10] [-9192855790110357575] : [AutoDiscoveryQueueInvoker] - InHouseTransferSC#getTransactionSessionTime({action=SEARCH, loginId=GDBANK|GDUSERMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDUSERMAKER})
-[10692] 16:22:11.335 D -                    ValidationAspect(266) [            ServerThreadPool-2] [-9192855790110357575] : [Validation - Input] - InHouseTransferSCImpl#getTransactionSessionTime({action=SEARCH, loginId=GDBANK|GDUSERMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDUSERMAKER})
-[10692] 16:22:11.351 D -                    ValidationAspect(280) [            ServerThreadPool-2] [-9192855790110357575] : [Validation - Output] - InHouseTransferSCImpl#getTransactionSessionTime({sessionTime=[07:00, 11:00, 13:00, 16:00]})
-[10692] 16:22:11.351 D -           InHouseTransferController(156) [            ServerThreadPool-2] [-9192855790110357575] : onSuccess : {sessionTime=[07:00, 11:00, 13:00, 16:00]}
-[10692] 16:22:11.352 D -                        QueueInvoker(201) [            ServerThreadPool-2] [-9192855790110357575] : Execution Time: 18 ms
+[23180] 18:27:04.423 D -            InHouseTransferController(69) [          http-nio-8005-exec-6] [ 4039226434387132737] : [preInvoke] - [5a71d72c-578b-44a2-b94a-00809bc080f5] - InHouseTransferSC#searchSourceAccount({action=SEARCH, loginId=GDBANK|GDMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDMAKER, isOneSigner=N})
+[23180] 18:27:04.438 D -                        QueueInvoker(126) [          http-nio-8005-exec-6] [ 4039226434387132737] : [AutoDiscoveryQueueInvoker] - InHouseTransferSC#searchSourceAccount({action=SEARCH, loginId=GDBANK|GDMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDMAKER, isOneSigner=N})
+[23180] 18:27:04.446 D -                    ValidationAspect(266) [            ServerThreadPool-3] [ 4039226434387132737] : [Validation - Input] - InHouseTransferSCImpl#searchSourceAccount({action=SEARCH, loginId=GDBANK|GDMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDMAKER, isOneSigner=N})
+[23180] 18:27:04.586 D -                    ValidationAspect(280) [            ServerThreadPool-3] [ 4039226434387132737] : [Validation - Output] - InHouseTransferSCImpl#searchSourceAccount({accounts=[{accountCurrencyCode=EUR, accountName=POC IBANK CORP1, accountNo=0014804846110, accountTypeCode=001, accountCurrencyName=EUR, accountTypeName=Savings Accounts, accountGroupDtlId=2ce2e3fb-ebaa-4b4b-bce2-d20b03a0a8ed}, {accountCurrencyCode=IDR, accountName=POC IBANK CORP1, accountNo=001900000000011, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountGroupDtlId=ce149891-183f-4631-ae0d-9e3617daeef3}, {accountCurrencyCode=IDR, accountName=POC IBANK CORP1, accountNo=001900000000012, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountGroupDtlId=58b07934-bf8a-41f6-9dbe-2284bf7f1a5b}, {accountCurrencyCode=USD, accountName=POC IBANK CORP USD, accountNo=0056789098765, accountTypeCode=001, accountCurrencyName=USD, accountTypeName=Savings Accounts, accountGroupDtlId=d2c68593-56b5-4d6f-a97b-8feb43dbecc1}, {accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=POC IBANK CORP1, accountNo=0078464437001, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=8195a24d-5855-46a7-a18f-cc54a55f0245, accountBranchCode=0000}, {accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=POC IBANK CORP1, accountNo=0078464445002, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=24bfee55-fe21-4c90-bfc2-afb17e3a7d63, accountBranchCode=0000}, {accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=POC IBANK CORP1, accountNo=0078464453003, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=d44db77e-dc92-4335-bff0-d492dbe010a0, accountBranchCode=0000}, {accountCurrencyCode=IDR, accountName=REKENING KAS UMUM DAERAH KOTA BANDA ACEH, accountNo=50001021210219, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=2a903f9b-21e5-4a78-a2d1-88f8989f6c8f}]})
+[23180] 18:27:04.587 D -           InHouseTransferController(156) [            ServerThreadPool-3] [ 4039226434387132737] : onSuccess : {accounts=[{accountCurrencyCode=EUR, accountBranchName=, accountName=POC IBANK CORP1, accountNo=0014804846110, accountTypeCode=001, accountCurrencyName=EUR, accountTypeName=Savings Accounts, accountGroupDtlId=2ce2e3fb-ebaa-4b4b-bce2-d20b03a0a8ed, accountBranchCode=}, {accountCurrencyCode=IDR, accountBranchName=, accountName=POC IBANK CORP1, accountNo=001900000000011, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountGroupDtlId=ce149891-183f-4631-ae0d-9e3617daeef3, accountBranchCode=}, {accountCurrencyCode=IDR, accountBranchName=, accountName=POC IBANK CORP1, accountNo=001900000000012, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountGroupDtlId=58b07934-bf8a-41f6-9dbe-2284bf7f1a5b, accountBranchCode=}, {accountCurrencyCode=USD, accountBranchName=, accountName=POC IBANK CORP USD, accountNo=0056789098765, accountTypeCode=001, accountCurrencyName=USD, accountTypeName=Savings Accounts, accountGroupDtlId=d2c68593-56b5-4d6f-a97b-8feb43dbecc1, accountBranchCode=}, {accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=POC IBANK CORP1, accountNo=0078464437001, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=8195a24d-5855-46a7-a18f-cc54a55f0245, accountBranchCode=0000}, {accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=POC IBANK CORP1, accountNo=0078464445002, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=24bfee55-fe21-4c90-bfc2-afb17e3a7d63, accountBranchCode=0000}, {accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=POC IBANK CORP1, accountNo=0078464453003, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=d44db77e-dc92-4335-bff0-d492dbe010a0, accountBranchCode=0000}, {accountCurrencyCode=IDR, accountBranchName=, accountName=REKENING KAS UMUM DAERAH KOTA BANDA ACEH, accountNo=50001021210219, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=2a903f9b-21e5-4a78-a2d1-88f8989f6c8f, accountBranchCode=}]}
+[23180] 18:27:04.587 D -                        QueueInvoker(201) [            ServerThreadPool-3] [ 4039226434387132737] : Execution Time: 148 ms
+[23180] 18:27:04.615 D -            InHouseTransferController(69) [          http-nio-8005-exec-2] [ 3315868011077779553] : [preInvoke] - [5a71d72c-578b-44a2-b94a-00809bc080f5] - InHouseTransferSC#searchOwnAccount({action=SEARCH, loginId=GDBANK|GDMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDMAKER, isOneSigner=N})
+[23180] 18:27:04.621 D -                        QueueInvoker(126) [          http-nio-8005-exec-2] [ 3315868011077779553] : [AutoDiscoveryQueueInvoker] - InHouseTransferSC#searchOwnAccount({action=SEARCH, loginId=GDBANK|GDMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDMAKER, isOneSigner=N})
+[23180] 18:27:04.900 D -           InHouseTransferController(156) [            ServerThreadPool-1] [ 3315868011077779553] : onSuccess : {accounts=[{accountCurrencyCode=EUR, accountName=POC IBANK CORP1, accountNo=0014804846110, accountTypeCode=001, accountCurrencyName=EUR, accountTypeName=Savings Accounts, accountGroupDtlId=2ce2e3fb-ebaa-4b4b-bce2-d20b03a0a8ed}, {accountCurrencyCode=IDR, accountName=POC IBANK CORP1, accountNo=001900000000011, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountGroupDtlId=ce149891-183f-4631-ae0d-9e3617daeef3}, {accountCurrencyCode=IDR, accountName=POC IBANK CORP1, accountNo=001900000000012, accountTypeCode=001, accountCurrencyName=IDR, accountTypeName=Savings Accounts, accountGroupDtlId=58b07934-bf8a-41f6-9dbe-2284bf7f1a5b}, {accountCurrencyCode=USD, accountName=POC IBANK CORP USD, accountNo=0056789098765, accountTypeCode=001, accountCurrencyName=USD, accountTypeName=Savings Accounts, accountGroupDtlId=d2c68593-56b5-4d6f-a97b-8feb43dbecc1}, {accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=POC IBANK CORP1, accountNo=0078464437001, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=8195a24d-5855-46a7-a18f-cc54a55f0245, accountBranchCode=0000}, {accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=POC IBANK CORP1, accountNo=0078464445002, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=24bfee55-fe21-4c90-bfc2-afb17e3a7d63, accountBranchCode=0000}, {accountCurrencyCode=IDR, accountBranchName=KANTOR PUSAT OPERASI, accountName=POC IBANK CORP1, accountNo=0078464453003, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=d44db77e-dc92-4335-bff0-d492dbe010a0, accountBranchCode=0000}, {accountCurrencyCode=IDR, accountName=REKENING KAS UMUM DAERAH KOTA BANDA ACEH, accountNo=50001021210219, accountTypeCode=002, accountCurrencyName=IDR, accountTypeName=Current Account, accountGroupDtlId=2a903f9b-21e5-4a78-a2d1-88f8989f6c8f}]}
+[23180] 18:27:04.901 D -                        QueueInvoker(201) [            ServerThreadPool-1] [ 3315868011077779553] : Execution Time: 280 ms
+[23180] 18:27:04.920 D -            InHouseTransferController(69) [          http-nio-8005-exec-1] [ 9063651135928749084] : [preInvoke] - [5a71d72c-578b-44a2-b94a-00809bc080f5] - InHouseTransferSC#searchBeneficiary({action=SEARCH, loginId=GDBANK|GDMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDMAKER, isOneSigner=N})
+[23180] 18:27:04.936 D -                        QueueInvoker(126) [          http-nio-8005-exec-1] [ 9063651135928749084] : [AutoDiscoveryQueueInvoker] - InHouseTransferSC#searchBeneficiary({action=SEARCH, loginId=GDBANK|GDMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDMAKER, isOneSigner=N})
+[23180] 18:27:05.104 D - eneficiaryListInHouseRepositoryImpl(111) [            ServerThreadPool-2] [ 9063651135928749084] : order : [benAccountNo: ASC]
+[23180] 18:27:05.178 D -           InHouseTransferController(156) [            ServerThreadPool-2] [ 9063651135928749084] : onSuccess : {result={Other Account=[{benId=171b7aa9-097e-4d39-b454-21e717453454, benAccountNo=00121111199690, benAccountCurrency=IDR, isNotify=Y, benAccountName=POC IBANK CORP1, bankCountryName=INDONESIA, email=notify@mail.com}, {benId=29abf747-e155-45f5-8f21-73839e3cb37f, benAccountNo=0012323232333333333, benAccountCurrency=IDR, isNotify=N, benAccountName=POC IBANK CORP1, bankCountryName=INDONESIA, email=}, {benId=db706c88-0fc8-4f42-8c1e-0764c246117e, benAccountNo=00123789132, benAccountCurrency=IDR, isNotify=N, benAccountName=POC IBANK CORP1, bankCountryName=INDONESIA, email=}, {benId=5923466d-4b0d-4c65-b931-3b7a7cbd94ba, benAccountNo=00126666667777, benAccountCurrency=IDR, isNotify=Y, benAccountName=POC IBANK CORP1, bankCountryName=INDONESIA, email=notify@mail.com}, {benId=8765d7ec-fc32-4f34-9537-e7e3b2efcb13, benAccountNo=00129999999999, benAccountCurrency=IDR, isNotify=Y, benAccountName=POC IBANK CORP1, bankCountryName=INDONESIA, email=notify@mail.com}, {benId=94a1eb2f-ef38-45b7-9f5d-b3c9efc27097, benAccountNo=002298787823, benAccountCurrency=IDR, isNotify=Y, benAccountName=POC IBANK CORP1, bankCountryName=INDONESIA, email=notify@mail.com}, {benId=524a63b3-6fdc-4613-bd1f-f77ca64363b6, benAccountNo=002889774890, benAccountCurrency=IDR, isNotify=Y, benAccountName=POC IBANK CORP1, bankCountryName=INDONESIA, email=notify@mail.com}, {benId=1dbf0dbc-e0bc-4d9f-9096-82951feae955, benAccountNo=002889930802, benAccountCurrency=IDR, isNotify=Y, benAccountName=POC IBANK CORP1, bankCountryName=INDONESIA, email=notify@mail.com}, {benId=0b72cdae-0778-4f5c-868b-909ed6461592, benAccountNo=00598898895, benAccountCurrency=USD, isNotify=N, benAccountName=POC IBANK CORP USD, bankCountryName=INDONESIA, email=}], Virtual Account=[{benId=cbbe50c7-be96-4717-8f09-9d7b2ab19976, benAccountNo=001025010000001, benAccountCurrency=IDR, isNotify=N, benAccountName=VA POC IBANK CORP1, bankCountryName=INDONESIA, email=}, {benId=0f43f993-3657-4891-a9de-e4310dca2b49, benAccountNo=00190999200299, benAccountCurrency=IDR, isNotify=N, benAccountName=VA POC IBANK CORP1, bankCountryName=INDONESIA, email=}]}}
+[23180] 18:27:05.178 D -                        QueueInvoker(201) [            ServerThreadPool-2] [ 9063651135928749084] : Execution Time: 241 ms
+[23180] 18:27:05.200 D -            InHouseTransferController(69) [          http-nio-8005-exec-7] [-7161935560980018528] : [preInvoke] - [5a71d72c-578b-44a2-b94a-00809bc080f5] - InHouseTransferSC#getTransactionSessionTime({action=SEARCH, loginId=GDBANK|GDMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDMAKER, isOneSigner=N})
+[23180] 18:27:05.205 D -                        QueueInvoker(126) [          http-nio-8005-exec-7] [-7161935560980018528] : [AutoDiscoveryQueueInvoker] - InHouseTransferSC#getTransactionSessionTime({action=SEARCH, loginId=GDBANK|GDMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDMAKER, isOneSigner=N})
+[23180] 18:27:05.236 D -                    ValidationAspect(266) [            ServerThreadPool-5] [-7161935560980018528] : [Validation - Input] - InHouseTransferSCImpl#getTransactionSessionTime({action=SEARCH, loginId=GDBANK|GDMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDMAKER, isOneSigner=N})
+[23180] 18:27:05.253 D -                    ValidationAspect(280) [            ServerThreadPool-5] [-7161935560980018528] : [Validation - Output] - InHouseTransferSCImpl#getTransactionSessionTime({sessionTime=[07:00, 11:00, 13:00, 16:00]})
+[23180] 18:27:05.253 D -           InHouseTransferController(156) [            ServerThreadPool-5] [-7161935560980018528] : onSuccess : {sessionTime=[07:00, 11:00, 13:00, 16:00]}
+[23180] 18:27:05.253 D -                        QueueInvoker(201) [            ServerThreadPool-5] [-7161935560980018528] : Execution Time: 48 ms
+[23180] 18:27:09.511 D -            InHouseTransferController(69) [          http-nio-8005-exec-4] [ -862669480664544705] : [preInvoke] - [5a71d72c-578b-44a2-b94a-00809bc080f5] - InHouseTransferSC#checkBalance({accountGroupDtlId=2ce2e3fb-ebaa-4b4b-bce2-d20b03a0a8ed, loginId=GDBANK|GDMAKER, loginCorporateId=GDBANK, action=SEARCH, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDMAKER, isOneSigner=N})
+[23180] 18:27:09.516 D -                        QueueInvoker(126) [          http-nio-8005-exec-4] [ -862669480664544705] : [AutoDiscoveryQueueInvoker] - InHouseTransferSC#checkBalance({accountGroupDtlId=2ce2e3fb-ebaa-4b4b-bce2-d20b03a0a8ed, loginId=GDBANK|GDMAKER, loginCorporateId=GDBANK, action=SEARCH, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDMAKER, isOneSigner=N})
+[23180] 18:27:09.518 D -                    ValidationAspect(266) [            ServerThreadPool-4] [ -862669480664544705] : [Validation - Input] - InHouseTransferSCImpl#checkBalance({accountGroupDtlId=2ce2e3fb-ebaa-4b4b-bce2-d20b03a0a8ed, loginId=GDBANK|GDMAKER, loginCorporateId=GDBANK, action=SEARCH, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDMAKER, isOneSigner=N})
+[23180] 18:27:09.652 D -                        QueueInvoker(126) [            ServerThreadPool-4] [ -862669480664544705] : [AutoDiscoveryQueueInvoker] - EAIEngine#invokeService(DoBalanceSummary, {accountList=[{accountStatus=ACTIVE, accountCurrencyCode=EUR, accountName=POC IBANK CORP1, accountNo=0014804846110, accountTypeCode=001, accountCurrencyName=EUR, accountTypeName=Savings Accounts}]})
+[23180] 18:27:10.681 D -                        QueueInvoker(201) [     ServiceInvoker-Response-1] [ -862669480664544705] : Execution Time: 1028 ms
+[23180] 18:27:10.690 D -                    ValidationAspect(280) [            ServerThreadPool-4] [ -862669480664544705] : [Validation - Output] - InHouseTransferSCImpl#checkBalance({accountCurrencyCode=EUR, accountName=POC IBANK CORP1, accountNo=0014804846110, accountTypeCode=001, accountCurrencyName=EUR, accountTypeName=Savings Accounts, availableBalance=99998988.071554})
+[23180] 18:27:10.690 D -           InHouseTransferController(156) [            ServerThreadPool-4] [ -862669480664544705] : onSuccess : {accountCurrencyCode=EUR, accountName=POC IBANK CORP1, accountNo=0014804846110, accountTypeCode=001, accountCurrencyName=EUR, accountTypeName=Savings Accounts, availableBalance=99998988.071554}
+[23180] 18:27:10.691 D -                        QueueInvoker(201) [            ServerThreadPool-4] [ -862669480664544705] : Execution Time: 1174 ms
+[23180] 18:27:16.770 D -            InHouseTransferController(69) [         http-nio-8005-exec-10] [-1576388128574651567] : [preInvoke] - [5a71d72c-578b-44a2-b94a-00809bc080f5] - InHouseTransferSC#checkRate({exchangeRate=CR, treasuryCode=, sourceAccountCurrency=EUR, transactionCurrency=IDR, transactionAmount=12332, transactionServiceCode=GPT_FTR_IH_OWN, instructionMode=I, instructionDate=20/09/2022 00:00:00, currencyMatrix=FL, loginId=GDBANK|GDMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDMAKER, isOneSigner=N})
+[23180] 18:27:16.774 D -                        QueueInvoker(126) [         http-nio-8005-exec-10] [-1576388128574651567] : [AutoDiscoveryQueueInvoker] - InHouseTransferSC#checkRate({exchangeRate=CR, treasuryCode=, sourceAccountCurrency=EUR, transactionCurrency=IDR, transactionAmount=12332, transactionServiceCode=GPT_FTR_IH_OWN, instructionMode=I, instructionDate=20/09/2022 00:00:00, currencyMatrix=FL, loginId=GDBANK|GDMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDMAKER, isOneSigner=N})
+[23180] 18:27:16.776 D -                    ValidationAspect(266) [            ServerThreadPool-3] [-1576388128574651567] : [Validation - Input] - InHouseTransferSCImpl#checkRate({exchangeRate=CR, treasuryCode=, sourceAccountCurrency=EUR, transactionCurrency=IDR, transactionAmount=12332, transactionServiceCode=GPT_FTR_IH_OWN, instructionMode=I, instructionDate=20/09/2022 00:00:00, currencyMatrix=FL, loginId=GDBANK|GDMAKER, loginCorporateId=GDBANK, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDMAKER, isOneSigner=N})
+[23180] 18:27:16.928 D -    TransactionValidationServiceImpl(863) [            ServerThreadPool-3] [-1576388128574651567] : transactionCurrency = IDR
+[23180] 18:27:16.929 D -    TransactionValidationServiceImpl(864) [            ServerThreadPool-3] [-1576388128574651567] : transactionAmount = 12332
+[23180] 18:27:16.929 D -    TransactionValidationServiceImpl(865) [            ServerThreadPool-3] [-1576388128574651567] : accountCurrency = EUR
+[23180] 18:27:16.929 D -    TransactionValidationServiceImpl(866) [            ServerThreadPool-3] [-1576388128574651567] : localCurrencyIDR
+[23180] 18:27:16.930 D -    TransactionValidationServiceImpl(909) [            ServerThreadPool-3] [-1576388128574651567] : transactionAmountEquivalent = 0.7278454
+[23180] 18:27:17.057 D -           InHouseTransferController(156) [            ServerThreadPool-3] [-1576388128574651567] : onSuccess : {trxBuyRate=16943.16, counterRate=IDR 16943.16, validDate=13/12/2020 21:10:11, equivalentAmount=0.7278454}
+[23180] 18:27:17.057 D -                        QueueInvoker(201) [            ServerThreadPool-3] [-1576388128574651567] : Execution Time: 282 ms
+[23180] 18:27:18.698 D -            InHouseTransferController(69) [          http-nio-8005-exec-8] [ -186052017716310912] : [preInvoke] - [5a71d72c-578b-44a2-b94a-00809bc080f5] - InHouseTransferSC#confirm({accountGroupDtlId=2ce2e3fb-ebaa-4b4b-bce2-d20b03a0a8ed, benId=ce149891-183f-4631-ae0d-9e3617daeef3, isBeneficiaryFlag=N, transactionCurrency=IDR, transactionAmount=12332, transactionServiceCode=GPT_FTR_IH_OWN, instructionMode=I, instructionDate=20/09/2022 00:00:00, sessionTime=00:00, recurringParamType=D, recurringParam=1, recurringStartDate=, recurringEndDate=, loginId=GDBANK|GDMAKER, loginCorporateId=GDBANK, isSaveBenFlag=N, senderRefNo=, isFinalPayment=N, exchangeRate=CR, treasuryCode=, isVirtualAccount=N, action=CONFIRM, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDMAKER, isOneSigner=N})
+[23180] 18:27:18.702 D -                        QueueInvoker(126) [          http-nio-8005-exec-8] [ -186052017716310912] : [AutoDiscoveryQueueInvoker] - InHouseTransferSC#confirm({accountGroupDtlId=2ce2e3fb-ebaa-4b4b-bce2-d20b03a0a8ed, benId=ce149891-183f-4631-ae0d-9e3617daeef3, isBeneficiaryFlag=N, transactionCurrency=IDR, transactionAmount=12332, transactionServiceCode=GPT_FTR_IH_OWN, instructionMode=I, instructionDate=20/09/2022 00:00:00, sessionTime=00:00, recurringParamType=D, recurringParam=1, recurringStartDate=, recurringEndDate=, loginId=GDBANK|GDMAKER, loginCorporateId=GDBANK, isSaveBenFlag=N, senderRefNo=, isFinalPayment=N, exchangeRate=CR, treasuryCode=, isVirtualAccount=N, action=CONFIRM, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDMAKER, isOneSigner=N})
+[23180] 18:27:18.710 D -                    ValidationAspect(266) [            ServerThreadPool-1] [ -186052017716310912] : [Validation - Input] - InHouseTransferSCImpl#confirm({accountGroupDtlId=2ce2e3fb-ebaa-4b4b-bce2-d20b03a0a8ed, benId=ce149891-183f-4631-ae0d-9e3617daeef3, isBeneficiaryFlag=N, transactionCurrency=IDR, transactionAmount=12332, transactionServiceCode=GPT_FTR_IH_OWN, instructionMode=I, instructionDate=20/09/2022 00:00:00, sessionTime=00:00, recurringParamType=D, recurringParam=1, recurringStartDate=, recurringEndDate=, loginId=GDBANK|GDMAKER, loginCorporateId=GDBANK, isSaveBenFlag=N, senderRefNo=, isFinalPayment=N, exchangeRate=CR, treasuryCode=, isVirtualAccount=N, action=CONFIRM, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDMAKER, isOneSigner=N})
+[23180] 18:27:18.801 D -    TransactionValidationServiceImpl(863) [            ServerThreadPool-1] [ -186052017716310912] : transactionCurrency = IDR
+[23180] 18:27:18.801 D -    TransactionValidationServiceImpl(864) [            ServerThreadPool-1] [ -186052017716310912] : transactionAmount = 12332
+[23180] 18:27:18.802 D -    TransactionValidationServiceImpl(865) [            ServerThreadPool-1] [ -186052017716310912] : accountCurrency = EUR
+[23180] 18:27:18.802 D -    TransactionValidationServiceImpl(866) [            ServerThreadPool-1] [ -186052017716310912] : localCurrencyIDR
+[23180] 18:27:18.802 D -    TransactionValidationServiceImpl(909) [            ServerThreadPool-1] [ -186052017716310912] : transactionAmountEquivalent = 0.7278454
+[23180] 18:27:18.820 D -    TransactionValidationServiceImpl(154) [            ServerThreadPool-1] [ -186052017716310912] : 
+
+
+
+
+
+[23180] 18:27:18.820 D -    TransactionValidationServiceImpl(155) [            ServerThreadPool-1] [ -186052017716310912] : corporateUser.getId() : GDBANK|GDMAKER
+[23180] 18:27:18.821 D -    TransactionValidationServiceImpl(156) [            ServerThreadPool-1] [ -186052017716310912] : transactionAmount : 0.7278454
+[23180] 18:27:18.821 D -    TransactionValidationServiceImpl(157) [            ServerThreadPool-1] [ -186052017716310912] : makerLimit : 5000000000
+[23180] 18:27:18.821 D -    TransactionValidationServiceImpl(158) [            ServerThreadPool-1] [ -186052017716310912] : 
+
+
+
+
+
+[23180] 18:27:18.821 D -    TransactionValidationServiceImpl(171) [            ServerThreadPool-1] [ -186052017716310912] : 
+
+
+
+
+
+[23180] 18:27:18.821 D -    TransactionValidationServiceImpl(172) [            ServerThreadPool-1] [ -186052017716310912] : corporateAccountGroupDetail.getIsDebit() : Y
+[23180] 18:27:18.822 D -    TransactionValidationServiceImpl(173) [            ServerThreadPool-1] [ -186052017716310912] : corporateAccount.getDebitLimit() : 1000000000
+[23180] 18:27:18.822 D -    TransactionValidationServiceImpl(174) [            ServerThreadPool-1] [ -186052017716310912] : 
+
+
+
+
+
+[23180] 18:27:18.874 D -   TransactionValidationServiceImpl(1011) [            ServerThreadPool-1] [ -186052017716310912] : 
+
+
+
+
+
+[23180] 18:27:18.874 D -   TransactionValidationServiceImpl(1012) [            ServerThreadPool-1] [ -186052017716310912] : serviceCode : GPT_FTR_IH_OWN
+[23180] 18:27:18.874 D -   TransactionValidationServiceImpl(1013) [            ServerThreadPool-1] [ -186052017716310912] : currencyMatrixCode : FL
+[23180] 18:27:18.874 D -   TransactionValidationServiceImpl(1014) [            ServerThreadPool-1] [ -186052017716310912] : transactionCurrency : IDR
+[23180] 18:27:18.875 D -   TransactionValidationServiceImpl(1015) [            ServerThreadPool-1] [ -186052017716310912] : transactionAmount : 12332
+[23180] 18:27:18.875 D -   TransactionValidationServiceImpl(1016) [            ServerThreadPool-1] [ -186052017716310912] : bankTransactionLimit.getMinAmountLimit() : 10000
+[23180] 18:27:18.875 D -   TransactionValidationServiceImpl(1017) [            ServerThreadPool-1] [ -186052017716310912] : bankTransactionLimit.getMaxAmountLimit() : 999999999999999
+[23180] 18:27:18.875 D -   TransactionValidationServiceImpl(1018) [            ServerThreadPool-1] [ -186052017716310912] : 
+
+
+
+
+
+[23180] 18:27:18.875 D -    TransactionValidationServiceImpl(760) [            ServerThreadPool-1] [ -186052017716310912] : transactionAmountEquivalent = 12332
+[23180] 18:27:18.902 D -   TransactionValidationServiceImpl(1102) [            ServerThreadPool-1] [ -186052017716310912] : 
+
+
+
+
+
+[23180] 18:27:18.902 D -   TransactionValidationServiceImpl(1103) [            ServerThreadPool-1] [ -186052017716310912] : corporateId : GDBANK
+[23180] 18:27:18.903 D -   TransactionValidationServiceImpl(1104) [            ServerThreadPool-1] [ -186052017716310912] : serviceCode : GPT_FTR_IH_OWN
+[23180] 18:27:18.903 D -   TransactionValidationServiceImpl(1105) [            ServerThreadPool-1] [ -186052017716310912] : currencyMatrixCode : FL
+[23180] 18:27:18.903 D -   TransactionValidationServiceImpl(1106) [            ServerThreadPool-1] [ -186052017716310912] : transactionCurrency : IDR
+[23180] 18:27:18.903 D -   TransactionValidationServiceImpl(1107) [            ServerThreadPool-1] [ -186052017716310912] : transactionAmount : 12332
+[23180] 18:27:18.903 D -   TransactionValidationServiceImpl(1108) [            ServerThreadPool-1] [ -186052017716310912] : totalPendingTaskTrxOccurence : 0
+[23180] 18:27:18.904 D -   TransactionValidationServiceImpl(1109) [            ServerThreadPool-1] [ -186052017716310912] : totalPendingTaskDebitedAmount : 0
+[23180] 18:27:18.904 D -   TransactionValidationServiceImpl(1110) [            ServerThreadPool-1] [ -186052017716310912] : totalOccurence : 0
+[23180] 18:27:18.904 D -   TransactionValidationServiceImpl(1111) [            ServerThreadPool-1] [ -186052017716310912] : corporateLimit.getCurrency().getCode() : IDR
+[23180] 18:27:18.904 D -   TransactionValidationServiceImpl(1112) [            ServerThreadPool-1] [ -186052017716310912] : corporateLimit.getMaxOccurrenceLimit() : 100
+[23180] 18:27:18.905 D -   TransactionValidationServiceImpl(1113) [            ServerThreadPool-1] [ -186052017716310912] : corporateLimit.getAmountLimitUsage() : 0
+[23180] 18:27:18.905 D -   TransactionValidationServiceImpl(1114) [            ServerThreadPool-1] [ -186052017716310912] : totalDebitedAmount : 0
+[23180] 18:27:18.905 D -   TransactionValidationServiceImpl(1115) [            ServerThreadPool-1] [ -186052017716310912] : corporateLimit.getMaxAmountLimit( : 999999999999999
+[23180] 18:27:18.905 D -   TransactionValidationServiceImpl(1116) [            ServerThreadPool-1] [ -186052017716310912] : 
+
+
+
+
+
+[23180] 18:27:18.905 D -    TransactionValidationServiceImpl(760) [            ServerThreadPool-1] [ -186052017716310912] : transactionAmountEquivalent = 12332
+[23180] 18:27:18.924 D -   TransactionValidationServiceImpl(1140) [            ServerThreadPool-1] [ -186052017716310912] : 
+
+
+
+
+
+[23180] 18:27:18.925 D -   TransactionValidationServiceImpl(1141) [            ServerThreadPool-1] [ -186052017716310912] : corporateId : GDBANK
+[23180] 18:27:18.925 D -   TransactionValidationServiceImpl(1142) [            ServerThreadPool-1] [ -186052017716310912] : serviceCode : GPT_FTR_IH_OWN
+[23180] 18:27:18.925 D -   TransactionValidationServiceImpl(1143) [            ServerThreadPool-1] [ -186052017716310912] : currencyMatrixCode : FL
+[23180] 18:27:18.925 D -   TransactionValidationServiceImpl(1144) [            ServerThreadPool-1] [ -186052017716310912] : transactionAmount : 12332
+[23180] 18:27:18.925 D -   TransactionValidationServiceImpl(1145) [            ServerThreadPool-1] [ -186052017716310912] : corporateUserGroupDetail.getAmountLimitUsage() : 0
+[23180] 18:27:18.926 D -   TransactionValidationServiceImpl(1146) [            ServerThreadPool-1] [ -186052017716310912] : totalPendingTaskDebitedAmount : 0
+[23180] 18:27:18.926 D -   TransactionValidationServiceImpl(1147) [            ServerThreadPool-1] [ -186052017716310912] : totalDebitedAmount : 0
+[23180] 18:27:18.926 D -   TransactionValidationServiceImpl(1148) [            ServerThreadPool-1] [ -186052017716310912] : corporateUserGroupDetail.getMaxAmountLimit() : 1000000000
+[23180] 18:27:18.926 D -   TransactionValidationServiceImpl(1149) [            ServerThreadPool-1] [ -186052017716310912] : corporateUserGroupDetail.getCurrency().getCode() : IDR
+[23180] 18:27:18.926 D -   TransactionValidationServiceImpl(1150) [            ServerThreadPool-1] [ -186052017716310912] : 
+
+
+
+
+
+[23180] 18:27:18.927 D -    TransactionValidationServiceImpl(760) [            ServerThreadPool-1] [ -186052017716310912] : transactionAmountEquivalent = 12332
+[23180] 18:27:18.941 D -    TransactionValidationServiceImpl(760) [            ServerThreadPool-1] [ -186052017716310912] : transactionAmountEquivalent = 12332
+[23180] 18:27:18.942 D -        BankForexLimitRepositoryImpl(111) [            ServerThreadPool-1] [ -186052017716310912] : order : [currency: ASC]
+[23180] 18:27:18.956 D -   TransactionValidationServiceImpl(1071) [            ServerThreadPool-1] [ -186052017716310912] : 
+
+
+
+
+
+[23180] 18:27:18.956 D -   TransactionValidationServiceImpl(1072) [            ServerThreadPool-1] [ -186052017716310912] : sourceAccountCurrency : EUR
+[23180] 18:27:18.957 D -   TransactionValidationServiceImpl(1073) [            ServerThreadPool-1] [ -186052017716310912] : transactionCurrency : IDR
+[23180] 18:27:18.957 D -   TransactionValidationServiceImpl(1074) [            ServerThreadPool-1] [ -186052017716310912] : transactionAmount : 12332
+[23180] 18:27:18.957 D -   TransactionValidationServiceImpl(1075) [            ServerThreadPool-1] [ -186052017716310912] : bankForexLimit.getMinBuyLimit() : 100000
+[23180] 18:27:18.957 D -   TransactionValidationServiceImpl(1076) [            ServerThreadPool-1] [ -186052017716310912] : bankForexLimit.getMaxBuyLimit() : 10000000000
+[23180] 18:27:18.957 D -   TransactionValidationServiceImpl(1077) [            ServerThreadPool-1] [ -186052017716310912] : bankForexLimit.getMinSellLimit() : 200000
+[23180] 18:27:18.958 D -   TransactionValidationServiceImpl(1078) [            ServerThreadPool-1] [ -186052017716310912] : bankForexLimit.getMaxSellLimit() : 20000000000
+[23180] 18:27:18.958 D -   TransactionValidationServiceImpl(1079) [            ServerThreadPool-1] [ -186052017716310912] : 
+
+
+
+
+
+[23180] 18:27:19.110 D -           InHouseTransferController(163) [            ServerThreadPool-1] [ -186052017716310912] : onException : com.gpt.component.common.exceptions.BusinessException: GPT-131195
+[23180] 18:27:19.111 D -                        QueueInvoker(201) [            ServerThreadPool-1] [ -186052017716310912] : Execution Time: 408 ms
+[23180] 18:27:19.118 E -        GlobalDefaultExceptionHandler(47) [          http-nio-8005-exec-7] [ -186052017716310912] : GPT-131195: Transaction amount is out of Bank Forex Buy Limit range
+com.gpt.component.common.exceptions.BusinessException: GPT-131195
+	at com.gpt.product.gpcash.corporate.transaction.validation.services.TransactionValidationServiceImpl.validateBankForexLimitEquivalent(TransactionValidationServiceImpl.java:1084)
+	at com.gpt.product.gpcash.corporate.transaction.validation.services.TransactionValidationServiceImpl.validateLimitEquivalent(TransactionValidationServiceImpl.java:988)
+	at com.gpt.product.gpcash.corporate.transaction.validation.services.TransactionValidationServiceImpl$$FastClassBySpringCGLIB$$efc90515.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.transaction.validation.services.TransactionValidationServiceImpl$$EnhancerBySpringCGLIB$$e2ce767d.validateLimitEquivalent(<generated>)
+	at com.gpt.product.gpcash.corporate.transaction.inhouse.services.InHouseTransferSCImpl.confirm(InHouseTransferSCImpl.java:251)
+	at com.gpt.product.gpcash.corporate.transaction.inhouse.services.InHouseTransferSCImpl$$FastClassBySpringCGLIB$$c118a535.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
+	at com.gpt.component.common.validation.ValidationAspect.validate(ValidationAspect.java:270)
+	at sun.reflect.GeneratedMethodAccessor146.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
+	at com.gpt.product.gpcash.corporate.logging.CorporateActivityLogAspect.log(CorporateActivityLogAspect.java:54)
+	at sun.reflect.GeneratedMethodAccessor193.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.corporate.transaction.inhouse.services.InHouseTransferSCImpl$$EnhancerBySpringCGLIB$$d295fb6f.confirm(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:63)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:85)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:84)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:25)
+	at com.gpt.component.common.invoker.queue.consumer.handler.QueueHandler.processMessage(QueueHandler.java:40)
+	at com.gpt.component.common.invoker.queue.consumer.QueueConsumer$Worker.run(QueueConsumer.java:212)
+[23180] 18:27:19.121 W -   ExceptionHandlerExceptionResolver(189) [          http-nio-8005-exec-7] [ -186052017716310912] : Resolved exception caused by Handler execution: com.gpt.component.common.exceptions.BusinessException: GPT-131195
+[23180] 18:27:28.656 D -            InHouseTransferController(69) [          http-nio-8005-exec-6] [-6834482064396301555] : [preInvoke] - [5a71d72c-578b-44a2-b94a-00809bc080f5] - InHouseTransferSC#confirm({accountGroupDtlId=2ce2e3fb-ebaa-4b4b-bce2-d20b03a0a8ed, benId=ce149891-183f-4631-ae0d-9e3617daeef3, isBeneficiaryFlag=N, transactionCurrency=IDR, transactionAmount=300000, transactionServiceCode=GPT_FTR_IH_OWN, instructionMode=I, instructionDate=20/09/2022 00:00:00, sessionTime=00:00, recurringParamType=D, recurringParam=1, recurringStartDate=, recurringEndDate=, loginId=GDBANK|GDMAKER, loginCorporateId=GDBANK, isSaveBenFlag=N, senderRefNo=, isFinalPayment=N, exchangeRate=CR, treasuryCode=, isVirtualAccount=N, action=CONFIRM, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDMAKER, isOneSigner=N})
+[23180] 18:27:28.657 D -                        QueueInvoker(126) [          http-nio-8005-exec-6] [-6834482064396301555] : [AutoDiscoveryQueueInvoker] - InHouseTransferSC#confirm({accountGroupDtlId=2ce2e3fb-ebaa-4b4b-bce2-d20b03a0a8ed, benId=ce149891-183f-4631-ae0d-9e3617daeef3, isBeneficiaryFlag=N, transactionCurrency=IDR, transactionAmount=300000, transactionServiceCode=GPT_FTR_IH_OWN, instructionMode=I, instructionDate=20/09/2022 00:00:00, sessionTime=00:00, recurringParamType=D, recurringParam=1, recurringStartDate=, recurringEndDate=, loginId=GDBANK|GDMAKER, loginCorporateId=GDBANK, isSaveBenFlag=N, senderRefNo=, isFinalPayment=N, exchangeRate=CR, treasuryCode=, isVirtualAccount=N, action=CONFIRM, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDMAKER, isOneSigner=N})
+[23180] 18:27:28.666 D -                    ValidationAspect(266) [            ServerThreadPool-2] [-6834482064396301555] : [Validation - Input] - InHouseTransferSCImpl#confirm({accountGroupDtlId=2ce2e3fb-ebaa-4b4b-bce2-d20b03a0a8ed, benId=ce149891-183f-4631-ae0d-9e3617daeef3, isBeneficiaryFlag=N, transactionCurrency=IDR, transactionAmount=300000, transactionServiceCode=GPT_FTR_IH_OWN, instructionMode=I, instructionDate=20/09/2022 00:00:00, sessionTime=00:00, recurringParamType=D, recurringParam=1, recurringStartDate=, recurringEndDate=, loginId=GDBANK|GDMAKER, loginCorporateId=GDBANK, isSaveBenFlag=N, senderRefNo=, isFinalPayment=N, exchangeRate=CR, treasuryCode=, isVirtualAccount=N, action=CONFIRM, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDMAKER, isOneSigner=N})
+[23180] 18:27:28.752 D -    TransactionValidationServiceImpl(863) [            ServerThreadPool-2] [-6834482064396301555] : transactionCurrency = IDR
+[23180] 18:27:28.752 D -    TransactionValidationServiceImpl(864) [            ServerThreadPool-2] [-6834482064396301555] : transactionAmount = 300000
+[23180] 18:27:28.752 D -    TransactionValidationServiceImpl(865) [            ServerThreadPool-2] [-6834482064396301555] : accountCurrency = EUR
+[23180] 18:27:28.752 D -    TransactionValidationServiceImpl(866) [            ServerThreadPool-2] [-6834482064396301555] : localCurrencyIDR
+[23180] 18:27:28.753 D -    TransactionValidationServiceImpl(909) [            ServerThreadPool-2] [-6834482064396301555] : transactionAmountEquivalent = 17.7062603
+[23180] 18:27:28.760 D -    TransactionValidationServiceImpl(154) [            ServerThreadPool-2] [-6834482064396301555] : 
+
+
+
+
+
+[23180] 18:27:28.760 D -    TransactionValidationServiceImpl(155) [            ServerThreadPool-2] [-6834482064396301555] : corporateUser.getId() : GDBANK|GDMAKER
+[23180] 18:27:28.761 D -    TransactionValidationServiceImpl(156) [            ServerThreadPool-2] [-6834482064396301555] : transactionAmount : 17.7062603
+[23180] 18:27:28.761 D -    TransactionValidationServiceImpl(157) [            ServerThreadPool-2] [-6834482064396301555] : makerLimit : 5000000000
+[23180] 18:27:28.761 D -    TransactionValidationServiceImpl(158) [            ServerThreadPool-2] [-6834482064396301555] : 
+
+
+
+
+
+[23180] 18:27:28.761 D -    TransactionValidationServiceImpl(171) [            ServerThreadPool-2] [-6834482064396301555] : 
+
+
+
+
+
+[23180] 18:27:28.761 D -    TransactionValidationServiceImpl(172) [            ServerThreadPool-2] [-6834482064396301555] : corporateAccountGroupDetail.getIsDebit() : Y
+[23180] 18:27:28.762 D -    TransactionValidationServiceImpl(173) [            ServerThreadPool-2] [-6834482064396301555] : corporateAccount.getDebitLimit() : 1000000000
+[23180] 18:27:28.762 D -    TransactionValidationServiceImpl(174) [            ServerThreadPool-2] [-6834482064396301555] : 
+
+
+
+
+
+[23180] 18:27:28.786 D -   TransactionValidationServiceImpl(1011) [            ServerThreadPool-2] [-6834482064396301555] : 
+
+
+
+
+
+[23180] 18:27:28.786 D -   TransactionValidationServiceImpl(1012) [            ServerThreadPool-2] [-6834482064396301555] : serviceCode : GPT_FTR_IH_OWN
+[23180] 18:27:28.786 D -   TransactionValidationServiceImpl(1013) [            ServerThreadPool-2] [-6834482064396301555] : currencyMatrixCode : FL
+[23180] 18:27:28.787 D -   TransactionValidationServiceImpl(1014) [            ServerThreadPool-2] [-6834482064396301555] : transactionCurrency : IDR
+[23180] 18:27:28.787 D -   TransactionValidationServiceImpl(1015) [            ServerThreadPool-2] [-6834482064396301555] : transactionAmount : 300000
+[23180] 18:27:28.787 D -   TransactionValidationServiceImpl(1016) [            ServerThreadPool-2] [-6834482064396301555] : bankTransactionLimit.getMinAmountLimit() : 10000
+[23180] 18:27:28.787 D -   TransactionValidationServiceImpl(1017) [            ServerThreadPool-2] [-6834482064396301555] : bankTransactionLimit.getMaxAmountLimit() : 999999999999999
+[23180] 18:27:28.787 D -   TransactionValidationServiceImpl(1018) [            ServerThreadPool-2] [-6834482064396301555] : 
+
+
+
+
+
+[23180] 18:27:28.788 D -    TransactionValidationServiceImpl(760) [            ServerThreadPool-2] [-6834482064396301555] : transactionAmountEquivalent = 300000
+[23180] 18:27:28.798 D -   TransactionValidationServiceImpl(1102) [            ServerThreadPool-2] [-6834482064396301555] : 
+
+
+
+
+
+[23180] 18:27:28.798 D -   TransactionValidationServiceImpl(1103) [            ServerThreadPool-2] [-6834482064396301555] : corporateId : GDBANK
+[23180] 18:27:28.798 D -   TransactionValidationServiceImpl(1104) [            ServerThreadPool-2] [-6834482064396301555] : serviceCode : GPT_FTR_IH_OWN
+[23180] 18:27:28.799 D -   TransactionValidationServiceImpl(1105) [            ServerThreadPool-2] [-6834482064396301555] : currencyMatrixCode : FL
+[23180] 18:27:28.799 D -   TransactionValidationServiceImpl(1106) [            ServerThreadPool-2] [-6834482064396301555] : transactionCurrency : IDR
+[23180] 18:27:28.799 D -   TransactionValidationServiceImpl(1107) [            ServerThreadPool-2] [-6834482064396301555] : transactionAmount : 300000
+[23180] 18:27:28.799 D -   TransactionValidationServiceImpl(1108) [            ServerThreadPool-2] [-6834482064396301555] : totalPendingTaskTrxOccurence : 0
+[23180] 18:27:28.800 D -   TransactionValidationServiceImpl(1109) [            ServerThreadPool-2] [-6834482064396301555] : totalPendingTaskDebitedAmount : 0
+[23180] 18:27:28.800 D -   TransactionValidationServiceImpl(1110) [            ServerThreadPool-2] [-6834482064396301555] : totalOccurence : 0
+[23180] 18:27:28.800 D -   TransactionValidationServiceImpl(1111) [            ServerThreadPool-2] [-6834482064396301555] : corporateLimit.getCurrency().getCode() : IDR
+[23180] 18:27:28.801 D -   TransactionValidationServiceImpl(1112) [            ServerThreadPool-2] [-6834482064396301555] : corporateLimit.getMaxOccurrenceLimit() : 100
+[23180] 18:27:28.801 D -   TransactionValidationServiceImpl(1113) [            ServerThreadPool-2] [-6834482064396301555] : corporateLimit.getAmountLimitUsage() : 0
+[23180] 18:27:28.801 D -   TransactionValidationServiceImpl(1114) [            ServerThreadPool-2] [-6834482064396301555] : totalDebitedAmount : 0
+[23180] 18:27:28.801 D -   TransactionValidationServiceImpl(1115) [            ServerThreadPool-2] [-6834482064396301555] : corporateLimit.getMaxAmountLimit( : 999999999999999
+[23180] 18:27:28.801 D -   TransactionValidationServiceImpl(1116) [            ServerThreadPool-2] [-6834482064396301555] : 
+
+
+
+
+
+[23180] 18:27:28.802 D -    TransactionValidationServiceImpl(760) [            ServerThreadPool-2] [-6834482064396301555] : transactionAmountEquivalent = 300000
+[23180] 18:27:28.811 D -   TransactionValidationServiceImpl(1140) [            ServerThreadPool-2] [-6834482064396301555] : 
+
+
+
+
+
+[23180] 18:27:28.811 D -   TransactionValidationServiceImpl(1141) [            ServerThreadPool-2] [-6834482064396301555] : corporateId : GDBANK
+[23180] 18:27:28.812 D -   TransactionValidationServiceImpl(1142) [            ServerThreadPool-2] [-6834482064396301555] : serviceCode : GPT_FTR_IH_OWN
+[23180] 18:27:28.812 D -   TransactionValidationServiceImpl(1143) [            ServerThreadPool-2] [-6834482064396301555] : currencyMatrixCode : FL
+[23180] 18:27:28.812 D -   TransactionValidationServiceImpl(1144) [            ServerThreadPool-2] [-6834482064396301555] : transactionAmount : 300000
+[23180] 18:27:28.812 D -   TransactionValidationServiceImpl(1145) [            ServerThreadPool-2] [-6834482064396301555] : corporateUserGroupDetail.getAmountLimitUsage() : 0
+[23180] 18:27:28.812 D -   TransactionValidationServiceImpl(1146) [            ServerThreadPool-2] [-6834482064396301555] : totalPendingTaskDebitedAmount : 0
+[23180] 18:27:28.812 D -   TransactionValidationServiceImpl(1147) [            ServerThreadPool-2] [-6834482064396301555] : totalDebitedAmount : 0
+[23180] 18:27:28.813 D -   TransactionValidationServiceImpl(1148) [            ServerThreadPool-2] [-6834482064396301555] : corporateUserGroupDetail.getMaxAmountLimit() : 1000000000
+[23180] 18:27:28.813 D -   TransactionValidationServiceImpl(1149) [            ServerThreadPool-2] [-6834482064396301555] : corporateUserGroupDetail.getCurrency().getCode() : IDR
+[23180] 18:27:28.813 D -   TransactionValidationServiceImpl(1150) [            ServerThreadPool-2] [-6834482064396301555] : 
+
+
+
+
+
+[23180] 18:27:28.813 D -    TransactionValidationServiceImpl(760) [            ServerThreadPool-2] [-6834482064396301555] : transactionAmountEquivalent = 300000
+[23180] 18:27:28.830 D -    TransactionValidationServiceImpl(760) [            ServerThreadPool-2] [-6834482064396301555] : transactionAmountEquivalent = 300000
+[23180] 18:27:28.831 D -        BankForexLimitRepositoryImpl(111) [            ServerThreadPool-2] [-6834482064396301555] : order : [currency: ASC]
+[23180] 18:27:28.846 D -   TransactionValidationServiceImpl(1071) [            ServerThreadPool-2] [-6834482064396301555] : 
+
+
+
+
+
+[23180] 18:27:28.847 D -   TransactionValidationServiceImpl(1072) [            ServerThreadPool-2] [-6834482064396301555] : sourceAccountCurrency : EUR
+[23180] 18:27:28.847 D -   TransactionValidationServiceImpl(1073) [            ServerThreadPool-2] [-6834482064396301555] : transactionCurrency : IDR
+[23180] 18:27:28.847 D -   TransactionValidationServiceImpl(1074) [            ServerThreadPool-2] [-6834482064396301555] : transactionAmount : 300000
+[23180] 18:27:28.847 D -   TransactionValidationServiceImpl(1075) [            ServerThreadPool-2] [-6834482064396301555] : bankForexLimit.getMinBuyLimit() : 100000
+[23180] 18:27:28.848 D -   TransactionValidationServiceImpl(1076) [            ServerThreadPool-2] [-6834482064396301555] : bankForexLimit.getMaxBuyLimit() : 10000000000
+[23180] 18:27:28.848 D -   TransactionValidationServiceImpl(1077) [            ServerThreadPool-2] [-6834482064396301555] : bankForexLimit.getMinSellLimit() : 200000
+[23180] 18:27:28.848 D -   TransactionValidationServiceImpl(1078) [            ServerThreadPool-2] [-6834482064396301555] : bankForexLimit.getMaxSellLimit() : 20000000000
+[23180] 18:27:28.848 D -   TransactionValidationServiceImpl(1079) [            ServerThreadPool-2] [-6834482064396301555] : 
+
+
+
+
+
+[23180] 18:27:28.964 D -          CorporateChargeServiceImpl(463) [            ServerThreadPool-2] [-6834482064396301555] : transactionCurrency = IDR
+[23180] 18:27:28.964 D -          CorporateChargeServiceImpl(464) [            ServerThreadPool-2] [-6834482064396301555] : transactionAmount = 0
+[23180] 18:27:28.964 D -          CorporateChargeServiceImpl(465) [            ServerThreadPool-2] [-6834482064396301555] : accountCurrency = EUR
+[23180] 18:27:28.965 D -          CorporateChargeServiceImpl(466) [            ServerThreadPool-2] [-6834482064396301555] : localCurrencyIDR
+[23180] 18:27:28.965 D -          CorporateChargeServiceImpl(509) [            ServerThreadPool-2] [-6834482064396301555] : transactionAmountEquivalent = 0E-7
+[23180] 18:27:28.965 D -                    ValidationAspect(280) [            ServerThreadPool-2] [-6834482064396301555] : [Validation - Output] - InHouseTransferSCImpl#confirm({chargeList=[{valueEq=0.0000000, currencyName=IDR, serviceChargeName=Transfer Fee, id=ac835cc9-8d28-48b0-993d-2cf97b2cd701, currencyCode=IDR, value=0}], transactionAmountEquivalent=17.7062603, benAccountInfo={benId=ce149891-183f-4631-ae0d-9e3617daeef3, benAccountNo=001900000000011, benAccountCurrency=IDR, benAccountName=POC IBANK CORP1}, totalCharge=0, amountEquivalent=17.7062603, totalChargeEquivalent=0E-7, isOneSigner=N, totalChargeCurrency=IDR})
+[23180] 18:27:28.987 D -                        QueueInvoker(201) [            ServerThreadPool-2] [-6834482064396301555] : Execution Time: 329 ms
+[23180] 18:27:29.931 D -            InHouseTransferController(69) [          http-nio-8005-exec-2] [ 2243366242967765095] : [preInvoke] - [5a71d72c-578b-44a2-b94a-00809bc080f5] - InHouseTransferSC#submit({accountGroupDtlId=2ce2e3fb-ebaa-4b4b-bce2-d20b03a0a8ed, senderRefNo=, benId=ce149891-183f-4631-ae0d-9e3617daeef3, benAccountName=POC IBANK CORP1, benAccountCurrency=IDR, isBeneficiaryFlag=N, isFinalPayment=N, isSaveBenFlag=N, isVirtualAccount=N, transactionCurrency=IDR, exchangeRate=CR, transactionAmount=300000, equivalentAmount=0, counterRate=IDR 16943.16, totalCharge=0, totalDebitedAmount=17.7062603, chargeList=[{serviceChargeName=Transfer Fee, valueEq=0.0000000, id=ac835cc9-8d28-48b0-993d-2cf97b2cd701, currencyName=IDR, currencyCode=IDR, value=0}], benRefNo=, transactionServiceCode=GPT_FTR_IH_OWN, remark1=, remark2=, remark3=, instructionMode=I, instructionDate=20/09/2022 00:00:00, recurringParamType=D, recurringParam=1, recurringStartDate=, recurringEndDate=, sessionTime=00:00, isNotify=N, notifyBenValue=, loginId=GDBANK|GDMAKER, loginCorporateId=GDBANK, action=CREATE, treasuryCode=, source_acct_no=0014804846110, source_acct_name=POC IBANK CORP1, source_acct_ccy=EUR, totalChargeEquivalent=0E-7, transactionAmountEquivalent=17.7062603, confirm_data={source_account=0014804846110 / POC IBANK CORP1 (EUR), isFinalPayment=No, destinationAccount=Own Account, destinationAccountNumber=001900000000011, destinationAccountName=POC IBANK CORP1, destinationAccountCurrency=IDR, transactionAmount=300,000.00, totalDebitedAmount=17.71, totalCharge=0.00, totalChargeCurrency=IDR, notify=Don't Notify, payment_schedule=Immediate, payment_date=20-September-2022, payment_date_end=, payment_every=1 days, payment_for=Daily, service_charge_name=, isSaveBenFlag=No, aliasName=, exchangeRate=CR, treasuryCode=, totalChargeEquivalent=0.00}, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDMAKER, isOneSigner=N, benAccountInfo={benAccountName=POC IBANK CORP1, benId=ce149891-183f-4631-ae0d-9e3617daeef3, benAccountNo=001900000000011, benAccountCurrency=IDR}, amountEquivalent=17.7062603, message=, totalChargeCurrency=IDR})
+[23180] 18:27:29.935 D -                        QueueInvoker(126) [          http-nio-8005-exec-2] [ 2243366242967765095] : [AutoDiscoveryQueueInvoker] - InHouseTransferSC#submit({accountGroupDtlId=2ce2e3fb-ebaa-4b4b-bce2-d20b03a0a8ed, senderRefNo=, benId=ce149891-183f-4631-ae0d-9e3617daeef3, benAccountName=POC IBANK CORP1, benAccountCurrency=IDR, isBeneficiaryFlag=N, isFinalPayment=N, isSaveBenFlag=N, isVirtualAccount=N, transactionCurrency=IDR, exchangeRate=CR, transactionAmount=300000, equivalentAmount=0, counterRate=IDR 16943.16, totalCharge=0, totalDebitedAmount=17.7062603, chargeList=[{serviceChargeName=Transfer Fee, valueEq=0.0000000, id=ac835cc9-8d28-48b0-993d-2cf97b2cd701, currencyName=IDR, currencyCode=IDR, value=0}], benRefNo=, transactionServiceCode=GPT_FTR_IH_OWN, remark1=, remark2=, remark3=, instructionMode=I, instructionDate=20/09/2022 00:00:00, recurringParamType=D, recurringParam=1, recurringStartDate=, recurringEndDate=, sessionTime=00:00, isNotify=N, notifyBenValue=, loginId=GDBANK|GDMAKER, loginCorporateId=GDBANK, action=CREATE, treasuryCode=, source_acct_no=0014804846110, source_acct_name=POC IBANK CORP1, source_acct_ccy=EUR, totalChargeEquivalent=0E-7, transactionAmountEquivalent=17.7062603, confirm_data={source_account=0014804846110 / POC IBANK CORP1 (EUR), isFinalPayment=No, destinationAccount=Own Account, destinationAccountNumber=001900000000011, destinationAccountName=POC IBANK CORP1, destinationAccountCurrency=IDR, transactionAmount=300,000.00, totalDebitedAmount=17.71, totalCharge=0.00, totalChargeCurrency=IDR, notify=Don't Notify, payment_schedule=Immediate, payment_date=20-September-2022, payment_date_end=, payment_every=1 days, payment_for=Daily, service_charge_name=, isSaveBenFlag=No, aliasName=, exchangeRate=CR, treasuryCode=, totalChargeEquivalent=0.00}, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDMAKER, isOneSigner=N, benAccountInfo={benAccountName=POC IBANK CORP1, benId=ce149891-183f-4631-ae0d-9e3617daeef3, benAccountNo=001900000000011, benAccountCurrency=IDR}, amountEquivalent=17.7062603, message=, totalChargeCurrency=IDR})
+[23180] 18:27:29.944 D -                    ValidationAspect(266) [            ServerThreadPool-5] [ 2243366242967765095] : [Validation - Input] - InHouseTransferSCImpl#submit({accountGroupDtlId=2ce2e3fb-ebaa-4b4b-bce2-d20b03a0a8ed, senderRefNo=, benId=ce149891-183f-4631-ae0d-9e3617daeef3, benAccountName=POC IBANK CORP1, benAccountCurrency=IDR, isBeneficiaryFlag=N, isFinalPayment=N, isSaveBenFlag=N, isVirtualAccount=N, transactionCurrency=IDR, exchangeRate=CR, transactionAmount=300000, equivalentAmount=0, counterRate=IDR 16943.16, totalCharge=0, totalDebitedAmount=17.7062603, chargeList=[{serviceChargeName=Transfer Fee, valueEq=0.0000000, id=ac835cc9-8d28-48b0-993d-2cf97b2cd701, currencyName=IDR, currencyCode=IDR, value=0}], benRefNo=, transactionServiceCode=GPT_FTR_IH_OWN, remark1=, remark2=, remark3=, instructionMode=I, instructionDate=20/09/2022 00:00:00, recurringParamType=D, recurringParam=1, recurringStartDate=, recurringEndDate=, sessionTime=00:00, isNotify=N, notifyBenValue=, loginId=GDBANK|GDMAKER, loginCorporateId=GDBANK, action=CREATE, treasuryCode=, source_acct_no=0014804846110, source_acct_name=POC IBANK CORP1, source_acct_ccy=EUR, totalChargeEquivalent=0E-7, transactionAmountEquivalent=17.7062603, confirm_data={source_account=0014804846110 / POC IBANK CORP1 (EUR), isFinalPayment=No, destinationAccount=Own Account, destinationAccountNumber=001900000000011, destinationAccountName=POC IBANK CORP1, destinationAccountCurrency=IDR, transactionAmount=300,000.00, totalDebitedAmount=17.71, totalCharge=0.00, totalChargeCurrency=IDR, notify=Don't Notify, payment_schedule=Immediate, payment_date=20-September-2022, payment_date_end=, payment_every=1 days, payment_for=Daily, service_charge_name=, isSaveBenFlag=No, aliasName=, exchangeRate=CR, treasuryCode=, totalChargeEquivalent=0.00}, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDMAKER, isOneSigner=N, benAccountInfo={benAccountName=POC IBANK CORP1, benId=ce149891-183f-4631-ae0d-9e3617daeef3, benAccountNo=001900000000011, benAccountCurrency=IDR}, amountEquivalent=17.7062603, message=, totalChargeCurrency=IDR})
+[23180] 18:27:29.990 D -    TransactionValidationServiceImpl(438) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:29.990 D -    TransactionValidationServiceImpl(439) [            ServerThreadPool-5] [ 2243366242967765095] : totalChargeFromTable = 0
+[23180] 18:27:29.991 D -    TransactionValidationServiceImpl(440) [            ServerThreadPool-5] [ 2243366242967765095] : totalTransaction = 17.7062603
+[23180] 18:27:29.991 D -    TransactionValidationServiceImpl(441) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.006 D -    TransactionValidationServiceImpl(451) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.007 D -    TransactionValidationServiceImpl(452) [            ServerThreadPool-5] [ 2243366242967765095] : corporateCharge.getValue() = 0
+[23180] 18:27:30.007 D -    TransactionValidationServiceImpl(453) [            ServerThreadPool-5] [ 2243366242967765095] : chargeMap.get(value) = 0
+[23180] 18:27:30.007 D -    TransactionValidationServiceImpl(454) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.153 D -    TransactionValidationServiceImpl(863) [            ServerThreadPool-5] [ 2243366242967765095] : transactionCurrency = IDR
+[23180] 18:27:30.153 D -    TransactionValidationServiceImpl(864) [            ServerThreadPool-5] [ 2243366242967765095] : transactionAmount = 300000
+[23180] 18:27:30.154 D -    TransactionValidationServiceImpl(865) [            ServerThreadPool-5] [ 2243366242967765095] : accountCurrency = EUR
+[23180] 18:27:30.154 D -    TransactionValidationServiceImpl(866) [            ServerThreadPool-5] [ 2243366242967765095] : localCurrencyIDR
+[23180] 18:27:30.154 D -    TransactionValidationServiceImpl(909) [            ServerThreadPool-5] [ 2243366242967765095] : transactionAmountEquivalent = 17.7062603
+[23180] 18:27:30.168 D -    TransactionValidationServiceImpl(154) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.168 D -    TransactionValidationServiceImpl(155) [            ServerThreadPool-5] [ 2243366242967765095] : corporateUser.getId() : GDBANK|GDMAKER
+[23180] 18:27:30.169 D -    TransactionValidationServiceImpl(156) [            ServerThreadPool-5] [ 2243366242967765095] : transactionAmount : 17.7062603
+[23180] 18:27:30.169 D -    TransactionValidationServiceImpl(157) [            ServerThreadPool-5] [ 2243366242967765095] : makerLimit : 5000000000
+[23180] 18:27:30.169 D -    TransactionValidationServiceImpl(158) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.169 D -    TransactionValidationServiceImpl(171) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.169 D -    TransactionValidationServiceImpl(172) [            ServerThreadPool-5] [ 2243366242967765095] : corporateAccountGroupDetail.getIsDebit() : Y
+[23180] 18:27:30.170 D -    TransactionValidationServiceImpl(173) [            ServerThreadPool-5] [ 2243366242967765095] : corporateAccount.getDebitLimit() : 1000000000
+[23180] 18:27:30.170 D -    TransactionValidationServiceImpl(174) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.199 D -   TransactionValidationServiceImpl(1011) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.200 D -   TransactionValidationServiceImpl(1012) [            ServerThreadPool-5] [ 2243366242967765095] : serviceCode : GPT_FTR_IH_OWN
+[23180] 18:27:30.200 D -   TransactionValidationServiceImpl(1013) [            ServerThreadPool-5] [ 2243366242967765095] : currencyMatrixCode : FL
+[23180] 18:27:30.201 D -   TransactionValidationServiceImpl(1014) [            ServerThreadPool-5] [ 2243366242967765095] : transactionCurrency : IDR
+[23180] 18:27:30.201 D -   TransactionValidationServiceImpl(1015) [            ServerThreadPool-5] [ 2243366242967765095] : transactionAmount : 300000
+[23180] 18:27:30.201 D -   TransactionValidationServiceImpl(1016) [            ServerThreadPool-5] [ 2243366242967765095] : bankTransactionLimit.getMinAmountLimit() : 10000
+[23180] 18:27:30.201 D -   TransactionValidationServiceImpl(1017) [            ServerThreadPool-5] [ 2243366242967765095] : bankTransactionLimit.getMaxAmountLimit() : 999999999999999
+[23180] 18:27:30.201 D -   TransactionValidationServiceImpl(1018) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.202 D -    TransactionValidationServiceImpl(760) [            ServerThreadPool-5] [ 2243366242967765095] : transactionAmountEquivalent = 300000
+[23180] 18:27:30.216 D -   TransactionValidationServiceImpl(1102) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.216 D -   TransactionValidationServiceImpl(1103) [            ServerThreadPool-5] [ 2243366242967765095] : corporateId : GDBANK
+[23180] 18:27:30.216 D -   TransactionValidationServiceImpl(1104) [            ServerThreadPool-5] [ 2243366242967765095] : serviceCode : GPT_FTR_IH_OWN
+[23180] 18:27:30.216 D -   TransactionValidationServiceImpl(1105) [            ServerThreadPool-5] [ 2243366242967765095] : currencyMatrixCode : FL
+[23180] 18:27:30.217 D -   TransactionValidationServiceImpl(1106) [            ServerThreadPool-5] [ 2243366242967765095] : transactionCurrency : IDR
+[23180] 18:27:30.217 D -   TransactionValidationServiceImpl(1107) [            ServerThreadPool-5] [ 2243366242967765095] : transactionAmount : 300000
+[23180] 18:27:30.217 D -   TransactionValidationServiceImpl(1108) [            ServerThreadPool-5] [ 2243366242967765095] : totalPendingTaskTrxOccurence : 0
+[23180] 18:27:30.218 D -   TransactionValidationServiceImpl(1109) [            ServerThreadPool-5] [ 2243366242967765095] : totalPendingTaskDebitedAmount : 0
+[23180] 18:27:30.218 D -   TransactionValidationServiceImpl(1110) [            ServerThreadPool-5] [ 2243366242967765095] : totalOccurence : 0
+[23180] 18:27:30.218 D -   TransactionValidationServiceImpl(1111) [            ServerThreadPool-5] [ 2243366242967765095] : corporateLimit.getCurrency().getCode() : IDR
+[23180] 18:27:30.218 D -   TransactionValidationServiceImpl(1112) [            ServerThreadPool-5] [ 2243366242967765095] : corporateLimit.getMaxOccurrenceLimit() : 100
+[23180] 18:27:30.218 D -   TransactionValidationServiceImpl(1113) [            ServerThreadPool-5] [ 2243366242967765095] : corporateLimit.getAmountLimitUsage() : 0
+[23180] 18:27:30.219 D -   TransactionValidationServiceImpl(1114) [            ServerThreadPool-5] [ 2243366242967765095] : totalDebitedAmount : 0
+[23180] 18:27:30.219 D -   TransactionValidationServiceImpl(1115) [            ServerThreadPool-5] [ 2243366242967765095] : corporateLimit.getMaxAmountLimit( : 999999999999999
+[23180] 18:27:30.219 D -   TransactionValidationServiceImpl(1116) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.219 D -    TransactionValidationServiceImpl(760) [            ServerThreadPool-5] [ 2243366242967765095] : transactionAmountEquivalent = 300000
+[23180] 18:27:30.233 D -   TransactionValidationServiceImpl(1140) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.233 D -   TransactionValidationServiceImpl(1141) [            ServerThreadPool-5] [ 2243366242967765095] : corporateId : GDBANK
+[23180] 18:27:30.233 D -   TransactionValidationServiceImpl(1142) [            ServerThreadPool-5] [ 2243366242967765095] : serviceCode : GPT_FTR_IH_OWN
+[23180] 18:27:30.234 D -   TransactionValidationServiceImpl(1143) [            ServerThreadPool-5] [ 2243366242967765095] : currencyMatrixCode : FL
+[23180] 18:27:30.234 D -   TransactionValidationServiceImpl(1144) [            ServerThreadPool-5] [ 2243366242967765095] : transactionAmount : 300000
+[23180] 18:27:30.234 D -   TransactionValidationServiceImpl(1145) [            ServerThreadPool-5] [ 2243366242967765095] : corporateUserGroupDetail.getAmountLimitUsage() : 0
+[23180] 18:27:30.235 D -   TransactionValidationServiceImpl(1146) [            ServerThreadPool-5] [ 2243366242967765095] : totalPendingTaskDebitedAmount : 0
+[23180] 18:27:30.235 D -   TransactionValidationServiceImpl(1147) [            ServerThreadPool-5] [ 2243366242967765095] : totalDebitedAmount : 0
+[23180] 18:27:30.235 D -   TransactionValidationServiceImpl(1148) [            ServerThreadPool-5] [ 2243366242967765095] : corporateUserGroupDetail.getMaxAmountLimit() : 1000000000
+[23180] 18:27:30.235 D -   TransactionValidationServiceImpl(1149) [            ServerThreadPool-5] [ 2243366242967765095] : corporateUserGroupDetail.getCurrency().getCode() : IDR
+[23180] 18:27:30.235 D -   TransactionValidationServiceImpl(1150) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.236 D -    TransactionValidationServiceImpl(760) [            ServerThreadPool-5] [ 2243366242967765095] : transactionAmountEquivalent = 300000
+[23180] 18:27:30.248 D -    TransactionValidationServiceImpl(760) [            ServerThreadPool-5] [ 2243366242967765095] : transactionAmountEquivalent = 300000
+[23180] 18:27:30.248 D -        BankForexLimitRepositoryImpl(111) [            ServerThreadPool-5] [ 2243366242967765095] : order : [currency: ASC]
+[23180] 18:27:30.268 D -   TransactionValidationServiceImpl(1071) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.269 D -   TransactionValidationServiceImpl(1072) [            ServerThreadPool-5] [ 2243366242967765095] : sourceAccountCurrency : EUR
+[23180] 18:27:30.269 D -   TransactionValidationServiceImpl(1073) [            ServerThreadPool-5] [ 2243366242967765095] : transactionCurrency : IDR
+[23180] 18:27:30.269 D -   TransactionValidationServiceImpl(1074) [            ServerThreadPool-5] [ 2243366242967765095] : transactionAmount : 300000
+[23180] 18:27:30.269 D -   TransactionValidationServiceImpl(1075) [            ServerThreadPool-5] [ 2243366242967765095] : bankForexLimit.getMinBuyLimit() : 100000
+[23180] 18:27:30.270 D -   TransactionValidationServiceImpl(1076) [            ServerThreadPool-5] [ 2243366242967765095] : bankForexLimit.getMaxBuyLimit() : 10000000000
+[23180] 18:27:30.270 D -   TransactionValidationServiceImpl(1077) [            ServerThreadPool-5] [ 2243366242967765095] : bankForexLimit.getMinSellLimit() : 200000
+[23180] 18:27:30.270 D -   TransactionValidationServiceImpl(1078) [            ServerThreadPool-5] [ 2243366242967765095] : bankForexLimit.getMaxSellLimit() : 20000000000
+[23180] 18:27:30.270 D -   TransactionValidationServiceImpl(1079) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.373 D - CorporateUserPendingTaskServiceImpl(382) [            ServerThreadPool-5] [ 2243366242967765095] : User PendingTask : PendingTaskModel{id=null,uniqueKey=GDBANK|GDMAKER|2ce2e3fb-ebaa-4b4b-bce2-d20b03a0a8ed|300000|ce149891-183f-4631-ae0d-9e3617daeef3|1663673250293,referenceNo=C20220920429300005,action=CREATE,status=PENDING,service=InHouseTransferSC,model=java.util.LinkedHashMap,transactionAmount=300000,transactionCurrency=IDR,sourceAccount=0014804846110,createdBy=GDBANK|GDMAKER,createdDate=2022-09-20 18:27:30.355}
+[23180] 18:27:30.507 D - CorporateUserPendingTaskServiceImpl(771) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+profileContext.getPendingTaskId = ec015498-3999-46a4-b86b-76368e139fbe
+[23180] 18:27:30.508 D - CorporateUserPendingTaskServiceImpl(772) [            ServerThreadPool-5] [ 2243366242967765095] : approval level = null
+[23180] 18:27:30.508 D - CorporateUserPendingTaskServiceImpl(773) [            ServerThreadPool-5] [ 2243366242967765095] : stage name = ApproverStage
+[23180] 18:27:30.509 D - CorporateUserPendingTaskServiceImpl(774) [            ServerThreadPool-5] [ 2243366242967765095] : user group option = ANY
+[23180] 18:27:30.509 D - CorporateUserPendingTaskServiceImpl(775) [            ServerThreadPool-5] [ 2243366242967765095] : user group = null
+[23180] 18:27:30.509 D - CorporateUserPendingTaskServiceImpl(776) [            ServerThreadPool-5] [ 2243366242967765095] : approverUserCode = GDBANK|GDMAKER
+[23180] 18:27:30.510 D - CorporateUserPendingTaskServiceImpl(777) [            ServerThreadPool-5] [ 2243366242967765095] : approverHistory = []
+[23180] 18:27:30.510 D - CorporateUserPendingTaskServiceImpl(778) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.556 D - CorporateUserPendingTaskServiceImpl(978) [            ServerThreadPool-5] [ 2243366242967765095] : approvalMapList : [19920826C3160AAEE0440003BA783393, 19920826C3170AAEE0440003BA783393, 19920826C3150AAEE0440003BA783393, 19920826C3140AAEE0440003BA783393, 19920826C3130AAEE0440003BA783393, 19920826C3120AAEE0440003BA783393, 19920826C3110AAEE0440003BA783393, 19920826C3100AAEE0440003BA783393, 19920826C30F0AAEE0440003BA783393, 6342974398982374928347294732874, 7724682462847628462374628462746, 8297423462783462846284628462863, 92848246846284628462374628462476, 9024938475398457394857394857394, 3824798347298347298347298347283, 48397549284792847982347928472847, 5342947394729472947294728372847, 23467284628462846274624672873462, 19A17A45C82A052EE0440003BA783393, 19A17A45C829052EE0440003BA783393, 19A17A45C82B052EE0440003BA783393, 19A17A45C82C052EE0440003BA783393, 19A17A45C82D052EE0440003BA783393, 19A17A45C82E052EE0440003BA783393, 19A17A45C82F052EE0440003BA783393, 19A17A45C830052EE0440003BA783393, 19A17A45C831052EE0440003BA783393, 19A17A45C833052EE0440003BA783393, 19A17A45C834052EE0440003BA783393, 19A17A45C835052EE0440003BA783393, 19A17A45C836052EE0440003BA783393, 19A17A45C83B052EE0440003BA783393, 19A17A45C838052EE0440003BA783393, 19A17A45C839052EE0440003BA783393, 19A17A45C83A052EE0440003BA783393, 19A17A45C837052EE0440003BA783393]
+[23180] 18:27:30.557 D - CorporateUserPendingTaskServiceImpl(979) [            ServerThreadPool-5] [ 2243366242967765095] : isReleaser : N
+[23180] 18:27:30.586 D - CorporateUserPendingTaskServiceImpl(990) [            ServerThreadPool-5] [ 2243366242967765095] : userByApprovalMap : [GDBANK|ONESIGNER, GDBANK|APPROVER, GDBANK|GDUSERMAKER, GDBANK|GDUSERAPPROVER, GDBANK|PROCAPPROVER, GDBANK|HAFID, GDBANK|BENDAHARAAPP, GDBANK|SHENNI, GDBANK|FINA, GDBANK|SISWANTO, GDBANK|YOYOK, GDBANK|LUKMAN, GDBANK|GDAPPROVER]
+[23180] 18:27:30.661 D - orporateUserPendingTaskServiceImpl(1026) [            ServerThreadPool-5] [ 2243366242967765095] : userList : [GDBANK|ONESIGNER, GDBANK|APPROVER, GDBANK|GDUSERMAKER, GDBANK|GDUSERAPPROVER, GDBANK|PROCAPPROVER, GDBANK|HAFID, GDBANK|BENDAHARAAPP, GDBANK|SHENNI, GDBANK|FINA, GDBANK|SISWANTO, GDBANK|YOYOK, GDBANK|LUKMAN, GDBANK|GDAPPROVER]
+[23180] 18:27:30.661 D - orporateUserPendingTaskServiceImpl(1048) [            ServerThreadPool-5] [ 2243366242967765095] : authorizedUserByMenu : [GDBANK|ONESIGNER, GDBANK|APPROVER, GDBANK|GDUSERMAKER, GDBANK|GDUSERAPPROVER, GDBANK|PROCAPPROVER, GDBANK|HAFID, GDBANK|BENDAHARAAPP, GDBANK|SHENNI, GDBANK|FINA, GDBANK|SISWANTO, GDBANK|YOYOK, GDBANK|LUKMAN, GDBANK|GDAPPROVER]
+[23180] 18:27:30.770 D - orporateUserPendingTaskServiceImpl(1124) [            ServerThreadPool-5] [ 2243366242967765095] : authorizedUserByOption : 13
+[23180] 18:27:30.888 D - CorporateUserPendingTaskServiceImpl(853) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUserId intra approval limit : GDBANK|ONESIGNER
+[23180] 18:27:30.889 D - CorporateUserPendingTaskServiceImpl(878) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.890 D - CorporateUserPendingTaskServiceImpl(879) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUser : GDBANK|ONESIGNER
+[23180] 18:27:30.890 D - CorporateUserPendingTaskServiceImpl(880) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUserGroupId : f9457139-6d5c-4c83-89f5-d2321fc9cb0f
+[23180] 18:27:30.890 D - CorporateUserPendingTaskServiceImpl(881) [            ServerThreadPool-5] [ 2243366242967765095] : approverUserGroupId : f9457139-6d5c-4c83-89f5-d2321fc9cb0f
+[23180] 18:27:30.891 D - CorporateUserPendingTaskServiceImpl(883) [            ServerThreadPool-5] [ 2243366242967765095] : als.getIntraGroupApprovalLimit() : 20000000000
+[23180] 18:27:30.891 D - CorporateUserPendingTaskServiceImpl(884) [            ServerThreadPool-5] [ 2243366242967765095] : als.getCrossGroupApprovalLimit() : 30000000000
+[23180] 18:27:30.891 D - CorporateUserPendingTaskServiceImpl(885) [            ServerThreadPool-5] [ 2243366242967765095] : als.getSingleApprovalLimit() : 0
+[23180] 18:27:30.892 D - CorporateUserPendingTaskServiceImpl(886) [            ServerThreadPool-5] [ 2243366242967765095] : transactionAmount : 300000
+[23180] 18:27:30.892 D - CorporateUserPendingTaskServiceImpl(887) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.901 D - CorporateUserPendingTaskServiceImpl(857) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUserId cross approval limit : GDBANK|APPROVER
+[23180] 18:27:30.902 D - CorporateUserPendingTaskServiceImpl(878) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.902 D - CorporateUserPendingTaskServiceImpl(879) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUser : GDBANK|APPROVER
+[23180] 18:27:30.902 D - CorporateUserPendingTaskServiceImpl(880) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUserGroupId : ee4f1872-d4a5-41ab-8990-3e098f661840
+[23180] 18:27:30.903 D - CorporateUserPendingTaskServiceImpl(881) [            ServerThreadPool-5] [ 2243366242967765095] : approverUserGroupId : f9457139-6d5c-4c83-89f5-d2321fc9cb0f
+[23180] 18:27:30.903 D - CorporateUserPendingTaskServiceImpl(883) [            ServerThreadPool-5] [ 2243366242967765095] : als.getIntraGroupApprovalLimit() : 20000000000
+[23180] 18:27:30.903 D - CorporateUserPendingTaskServiceImpl(884) [            ServerThreadPool-5] [ 2243366242967765095] : als.getCrossGroupApprovalLimit() : 30000000000
+[23180] 18:27:30.904 D - CorporateUserPendingTaskServiceImpl(885) [            ServerThreadPool-5] [ 2243366242967765095] : als.getSingleApprovalLimit() : 0
+[23180] 18:27:30.904 D - CorporateUserPendingTaskServiceImpl(886) [            ServerThreadPool-5] [ 2243366242967765095] : transactionAmount : 300000
+[23180] 18:27:30.904 D - CorporateUserPendingTaskServiceImpl(887) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.904 D - CorporateUserPendingTaskServiceImpl(853) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUserId intra approval limit : GDBANK|GDUSERMAKER
+[23180] 18:27:30.905 D - CorporateUserPendingTaskServiceImpl(878) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.905 D - CorporateUserPendingTaskServiceImpl(879) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUser : GDBANK|GDUSERMAKER
+[23180] 18:27:30.905 D - CorporateUserPendingTaskServiceImpl(880) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUserGroupId : f9457139-6d5c-4c83-89f5-d2321fc9cb0f
+[23180] 18:27:30.905 D - CorporateUserPendingTaskServiceImpl(881) [            ServerThreadPool-5] [ 2243366242967765095] : approverUserGroupId : f9457139-6d5c-4c83-89f5-d2321fc9cb0f
+[23180] 18:27:30.906 D - CorporateUserPendingTaskServiceImpl(883) [            ServerThreadPool-5] [ 2243366242967765095] : als.getIntraGroupApprovalLimit() : 20000000000
+[23180] 18:27:30.906 D - CorporateUserPendingTaskServiceImpl(884) [            ServerThreadPool-5] [ 2243366242967765095] : als.getCrossGroupApprovalLimit() : 30000000000
+[23180] 18:27:30.906 D - CorporateUserPendingTaskServiceImpl(885) [            ServerThreadPool-5] [ 2243366242967765095] : als.getSingleApprovalLimit() : 0
+[23180] 18:27:30.907 D - CorporateUserPendingTaskServiceImpl(886) [            ServerThreadPool-5] [ 2243366242967765095] : transactionAmount : 300000
+[23180] 18:27:30.907 D - CorporateUserPendingTaskServiceImpl(887) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.915 D - CorporateUserPendingTaskServiceImpl(853) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUserId intra approval limit : GDBANK|GDUSERAPPROVER
+[23180] 18:27:30.922 D - CorporateUserPendingTaskServiceImpl(878) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.923 D - CorporateUserPendingTaskServiceImpl(879) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUser : GDBANK|GDUSERAPPROVER
+[23180] 18:27:30.923 D - CorporateUserPendingTaskServiceImpl(880) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUserGroupId : f9457139-6d5c-4c83-89f5-d2321fc9cb0f
+[23180] 18:27:30.923 D - CorporateUserPendingTaskServiceImpl(881) [            ServerThreadPool-5] [ 2243366242967765095] : approverUserGroupId : f9457139-6d5c-4c83-89f5-d2321fc9cb0f
+[23180] 18:27:30.924 D - CorporateUserPendingTaskServiceImpl(883) [            ServerThreadPool-5] [ 2243366242967765095] : als.getIntraGroupApprovalLimit() : 999999999999999
+[23180] 18:27:30.924 D - CorporateUserPendingTaskServiceImpl(884) [            ServerThreadPool-5] [ 2243366242967765095] : als.getCrossGroupApprovalLimit() : 999999999999999
+[23180] 18:27:30.924 D - CorporateUserPendingTaskServiceImpl(885) [            ServerThreadPool-5] [ 2243366242967765095] : als.getSingleApprovalLimit() : 0
+[23180] 18:27:30.925 D - CorporateUserPendingTaskServiceImpl(886) [            ServerThreadPool-5] [ 2243366242967765095] : transactionAmount : 300000
+[23180] 18:27:30.925 D - CorporateUserPendingTaskServiceImpl(887) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.936 D - CorporateUserPendingTaskServiceImpl(857) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUserId cross approval limit : GDBANK|PROCAPPROVER
+[23180] 18:27:30.936 D - CorporateUserPendingTaskServiceImpl(878) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.937 D - CorporateUserPendingTaskServiceImpl(879) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUser : GDBANK|PROCAPPROVER
+[23180] 18:27:30.937 D - CorporateUserPendingTaskServiceImpl(880) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUserGroupId : 27108260-9cc9-4e38-8c64-5bc06cfff1e9
+[23180] 18:27:30.937 D - CorporateUserPendingTaskServiceImpl(881) [            ServerThreadPool-5] [ 2243366242967765095] : approverUserGroupId : f9457139-6d5c-4c83-89f5-d2321fc9cb0f
+[23180] 18:27:30.938 D - CorporateUserPendingTaskServiceImpl(883) [            ServerThreadPool-5] [ 2243366242967765095] : als.getIntraGroupApprovalLimit() : 20000000000
+[23180] 18:27:30.938 D - CorporateUserPendingTaskServiceImpl(884) [            ServerThreadPool-5] [ 2243366242967765095] : als.getCrossGroupApprovalLimit() : 30000000000
+[23180] 18:27:30.938 D - CorporateUserPendingTaskServiceImpl(885) [            ServerThreadPool-5] [ 2243366242967765095] : als.getSingleApprovalLimit() : 0
+[23180] 18:27:30.938 D - CorporateUserPendingTaskServiceImpl(886) [            ServerThreadPool-5] [ 2243366242967765095] : transactionAmount : 300000
+[23180] 18:27:30.938 D - CorporateUserPendingTaskServiceImpl(887) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.939 D - CorporateUserPendingTaskServiceImpl(853) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUserId intra approval limit : GDBANK|HAFID
+[23180] 18:27:30.939 D - CorporateUserPendingTaskServiceImpl(878) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.939 D - CorporateUserPendingTaskServiceImpl(879) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUser : GDBANK|HAFID
+[23180] 18:27:30.939 D - CorporateUserPendingTaskServiceImpl(880) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUserGroupId : f9457139-6d5c-4c83-89f5-d2321fc9cb0f
+[23180] 18:27:30.940 D - CorporateUserPendingTaskServiceImpl(881) [            ServerThreadPool-5] [ 2243366242967765095] : approverUserGroupId : f9457139-6d5c-4c83-89f5-d2321fc9cb0f
+[23180] 18:27:30.940 D - CorporateUserPendingTaskServiceImpl(883) [            ServerThreadPool-5] [ 2243366242967765095] : als.getIntraGroupApprovalLimit() : 20000000000
+[23180] 18:27:30.940 D - CorporateUserPendingTaskServiceImpl(884) [            ServerThreadPool-5] [ 2243366242967765095] : als.getCrossGroupApprovalLimit() : 30000000000
+[23180] 18:27:30.940 D - CorporateUserPendingTaskServiceImpl(885) [            ServerThreadPool-5] [ 2243366242967765095] : als.getSingleApprovalLimit() : 0
+[23180] 18:27:30.941 D - CorporateUserPendingTaskServiceImpl(886) [            ServerThreadPool-5] [ 2243366242967765095] : transactionAmount : 300000
+[23180] 18:27:30.941 D - CorporateUserPendingTaskServiceImpl(887) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.941 D - CorporateUserPendingTaskServiceImpl(853) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUserId intra approval limit : GDBANK|BENDAHARAAPP
+[23180] 18:27:30.941 D - CorporateUserPendingTaskServiceImpl(878) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.942 D - CorporateUserPendingTaskServiceImpl(879) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUser : GDBANK|BENDAHARAAPP
+[23180] 18:27:30.942 D - CorporateUserPendingTaskServiceImpl(880) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUserGroupId : f9457139-6d5c-4c83-89f5-d2321fc9cb0f
+[23180] 18:27:30.942 D - CorporateUserPendingTaskServiceImpl(881) [            ServerThreadPool-5] [ 2243366242967765095] : approverUserGroupId : f9457139-6d5c-4c83-89f5-d2321fc9cb0f
+[23180] 18:27:30.942 D - CorporateUserPendingTaskServiceImpl(883) [            ServerThreadPool-5] [ 2243366242967765095] : als.getIntraGroupApprovalLimit() : 20000000000
+[23180] 18:27:30.943 D - CorporateUserPendingTaskServiceImpl(884) [            ServerThreadPool-5] [ 2243366242967765095] : als.getCrossGroupApprovalLimit() : 30000000000
+[23180] 18:27:30.943 D - CorporateUserPendingTaskServiceImpl(885) [            ServerThreadPool-5] [ 2243366242967765095] : als.getSingleApprovalLimit() : 0
+[23180] 18:27:30.943 D - CorporateUserPendingTaskServiceImpl(886) [            ServerThreadPool-5] [ 2243366242967765095] : transactionAmount : 300000
+[23180] 18:27:30.943 D - CorporateUserPendingTaskServiceImpl(887) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.944 D - CorporateUserPendingTaskServiceImpl(857) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUserId cross approval limit : GDBANK|SHENNI
+[23180] 18:27:30.944 D - CorporateUserPendingTaskServiceImpl(878) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.944 D - CorporateUserPendingTaskServiceImpl(879) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUser : GDBANK|SHENNI
+[23180] 18:27:30.945 D - CorporateUserPendingTaskServiceImpl(880) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUserGroupId : 27108260-9cc9-4e38-8c64-5bc06cfff1e9
+[23180] 18:27:30.945 D - CorporateUserPendingTaskServiceImpl(881) [            ServerThreadPool-5] [ 2243366242967765095] : approverUserGroupId : f9457139-6d5c-4c83-89f5-d2321fc9cb0f
+[23180] 18:27:30.945 D - CorporateUserPendingTaskServiceImpl(883) [            ServerThreadPool-5] [ 2243366242967765095] : als.getIntraGroupApprovalLimit() : 20000000000
+[23180] 18:27:30.945 D - CorporateUserPendingTaskServiceImpl(884) [            ServerThreadPool-5] [ 2243366242967765095] : als.getCrossGroupApprovalLimit() : 30000000000
+[23180] 18:27:30.946 D - CorporateUserPendingTaskServiceImpl(885) [            ServerThreadPool-5] [ 2243366242967765095] : als.getSingleApprovalLimit() : 0
+[23180] 18:27:30.946 D - CorporateUserPendingTaskServiceImpl(886) [            ServerThreadPool-5] [ 2243366242967765095] : transactionAmount : 300000
+[23180] 18:27:30.946 D - CorporateUserPendingTaskServiceImpl(887) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.962 D - CorporateUserPendingTaskServiceImpl(878) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.963 D - CorporateUserPendingTaskServiceImpl(879) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUser : GDBANK|FINA
+[23180] 18:27:30.963 D - CorporateUserPendingTaskServiceImpl(880) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUserGroupId : 27108260-9cc9-4e38-8c64-5bc06cfff1e9
+[23180] 18:27:30.963 D - CorporateUserPendingTaskServiceImpl(881) [            ServerThreadPool-5] [ 2243366242967765095] : approverUserGroupId : f9457139-6d5c-4c83-89f5-d2321fc9cb0f
+[23180] 18:27:30.964 D - CorporateUserPendingTaskServiceImpl(883) [            ServerThreadPool-5] [ 2243366242967765095] : als.getIntraGroupApprovalLimit() : 50000000
+[23180] 18:27:30.964 D - CorporateUserPendingTaskServiceImpl(884) [            ServerThreadPool-5] [ 2243366242967765095] : als.getCrossGroupApprovalLimit() : 999999999999999
+[23180] 18:27:30.964 D - CorporateUserPendingTaskServiceImpl(885) [            ServerThreadPool-5] [ 2243366242967765095] : als.getSingleApprovalLimit() : 50000000
+[23180] 18:27:30.964 D - CorporateUserPendingTaskServiceImpl(886) [            ServerThreadPool-5] [ 2243366242967765095] : transactionAmount : 300000
+[23180] 18:27:30.965 D - CorporateUserPendingTaskServiceImpl(887) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.987 D - CorporateUserPendingTaskServiceImpl(878) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.988 D - CorporateUserPendingTaskServiceImpl(879) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUser : GDBANK|SISWANTO
+[23180] 18:27:30.988 D - CorporateUserPendingTaskServiceImpl(880) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUserGroupId : 55711964-a3eb-4f2a-81c1-a8e420690e2b
+[23180] 18:27:30.989 D - CorporateUserPendingTaskServiceImpl(881) [            ServerThreadPool-5] [ 2243366242967765095] : approverUserGroupId : f9457139-6d5c-4c83-89f5-d2321fc9cb0f
+[23180] 18:27:30.989 D - CorporateUserPendingTaskServiceImpl(883) [            ServerThreadPool-5] [ 2243366242967765095] : als.getIntraGroupApprovalLimit() : 0
+[23180] 18:27:30.989 D - CorporateUserPendingTaskServiceImpl(884) [            ServerThreadPool-5] [ 2243366242967765095] : als.getCrossGroupApprovalLimit() : 0
+[23180] 18:27:30.990 D - CorporateUserPendingTaskServiceImpl(885) [            ServerThreadPool-5] [ 2243366242967765095] : als.getSingleApprovalLimit() : 999999999999999
+[23180] 18:27:30.990 D - CorporateUserPendingTaskServiceImpl(886) [            ServerThreadPool-5] [ 2243366242967765095] : transactionAmount : 300000
+[23180] 18:27:30.991 D - CorporateUserPendingTaskServiceImpl(887) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.991 D - CorporateUserPendingTaskServiceImpl(857) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUserId cross approval limit : GDBANK|YOYOK
+[23180] 18:27:30.991 D - CorporateUserPendingTaskServiceImpl(878) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.991 D - CorporateUserPendingTaskServiceImpl(879) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUser : GDBANK|YOYOK
+[23180] 18:27:30.992 D - CorporateUserPendingTaskServiceImpl(880) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUserGroupId : 55711964-a3eb-4f2a-81c1-a8e420690e2b
+[23180] 18:27:30.992 D - CorporateUserPendingTaskServiceImpl(881) [            ServerThreadPool-5] [ 2243366242967765095] : approverUserGroupId : f9457139-6d5c-4c83-89f5-d2321fc9cb0f
+[23180] 18:27:30.992 D - CorporateUserPendingTaskServiceImpl(883) [            ServerThreadPool-5] [ 2243366242967765095] : als.getIntraGroupApprovalLimit() : 20000000000
+[23180] 18:27:30.993 D - CorporateUserPendingTaskServiceImpl(884) [            ServerThreadPool-5] [ 2243366242967765095] : als.getCrossGroupApprovalLimit() : 30000000000
+[23180] 18:27:30.993 D - CorporateUserPendingTaskServiceImpl(885) [            ServerThreadPool-5] [ 2243366242967765095] : als.getSingleApprovalLimit() : 0
+[23180] 18:27:30.993 D - CorporateUserPendingTaskServiceImpl(886) [            ServerThreadPool-5] [ 2243366242967765095] : transactionAmount : 300000
+[23180] 18:27:30.993 D - CorporateUserPendingTaskServiceImpl(887) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.994 D - CorporateUserPendingTaskServiceImpl(857) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUserId cross approval limit : GDBANK|LUKMAN
+[23180] 18:27:30.994 D - CorporateUserPendingTaskServiceImpl(878) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.994 D - CorporateUserPendingTaskServiceImpl(879) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUser : GDBANK|LUKMAN
+[23180] 18:27:30.995 D - CorporateUserPendingTaskServiceImpl(880) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUserGroupId : 27108260-9cc9-4e38-8c64-5bc06cfff1e9
+[23180] 18:27:30.995 D - CorporateUserPendingTaskServiceImpl(881) [            ServerThreadPool-5] [ 2243366242967765095] : approverUserGroupId : f9457139-6d5c-4c83-89f5-d2321fc9cb0f
+[23180] 18:27:30.995 D - CorporateUserPendingTaskServiceImpl(883) [            ServerThreadPool-5] [ 2243366242967765095] : als.getIntraGroupApprovalLimit() : 20000000000
+[23180] 18:27:30.995 D - CorporateUserPendingTaskServiceImpl(884) [            ServerThreadPool-5] [ 2243366242967765095] : als.getCrossGroupApprovalLimit() : 30000000000
+[23180] 18:27:30.996 D - CorporateUserPendingTaskServiceImpl(885) [            ServerThreadPool-5] [ 2243366242967765095] : als.getSingleApprovalLimit() : 0
+[23180] 18:27:30.996 D - CorporateUserPendingTaskServiceImpl(886) [            ServerThreadPool-5] [ 2243366242967765095] : transactionAmount : 300000
+[23180] 18:27:30.996 D - CorporateUserPendingTaskServiceImpl(887) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.996 D - CorporateUserPendingTaskServiceImpl(853) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUserId intra approval limit : GDBANK|GDAPPROVER
+[23180] 18:27:30.997 D - CorporateUserPendingTaskServiceImpl(878) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.997 D - CorporateUserPendingTaskServiceImpl(879) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUser : GDBANK|GDAPPROVER
+[23180] 18:27:30.997 D - CorporateUserPendingTaskServiceImpl(880) [            ServerThreadPool-5] [ 2243366242967765095] : assignedUserGroupId : f9457139-6d5c-4c83-89f5-d2321fc9cb0f
+[23180] 18:27:30.997 D - CorporateUserPendingTaskServiceImpl(881) [            ServerThreadPool-5] [ 2243366242967765095] : approverUserGroupId : f9457139-6d5c-4c83-89f5-d2321fc9cb0f
+[23180] 18:27:30.998 D - CorporateUserPendingTaskServiceImpl(883) [            ServerThreadPool-5] [ 2243366242967765095] : als.getIntraGroupApprovalLimit() : 999999999999999
+[23180] 18:27:30.998 D - CorporateUserPendingTaskServiceImpl(884) [            ServerThreadPool-5] [ 2243366242967765095] : als.getCrossGroupApprovalLimit() : 999999999999999
+[23180] 18:27:30.998 D - CorporateUserPendingTaskServiceImpl(885) [            ServerThreadPool-5] [ 2243366242967765095] : als.getSingleApprovalLimit() : 0
+[23180] 18:27:30.998 D - CorporateUserPendingTaskServiceImpl(886) [            ServerThreadPool-5] [ 2243366242967765095] : transactionAmount : 300000
+[23180] 18:27:30.999 D - CorporateUserPendingTaskServiceImpl(887) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:30.999 D - CorporateUserPendingTaskServiceImpl(905) [            ServerThreadPool-5] [ 2243366242967765095] : Assign tasks to = [{assignedUserLevelAlias=Staff, assignedUserLevelName=Level 1, assignedUserLevelCode=1, assignedUserGroupId=f9457139-6d5c-4c83-89f5-d2321fc9cb0f, assignedUserId=GDBANK|ONESIGNER}, {assignedUserLevelAlias=Staff, assignedUserLevelName=Level 1, assignedUserLevelCode=1, assignedUserGroupId=ee4f1872-d4a5-41ab-8990-3e098f661840, assignedUserId=GDBANK|APPROVER}, {assignedUserLevelAlias=Staff, assignedUserLevelName=Level 1, assignedUserLevelCode=1, assignedUserGroupId=f9457139-6d5c-4c83-89f5-d2321fc9cb0f, assignedUserId=GDBANK|GDUSERMAKER}, {assignedUserLevelAlias=Level C, assignedUserLevelName=Level 4, assignedUserLevelCode=4, assignedUserGroupId=f9457139-6d5c-4c83-89f5-d2321fc9cb0f, assignedUserId=GDBANK|GDUSERAPPROVER}, {assignedUserLevelAlias=Staff, assignedUserLevelName=Level 1, assignedUserLevelCode=1, assignedUserGroupId=27108260-9cc9-4e38-8c64-5bc06cfff1e9, assignedUserId=GDBANK|PROCAPPROVER}, {assignedUserLevelAlias=Staff, assignedUserLevelName=Level 1, assignedUserLevelCode=1, assignedUserGroupId=f9457139-6d5c-4c83-89f5-d2321fc9cb0f, assignedUserId=GDBANK|HAFID}, {assignedUserLevelAlias=Staff, assignedUserLevelName=Level 1, assignedUserLevelCode=1, assignedUserGroupId=f9457139-6d5c-4c83-89f5-d2321fc9cb0f, assignedUserId=GDBANK|BENDAHARAAPP}, {assignedUserLevelAlias=Staff, assignedUserLevelName=Level 1, assignedUserLevelCode=1, assignedUserGroupId=27108260-9cc9-4e38-8c64-5bc06cfff1e9, assignedUserId=GDBANK|SHENNI}, {assignedUserLevelAlias=Level B, assignedUserLevelName=Level 3, assignedUserLevelCode=3, assignedUserGroupId=27108260-9cc9-4e38-8c64-5bc06cfff1e9, assignedUserId=GDBANK|FINA}, {assignedUserLevelAlias=Level A, assignedUserLevelName=Level 2, assignedUserLevelCode=2, assignedUserGroupId=55711964-a3eb-4f2a-81c1-a8e420690e2b, assignedUserId=GDBANK|SISWANTO}, {assignedUserLevelAlias=Staff, assignedUserLevelName=Level 1, assignedUserLevelCode=1, assignedUserGroupId=55711964-a3eb-4f2a-81c1-a8e420690e2b, assignedUserId=GDBANK|YOYOK}, {assignedUserLevelAlias=Staff, assignedUserLevelName=Level 1, assignedUserLevelCode=1, assignedUserGroupId=27108260-9cc9-4e38-8c64-5bc06cfff1e9, assignedUserId=GDBANK|LUKMAN}, {assignedUserLevelAlias=Level C, assignedUserLevelName=Level 4, assignedUserLevelCode=4, assignedUserGroupId=f9457139-6d5c-4c83-89f5-d2321fc9cb0f, assignedUserId=GDBANK|GDAPPROVER}]
+[23180] 18:27:30.999 D - CorporateUserPendingTaskServiceImpl(906) [            ServerThreadPool-5] [ 2243366242967765095] : 
+
+
+
+
+
+[23180] 18:27:31.179 D -                    ValidationAspect(280) [            ServerThreadPool-5] [ 2243366242967765095] : [Validation - Output] - InHouseTransferSCImpl#submit({dateTime=20/09/2022 18:27:30, pendingTaskVO=PendingTaskVO{id=ec015498-3999-46a4-b86b-76368e139fbe,corporateId=GDBANK,uniqueKey=GDBANK|GDMAKER|2ce2e3fb-ebaa-4b4b-bce2-d20b03a0a8ed|300000|ce149891-183f-4631-ae0d-9e3617daeef3|1663673250293,referenceNo=C20220920429300005,action=CREATE,menuCode=MNU_GPCASH_F_FUND_INHOUSE,status=null,service=InHouseTransferSC,model=null,transactionServiceCode=GPT_FTR_IH_OWN,createdBy=GDBANK|GDMAKER,createdDate=null,jsonObject={accountGroupDtlId=2ce2e3fb-ebaa-4b4b-bce2-d20b03a0a8ed, senderRefNo=, benId=ce149891-183f-4631-ae0d-9e3617daeef3, benAccountName=POC IBANK CORP1, benAccountCurrency=IDR, isBeneficiaryFlag=N, isFinalPayment=N, isSaveBenFlag=N, isVirtualAccount=N, transactionCurrency=IDR, exchangeRate=CR, transactionAmount=300000, equivalentAmount=0, counterRate=IDR 16943.16, totalCharge=0, totalDebitedAmount=17.7062603, chargeList=[{serviceChargeName=Transfer Fee, valueEq=0.0000000, id=ac835cc9-8d28-48b0-993d-2cf97b2cd701, currencyName=IDR, currencyCode=IDR, value=0}], benRefNo=, transactionServiceCode=GPT_FTR_IH_OWN, remark1=, remark2=, remark3=, instructionMode=I, instructionDate=2022-09-20 18:27:30.271, recurringParamType=D, recurringParam=1, recurringStartDate=null, recurringEndDate=null, sessionTime=00:00, isNotify=N, notifyBenValue=, loginId=GDBANK|GDMAKER, loginCorporateId=GDBANK, action=CREATE, treasuryCode=, source_acct_no=0014804846110, source_acct_name=POC IBANK CORP1, source_acct_ccy=EUR, totalChargeEquivalent=0E-7, transactionAmountEquivalent=17.7062603, confirm_data={source_account=0014804846110 / POC IBANK CORP1 (EUR), isFinalPayment=No, destinationAccount=Own Account, destinationAccountNumber=001900000000011, destinationAccountName=POC IBANK CORP1, destinationAccountCurrency=IDR, transactionAmount=300,000.00, totalDebitedAmount=17.71, totalCharge=0.00, totalChargeCurrency=IDR, notify=Don't Notify, payment_schedule=Immediate, payment_date=20-September-2022, payment_date_end=, payment_every=1 days, payment_for=Daily, service_charge_name=, isSaveBenFlag=No, aliasName=, exchangeRate=CR, treasuryCode=, totalChargeEquivalent=0.00}, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDMAKER, isOneSigner=N, benAccountInfo={benAccountName=POC IBANK CORP1, benId=ce149891-183f-4631-ae0d-9e3617daeef3, benAccountNo=001900000000011, benAccountCurrency=IDR}, amountEquivalent=17.7062603, message=, totalChargeCurrency=IDR},jsonObjectOld=null}, message=GPT-0200001, referenceNo=C20220920429300005, dateTimeInfo=GPT-0200008|20/09/2022 18:27:30})
+[23180] 18:27:31.247 D -                        QueueInvoker(126) [            ServerThreadPool-5] [ 2243366242967765095] : [AutoDiscoveryQueueInvoker] - EAIEngine#invokeService(TaskNotification, {trxAmount=300000, refNo=C20220920429300005, debitAccountCurrency=EUR, serviceCode=GPT_FTR_IH_OWN, subject=Task Notification, instructionDate=2022-09-20 00:00:00.0, instructionMode=I, menuName=Overbooking, bankName=EChannelBank, serviceName=Overbooking - to Own Account, productName=<i>E-Channel</i>, emails=[diaz.marifataka@gmail.com, diaz.marifataka@gmail.com], trxCurrencyCode=IDR, createdDate=2022-09-20 18:27:30.355, benAccountCurrencyCode=IDR, debitAccountNo=0014804846110, benAccountNo=001900000000011, benAccountName=POC IBANK CORP1, debitAccountName=POC IBANK CORP1, remark1=null, taskStatus=PENDING_APPROVE, remark3=null, remark2=null})
+[23180] 18:27:31.654 D -                        QueueInvoker(201) [     ServiceInvoker-Response-4] [ 2243366242967765095] : Execution Time: 406 ms
+[23180] 18:27:31.654 D -                        QueueInvoker(126) [            ServerThreadPool-5] [ 2243366242967765095] : [LocalQueueInvoker] - com.gpt.product.gpcash.corporate.mobile.notification.PushTaskNotification$Executor@5f8813eb
+[23180] 18:27:31.670 D -           InHouseTransferController(156) [            ServerThreadPool-5] [ 2243366242967765095] : onSuccess : {dateTime=20/09/2022 18:27:30, pendingTaskVO=PendingTaskVO{id=ec015498-3999-46a4-b86b-76368e139fbe,corporateId=GDBANK,uniqueKey=GDBANK|GDMAKER|2ce2e3fb-ebaa-4b4b-bce2-d20b03a0a8ed|300000|ce149891-183f-4631-ae0d-9e3617daeef3|1663673250293,referenceNo=C20220920429300005,action=CREATE,menuCode=MNU_GPCASH_F_FUND_INHOUSE,status=null,service=InHouseTransferSC,model=null,transactionServiceCode=GPT_FTR_IH_OWN,createdBy=GDBANK|GDMAKER,createdDate=null,jsonObject={accountGroupDtlId=2ce2e3fb-ebaa-4b4b-bce2-d20b03a0a8ed, senderRefNo=, benId=ce149891-183f-4631-ae0d-9e3617daeef3, benAccountName=POC IBANK CORP1, benAccountCurrency=IDR, isBeneficiaryFlag=N, isFinalPayment=N, isSaveBenFlag=N, isVirtualAccount=N, transactionCurrency=IDR, exchangeRate=CR, transactionAmount=300000, equivalentAmount=0, counterRate=IDR 16943.16, totalCharge=0, totalDebitedAmount=17.7062603, chargeList=[{serviceChargeName=Transfer Fee, valueEq=0.0000000, id=ac835cc9-8d28-48b0-993d-2cf97b2cd701, currencyName=IDR, currencyCode=IDR, value=0}], benRefNo=, transactionServiceCode=GPT_FTR_IH_OWN, remark1=, remark2=, remark3=, instructionMode=I, instructionDate=2022-09-20 18:27:30.271, recurringParamType=D, recurringParam=1, recurringStartDate=null, recurringEndDate=null, sessionTime=00:00, isNotify=N, notifyBenValue=, loginId=GDBANK|GDMAKER, loginCorporateId=GDBANK, action=CREATE, treasuryCode=, source_acct_no=0014804846110, source_acct_name=POC IBANK CORP1, source_acct_ccy=EUR, totalChargeEquivalent=0E-7, transactionAmountEquivalent=17.7062603, confirm_data={source_account=0014804846110 / POC IBANK CORP1 (EUR), isFinalPayment=No, destinationAccount=Own Account, destinationAccountNumber=001900000000011, destinationAccountName=POC IBANK CORP1, destinationAccountCurrency=IDR, transactionAmount=300,000.00, totalDebitedAmount=17.71, totalCharge=0.00, totalChargeCurrency=IDR, notify=Don't Notify, payment_schedule=Immediate, payment_date=20-September-2022, payment_date_end=, payment_every=1 days, payment_for=Daily, service_charge_name=, isSaveBenFlag=No, aliasName=, exchangeRate=CR, treasuryCode=, totalChargeEquivalent=0.00}, menuCode=MNU_GPCASH_F_FUND_INHOUSE, appCode=GPCASHIB, loginUserCode=GDBANK|GDMAKER, isOneSigner=N, benAccountInfo={benAccountName=POC IBANK CORP1, benId=ce149891-183f-4631-ae0d-9e3617daeef3, benAccountNo=001900000000011, benAccountCurrency=IDR}, amountEquivalent=17.7062603, message=, totalChargeCurrency=IDR},jsonObjectOld=null}, message=Transaction/Data is Successfully submitted and waiting for Approval, referenceNo=C20220920429300005, dateTimeInfo=Submit Date Time: 20/09/2022 18:27:30}
+[23180] 18:27:31.670 D -                        QueueInvoker(201) [            ServerThreadPool-5] [ 2243366242967765095] : Execution Time: 1734 ms
+[23180] 18:27:34.137 E -                PushTaskNotification(185) [            ServerThreadPool-4] [ 2243366242967765095] : Error sending push notification for user: GDUSERMAKER
+Http Response: 200
+Reason: NotRegistered
+[23180] 18:27:34.685 E -                PushTaskNotification(185) [            ServerThreadPool-4] [ 2243366242967765095] : Error sending push notification for user: GDUSERAPPROVER
+Http Response: 200
+Reason: NotRegistered

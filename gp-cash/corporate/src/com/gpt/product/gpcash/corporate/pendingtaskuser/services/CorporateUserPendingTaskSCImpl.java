@@ -228,6 +228,7 @@ public class CorporateUserPendingTaskSCImpl implements CorporateUserPendingTaskS
 				(String) map.get(ApplicationConstants.LOGIN_USERCODE), 
 				(String) map.get(ApplicationConstants.LOGIN_TOKEN_NO)));
 		resultMap.put("pendingTaskList", map.get("pendingTaskList"));
+		resultMap.put("isPopUpCOT", pendingTaskService.isPopupCOT(resultMap));
 		return resultMap;
 	}
 

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../../../gradle-4.3" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/calendar" />
+            <option value="$PROJECT_DIR$/gp-cash" />
+            <option value="$PROJECT_DIR$/gp-cash/biller" />
+            <option value="$PROJECT_DIR$/gp-cash/corporate" />
+            <option value="$PROJECT_DIR$/gp-cash/corporate/inquiry" />
+            <option value="$PROJECT_DIR$/gp-cash/corporate/mobile" />
+            <option value="$PROJECT_DIR$/gp-cash/corporate/report" />
+            <option value="$PROJECT_DIR$/gp-cash/corporate/transaction" />
+            <option value="$PROJECT_DIR$/gp-cash/corporate/transaction/billpayment" />
+            <option value="$PROJECT_DIR$/gp-cash/corporate/transaction/cheque" />
+            <option value="$PROJECT_DIR$/gp-cash/corporate/transaction/directdebit" />
+            <option value="$PROJECT_DIR$/gp-cash/corporate/transaction/domestic" />
+            <option value="$PROJECT_DIR$/gp-cash/corporate/transaction/inhouse" />
+            <option value="$PROJECT_DIR$/gp-cash/corporate/transaction/liquidity" />
+            <option value="$PROJECT_DIR$/gp-cash/corporate/transaction/tax" />
+            <option value="$PROJECT_DIR$/gp-cash/corporate/transaction/timedeposit" />
+            <option value="$PROJECT_DIR$/gp-cash/corporate/transaction/va" />
+            <option value="$PROJECT_DIR$/gp-cash/corporate/web-ui" />
+            <option value="$PROJECT_DIR$/gp-cash/corporate/workflow" />
+            <option value="$PROJECT_DIR$/gp-cash/cot" />
+            <option value="$PROJECT_DIR$/gp-cash/retail" />
+            <option value="$PROJECT_DIR$/gp-cash/retail/inquiry-retail" />
+            <option value="$PROJECT_DIR$/gp-cash/retail/mobile-retail" />
+            <option value="$PROJECT_DIR$/gp-cash/retail/transaction-retail" />
+            <option value="$PROJECT_DIR$/gp-cash/retail/transaction-retail/timedeposit-retail" />
+            <option value="$PROJECT_DIR$/idm-maintenance" />
+            <option value="$PROJECT_DIR$/otp" />
+            <option value="$PROJECT_DIR$/platform-cash" />
+            <option value="$PROJECT_DIR$/platform-springboot" />
+            <option value="$PROJECT_DIR$/platform-springboot/platform-springboot-war" />
+            <option value="$PROJECT_DIR$/scheduler" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

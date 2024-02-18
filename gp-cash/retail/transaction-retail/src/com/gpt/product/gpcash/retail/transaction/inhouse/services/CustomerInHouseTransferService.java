@@ -24,4 +24,6 @@ public interface CustomerInHouseTransferService extends CustomerUserWorkflowServ
 
 	Map<String, Object> downloadTransactionStatus(Map<String, Object> map)
 			throws ApplicationException, BusinessException;
+	
+	Map<String, Object> searchOnline(Map<String, Object> map) throws ApplicationException, BusinessException;
 }

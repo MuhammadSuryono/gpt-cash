@@ -74,6 +74,7 @@ public class CustomerInHouseTransferSCImpl implements CustomerInHouseTransferSC 
 		@Variable(name = "isSaveBenFlag", options = {ApplicationConstants.YES, ApplicationConstants.NO}),
 		@Variable(name = ApplicationConstants.TRANS_CURRENCY), 
 		@Variable(name = ApplicationConstants.TRANS_AMOUNT, type = BigDecimal.class),
+		@Variable(name = ApplicationConstants.TRANS_AMOUNT_EQ, type = BigDecimal.class),
 		@Variable(name = ApplicationConstants.TRANS_TOTAL_DEBIT_AMOUNT, type = BigDecimal.class), 
 		@Variable(name = "chargeList", type = List.class, subVariables = {
 			@SubVariable(name = "id"),
@@ -93,6 +94,10 @@ public class CustomerInHouseTransferSCImpl implements CustomerInHouseTransferSC 
 			ApplicationConstants.SI_FUTURE_DATE, 
 			ApplicationConstants.SI_RECURRING
 		}), 
+		@Variable(name = "exchangeRate", options = { 
+				ApplicationConstants.RATE_COUNTER, 
+				ApplicationConstants.RATE_SPECIAL
+			}, required = false, defaultValue = ApplicationConstants.RATE_COUNTER),
 		@Variable(name = "instructionDate", type = Timestamp.class, format = Format.DATE_TIME, required = false), 
 		@Variable(name = "sessionTime", required = false),
 		@Variable(name = "recurringParamType", required = false, options = { 
@@ -127,10 +132,10 @@ public class CustomerInHouseTransferSCImpl implements CustomerInHouseTransferSC 
 				map.get(ApplicationConstants.CHALLENGE_NO), (String) 
 				map.get(ApplicationConstants.RESPONSE_NO));
 		
-		transactionValidationService.validateChargeAndTotalTransaction((String) map.get(ApplicationConstants.CUST_ID), 
-				(String) map.get(ApplicationConstants.TRANS_SERVICE_CODE), (BigDecimal) map.get(ApplicationConstants.TRANS_AMOUNT), 
-				(BigDecimal) map.get(ApplicationConstants.TRANS_TOTAL_DEBIT_AMOUNT), (BigDecimal) map.get("totalCharge"), 
-				(String)map.get(ApplicationConstants.APP_CODE), (ArrayList<Map<String,Object>>) map.get("chargeList"));
+		transactionValidationService.validateChargeAndTotalTransactionEquivalent((String) map.get(ApplicationConstants.CUST_ID), 
+				(String) map.get(ApplicationConstants.TRANS_SERVICE_CODE), (BigDecimal) map.get(ApplicationConstants.TRANS_AMOUNT_EQ), 
+				(BigDecimal) map.get(ApplicationConstants.TRANS_TOTAL_DEBIT_AMOUNT), (BigDecimal) map.get("totalChargeEquivalent"), 
+				(String)map.get(ApplicationConstants.APP_CODE), (ArrayList<Map<String,Object>>) map.get("chargeList"),(String)map.get("source_acct_ccy"));
 		
 		transactionValidationService.validateInstructionMode((String) map.get(ApplicationConstants.INSTRUCTION_MODE), 
 				(Timestamp) map.get("instructionDate"), 
@@ -138,7 +143,9 @@ public class CustomerInHouseTransferSCImpl implements CustomerInHouseTransferSC 
 				(Timestamp) map.get("recurringStartDate"), (Timestamp) map.get("recurringEndDate"),
 				(String) map.get("sessionTime"));
 		
-		transactionValidationService.validateLimit( 
+		String treasuryCode = map.get("treasuryCode")!=null?(String)map.get("treasuryCode"):"";
+		
+		transactionValidationService.validateLimitEquivalent( 
 				(String) map.get(ApplicationConstants.CUST_ID), (String) map.get(ApplicationConstants.TRANS_SERVICE_CODE), 
 				(String) map.get(ApplicationConstants.ACCOUNT_DTL_ID), 
 				(BigDecimal) map.get(ApplicationConstants.TRANS_AMOUNT), 
@@ -146,7 +153,9 @@ public class CustomerInHouseTransferSCImpl implements CustomerInHouseTransferSC 
 				(String)map.get(ApplicationConstants.APP_CODE), 
 				map.get("instructionDate"),
 				(String)map.get("instructionMode"),
-				map.get("recurringStartDate"));
+				map.get("recurringStartDate"),				
+				(String)map.get("exchangeRate"),
+				treasuryCode);
 				
 		Map<String, Object> resultMap = inhouseTransferService.submit(map);
 		globalTransactionService.updateCreatedTransactionByUserCode(customerId);
@@ -159,7 +168,7 @@ public class CustomerInHouseTransferSCImpl implements CustomerInHouseTransferSC 
 			resultMap = new HashMap<>();
 			String strDateTime = Helper.DATE_TIME_FORMATTER.format(vo.getCreatedDate());
 			resultMap.put(ApplicationConstants.WF_FIELD_REFERENCE_NO, vo.getReferenceNo());
-			resultMap.put(ApplicationConstants.WF_FIELD_MESSAGE, "GPT-R-0200005");
+			resultMap.put(ApplicationConstants.WF_FIELD_MESSAGE, "GPT-R-0200006");
 			resultMap.put(ApplicationConstants.WF_FIELD_DATE_TIME_INFO, "GPT-0200008|" + strDateTime);
 			resultMap.put("dateTime", strDateTime);
 		} else {
@@ -184,6 +193,10 @@ public class CustomerInHouseTransferSCImpl implements CustomerInHouseTransferSC 
 			ApplicationConstants.SI_FUTURE_DATE, 
 			ApplicationConstants.SI_RECURRING 
 		}), 
+		@Variable(name = "exchangeRate", options = { 
+				ApplicationConstants.RATE_COUNTER, 
+				ApplicationConstants.RATE_SPECIAL
+			}, required = false, defaultValue = ApplicationConstants.RATE_COUNTER),
 		@Variable(name = "instructionDate", type = Timestamp.class, format = Format.DATE_TIME, required = false), 
 		@Variable(name = "sessionTime", required = false),
 		@Variable(name = "recurringParamType", required = false, options = {
@@ -211,7 +224,9 @@ public class CustomerInHouseTransferSCImpl implements CustomerInHouseTransferSC 
 				(Timestamp) map.get("recurringStartDate"), (Timestamp) map.get("recurringEndDate"),
 				(String) map.get("sessionTime"));
 		
-		transactionValidationService.validateLimit( 
+		String treasuryCode = map.get("treasuryCode")!=null?(String)map.get("treasuryCode"):"";
+
+		Map<String, Object> limitMap = transactionValidationService.validateLimitEquivalent( 
 				(String) map.get(ApplicationConstants.CUST_ID), (String) map.get(ApplicationConstants.TRANS_SERVICE_CODE), 
 				(String) map.get(ApplicationConstants.ACCOUNT_DTL_ID), 
 				(BigDecimal) map.get(ApplicationConstants.TRANS_AMOUNT), 
@@ -219,7 +234,11 @@ public class CustomerInHouseTransferSCImpl implements CustomerInHouseTransferSC 
 				(String)map.get(ApplicationConstants.APP_CODE), 
 				map.get("instructionDate"),
 				(String)map.get("instructionMode"),
-				map.get("recurringStartDate"));
+				map.get("recurringStartDate"),
+				(String)map.get("exchangeRate"),
+				treasuryCode);
+		
+		map.putAll(limitMap);
 
 		String customerId = (String) map.get(ApplicationConstants.CUST_ID);
 		String tokenNo = (String) map.get(ApplicationConstants.LOGIN_TOKEN_NO);
@@ -274,7 +293,7 @@ public class CustomerInHouseTransferSCImpl implements CustomerInHouseTransferSC 
 	})	
 	@Override
 	public Map<String, Object> searchSourceAccount(Map<String, Object> map) throws ApplicationException, BusinessException {
-		return customerAccountService.findByCustomerIdAndIsDebit((String)map.get(ApplicationConstants.CUST_ID));
+		return customerAccountService.findByCustomerIdAndIsDebitMultiCurrency((String)map.get(ApplicationConstants.CUST_ID));
 	}
 	
 	@Input({
@@ -297,7 +316,7 @@ public class CustomerInHouseTransferSCImpl implements CustomerInHouseTransferSC 
 	})	
 	@Override
 	public Map<String, Object> searchOwnAccount(Map<String, Object> map) throws ApplicationException, BusinessException {
-		return customerAccountService.findByCustomerIdAndIsCredit((String)map.get(ApplicationConstants.CUST_ID));
+		return customerAccountService.findByCustomerIdAndIsCreditMultiCurrency((String)map.get(ApplicationConstants.CUST_ID));
 	}
 	
 	@Input({
@@ -307,8 +326,18 @@ public class CustomerInHouseTransferSCImpl implements CustomerInHouseTransferSC 
 	})
 	@Override
 	public Map<String, Object> searchBeneficiary(Map<String, Object> map) throws ApplicationException, BusinessException {
-		return beneficiaryListInHouseService.searchCustomerBeneficiary((String)map.get(ApplicationConstants.CUST_ID));
+		return beneficiaryListInHouseService.searchBeneficiaryGroup((String)map.get(ApplicationConstants.CUST_ID));
 	}	
+	
+@Input({
+		@Variable(name = ApplicationConstants.CUST_ID, format = Format.UPPER_CASE), 
+		@Variable(name = ApplicationConstants.WF_ACTION, options = {ApplicationConstants.WF_ACTION_SEARCH}),
+		@Variable(name = ApplicationConstants.STR_MENUCODE, options = menuCode)
+	})
+	@Override
+	public Map<String, Object> searchBeneficiaryMobile(Map<String, Object> map) throws ApplicationException, BusinessException {
+		return beneficiaryListInHouseService.searchBeneficiaryGroup((String)map.get(ApplicationConstants.CUST_ID));
+	}
 	
 	@Validate
 	@Input({
@@ -450,5 +479,44 @@ public class CustomerInHouseTransferSCImpl implements CustomerInHouseTransferSC 
 	@Override
 	public Map<String, Object> downloadTransactionStatus(Map<String, Object> map) throws ApplicationException, BusinessException {
 		return inhouseTransferService.downloadTransactionStatus(map);
+	}
+
+@Validate
+	@Input({ 
+		@Variable(name = ApplicationConstants.CUST_ID, format = Format.UPPER_CASE),	
+		@Variable(name = "treasuryCode", required = false),
+		@Variable(name = ApplicationConstants.STR_MENUCODE, options = menuCode),
+		@Variable(name = ApplicationConstants.TRANS_CURRENCY),
+		@Variable(name = "sourceAccountCurrency"), 
+		@Variable(name = ApplicationConstants.TRANS_AMOUNT, type = BigDecimal.class),
+		@Variable(name = "exchangeRate", options = { 
+			ApplicationConstants.RATE_COUNTER, 
+			ApplicationConstants.RATE_SPECIAL
+		}),
+		@Variable(name = "instructionMode", options = { 
+				ApplicationConstants.SI_IMMEDIATE, 
+				ApplicationConstants.SI_FUTURE_DATE, 
+				ApplicationConstants.SI_RECURRING 
+			}),
+		@Variable(name = "currencyMatrix", options = { 
+				ApplicationConstants.CCY_MTRX_FL
+			}),
+		@Variable(name = "instructionDate", type = Timestamp.class, format = Format.DATE_TIME, required = false),
+	})
+	@Override
+	public Map<String, Object> checkRate(Map<String, Object> map) throws ApplicationException, BusinessException {
+		
+		if (String.valueOf(map.get("exchangeRate")).equals(ApplicationConstants.RATE_COUNTER)) {
+			return transactionValidationService.validateCounterRate((String) map.get("sourceAccountCurrency"), (String) map.get(ApplicationConstants.TRANS_CURRENCY),new BigDecimal((map.get(ApplicationConstants.TRANS_AMOUNT).toString())));
+		} else {
+			String treasuryCode = (String) map.get("treasuryCode");
+			String sourceAccountCurrency = (String) map.get("sourceAccountCurrency");
+			String transactionCurrency = (String) map.get(ApplicationConstants.TRANS_CURRENCY);
+			BigDecimal trxAmount = new BigDecimal((map.get(ApplicationConstants.TRANS_AMOUNT).toString()));
+			Timestamp instructionDate = (Timestamp) map.get("instructionDate");
+			String instructionMode = (String) map.get("instructionMode");
+			String customerID = (String) map.get(ApplicationConstants.CUST_ID);
+			return transactionValidationService.checkSpecialRate(treasuryCode,sourceAccountCurrency, transactionCurrency,trxAmount,instructionDate,customerID,instructionMode);
+		}	
 	}
 }

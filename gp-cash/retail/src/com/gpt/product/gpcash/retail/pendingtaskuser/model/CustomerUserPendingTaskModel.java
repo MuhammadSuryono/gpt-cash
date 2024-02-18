@@ -196,6 +196,29 @@ public class CustomerUserPendingTaskModel implements Serializable {
 	@Column(name = "REMARK3")
 	protected String remark3;
 	
+	@Column(name = "REFNO_SPECIALRATE")
+	protected String refNoSpecialRate;
+	
+	@Column(name = "SRVC_CCY_MTRX_CD")
+	protected String serviceCurrencyMatrix;
+
+	
+    public String getServiceCurrencyMatrix() {
+		return serviceCurrencyMatrix;
+	}
+
+	public void setServiceCurrencyMatrix(String serviceCurrencyMatrix) {
+		this.serviceCurrencyMatrix = serviceCurrencyMatrix;
+	}
+
+	public String getRefNoSpecialRate() {
+		return refNoSpecialRate;
+	}
+
+	public void setRefNoSpecialRate(String refNoSpecialRate) {
+		this.refNoSpecialRate = refNoSpecialRate;
+	}
+	
 	
 	public String getCreatedBy() {
 		return createdBy;

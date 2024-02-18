@@ -63,10 +63,19 @@
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/transaction-retail/transaction-retail">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/billpayment/billpayment">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/cheque/cheque">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/directdebit/directdebit">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/domestic/domestic">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/inhouse/inhouse">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/liquidity/liquidity">
@@ -79,6 +88,9 @@
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/va/va">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/timedeposit-retail/timedeposit-retail">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
 	</wb-module>

@@ -21,6 +21,7 @@ import java.util.StringTokenizer;
 
 import javax.imageio.ImageIO;
 
+import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -180,6 +181,10 @@ public class CustomerDomesticTransferServiceImpl implements CustomerDomesticTran
 	@Autowired
 	private MessageSource message;
 	
+	@Autowired
+	private ObjectMapper objectMapper;
+	
+	
 	@Override
 	public Map<String, Object> submit(Map<String, Object> map) throws ApplicationException, BusinessException {
 		Map<String, Object> resultMap = new HashMap<>();
@@ -264,6 +269,12 @@ public class CustomerDomesticTransferServiceImpl implements CustomerDomesticTran
 				
 				if(equivalentTransactionAmount.compareTo(minRTGS) < 0) {
 					throw new BusinessException("GPT-0100207", new String[] {minRTGS.toPlainString()});
+				}
+			} else if(ApplicationConstants.SRVC_GPT_FTR_DOM_ONLINE.equals(transactionServiceCode)) {
+				BigDecimal maxOnline = new BigDecimal(maintenanceRepo.isSysParamValid(SysParamConstants.MAX_ONLINE_TRANSACTION).getValue());
+				
+				if(equivalentTransactionAmount.compareTo(maxOnline) > 0) {
+					throw new BusinessException("GPT-0100236", new String[] {maxOnline.toPlainString()});
 				}
 				
 			}
@@ -355,7 +366,7 @@ public class CustomerDomesticTransferServiceImpl implements CustomerDomesticTran
 		vo.setBenBankCode((String) map.get("bankCode"));
 		//------------------------------------------------------------------
 		
-		vo.setTotalChargeEquivalentAmount((BigDecimal) map.get(ApplicationConstants.TRANS_TOTAL_CHARGE));
+		vo.setTotalChargeEquivalentAmount((BigDecimal) map.get(ApplicationConstants.TRANS_TOTAL_CHARGE_EQ));
 		vo.setTotalDebitedEquivalentAmount((BigDecimal) map.get(ApplicationConstants.TRANS_TOTAL_DEBIT_AMOUNT));
 		vo.setInstructionMode(instructionMode);
 		
@@ -376,6 +387,9 @@ public class CustomerDomesticTransferServiceImpl implements CustomerDomesticTran
 		} else {
 			vo.setInstructionDate(DateUtils.getInstructionDateBySessionTime(sessionTime, instructionDate));
 		}
+		
+		String refNoSpecialRate = (String) map.get("treasuryCode");		
+		vo.setRefNoSpecialRate(refNoSpecialRate);
 		
 		return vo;
 	}
@@ -438,7 +452,7 @@ public class CustomerDomesticTransferServiceImpl implements CustomerDomesticTran
 		domesticTransfer.setTransactionAmount(new BigDecimal(map.get(ApplicationConstants.TRANS_AMOUNT).toString()));
 		domesticTransfer.setTransactionCurrency((String) map.get(ApplicationConstants.TRANS_CURRENCY));
 		domesticTransfer.setTotalChargeEquivalentAmount(
-				new BigDecimal(map.get(ApplicationConstants.TRANS_TOTAL_CHARGE).toString()));
+				new BigDecimal(map.get(ApplicationConstants.TRANS_TOTAL_CHARGE_EQ).toString()));
 		domesticTransfer.setTotalDebitedEquivalentAmount(
 				new BigDecimal(map.get(ApplicationConstants.TRANS_TOTAL_DEBIT_AMOUNT).toString()));
 
@@ -468,6 +482,9 @@ public class CustomerDomesticTransferServiceImpl implements CustomerDomesticTran
 		setCharge(domesticTransfer, (ArrayList<Map<String,Object>>) map.get("chargeList"));
 		
 		domesticTransfer.setChargeTo(chargeInstruction);
+		
+		domesticTransfer.setRefNoSpecialRate(vo.getRefNoSpecialRate());
+		
 		return domesticTransfer;
 	}
 	
@@ -476,27 +493,33 @@ public class CustomerDomesticTransferServiceImpl implements CustomerDomesticTran
 			Map<String, Object> chargeMap = chargeList.get(i - 1);
 			String chargeId = (String) chargeMap.get("id");
 			BigDecimal value = new BigDecimal(chargeMap.get("value").toString());
+			BigDecimal valueEquivalent = new BigDecimal(chargeMap.get("valueEq").toString());
 			String currencyCode = (String) chargeMap.get("currencyCode");
 			
 			if(i == 1){
 				domesticTransfer.setChargeType1(chargeId);
 				domesticTransfer.setChargeTypeAmount1(value);
+				domesticTransfer.setChargeTypeAmountEquivalent1(valueEquivalent);
 				domesticTransfer.setChargeTypeCurrency1(currencyCode);
 			} else if(i == 2){
 				domesticTransfer.setChargeType2(chargeId);
 				domesticTransfer.setChargeTypeAmount2(value);
+				domesticTransfer.setChargeTypeAmountEquivalent2(valueEquivalent);
 				domesticTransfer.setChargeTypeCurrency2(currencyCode);
 			} else if(i == 3){
 				domesticTransfer.setChargeType3(chargeId);
 				domesticTransfer.setChargeTypeAmount3(value);
+				domesticTransfer.setChargeTypeAmountEquivalent3(valueEquivalent);
 				domesticTransfer.setChargeTypeCurrency3(currencyCode);
 			} else if(i == 4){
 				domesticTransfer.setChargeType4(chargeId);
 				domesticTransfer.setChargeTypeAmount4(value);
+				domesticTransfer.setChargeTypeAmountEquivalent4(valueEquivalent);
 				domesticTransfer.setChargeTypeCurrency4(currencyCode);
 			} else if(i == 5){
 				domesticTransfer.setChargeType5(chargeId);
 				domesticTransfer.setChargeTypeAmount5(value);
+				domesticTransfer.setChargeTypeAmountEquivalent5(valueEquivalent);
 				domesticTransfer.setChargeTypeCurrency5(currencyCode);
 			} 
 		}
@@ -534,7 +557,13 @@ public class CustomerDomesticTransferServiceImpl implements CustomerDomesticTran
 			String createdBy) throws Exception {
 		
 		String benAccountNo = null;
-		DomesticBankModel domBankModel = null;		
+		DomesticBankModel domBankModel = null;
+		boolean isBenOnline = false;
+		
+		if (domesticTransfer.getService().getCode().equals(ApplicationConstants.SRVC_GPT_FTR_DOM_ONLINE)) {
+			isBenOnline = true;
+		}
+		
 		if (ApplicationConstants.YES.equals(isBeneficiaryFlag)) {
 			// cek if benId exist in bene table
 			CustomerBeneficiaryListDomesticModel beneficiaryListDomestic = customerUtilsRepo.isCustomerBeneficiaryListDomesticValid(benId);
@@ -547,11 +576,14 @@ public class CustomerDomesticTransferServiceImpl implements CustomerDomesticTran
 			address1 = beneficiaryListDomestic.getBenAddr1();
 			address2 = beneficiaryListDomestic.getBenAddr2();
 			address3 = beneficiaryListDomestic.getBenAddr3();
-			isBenResident = beneficiaryListDomestic.getLldIsBenResidence();
-			benResidentCountryCode = beneficiaryListDomestic.getLldBenResidenceCountry().getCode();
-			isBenCitizen = beneficiaryListDomestic.getLldIsBenCitizen();
-			benCitizenCountryCode = beneficiaryListDomestic.getLldBenCitizenCountry().getCode();
-			beneficiaryTypeCode = beneficiaryListDomestic.getBenType().getCode();
+			
+			if (!isBenOnline) {
+				isBenResident = beneficiaryListDomestic.getLldIsBenResidence();
+				benResidentCountryCode = beneficiaryListDomestic.getLldBenResidenceCountry().getCode();
+				isBenCitizen = beneficiaryListDomestic.getLldIsBenCitizen();
+				benCitizenCountryCode = beneficiaryListDomestic.getLldBenCitizenCountry().getCode();
+				beneficiaryTypeCode = beneficiaryListDomestic.getBenType().getCode();
+			}
 			domBankModel = beneficiaryListDomestic.getBenDomesticBankCode();
 		} else {
 			// benId from third party account
@@ -565,7 +597,7 @@ public class CustomerDomesticTransferServiceImpl implements CustomerDomesticTran
 				beneficiaryListDomesticService.saveCustomerBeneficiary(customerId, benAccountNo,
 					benAccountName, benAccountCurrency, ApplicationConstants.NO, null, 
 					benAliasName, address1, address2, address3, isBenResident, benResidentCountryCode, 
-					isBenCitizen, benCitizenCountryCode, beneficiaryTypeCode, bankCode, createdBy);
+					isBenCitizen, benCitizenCountryCode, beneficiaryTypeCode, bankCode, createdBy, isBenOnline);
 
 			}
 		}
@@ -577,33 +609,38 @@ public class CustomerDomesticTransferServiceImpl implements CustomerDomesticTran
 		domesticTransfer.setBenAddr1(address1);
 		domesticTransfer.setBenAddr2(address2);
 		domesticTransfer.setBenAddr3(address3);
-		domesticTransfer.setLldIsBenResidence(isBenResident);
-		
-		String localCountryCode = maintenanceRepo.isSysParamValid(SysParamConstants.LOCAL_COUNTRY_CODE).getValue();
-		
-		if(ApplicationConstants.YES.equals(isBenResident)) {
-			benResidentCountryCode = localCountryCode;
-		}
-		
-		CountryModel benResidentCountry = new CountryModel();
-		benResidentCountry.setCode(benResidentCountryCode);
-		domesticTransfer.setLldBenResidenceCountry(benResidentCountry);
-		
-		
-		domesticTransfer.setLldIsBenCitizen(isBenCitizen);
-		
-		if(ApplicationConstants.YES.equals(isBenCitizen)) {
-			benCitizenCountryCode = localCountryCode;
-		}
-		CountryModel benCitizenCountry = new CountryModel();
-		benCitizenCountry.setCode(benCitizenCountryCode);
-		domesticTransfer.setLldBenCitizenCountry(benCitizenCountry);
-
 		domesticTransfer.setBenDomesticBankCode(domBankModel);		
-
-		BeneficiaryTypeModel benType = new BeneficiaryTypeModel();
-		benType.setCode(beneficiaryTypeCode);
-		domesticTransfer.setBenType(benType);
+		
+		if (!isBenOnline) {
+			
+			domesticTransfer.setLldIsBenResidence(isBenResident);
+			
+			String localCountryCode = maintenanceRepo.isSysParamValid(SysParamConstants.LOCAL_COUNTRY_CODE).getValue();
+			
+			if(ApplicationConstants.YES.equals(isBenResident)) {
+				benResidentCountryCode = localCountryCode;
+			}
+			
+			CountryModel benResidentCountry = new CountryModel();
+			benResidentCountry.setCode(benResidentCountryCode);
+			domesticTransfer.setLldBenResidenceCountry(benResidentCountry);
+			
+			
+			domesticTransfer.setLldIsBenCitizen(isBenCitizen);
+			
+			if(ApplicationConstants.YES.equals(isBenCitizen)) {
+				benCitizenCountryCode = localCountryCode;
+			}
+			CountryModel benCitizenCountry = new CountryModel();
+			benCitizenCountry.setCode(benCitizenCountryCode);
+			domesticTransfer.setLldBenCitizenCountry(benCitizenCountry);
+			
+			
+			BeneficiaryTypeModel benType = new BeneficiaryTypeModel();
+			benType.setCode(beneficiaryTypeCode);
+			domesticTransfer.setBenType(benType);
+		}
+		
 	}
 
 	@SuppressWarnings("unchecked")
@@ -678,22 +715,9 @@ public class CustomerDomesticTransferServiceImpl implements CustomerDomesticTran
 			String bankCode = (String) map.get("bankCode");
 			String benAccountNo = null;
 			String benAccountName = null;
+			String serviceCode = (String) map.get(ApplicationConstants.TRANS_SERVICE_CODE);
 			
 			DomesticBankModel domesticBank = maintenanceRepo.isDomesticBankValid(bankCode);
-						
-			
-			//remark dibuka jika bank telah implemen domestic online
-//			Map<String, Object> inputs = new HashMap<>();
-//			inputs.put("accountNo", benId);
-//			inputs.put("onlineBankCode", domesticBank.getOnlineBankCode());
-//			
-//			Map<String, Object> outputs = eaiAdapter.invokeService(EAIConstants.DOMESTIC_ONLINE_ACCOUNT_INQUIRY, inputs);
-//
-//			Map<String, Object> benAccountInfo = new HashMap<>();
-//			benAccountInfo.put("benId", benId);
-//			benAccountInfo.put("benAccountNo", outputs.get("accountNo"));
-//			benAccountInfo.put("benAccountName", outputs.get("accountName"));
-			//----------------------------------------------------------------------------
 			
 			if (ApplicationConstants.YES.equals((String) map.get("isBeneficiaryFlag"))) {
 				CustomerBeneficiaryListDomesticModel beneDomestic=  customerUtilsRepo.getBeneficiaryListDomesticRepo().findOne(benId);
@@ -701,8 +725,30 @@ public class CustomerDomesticTransferServiceImpl implements CustomerDomesticTran
 				benAccountName = beneDomestic.getBenAccountName();					
 				
 			} else {
-				benAccountNo = benId;
-				benAccountName = (String) map.get(ApplicationConstants.TRANS_BEN_ACCT_NAME); 
+				
+				if (serviceCode.equals(ApplicationConstants.SRVC_GPT_FTR_DOM_ONLINE)) {
+					Map<String, Object> inputs = new HashMap<>();
+					inputs.put("accountNo", benId);
+					inputs.put("onlineBankCode", domesticBank.getOnlineBankCode());
+					inputs.put("chargeTo", map.get("chargeTo"));
+					inputs.put("channel", domesticBank.getChannel());
+					inputs.put("custRefNo", (String) map.get("benRefNo"));
+					
+					Map<String, Object> outputs = eaiAdapter.invokeService(EAIConstants.DOMESTIC_ONLINE_ACCOUNT_INQUIRY, inputs);
+					
+					benAccountNo = (String) outputs.get("accountNo");
+					benAccountName = (String) outputs.get("accountName");
+					
+				} else {
+					benAccountNo = benId;
+					benAccountName = (String) map.get(ApplicationConstants.TRANS_BEN_ACCT_NAME); 
+					
+					String beneType = ValueUtils.getValue((String) map.get("beneficiaryTypeCode"));
+					if (beneType.equals("")) {
+						throw new BusinessException("Beneficiary Type is mandatory");
+					}
+					
+				}				
 			}
 			
 			Map<String, Object> benAccountInfo = new HashMap<>();
@@ -728,26 +774,30 @@ public class CustomerDomesticTransferServiceImpl implements CustomerDomesticTran
 				benAccountInfo.put("address2", ValueUtils.getValue(beneficiary.getBenAddr2()));
 				benAccountInfo.put("address3", ValueUtils.getValue(beneficiary.getBenAddr3()));
 				
-				benAccountInfo.put("isBenResident", ValueUtils.getValue(beneficiary.getLldIsBenResidence()));
-				CountryModel lldBenResidenceCountry = beneficiary.getLldBenResidenceCountry();
-				benAccountInfo.put("benResidentCountryCode", ValueUtils.getValue(lldBenResidenceCountry.getCode()));
-				benAccountInfo.put("benResidentCountryName", ValueUtils.getValue(lldBenResidenceCountry.getName()));
-				
-				benAccountInfo.put("isBenCitizen", ValueUtils.getValue(beneficiary.getLldIsBenCitizen()));
-				CountryModel lldBenCitizenCountry = beneficiary.getLldBenCitizenCountry();
-				benAccountInfo.put("benCitizenCountryCode", ValueUtils.getValue(lldBenCitizenCountry.getCode()));
-				benAccountInfo.put("benCitizenCountryName", ValueUtils.getValue(lldBenCitizenCountry.getName()));
-				
-				benAccountInfo.put("beneficiaryTypeCode", ValueUtils.getValue(beneficiary.getBenType().getCode()));
-				benAccountInfo.put("beneficiaryTypeName", ValueUtils.getValue(beneficiary.getBenType().getName()));
+				if (!serviceCode.equals(ApplicationConstants.SRVC_GPT_FTR_DOM_ONLINE)) {
+					benAccountInfo.put("isBenResident", ValueUtils.getValue(beneficiary.getLldIsBenResidence()));
+					CountryModel lldBenResidenceCountry = beneficiary.getLldBenResidenceCountry();
+					benAccountInfo.put("benResidentCountryCode", ValueUtils.getValue(lldBenResidenceCountry.getCode()));
+					benAccountInfo.put("benResidentCountryName", ValueUtils.getValue(lldBenResidenceCountry.getName()));
+					
+					benAccountInfo.put("isBenCitizen", ValueUtils.getValue(beneficiary.getLldIsBenCitizen()));
+					CountryModel lldBenCitizenCountry = beneficiary.getLldBenCitizenCountry();
+					benAccountInfo.put("benCitizenCountryCode", ValueUtils.getValue(lldBenCitizenCountry.getCode()));
+					benAccountInfo.put("benCitizenCountryName", ValueUtils.getValue(lldBenCitizenCountry.getName()));
+					
+					benAccountInfo.put("beneficiaryTypeCode", ValueUtils.getValue(beneficiary.getBenType().getCode()));
+					benAccountInfo.put("beneficiaryTypeName", ValueUtils.getValue(beneficiary.getBenType().getName()));
+				}
 			}
 			
 			checkCustomValidation(map);
 
 			resultMap.put("benAccountInfo", benAccountInfo);			
-			resultMap.putAll(customerChargeService.getCustomerCharges((String) map.get(ApplicationConstants.APP_CODE),
+			resultMap.putAll(customerChargeService.getCustomerChargesEquivalent((String) map.get(ApplicationConstants.APP_CODE),
 					(String) map.get(ApplicationConstants.TRANS_SERVICE_CODE),
-					(String) map.get(ApplicationConstants.CUST_ID)));
+					(String) map.get(ApplicationConstants.CUST_ID),(String) map.get("sourceAccountCurrency")));
+			resultMap.put(ApplicationConstants.TRANS_AMOUNT_EQ, map.get("equivalentAmount"));
+			
 		} catch (BusinessException e) {
 			throw e;
 		} catch (Exception e) {
@@ -762,13 +812,37 @@ public class CustomerDomesticTransferServiceImpl implements CustomerDomesticTran
 		boolean limitUpdated = false;
 		
 		try {
-			//update transaction limit
+			//untuk hitung totalcharge dalam IDR(localcurrency) charge salalu IDR
+			BigDecimal totalCharge = model.getChargeTypeAmount1()!=null?model.getChargeTypeAmount1():BigDecimal.ZERO
+					.add(model.getChargeTypeAmount2()!=null?model.getChargeTypeAmount2():BigDecimal.ZERO)
+					.add(model.getChargeTypeAmount3()!=null?model.getChargeTypeAmount3():BigDecimal.ZERO)
+					.add(model.getChargeTypeAmount4()!=null?model.getChargeTypeAmount4():BigDecimal.ZERO)
+					.add(model.getChargeTypeAmount5()!=null?model.getChargeTypeAmount5():BigDecimal.ZERO);
+			
+			/*//update transaction limit
 			transactionValidationService.updateTransactionLimit(model.getCustomer().getId(), 
 					model.getService().getCode(), 
 					model.getSourceAccount().getCurrency().getCode(), 
 					model.getTransactionCurrency(), 
 					model.getTotalDebitedEquivalentAmount(),
-					model.getApplication().getCode());
+					model.getApplication().getCode());*/
+			
+			//untuk multi currency limit harus selalu IDR
+			transactionValidationService.updateTransactionLimitEquivalent(model.getCustomer().getId(), 
+					model.getService().getCode(), 
+					model.getSourceAccount().getCurrency().getCode(), 
+					model.getTransactionCurrency(), 
+					model.getTransactionAmount(),
+					model.getApplication().getCode(),
+					totalCharge);
+			
+			//update bank forex limit
+			transactionValidationService.updateBankForexLimit(
+					model.getSourceAccount().getCurrency().getCode(),
+					model.getTransactionCurrency(),
+					model.getTransactionAmount(),
+					totalCharge);
+			
 			limitUpdated = true;
 			
 			Map<String, Object> inputs = prepareInputsForEAI(model, appCode);
@@ -859,12 +933,15 @@ public class CustomerDomesticTransferServiceImpl implements CustomerDomesticTran
 		inputs.put("benAddress1", model.getBenAddr1());
 		inputs.put("benAddress2", model.getBenAddr2());
 		inputs.put("benAddress3", model.getBenAddr3());
-		inputs.put("benResidentFlag", model.getLldIsBenResidence());
-		inputs.put("benCitizenFlag", model.getLldIsBenCitizen());
-		inputs.put("benResidentCountryCode", model.getLldBenResidenceCountry().getCode());
-		inputs.put("benCitizenCountryCode", model.getLldBenCitizenCountry().getCode());
-		inputs.put("benTypeCode", model.getBenType().getCode());
 		
+		if (!model.getService().getCode().equals(ApplicationConstants.SRVC_GPT_FTR_DOM_ONLINE)) {
+			inputs.put("benResidentFlag", model.getLldIsBenResidence());
+			inputs.put("benCitizenFlag", model.getLldIsBenCitizen());
+			inputs.put("benResidentCountryCode", model.getLldBenResidenceCountry().getCode());
+			inputs.put("benCitizenCountryCode", model.getLldBenCitizenCountry().getCode());
+			inputs.put("benTypeCode", model.getBenType().getCode());
+		}
+				
 		CustomerModel custModel = model.getCustomer();
 		inputs.put("remitterAddress1", custModel.getAddress1());
 		inputs.put("remitterAddress2", custModel.getAddress2());
@@ -912,7 +989,9 @@ public class CustomerDomesticTransferServiceImpl implements CustomerDomesticTran
 		inputs.put("refNo", model.getReferenceNo());
 		inputs.put("senderRefNo", model.getSenderRefNo());
 		inputs.put("benRefNo", model.getBenRefNo());
+		
 		inputs.put("chargeTo", model.getChargeTo() !=null ? model.getChargeTo() : "OUR"); //hardcoded for mobile testing (sementara)
+		inputs.put("channelOnline", model.getBenDomesticBankCode().getChannel());
 		
 		if(logger.isDebugEnabled()) {
 			logger.debug("\n\n\n\n\n");
@@ -1208,11 +1287,11 @@ public class CustomerDomesticTransferServiceImpl implements CustomerDomesticTran
 			//TODO recalculate all if implement forex trx
 			
 			//calculate new charge for recurring
-			Map<String, Object> chargesInfo =  customerChargeService.getCustomerCharges(model.getApplication().getCode(),
-					model.getService().getCode(), model.getCustomer().getId());
+			Map<String, Object> chargesInfo =  customerChargeService.getCustomerChargesEquivalent(model.getApplication().getCode(),
+					model.getService().getCode(), model.getCustomer().getId(), model.getTransactionCurrency());
 			
-			BigDecimal totalChargeFromTable = new BigDecimal((String) chargesInfo.get(ApplicationConstants.TRANS_TOTAL_CHARGE));
-			BigDecimal totalTransaction = model.getTransactionAmount().add(totalChargeFromTable);
+			BigDecimal totalChargeFromTable = new BigDecimal((String) chargesInfo.get(ApplicationConstants.TRANS_TOTAL_CHARGE_EQ));
+			BigDecimal totalTransaction = model.getTotalDebitedEquivalentAmount().add(totalChargeFromTable);
 			
 			newModel.setTotalChargeEquivalentAmount(totalChargeFromTable);
 			newModel.setTotalDebitedEquivalentAmount(totalTransaction);
@@ -1311,8 +1390,8 @@ public class CustomerDomesticTransferServiceImpl implements CustomerDomesticTran
 		modelMap.put("benRefNo", ValueUtils.getValue(model.getBenRefNo()));
 		
 		//TODO diganti jika telah implement rate
-		modelMap.put("debitTransactionCurrency", model.getTransactionCurrency());
-		modelMap.put("debitEquivalentAmount", model.getTransactionAmount());
+		modelMap.put("debitTransactionCurrency", sourceAccount.getCurrency().getCode());
+		modelMap.put("debitEquivalentAmount", model.getTotalDebitedEquivalentAmount());
 		modelMap.put("debitExchangeRate", ApplicationConstants.ZERO);
 		modelMap.put("creditTransactionCurrency", model.getTransactionCurrency());
 		modelMap.put("creditEquivalentAmount", model.getTransactionAmount());
@@ -1326,7 +1405,7 @@ public class CustomerDomesticTransferServiceImpl implements CustomerDomesticTran
 		
 		Map<String, Object> chargeMap = null;
 		
-		if(model.getChargeType1() != null) {
+		/*if(model.getChargeType1() != null) {
 			chargeMap = new HashMap<>();
 			CustomerChargeModel customerCharge = customerChargeRepo.findOne(model.getChargeType1());
 			ServiceChargeModel serviceCharge = customerCharge.getServiceCharge();
@@ -1379,8 +1458,78 @@ public class CustomerDomesticTransferServiceImpl implements CustomerDomesticTran
 			chargeMap.put("chargeEquivalentAmount", model.getChargeTypeAmount5());
 			chargeMap.put("chargeExchangeRate", ApplicationConstants.ZERO);
 			chargeList.add(chargeMap);
-		}
+		}*/
 		
+		//ikut existing corporate
+		
+				CustomerUserPendingTaskModel pt = pendingTaskRepo.findByReferenceNo(model.getReferenceNo());
+				
+				String strValues = pt.getValuesStr();
+				if (strValues != null) {
+					try {
+						Map<String, Object> valueMap = (Map<String, Object>) objectMapper.readValue(strValues, Class.forName(pt.getModel()));
+						List<Map<String,Object>> listCharge = (List<Map<String,Object>>)valueMap.get("chargeList");
+						
+						for (int i = 0; i < listCharge.size(); i++) {
+							Map<String, Object> mapCharge = listCharge.get(i);
+							if (model.getChargeType1() != null && model.getChargeType1().equals(mapCharge.get("id"))) {
+								chargeMap = new HashMap<>();
+								chargeMap.put("chargeType", mapCharge.get("serviceChargeName"));
+								chargeMap.put("chargeCurrency", model.getChargeTypeCurrency1());
+								chargeMap.put("chargeAmount", model.getChargeTypeAmount1());
+								chargeMap.put("chargeEquivalentAmount", model.getChargeTypeAmountEquivalent1());
+								chargeMap.put("debitCurrency", sourceAccount.getCurrency().getCode());
+								chargeMap.put("chargeExchangeRate", ApplicationConstants.ZERO);
+								chargeList.add(chargeMap);
+								continue;
+							}
+							if (model.getChargeType2() != null && model.getChargeType2().equals(mapCharge.get("id"))) {
+								chargeMap = new HashMap<>();
+								chargeMap.put("chargeType", mapCharge.get("serviceChargeName"));
+								chargeMap.put("chargeAmount", model.getChargeTypeAmount2());
+								chargeMap.put("chargeEquivalentAmount", model.getChargeTypeAmountEquivalent2());
+								chargeMap.put("debitCurrency", sourceAccount.getCurrency().getCode());
+								chargeMap.put("chargeExchangeRate", ApplicationConstants.ZERO);
+								chargeList.add(chargeMap);
+								continue;
+							}
+							if (model.getChargeType3() != null && model.getChargeType3().equals(mapCharge.get("id"))) {
+								chargeMap = new HashMap<>();
+								chargeMap.put("chargeType", mapCharge.get("serviceChargeName"));
+								chargeMap.put("chargeAmount", model.getChargeTypeAmount3());
+								chargeMap.put("chargeEquivalentAmount", model.getChargeTypeAmountEquivalent3());
+								chargeMap.put("debitCurrency", sourceAccount.getCurrency().getCode());
+								chargeMap.put("chargeExchangeRate", ApplicationConstants.ZERO);
+								chargeList.add(chargeMap);
+								continue;
+							}
+							if (model.getChargeType4() != null && model.getChargeType4().equals(mapCharge.get("id"))) {
+								chargeMap = new HashMap<>();
+								chargeMap.put("chargeType", mapCharge.get("serviceChargeName"));
+								chargeMap.put("chargeAmount", model.getChargeTypeAmount4());
+								chargeMap.put("chargeEquivalentAmount", model.getChargeTypeAmountEquivalent4());
+								chargeMap.put("debitCurrency", sourceAccount.getCurrency().getCode());
+								chargeMap.put("chargeExchangeRate", ApplicationConstants.ZERO);
+								chargeList.add(chargeMap);
+								continue;
+							}
+							if (model.getChargeType5() != null && model.getChargeType5().equals(mapCharge.get("id"))) {
+								chargeMap = new HashMap<>();
+								chargeMap.put("chargeType", mapCharge.get("serviceChargeName"));
+								chargeMap.put("chargeAmount", model.getChargeTypeAmount5());
+								chargeMap.put("chargeEquivalentAmount", model.getChargeTypeAmountEquivalent5());
+								chargeMap.put("debitCurrency", sourceAccount.getCurrency().getCode());
+								chargeMap.put("chargeExchangeRate", ApplicationConstants.ZERO);
+								chargeList.add(chargeMap);
+								continue;
+							}
+							
+						}
+						
+					} catch (Exception e) {
+						e.printStackTrace();
+					} 
+				}
 		modelMap.put("chargeList", chargeList);
 		
 		//--------------------------------------------
@@ -1555,5 +1704,89 @@ public class CustomerDomesticTransferServiceImpl implements CustomerDomesticTran
 			reportParams.put("remark1", ValueUtils.getValue(model.getRemark1()));
 			reportParams.put("refNo", model.getReferenceNo());
 		}
+	}
+
+	@Override
+	public void executeOnlineFutureTransactionScheduler(String parameter) throws ApplicationException, BusinessException {
+		try{
+			Timestamp futureDate = DateUtils.getCurrentTimestamp();
+			String[] parameterArr = parameter.split("\\|");
+			
+			int sessionTimeValue = Integer.valueOf(parameterArr[0]);
+			
+			if(parameterArr.length > 1) {
+				String[] futureDateArr = parameterArr[1].split("\\=");
+				
+				if(ValueUtils.hasValue(futureDateArr[1])){
+					futureDate = new Timestamp(Helper.DATE_TIME_FORMATTER.parse(futureDateArr[1]).getTime());
+				}
+			}
+			
+			Calendar calFrom = DateUtils.getEarliestDate(futureDate);
+			
+			List<String> sessionTimeList = sysParamService.getTransactionSessionTime();
+			
+			if(sessionTimeValue > 0 && sessionTimeValue <= sessionTimeList.size()) {
+				
+				Calendar calTo = DateUtils.getNextSessionTime(futureDate, sessionTimeValue, sessionTimeList);
+				
+				if(logger.isDebugEnabled()) {
+					logger.debug("Future Online start : " + new Timestamp(calFrom.getTimeInMillis()));
+					logger.debug("Future Online end : " + new Timestamp(calTo.getTimeInMillis()));
+				}
+				
+				List<CustomerDomesticTransferModel> domesticTransferList = domesticTransferRepo.findOnlineTransactionForSchedulerByInstructionMode(ApplicationConstants.SI_FUTURE_DATE, new Timestamp(calFrom.getTimeInMillis()), 
+						new Timestamp(calTo.getTimeInMillis()));
+				
+				executeAllBatch(domesticTransferList);
+				
+			}
+		} catch (Exception e) {
+			throw new ApplicationException(e);
+		}
+		
+	}
+
+	@Override
+	public void executeOnlineRecurringTransactionScheduler(String parameter) throws ApplicationException, BusinessException {
+		try{
+			Timestamp recurringDate = DateUtils.getCurrentTimestamp();
+			String[] parameterArr = parameter.split("\\|");
+			
+			int sessionTimeValue = Integer.valueOf(parameterArr[0]);
+			
+			if(parameterArr.length > 1) {
+				String[] recurringDateArr = parameterArr[1].split("\\=");
+				
+				if(ValueUtils.hasValue(recurringDateArr[1])){
+					recurringDate = new Timestamp(Helper.DATE_TIME_FORMATTER.parse(recurringDateArr[1]).getTime());
+				}
+			}
+			
+			
+			Calendar calFrom = DateUtils.getEarliestDate(recurringDate);
+			
+			List<String> sessionTimeList = sysParamService.getTransactionSessionTime();
+			
+			if(sessionTimeValue > 0 && sessionTimeValue <= sessionTimeList.size()) {
+				
+				Calendar calTo = DateUtils.getNextSessionTime(recurringDate, sessionTimeValue, sessionTimeList);
+				
+				if(logger.isDebugEnabled()) {
+					logger.debug("Recurring Online start : " + new Timestamp(calFrom.getTimeInMillis()));
+					logger.debug("Recurring Online end : " + new Timestamp(calTo.getTimeInMillis()));
+				}
+				
+				List<CustomerDomesticTransferModel> domesticTransferList = domesticTransferRepo.findOnlineTransactionForSchedulerByInstructionMode(ApplicationConstants.SI_RECURRING, 
+						new Timestamp(calFrom.getTimeInMillis()), 
+						new Timestamp(calTo.getTimeInMillis()));
+				
+				executeAllBatch(domesticTransferList);
+				
+			}
+		} catch (Exception e) {
+			throw new ApplicationException(e);
+		}
+		
 	}
 }

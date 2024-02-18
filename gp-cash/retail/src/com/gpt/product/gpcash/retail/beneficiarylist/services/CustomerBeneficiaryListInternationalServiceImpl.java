@@ -159,9 +159,12 @@ public class CustomerBeneficiaryListInternationalServiceImpl implements Customer
 				throw new BusinessException("GPT-0100003");
 			}
 
-			resultMap.putAll(pendingTaskService.savePendingTask(vo));
+			//resultMap.putAll(pendingTaskService.savePendingTask(vo));
+			pendingTaskService.savePendingTask(vo);
+			resultMap.put(ApplicationConstants.PENDINGTASK_VO, vo);
+			resultMap.putAll(map);
 			resultMap.put(ApplicationConstants.WF_FIELD_REFERENCE_NO, vo.getReferenceNo());
-
+			
 		} catch (BusinessException e) {
 			throw e;
 		} catch (Exception e) {
@@ -249,7 +252,7 @@ public class CustomerBeneficiaryListInternationalServiceImpl implements Customer
 			pendingTaskService.checkUniquePendingTask(vo);
 		}
 		
-		vo.setCreatedBy((String) map.get(ApplicationConstants.LOGIN_USERCODE));
+		vo.setCreatedBy((String) map.get(ApplicationConstants.CUST_ID));
 		vo.setMenuCode((String) map.get(ApplicationConstants.STR_MENUCODE));
 		vo.setService("CustomerBeneficiaryListSC");
 		vo.setCustomerId(customerId);
@@ -260,8 +263,7 @@ public class CustomerBeneficiaryListInternationalServiceImpl implements Customer
 
 	private CustomerBeneficiaryListInternationalModel setMapToModel(CustomerBeneficiaryListInternationalModel beneficiaryInternational, Map<String, Object> map) throws Exception {
 		String customerId = (String) map.get(ApplicationConstants.CUST_ID);
-		String userCode = (String) map.get(ApplicationConstants.LOGIN_USERCODE);
-		CustomerModel custUser = customerUtilsRepo.isCustomerValid(userCode);
+		CustomerModel corpUser = customerUtilsRepo.isCustomerValid(customerId);
 		String localCountryCode = maintenanceRepo.isSysParamValid(SysParamConstants.LOCAL_COUNTRY_CODE).getValue();
 
 		beneficiaryInternational.setBenAccountNo((String) map.get("benAccountNo"));

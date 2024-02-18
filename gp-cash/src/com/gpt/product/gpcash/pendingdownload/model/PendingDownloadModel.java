@@ -73,6 +73,12 @@ public class PendingDownloadModel  implements Serializable {
 	
 	@Column(name="UPDATED_DT")
 	protected Timestamp updatedDate;
+	
+	@Column(name = "CORP_ID")
+	private String corporateId;
+	
+	@Column(name = "IS_DELETE")
+	protected String deleteFlag;
 
 	public String getId() {
 		return id;
@@ -199,6 +205,22 @@ public class PendingDownloadModel  implements Serializable {
 
 	public void setFullFilePath(String fullFilePath) {
 		this.fullFilePath = fullFilePath;
+	}
+
+	public String getCorporateId() {
+		return corporateId;
+	}
+
+	public void setCorporateId(String corporateId) {
+		this.corporateId = corporateId;
+	}
+
+	public String getDeleteFlag() {
+		return deleteFlag;
+	}
+
+	public void setDeleteFlag(String deleteFlag) {
+		this.deleteFlag = deleteFlag;
 	}
 	
 }

@@ -1,3 +1,3 @@
-[10692] 06:24:40.396 D -                      SchedulerHelper(47) [            Scheduler_Worker-7] [ 3355510687236835651] : [ACCOUNT_SYNC] Scheduled Fire Time : Fri Aug 13 06:00:00 ICT 2021
-[10692] 06:24:40.397 D -                      SchedulerHelper(48) [            Scheduler_Worker-7] [ 3355510687236835651] : [ACCOUNT_SYNC] Next Fire Time      : Tue Aug 17 06:00:00 ICT 2021
-[10692] 06:24:40.404 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-7] [ 3355510687236835651] : [ACCOUNT_SYNC] Next Fire Time (New): Tue Aug 17 06:00:00 ICT 2021
+[23180] 06:00:00.051 D -                      SchedulerHelper(47) [            Scheduler_Worker-1] [-2884255610848785502] : [ACCOUNT_SYNC] Scheduled Fire Time : Tue Sep 20 06:00:00 ICT 2022
+[23180] 06:00:00.051 D -                      SchedulerHelper(48) [            Scheduler_Worker-1] [-2884255610848785502] : [ACCOUNT_SYNC] Next Fire Time      : Wed Sep 21 06:00:00 ICT 2022
+[23180] 06:00:00.066 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-1] [-2884255610848785502] : [ACCOUNT_SYNC] Next Fire Time (New): Wed Sep 21 06:00:00 ICT 2022

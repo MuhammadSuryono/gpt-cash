@@ -58,6 +58,18 @@ public class CustomerUserPendingTaskVO {
 	protected String remark2;
 	protected String remark3;
 	
+	protected String refNoSpecialRate;
+	
+	protected String timeDepositNo;
+	
+	public String getRefNoSpecialRate() {
+		return refNoSpecialRate;
+	}
+
+	public void setRefNoSpecialRate(String refNoSpecialRate) {
+		this.refNoSpecialRate = refNoSpecialRate;
+	}
+	
 	
 	public String getIsError() {
 		return isError;
@@ -446,4 +458,12 @@ public class CustomerUserPendingTaskVO {
 	    localStringBuffer.append('}');
 	    return localStringBuffer.toString();
 	  }
+
+	public String getTimeDepositNo() {
+		return timeDepositNo;
+	}
+
+	public void setTimeDepositNo(String timeDepositNo) {
+		this.timeDepositNo = timeDepositNo;
+	}
 }

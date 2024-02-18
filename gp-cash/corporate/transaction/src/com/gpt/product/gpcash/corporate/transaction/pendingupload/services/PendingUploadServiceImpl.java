@@ -32,6 +32,7 @@ import com.gpt.component.common.utils.PagingUtils;
 import com.gpt.component.common.utils.ValueUtils;
 import com.gpt.component.idm.menu.model.IDMMenuModel;
 import com.gpt.platform.cash.constants.ApplicationConstants;
+import com.gpt.platform.cash.constants.EAIConstants;
 import com.gpt.platform.cash.utils.DateUtils;
 import com.gpt.product.gpcash.account.model.AccountModel;
 import com.gpt.product.gpcash.corporate.corporate.model.CorporateModel;
@@ -193,6 +194,13 @@ public class PendingUploadServiceImpl implements PendingUploadService {
 			String pendingUploadId = (String)map.get("pendingUploadId");			
 			PendingUploadModel pm = detailPendingUploadById(pendingUploadId);
 			
+			//add validation to make sure data upload is valid for the login user id
+			//pentest 4 June 2022 BJB
+			if(!pm.getCreatedBy().equals(map.get(ApplicationConstants.LOGIN_USERID).toString())){
+				throw new BusinessException("GPT-0100001");
+			}
+			//
+			
 			Map<String, Object> resultMap = new HashMap<>();
 			resultMap.put("pendingUploadId", pm.getId());
 			resultMap.put("fileFormat", pm.getFileFormat());
@@ -332,6 +340,13 @@ public class PendingUploadServiceImpl implements PendingUploadService {
 		try {
 			String pendingUploadId = (String)map.get("pendingUploadId");
 			PendingUploadModel pm = detailPendingUploadByIdValidOnly(pendingUploadId);
+			
+			//add validation to make sure data upload is valid for the login user id
+			//pentest 4 June 2022 BJB
+			if(!pm.getCreatedBy().equals(map.get(ApplicationConstants.LOGIN_USERID).toString())){
+				throw new BusinessException("GPT-0100001");
+			}
+			//
 			
 			Map<String, Object> resultMap = new HashMap<>();
 			resultMap.put("pendingUploadId", pm.getId());
@@ -630,6 +645,14 @@ public class PendingUploadServiceImpl implements PendingUploadService {
 			inputs.put("vaType", map.get("vaType"));
 			inputs.put("corporateId", map.get("loginCorporateId"));
 			inputs.put("trxType", map.get("trxType"));
+			
+			//====== untuk kebutuhan validate file BulkPayment =======
+			if (String.valueOf(map.get(ApplicationConstants.EAI_SERVICE_NAME)).equals(EAIConstants.PARSE_CUSTOMER_BULK)) {
+				inputs.put("sknThreshold", map.get("sknThreshold"));
+				inputs.put("rtgsThreshold", map.get("rtgsThreshold"));
+			}
+			//====== untuk kebutuhan validate file BulkPayment =======
+			
 			Map<String, Object> outputs = eaiAdapter.invokeService((String) map.get(ApplicationConstants.EAI_SERVICE_NAME), inputs);
 			
 			map.put("header", outputs.get("header"));

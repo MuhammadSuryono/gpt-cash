@@ -19,6 +19,7 @@ import com.gpt.component.common.utils.ValueUtils;
 import com.gpt.component.idm.login.services.IDMLoginService;
 import com.gpt.component.idm.user.model.IDMUserModel;
 import com.gpt.component.idm.user.repository.IDMUserRepository;
+import com.gpt.component.idm.user.services.IDMUserService;
 import com.gpt.component.password.services.IPasswordUtils;
 import com.gpt.platform.cash.constants.ApplicationConstants;
 import com.gpt.platform.cash.utils.DateUtils;
@@ -55,6 +56,9 @@ public class CustomerMobileServiceImpl implements CustomerMobileService {
 	
 	@Autowired
 	private OTPEngine otpEngine;
+	
+	@Autowired
+	private IDMUserService idmUserService;
 
 	@SuppressWarnings("unchecked")
 	private CustomerMobileDevice validateCustomerMobileDevice(Map<String, Object> map) throws BusinessException {
@@ -64,7 +68,7 @@ public class CustomerMobileServiceImpl implements CustomerMobileService {
 		if(deviceInfo != null) {
 			String id = deviceInfo.get("id");
 			if(id != null) {
-				String custId = (String) map.get(ApplicationConstants.CUST_ID);
+				String custId = (String) map.get(ApplicationConstants.CUST_ID); 
 				CustomerMobileDevice thisUserMd = mobileDeviceRepo.findByDeviceIdAndUserId(id, custId);
 				if(thisUserMd != null)
 					md = thisUserMd;
@@ -282,7 +286,7 @@ public class CustomerMobileServiceImpl implements CustomerMobileService {
 	@Override
 	public Map<String, Object> mobileCustLogin(Map<String, Object> map) throws ApplicationException, BusinessException {
 		try {
-			CustomerMobileDevice md = validateCustomerMobileDevice(map);
+			
 			
 			String passwd = (String) map.get("passwd");
 			String key = (String)map.get("key");
@@ -297,13 +301,18 @@ public class CustomerMobileServiceImpl implements CustomerMobileService {
 			
 			if(ApplicationConstants.YES.equals(customer.getInactiveFlag()))
 				throw new BusinessException("GPT-R-0100160");
-			//---------------------------------------------------
 			
+			//---------------------------------------------------
+			map.put(ApplicationConstants.CUST_ID, customer.getId());
+			CustomerMobileDevice md = validateCustomerMobileDevice(map); //pindah ke bawah, supaya bisa dapat custIdnya
+			
+
 			String custId = customer.getId();
 			
 			Map<String, Object> returnMap = idmLoginService.login(custId, passwd, key, ipAddress);
 			
 			returnMap.put(ApplicationConstants.CUST_ID, custId);
+			returnMap.put("forceChangePassword",returnMap.get(ApplicationConstants.IDM_USER_STATUS).equals(ApplicationConstants.IDM_USER_STATUS_RESET));
 			
 			if(md == null) {
 				// need provisioning
@@ -327,6 +336,20 @@ public class CustomerMobileServiceImpl implements CustomerMobileService {
 	@Override
 	public Map<String, Object> mobileCustFPLogin(Map<String, Object> map) throws ApplicationException, BusinessException {
 		try {
+			String loginUserId = (String) map.get(ApplicationConstants.LOGIN_USERID);
+			
+			//remark if stress test
+			CustomerModel customer = customerUtilsRepo.getCustomerRepo().findByUserIdContainingIgnoreCase(loginUserId);
+			
+			if(customer == null)
+				throw new BusinessException("GPT-0100032");
+			
+			if(ApplicationConstants.YES.equals(customer.getInactiveFlag()))
+				throw new BusinessException("GPT-R-0100160");
+			//
+			
+			map.put(ApplicationConstants.CUST_ID, customer.getId());
+			
 			CustomerMobileDevice md = validateCustomerMobileDevice(map);
 			if(md == null) {
 				Map<String, Object> returnMap = new HashMap<>();
@@ -335,7 +358,7 @@ public class CustomerMobileServiceImpl implements CustomerMobileService {
 				return returnMap;
 			}
 			String ipAddress = (String) map.get(ApplicationConstants.LOGIN_IPADDRESS);
-			String custId = (String) map.get(ApplicationConstants.CUST_ID);
+			String custId = customer.getId();
 			String key = (String)map.get("key");
 			
 			boolean somethingIsWrong = false;
@@ -343,19 +366,17 @@ public class CustomerMobileServiceImpl implements CustomerMobileService {
 				somethingIsWrong = true;
 			} else {
 				
-				//remark if stress test
-				CustomerModel customer = customerUtilsRepo.isCustomerValid(custId);
-				if(ApplicationConstants.YES.equals(customer.getInactiveFlag())) {
-					throw new BusinessException("GPT-0100160");
-				}
-				//---------------------------------------------------
+
 				
 				byte[] sign = Base64.decodeBase64((String)map.get("sign"));
 			
-				byte[] keyNonce = Helper.generateAESKey(key, key);
-				byte[] nonce = ((String)map.get("nonce")).getBytes(ApplicationConstants.CHARSET);
+				//byte[] keyNonce = Helper.generateAESKey(key, key);
+				//byte[] nonce = ((String)map.get("nonce")).getBytes(ApplicationConstants.CHARSET);
+				
+				//ikutin coprorate nya, tidk ada kirim nonce
+				byte[] nonce = key.getBytes(ApplicationConstants.CHARSET); 
 		        try {
-		        		nonce = passwordUtils.decryptCBC(nonce, keyNonce); 
+		        		//nonce = passwordUtils.decryptCBC(nonce, keyNonce); 
 					byte[] publicKey = passwordUtils.decrypt(md.getFingerPrintPublicKey().getBytes(ApplicationConstants.CHARSET));
 					if(!verifySign(publicKey, nonce, sign)) {
 						somethingIsWrong = true;
@@ -392,6 +413,55 @@ public class CustomerMobileServiceImpl implements CustomerMobileService {
 				return returnMap;
 			}
 			
+		} catch (BusinessException e) {
+			throw e;
+		} catch (Exception e) {
+			throw new ApplicationException(e);
+		}
+	}
+	
+	@Override
+	public Map<String, Object> mobileForceChangePassword(Map<String, Object> map) throws ApplicationException, BusinessException {
+		try {
+			String loginId = (String) map.get(ApplicationConstants.LOGIN_USERID);
+			CustomerModel customer = customerUtilsRepo.getCustomerRepo().findByUserIdContainingIgnoreCase(loginId);
+			
+			String oldPassword = (String) map.get("oldPassword");
+			String newPassword = (String) map.get("newPassword");
+			String newPassword2 = (String) map.get("newPassword2");
+			byte[] key = Helper.generateAESKey("", (String)map.get("key"));
+			
+			try {
+				byte[] oldPasswordByte = passwordUtils.decryptCBC(oldPassword.getBytes(ApplicationConstants.CHARSET), key); 
+				oldPassword = new String(oldPasswordByte, ApplicationConstants.CHARSET);
+			}catch(Exception e) {
+				//sengaja di telan, dr depan tidak perlu tau.
+				e.printStackTrace();
+			}
+			
+			try {
+				byte[] newPasswordByte = passwordUtils.decryptCBC(newPassword.getBytes(ApplicationConstants.CHARSET), key); 
+				newPassword = new String(newPasswordByte, ApplicationConstants.CHARSET);
+			}catch(Exception e) {
+				//sengaja di telan, dr depan tidak perlu tau.
+				e.printStackTrace();
+			}
+			
+			try {
+				byte[] newPassword2Byte = passwordUtils.decryptCBC(newPassword2.getBytes(ApplicationConstants.CHARSET), key); 
+				newPassword2 = new String(newPassword2Byte, ApplicationConstants.CHARSET);
+			}catch(Exception e) {
+				//sengaja di telan, dr depan tidak perlu tau.
+				e.printStackTrace();
+			}
+			
+		
+			idmUserService.changePassword(customer.getId(), oldPassword, newPassword,
+					newPassword2);
+			
+			Map<String, Object> resultMap = new HashMap<>();
+			resultMap.put(ApplicationConstants.WF_FIELD_MESSAGE, "GPT-0100116");
+			return resultMap;
 		} catch (BusinessException e) {
 			throw e;
 		} catch (Exception e) {

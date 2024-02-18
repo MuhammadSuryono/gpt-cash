@@ -12,8 +12,10 @@ import org.springframework.transaction.annotation.Transactional;
 import com.gpt.component.common.exceptions.ApplicationException;
 import com.gpt.component.common.exceptions.BusinessException;
 import com.gpt.component.common.utils.ValueUtils;
+import com.gpt.component.idm.user.model.IDMUserModel;
 import com.gpt.component.idm.user.repository.IDMUserRepository;
 import com.gpt.component.idm.user.services.IDMUserService;
+import com.gpt.component.idm.utils.IDMRepository;
 import com.gpt.platform.cash.constants.ApplicationConstants;
 
 @Service
@@ -26,6 +28,9 @@ public class IDMUserLockServiceImpl implements IDMUserLockService{
 	
 	@Autowired
 	private IDMUserService idmUserService;
+	
+	@Autowired
+	private IDMRepository idmRepo;
 	
 	@SuppressWarnings("unchecked")
 	@Override
@@ -48,7 +53,14 @@ public class IDMUserLockServiceImpl implements IDMUserLockService{
 	public void unlockUser(String userCode)
 			throws ApplicationException, BusinessException {
 		try {
-			int ret = idmUserRepo.lockUnlockUser(ApplicationConstants.IDM_USER_STATUS_ACTIVE, userCode);
+			IDMUserModel idmUser = idmRepo.isIDMUserValid(userCode);
+			int ret = 0;
+			if(idmUser.getLastLoginDate()==null) {
+				 ret = idmUserRepo.lockUnlockUser(ApplicationConstants.IDM_USER_STATUS_RESET, userCode);
+			}else {
+				 ret = idmUserRepo.lockUnlockUser(ApplicationConstants.IDM_USER_STATUS_ACTIVE, userCode);
+			}
+			
 			if (ret==0)
 				throw new BusinessException("GPT-0100009");
 		} catch (Exception e) {

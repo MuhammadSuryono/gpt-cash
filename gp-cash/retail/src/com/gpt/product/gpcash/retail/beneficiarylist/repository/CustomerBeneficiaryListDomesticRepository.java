@@ -12,4 +12,6 @@ import com.gpt.product.gpcash.retail.beneficiarylist.model.CustomerBeneficiaryLi
 public interface CustomerBeneficiaryListDomesticRepository extends JpaRepository<CustomerBeneficiaryListDomesticModel, String>, CashRepository<CustomerBeneficiaryListDomesticModel>{
 	
 	List<CustomerBeneficiaryListDomesticModel> findByBenAccountNoAndCustomerId(String accountNo, String customerId) throws Exception;
+	
+	List<CustomerBeneficiaryListDomesticModel> findByBenAccountNoAndCustomerIdAndIsBenOnline(String accountNo, String corporateId, String isOnline) throws Exception;
 }

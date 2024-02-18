@@ -47,4 +47,8 @@ public interface SysParamConstants {
 	String BANK_EMAIL = "0026";
 	
 	String SPECIAL_RATE_DEVIATION = "0030";
+	
+	String BULK_ESCROW_ACCOUNT = "0031";
+	
+	String GL_ACCOUNT = "0032";
 }

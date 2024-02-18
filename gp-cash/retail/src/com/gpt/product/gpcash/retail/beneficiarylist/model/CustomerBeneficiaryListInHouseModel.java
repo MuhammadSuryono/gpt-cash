@@ -66,6 +66,9 @@ public class CustomerBeneficiaryListInHouseModel implements Serializable{
 	@Column(name="UPDATED_DT")
 	protected Timestamp updatedDate;
 
+	@Column(name = "IS_BEN_VA")
+	protected String isBenVirtualAccount;
+
 	public String getId() {
 		return id;
 	}
@@ -178,5 +181,11 @@ public class CustomerBeneficiaryListInHouseModel implements Serializable{
 		this.updatedDate = updatedDate;
 	}
 	
+	public String getIsBenVirtualAccount() {
+		return isBenVirtualAccount;
+	}
 	
+	public void setIsBenVirtualAccount(String isBenVirtualAccount) {
+		this.isBenVirtualAccount = isBenVirtualAccount;
+	}
 }

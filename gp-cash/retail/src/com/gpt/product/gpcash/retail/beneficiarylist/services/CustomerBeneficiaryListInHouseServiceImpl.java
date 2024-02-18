@@ -6,8 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
@@ -24,7 +22,6 @@ import com.gpt.component.maintenance.utils.MaintenanceRepository;
 import com.gpt.platform.cash.constants.ApplicationConstants;
 import com.gpt.platform.cash.constants.EAIConstants;
 import com.gpt.platform.cash.utils.DateUtils;
-import com.gpt.product.gpcash.retail.CustomerUtilsRepository;
 import com.gpt.product.gpcash.retail.beneficiarylist.model.CustomerBeneficiaryListInHouseModel;
 import com.gpt.product.gpcash.retail.beneficiarylist.repository.CustomerBeneficiaryListInHouseRepository;
 import com.gpt.product.gpcash.retail.customer.model.CustomerModel;
@@ -216,12 +213,17 @@ public class CustomerBeneficiaryListInHouseServiceImpl implements CustomerBenefi
 
 	private CustomerBeneficiaryListInHouseModel setMapToModel(CustomerBeneficiaryListInHouseModel beneficiaryInHouse, Map<String, Object> map) throws Exception {
 		String customerId = (String) map.get(ApplicationConstants.CUST_ID);
+		String isBenVA = ValueUtils.getValue((String)map.get("isBenVA"));
 
 		beneficiaryInHouse.setBenAccountNo((String) map.get("benAccountNo"));
 		beneficiaryInHouse.setBenAccountName((String) map.get("benAccountName"));
 		beneficiaryInHouse.setBenAccountCurrency((String) map.get("benAccountCurrency"));
 		beneficiaryInHouse.setIsNotifyBen((String) map.get("isNotify"));
 		beneficiaryInHouse.setEmail((String) map.get("email"));
+		beneficiaryInHouse.setIsBenVirtualAccount(ApplicationConstants.NO);
+		if (isBenVA.equals(ApplicationConstants.YES)) {
+			beneficiaryInHouse.setIsBenVirtualAccount(ApplicationConstants.YES);
+		}
 
 		CustomerModel customer = new CustomerModel();
 		customer.setId(customerId);
@@ -385,7 +387,7 @@ public class CustomerBeneficiaryListInHouseServiceImpl implements CustomerBenefi
 
 	@Override
 	public void saveCustomerBeneficiary(String customerId, String benAccountNo, String benAccountName, String benAccountCurrency,
-			String isNotifyFlag, String email, String createdBy) throws Exception {
+			String isNotifyFlag, String email, String createdBy, String isVirtualAccount) throws Exception {
 		
 		List<CustomerBeneficiaryListInHouseModel> modelList = beneficiaryInHouseRepo
 				.findByBenAccountNoAndCustomerId(benAccountNo, customerId);
@@ -399,6 +401,7 @@ public class CustomerBeneficiaryListInHouseServiceImpl implements CustomerBenefi
 			beneficiaryListInHouse.setBenAccountCurrency(benAccountCurrency);
 			beneficiaryListInHouse.setIsNotifyBen(isNotifyFlag);
 			beneficiaryListInHouse.setEmail(email);
+			beneficiaryListInHouse.setIsBenVirtualAccount(isVirtualAccount);
 
 			CustomerModel customer = new CustomerModel();
 			customer.setId(customerId);
@@ -407,6 +410,65 @@ public class CustomerBeneficiaryListInHouseServiceImpl implements CustomerBenefi
 			saveCustomerBeneficiaryInHouse(beneficiaryListInHouse, createdBy);
 		}
 		//------------------------------------------------
+	}
+
+	@Override
+	public Map<String, Object> searchBeneficiaryGroup(String customerId) throws ApplicationException, BusinessException {
+		Map<String, Object> resultMap = new HashMap<>();
+		try {
+			
+			Map<String, Object> map = new HashMap<>();
+			map.put("customerId", customerId);
+			Page<CustomerBeneficiaryListInHouseModel> result = beneficiaryInHouseRepo.search(map, null);
+
+			resultMap.put("result", setModelToMapGroup(result.getContent()));
+
+		} catch (BusinessException e) {
+			throw e;
+		} catch (Exception e) {
+			throw new ApplicationException(e);
+		}
+
+		return resultMap;
+	}
+	
+	private Map<String, Object> setModelToMapGroup(List<CustomerBeneficiaryListInHouseModel> list) throws Exception {
+		List<Map<String, Object>> listOtherAccount = new ArrayList<>();
+		List<Map<String, Object>> listVirtualAccount = new ArrayList<>();
+		Map<String, Object> returnMap = new HashMap<>();
+		
+		for (CustomerBeneficiaryListInHouseModel model : list) {
+			if (model.getIsBenVirtualAccount() !=null && model.getIsBenVirtualAccount().equals(ApplicationConstants.YES)) {
+				listVirtualAccount.add(setModelToMap(model));
+			} else {
+				listOtherAccount.add(setModelToMap(model));
+			}
+		}
+		returnMap.put("Other Account", listOtherAccount);
+		returnMap.put("Virtual Account", listVirtualAccount);
+		
+		return returnMap;
+	}
+
+	@Override
+	public Map<String, Object> inquiryVirtualAccount(Map<String, Object> map) throws ApplicationException, BusinessException {
+		try {
+			Map<String, Object> inputs = new HashMap<>();
+			inputs.put("accountNo", map.get("benAccountNo"));
+			
+			Map<String, Object> outputs = eaiAdapter.invokeService(EAIConstants.TRANSFER_VA_INQUIRY, inputs);
+			
+			Map<String, Object> result = new HashMap<>(12,1);
+			result.put("benAccountNo", outputs.get("accountNo"));
+			result.put("benAccountName", outputs.get("accountName"));
+			result.put("benAccountCurrency", outputs.get("accountCurrencyCode"));
+			
+			return result;
+		} catch (BusinessException e) {
+			throw e;
+		} catch (Exception e) {
+			throw new ApplicationException(e);
+		}
 	}
 
 }

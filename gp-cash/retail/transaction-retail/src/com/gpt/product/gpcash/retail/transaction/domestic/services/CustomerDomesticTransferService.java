@@ -25,7 +25,10 @@ public interface CustomerDomesticTransferService extends CustomerUserWorkflowSer
 
 	Map<String, Object> cancelTransaction(Map<String, Object> map) throws ApplicationException, BusinessException;
 
-	Map<String, Object> downloadTransactionStatus(Map<String, Object> map)
-			throws ApplicationException, BusinessException;
+	Map<String, Object> downloadTransactionStatus(Map<String, Object> map) throws ApplicationException, BusinessException;
+	
+	void executeOnlineFutureTransactionScheduler(String parameter) throws ApplicationException, BusinessException;
+
+	void executeOnlineRecurringTransactionScheduler(String parameter) throws ApplicationException, BusinessException;
 }
 

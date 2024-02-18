@@ -127,7 +127,9 @@ public class CustomerBeneficiaryListSCImpl implements CustomerBeneficiaryListSC 
 	public CustomerUserPendingTaskVO approve(CustomerUserPendingTaskVO vo) throws ApplicationException, BusinessException {
 		
 		if ("CREATE_DOMESTIC".equals(vo.getAction()) || "UPDATE_DOMESTIC".equals(vo.getAction()) ||
-				"DELETE_DOMESTIC".equals(vo.getAction()) || "DELETE_DOMESTIC_LIST".equals(vo.getAction())) {
+				"DELETE_DOMESTIC".equals(vo.getAction()) || "DELETE_DOMESTIC_LIST".equals(vo.getAction()) || 
+				"CREATE_DOMESTIC_ONLINE".equals(vo.getAction()) || "UPDATE_DOMESTIC_ONLINE".equals(vo.getAction()) ||
+				"DELETE_DOMESTIC_ONLINE".equals(vo.getAction()) || "DELETE_DOMESTIC_ONLINE_LIST".equals(vo.getAction())) {
 			return beneficiaryListDomesticService.approve(vo);
 		} else if ("CREATE_INTERNATIONAL".equals(vo.getAction()) || "UPDATE_INTERNATIONAL".equals(vo.getAction()) ||
 				"DELETE_INTERNATIONAL".equals(vo.getAction()) || "DELETE_INTERNATIONAL_LIST".equals(vo.getAction())) {
@@ -444,7 +446,19 @@ public class CustomerBeneficiaryListSCImpl implements CustomerBeneficiaryListSC 
 	})
 	@Override
 	public Map<String, Object> submitInternational(Map<String, Object> map) throws ApplicationException, BusinessException {
-		return beneficiaryListInternationalService.submit(map);
+		Map<String, Object> resultMap = beneficiaryListInternationalService.submit(map);
+		CustomerUserPendingTaskVO vo = (CustomerUserPendingTaskVO) resultMap.get(ApplicationConstants.PENDINGTASK_VO);
+		
+		customerUserPendingTaskService.approve(vo, beneficiaryListInternationalService);
+		
+		resultMap = new HashMap<>();
+		String strDateTime = Helper.DATE_TIME_FORMATTER.format(vo.getCreatedDate());
+		resultMap.put(ApplicationConstants.WF_FIELD_REFERENCE_NO, vo.getReferenceNo());
+		resultMap.put(ApplicationConstants.WF_FIELD_MESSAGE, "GPT-R-0200005");
+		resultMap.put(ApplicationConstants.WF_FIELD_DATE_TIME_INFO, "GPT-0200008|" + strDateTime);
+		resultMap.put("dateTime", strDateTime);
+		
+		return resultMap;
 	}
 	
 	@EnableCustomerActivityLog
@@ -462,7 +476,21 @@ public class CustomerBeneficiaryListSCImpl implements CustomerBeneficiaryListSC 
 	})
 	@Override
 	public Map<String, Object> submitDeleteInternational(Map<String, Object> map) throws ApplicationException, BusinessException {
-		return beneficiaryListInternationalService.submit(map);
+		
+		Map<String, Object> resultMap = beneficiaryListInternationalService.submit(map);
+		CustomerUserPendingTaskVO vo = (CustomerUserPendingTaskVO) resultMap.get(ApplicationConstants.PENDINGTASK_VO);
+		
+		customerUserPendingTaskService.approve(vo, beneficiaryListInternationalService);
+		
+		resultMap = new HashMap<>();
+		String strDateTime = Helper.DATE_TIME_FORMATTER.format(vo.getCreatedDate());
+		resultMap.put(ApplicationConstants.WF_FIELD_REFERENCE_NO, vo.getReferenceNo());
+		resultMap.put(ApplicationConstants.WF_FIELD_MESSAGE, "GPT-R-0200005");
+		resultMap.put(ApplicationConstants.WF_FIELD_DATE_TIME_INFO, "GPT-0200008|" + strDateTime);
+		resultMap.put("dateTime", strDateTime);
+		
+		return resultMap;
+		
 	}
 
 	@EnableCustomerActivityLog
@@ -482,7 +510,19 @@ public class CustomerBeneficiaryListSCImpl implements CustomerBeneficiaryListSC 
 	})
 	@Override
 	public Map<String, Object> submitDeleteInternationalList(Map<String, Object> map) throws ApplicationException, BusinessException {
-		return beneficiaryListInternationalService.submit(map);
+		Map<String, Object> resultMap = beneficiaryListInternationalService.submit(map);
+		CustomerUserPendingTaskVO vo = (CustomerUserPendingTaskVO) resultMap.get(ApplicationConstants.PENDINGTASK_VO);
+		
+		customerUserPendingTaskService.approve(vo, beneficiaryListInternationalService);
+		
+		resultMap = new HashMap<>();
+		String strDateTime = Helper.DATE_TIME_FORMATTER.format(vo.getCreatedDate());
+		resultMap.put(ApplicationConstants.WF_FIELD_REFERENCE_NO, vo.getReferenceNo());
+		resultMap.put(ApplicationConstants.WF_FIELD_MESSAGE, "GPT-R-0200005");
+		resultMap.put(ApplicationConstants.WF_FIELD_DATE_TIME_INFO, "GPT-0200008|" + strDateTime);
+		resultMap.put("dateTime", strDateTime);
+		
+		return resultMap;		
 	}
 	
 	@Validate
@@ -495,5 +535,53 @@ public class CustomerBeneficiaryListSCImpl implements CustomerBeneficiaryListSC 
 	@Override
 	public Map<String, Object> searchBankByCountryForDroplist(Map<String, Object> map) throws ApplicationException, BusinessException {
 		return internationalBankService.search(map);
+	}
+	
+	@EnableCustomerActivityLog
+	@Validate
+	@Input({ 
+		@Variable(name = "benAccountNo"), @Variable(name = "benAccountName"), @Variable(name = "benAliasName"),
+		@Variable(name = "bankCode"),
+		@Variable(name = "isNotify", options = { ApplicationConstants.YES, ApplicationConstants.NO }),
+		@Variable(name = "email", required = false, format = Format.EMAIL),
+		@Variable(name = ApplicationConstants.CUST_ID, format = Format.UPPER_CASE),
+		@Variable(name = ApplicationConstants.WF_ACTION, options = { "CREATE_DOMESTIC_ONLINE", "UPDATE_DOMESTIC_ONLINE" }),
+		@Variable(name = ApplicationConstants.STR_MENUCODE, options = menuCode) 
+	})
+	@Output({ 
+		@Variable(name = ApplicationConstants.WF_FIELD_REFERENCE_NO),
+		@Variable(name = ApplicationConstants.WF_FIELD_MESSAGE, format = Format.I18N),
+		@Variable(name = ApplicationConstants.WF_FIELD_DATE_TIME_INFO, format = Format.I18N) 
+	})
+	@Override
+	public Map<String, Object> submitDomesticOnline(Map<String, Object> map) throws ApplicationException, BusinessException {
+		Map<String, Object> resultMap = beneficiaryListDomesticService.submit(map);
+		CustomerUserPendingTaskVO vo = (CustomerUserPendingTaskVO) resultMap.get(ApplicationConstants.PENDINGTASK_VO);
+		
+		customerUserPendingTaskService.approve(vo, beneficiaryListDomesticService);
+		
+		resultMap = new HashMap<>();
+		String strDateTime = Helper.DATE_TIME_FORMATTER.format(vo.getCreatedDate());
+		resultMap.put(ApplicationConstants.WF_FIELD_REFERENCE_NO, vo.getReferenceNo());
+		resultMap.put(ApplicationConstants.WF_FIELD_MESSAGE, "GPT-R-0200005");
+		resultMap.put(ApplicationConstants.WF_FIELD_DATE_TIME_INFO, "GPT-0200008|" + strDateTime);
+		resultMap.put("dateTime", strDateTime);
+		
+		return resultMap;
+	}
+	
+	@Validate
+	@Input({ 
+		@Variable(name = "benAccountNo"),
+		@Variable(name = ApplicationConstants.CUST_ID, format = Format.UPPER_CASE),
+		@Variable(name = ApplicationConstants.WF_ACTION, options = { ApplicationConstants.WF_ACTION_SEARCH }),
+		@Variable(name = ApplicationConstants.STR_MENUCODE, options = menuCode) 
+	})
+	@Output({ 
+		@Variable(name = "benAccountNo"), @Variable(name = "benAccountName") 
+	})
+	@Override
+	public Map<String, Object> searchVirtualAccount(Map<String, Object> map) throws ApplicationException, BusinessException {
+		return beneficiaryListInHouseService.inquiryVirtualAccount(map);
 	}
 }

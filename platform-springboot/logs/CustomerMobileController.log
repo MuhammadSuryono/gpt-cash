@@ -1,130 +1,534 @@
-[6904] 21:39:38.731 D -             CustomerMobileController(58) [          http-nio-8005-exec-2] [-5099263676376399221] : [preInvoke] - [-] - CustomerMobileSC#authenticate({loginId=whyretail, passwd=nWZ8C4BTfsFK2lO218cGtIEdZuBcHSkzCpJxD3mU8kk=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=YQSytavnOCMchJ8&, menuCode=null, appCode=GPCASHIB_R})
-[6904] 21:39:40.999 D -                        QueueInvoker(126) [          http-nio-8005-exec-2] [-5099263676376399221] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#authenticate({loginId=whyretail, passwd=nWZ8C4BTfsFK2lO218cGtIEdZuBcHSkzCpJxD3mU8kk=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=YQSytavnOCMchJ8&, menuCode=null, appCode=GPCASHIB_R})
-[6904] 21:39:41.669 D -                    ValidationAspect(266) [            ServerThreadPool-3] [-5099263676376399221] : [Validation - Input] - CustomerMobileSCImpl#authenticate({loginId=whyretail, passwd=nWZ8C4BTfsFK2lO218cGtIEdZuBcHSkzCpJxD3mU8kk=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=YQSytavnOCMchJ8&, menuCode=null, appCode=GPCASHIB_R})
-[6904] 21:39:46.778 D -                 IDMLoginServiceImpl(409) [            ServerThreadPool-3] [-5099263676376399221] : getLastLoginDate : 2020-07-30 19:07:24.905
-[6904] 21:39:46.779 D -                 IDMLoginServiceImpl(410) [            ServerThreadPool-3] [-5099263676376399221] : validateUserIdle diffDays : 4
-[6904] 21:39:49.118 D -                 IDMLoginServiceImpl(390) [            ServerThreadPool-3] [-5099263676376399221] : getLastChangePasswordDate : 2020-07-22 14:05:40.767
-[6904] 21:39:49.118 D -                 IDMLoginServiceImpl(391) [            ServerThreadPool-3] [-5099263676376399221] : validateUserPasswordExpired diffDays : 12
-[6904] 21:39:50.214 D -            CustomerMobileController(139) [            ServerThreadPool-3] [-5099263676376399221] : 
+[8792] 00:00:03.441 D -             CustomerMobileController(59) [          http-nio-8005-exec-9] [-7532400659102021038] : [preInvoke] - [-] - CustomerMobileSC#mobileCustFPLogin({loginId=herombl, sign=Ums8aSrltKj5/EdfjgPoVWtcAAlQpc9EYOAUTCO1PtB556g9tFbOgBsyDwo0U3xoO34E/bAlQkbi
+tBy1DL1RYkyI12UKL+rKEtK+3wDQShQeAxhdMTX7P8eEIUqS/te++gPUCUJHpkCa/iczNr0kjzPy
+DNq5xsUc6rzY2IghQsxSTai9cz/xgT6avhM+MUgk0lUqJncCmcsazKw7cFm3IT+uNoXJIky+nDN+
+i53erJEBMRPgg6eCI6+1sxev7YdmdXvwb5+mKj0GfX8iecolli2RN2BSE4VVBkqWTbRAtDTse3rU
+lld2RzsLmO5gWGHc8z6vEOoQEs4W38Ct42jEHg==
+, loginHandlesLogout=true, loginHistoryId=[86f69ae5-1b7b-4d62-9917-159802203f67], loginDate=2022-06-19 23:58:25.008, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=OKOSurHFMMXXap4&, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:00:03.442 D -                        QueueInvoker(126) [          http-nio-8005-exec-9] [-7532400659102021038] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#mobileCustFPLogin({loginId=herombl, sign=Ums8aSrltKj5/EdfjgPoVWtcAAlQpc9EYOAUTCO1PtB556g9tFbOgBsyDwo0U3xoO34E/bAlQkbi
+tBy1DL1RYkyI12UKL+rKEtK+3wDQShQeAxhdMTX7P8eEIUqS/te++gPUCUJHpkCa/iczNr0kjzPy
+DNq5xsUc6rzY2IghQsxSTai9cz/xgT6avhM+MUgk0lUqJncCmcsazKw7cFm3IT+uNoXJIky+nDN+
+i53erJEBMRPgg6eCI6+1sxev7YdmdXvwb5+mKj0GfX8iecolli2RN2BSE4VVBkqWTbRAtDTse3rU
+lld2RzsLmO5gWGHc8z6vEOoQEs4W38Ct42jEHg==
+, loginHandlesLogout=true, loginHistoryId=[86f69ae5-1b7b-4d62-9917-159802203f67], loginDate=2022-06-19 23:58:25.008, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=OKOSurHFMMXXap4&, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:00:03.443 D -                    ValidationAspect(266) [            ServerThreadPool-3] [-7532400659102021038] : [Validation - Input] - CustomerMobileSCImpl#mobileCustFPLogin({loginId=herombl, sign=Ums8aSrltKj5/EdfjgPoVWtcAAlQpc9EYOAUTCO1PtB556g9tFbOgBsyDwo0U3xoO34E/bAlQkbi
+tBy1DL1RYkyI12UKL+rKEtK+3wDQShQeAxhdMTX7P8eEIUqS/te++gPUCUJHpkCa/iczNr0kjzPy
+DNq5xsUc6rzY2IghQsxSTai9cz/xgT6avhM+MUgk0lUqJncCmcsazKw7cFm3IT+uNoXJIky+nDN+
+i53erJEBMRPgg6eCI6+1sxev7YdmdXvwb5+mKj0GfX8iecolli2RN2BSE4VVBkqWTbRAtDTse3rU
+lld2RzsLmO5gWGHc8z6vEOoQEs4W38Ct42jEHg==
+, loginHandlesLogout=true, loginHistoryId=[86f69ae5-1b7b-4d62-9917-159802203f67], loginDate=2022-06-19 23:58:25.008, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=OKOSurHFMMXXap4&, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:00:03.502 D -                 IDMLoginServiceImpl(457) [            ServerThreadPool-3] [-7532400659102021038] : getLastLoginDate : 2022-06-19 23:58:25.008
+[8792] 00:00:03.503 D -                 IDMLoginServiceImpl(458) [            ServerThreadPool-3] [-7532400659102021038] : validateUserIdle diffDays : 0
+[8792] 00:00:03.596 D -            CustomerMobileController(163) [            ServerThreadPool-3] [-7532400659102021038] : onException : com.gpt.component.common.exceptions.BusinessException: GPT-0100134
+[8792] 00:00:03.597 D -                        QueueInvoker(201) [            ServerThreadPool-3] [-7532400659102021038] : Execution Time: 154 ms
+[8792] 00:00:03.601 E -        GlobalDefaultExceptionHandler(47) [          http-nio-8005-exec-4] [-7532400659102021038] : GPT-0100134: User is still login
+com.gpt.component.common.exceptions.BusinessException: GPT-0100134
+	at com.gpt.component.idm.login.services.IDMLoginServiceImpl.validateUserStillLogin(IDMLoginServiceImpl.java:486)
+	at com.gpt.component.idm.login.services.IDMLoginServiceImpl.login(IDMLoginServiceImpl.java:210)
+	at com.gpt.component.idm.login.services.IDMLoginServiceImpl$$FastClassBySpringCGLIB$$1fba14d0.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.component.idm.login.services.IDMLoginServiceImpl$$EnhancerBySpringCGLIB$$89e242c0.login(<generated>)
+	at com.gpt.product.gpcash.retail.mobile.services.CustomerMobileServiceImpl.mobileCustFPLogin(CustomerMobileServiceImpl.java:407)
+	at com.gpt.product.gpcash.retail.mobile.services.CustomerMobileServiceImpl$$FastClassBySpringCGLIB$$eb0bd909.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.retail.mobile.services.CustomerMobileServiceImpl$$EnhancerBySpringCGLIB$$78b37b0b.mobileCustFPLogin(<generated>)
+	at com.gpt.product.gpcash.retail.mobile.services.CustomerMobileSCImpl.mobileCustFPLogin(CustomerMobileSCImpl.java:112)
+	at com.gpt.product.gpcash.retail.mobile.services.CustomerMobileSCImpl$$FastClassBySpringCGLIB$$7942e15c.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
+	at com.gpt.component.common.validation.ValidationAspect.validate(ValidationAspect.java:270)
+	at sun.reflect.GeneratedMethodAccessor141.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.retail.mobile.services.CustomerMobileSCImpl$$EnhancerBySpringCGLIB$$1ab10536.mobileCustFPLogin(<generated>)
+	at sun.reflect.GeneratedMethodAccessor234.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:63)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:85)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:84)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:25)
+	at com.gpt.component.common.invoker.queue.consumer.handler.QueueHandler.processMessage(QueueHandler.java:40)
+	at com.gpt.component.common.invoker.queue.consumer.QueueConsumer$Worker.run(QueueConsumer.java:212)
+[8792] 00:00:03.602 W -   ExceptionHandlerExceptionResolver(189) [          http-nio-8005-exec-4] [-7532400659102021038] : Resolved exception caused by Handler execution: com.gpt.component.common.exceptions.BusinessException: GPT-0100134
+[8792] 00:00:09.373 D -             CustomerMobileController(59) [          http-nio-8005-exec-7] [-7307051009510717766] : [preInvoke] - [-] - CustomerMobileSC#mobileCustFPLogin({loginId=herombl, sign=VlrtxD1YZYSjfImLIyFQXcwONr9cO1J/rzGk9rSxZISUrAHdTUpctvHftbmxoSm/q6zqiIC2pkp2
+eghXJOGpRUN72TXWyERNq9sU41Ge5/o9jVddQv2SNqaQJXA3iBoQy5j3deD7GCxn3ZUzNe6qtk3/
+HiC2VwVK7x/MEZrw22EIkxGKLQ4UmHNGNYGH+tNNadZ412YVllV27PNdSRkxVLQ13UGnSlbRsald
+Ea6dG+ZMz0rWZAZjSEgk6taEAHWGi825VT9FHzF670Pn45H5Ij3SSfyjj02fbY4qmXYhCe6j7FX4
+gIoyIuG5g4D5vxVcoPDarzRjrlvkKyPM9vtr5A==
+, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=NkmhbDZgNdBKwm0$, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:00:09.374 D -                        QueueInvoker(126) [          http-nio-8005-exec-7] [-7307051009510717766] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#mobileCustFPLogin({loginId=herombl, sign=VlrtxD1YZYSjfImLIyFQXcwONr9cO1J/rzGk9rSxZISUrAHdTUpctvHftbmxoSm/q6zqiIC2pkp2
+eghXJOGpRUN72TXWyERNq9sU41Ge5/o9jVddQv2SNqaQJXA3iBoQy5j3deD7GCxn3ZUzNe6qtk3/
+HiC2VwVK7x/MEZrw22EIkxGKLQ4UmHNGNYGH+tNNadZ412YVllV27PNdSRkxVLQ13UGnSlbRsald
+Ea6dG+ZMz0rWZAZjSEgk6taEAHWGi825VT9FHzF670Pn45H5Ij3SSfyjj02fbY4qmXYhCe6j7FX4
+gIoyIuG5g4D5vxVcoPDarzRjrlvkKyPM9vtr5A==
+, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=NkmhbDZgNdBKwm0$, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:00:09.375 D -                    ValidationAspect(266) [            ServerThreadPool-4] [-7307051009510717766] : [Validation - Input] - CustomerMobileSCImpl#mobileCustFPLogin({loginId=herombl, sign=VlrtxD1YZYSjfImLIyFQXcwONr9cO1J/rzGk9rSxZISUrAHdTUpctvHftbmxoSm/q6zqiIC2pkp2
+eghXJOGpRUN72TXWyERNq9sU41Ge5/o9jVddQv2SNqaQJXA3iBoQy5j3deD7GCxn3ZUzNe6qtk3/
+HiC2VwVK7x/MEZrw22EIkxGKLQ4UmHNGNYGH+tNNadZ412YVllV27PNdSRkxVLQ13UGnSlbRsald
+Ea6dG+ZMz0rWZAZjSEgk6taEAHWGi825VT9FHzF670Pn45H5Ij3SSfyjj02fbY4qmXYhCe6j7FX4
+gIoyIuG5g4D5vxVcoPDarzRjrlvkKyPM9vtr5A==
+, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=NkmhbDZgNdBKwm0$, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:00:09.405 D -                 IDMLoginServiceImpl(457) [            ServerThreadPool-4] [-7307051009510717766] : getLastLoginDate : 2022-06-19 23:58:25.008
+[8792] 00:00:09.405 D -                 IDMLoginServiceImpl(458) [            ServerThreadPool-4] [-7307051009510717766] : validateUserIdle diffDays : 0
+[8792] 00:00:09.452 D -            CustomerMobileController(216) [            ServerThreadPool-4] [-7307051009510717766] : 
 
 
 
 
 
-[6904] 21:39:50.214 D -            CustomerMobileController(140) [            ServerThreadPool-3] [-5099263676376399221] : session id    : ac8ccdd1-0e00-4c41-831c-704a6ef6cab9
-[6904] 21:39:50.214 D -            CustomerMobileController(141) [            ServerThreadPool-3] [-5099263676376399221] : custId      : WHYRETAIL|DEMO0999
-[6904] 21:39:50.214 D -            CustomerMobileController(142) [            ServerThreadPool-3] [-5099263676376399221] : 
+[8792] 00:00:09.453 D -            CustomerMobileController(217) [            ServerThreadPool-4] [-7307051009510717766] : session id    : 4f11c662-711d-40d6-9fb1-959191ed99e1
+[8792] 00:00:09.453 D -            CustomerMobileController(218) [            ServerThreadPool-4] [-7307051009510717766] : custId      : HEROMBL|DEMO6666
+[8792] 00:00:09.453 D -            CustomerMobileController(219) [            ServerThreadPool-4] [-7307051009510717766] : loginMenuList : [MNU_R_GPCASH_F_BILL_PAYMENT, MNU_GPCASH_F_INFO, MNU_R_GPCASH_F_TD_WITHDRAW, MNU_R_GPCASH_F_TRX_STATUS, MNU_R_GPCASH_F_BAL_SUMMARY, MNU_R_GPCASH_F_EXCHANGE_RATE, MNU_R_GPCASH_F_FUND_BENEFICIARY, MNU_R_GPCASH_F_FUND_DOMESTIC, MNU_R_GPCASH_F_FUND_INT, MNU_R_GPCASH_F_PURCHASE, MNU_R_GPCASH_F_TRX_HISTORY, MNU_GPCASH_F_ACCOUNTS, MNU_GPCASH_F_FUND_TRF, MNU_R_GPCASH_F_FUND_INHOUSE, MNU_R_GPCASH_F_TD_PLACEMENT, MNU_GPCASH_F_BILL, MNU_GPCASH_F_TD, MNU_R_GPCASH_F_NON_FIN, MNU_GPCASH_MT_PARAMETER, MNU_R_GPCASH_F_CHG_PASSWD, MNU_R_GPCASH_F_USER_DASHBOARD, MNU_GPCASH_MT_HOST_ERROR_MAPPING, MNU_R_GPCASH_F_FUND_BENEFICIARY, MNU_R_GPCASH_M_OTP]
+[8792] 00:00:09.453 D -            CustomerMobileController(220) [            ServerThreadPool-4] [-7307051009510717766] : 
 
 
 
 
 
-[6904] 21:39:50.319 D -                        QueueInvoker(201) [            ServerThreadPool-3] [-5099263676376399221] : Execution Time: 9318 ms
-[6904] 21:39:57.501 D -             CustomerMobileController(58) [          http-nio-8005-exec-3] [-5357832821848915404] : [preInvoke] - [ac8ccdd1-0e00-4c41-831c-704a6ef6cab9] - CustomerMobileSC#finalizeSetup({otp=123456, fpAvailable=false, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, menuCode=MNU_R_GPCASH_M_OTP, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999})
-[6904] 21:39:57.512 D -                        QueueInvoker(126) [          http-nio-8005-exec-3] [-5357832821848915404] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#finalizeSetup({otp=123456, fpAvailable=false, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, menuCode=MNU_R_GPCASH_M_OTP, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999})
-[6904] 21:39:57.514 D -                    ValidationAspect(266) [            ServerThreadPool-2] [-5357832821848915404] : [Validation - Input] - CustomerMobileSCImpl#finalizeSetup({otp=123456, fpAvailable=false, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, menuCode=MNU_R_GPCASH_M_OTP, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999})
-[6904] 21:39:58.732 D -                        QueueInvoker(201) [            ServerThreadPool-2] [-5357832821848915404] : Execution Time: 1220 ms
-[6904] 21:40:01.049 D -             CustomerMobileController(58) [          http-nio-8005-exec-6] [-4586403923991179324] : [preInvoke] - [-] - CustomerMobileSC#mobileCustLogin({loginId=whyretail, passwd=JqcVGF65FdFb1KcpkxLTMkeeLBQTuI5nhsKogbj6mA0=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=AjfTqPrBUUEzcG0$, menuCode=null, appCode=GPCASHIB_R})
-[6904] 21:40:01.057 D -                        QueueInvoker(126) [          http-nio-8005-exec-6] [-4586403923991179324] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#mobileCustLogin({loginId=whyretail, passwd=JqcVGF65FdFb1KcpkxLTMkeeLBQTuI5nhsKogbj6mA0=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=AjfTqPrBUUEzcG0$, menuCode=null, appCode=GPCASHIB_R})
-[6904] 21:40:01.060 D -                    ValidationAspect(266) [            ServerThreadPool-1] [-4586403923991179324] : [Validation - Input] - CustomerMobileSCImpl#mobileCustLogin({loginId=whyretail, passwd=JqcVGF65FdFb1KcpkxLTMkeeLBQTuI5nhsKogbj6mA0=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=AjfTqPrBUUEzcG0$, menuCode=null, appCode=GPCASHIB_R})
-[6904] 21:40:01.129 D -                 IDMLoginServiceImpl(409) [            ServerThreadPool-1] [-4586403923991179324] : getLastLoginDate : 2020-07-30 19:07:24.905
-[6904] 21:40:01.129 D -                 IDMLoginServiceImpl(410) [            ServerThreadPool-1] [-4586403923991179324] : validateUserIdle diffDays : 4
-[6904] 21:40:01.240 D -                 IDMLoginServiceImpl(390) [            ServerThreadPool-1] [-4586403923991179324] : getLastChangePasswordDate : 2020-07-22 14:05:40.767
-[6904] 21:40:01.241 D -                 IDMLoginServiceImpl(391) [            ServerThreadPool-1] [-4586403923991179324] : validateUserPasswordExpired diffDays : 12
-[6904] 21:40:02.407 D -            CustomerMobileController(214) [            ServerThreadPool-1] [-4586403923991179324] : 
+[8792] 00:00:09.454 D -                        QueueInvoker(201) [            ServerThreadPool-4] [-7307051009510717766] : Execution Time: 79 ms
+[8792] 00:01:33.148 D -             CustomerMobileController(59) [          http-nio-8005-exec-7] [ 1699811169431013033] : [preInvoke] - [-] - CustomerMobileSC#mobileCustFPLogin({loginId=herombl, sign=TGmZxIfXfvE6rU5DsPtIOA4UnXAP+a8PLX4TTtre0Drtzd8Nzoqm23CbJXQMtX1aXYodYvLjB5xm
+ZGYSg2q8N+rY74S6ltuK+CMUHB7bKJ0uQvKxb7jrA48aoKcYzfl17Ml/V6RuAGkUKoKhKX8UnytQ
+wi6srBZEBn2RM/G5b4zxiOotESEl0ZIvoiY91nNlAxar7woa36eNCgnI0CPG/Tyd65baTCoSbkVs
+FsK9DDFQprz82v68QvXIWTEcDhL9lZSX5Y7SxYlOej2z/oymLMhkHAM+vyXITSNpWE2IlNKtSfVz
+4Lagt16nb/8SfiOluD4GC7c+csJkeVN/vt4/XA==
+, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=EZlZcxnzlcOFxU1#, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:01:33.149 D -                        QueueInvoker(126) [          http-nio-8005-exec-7] [ 1699811169431013033] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#mobileCustFPLogin({loginId=herombl, sign=TGmZxIfXfvE6rU5DsPtIOA4UnXAP+a8PLX4TTtre0Drtzd8Nzoqm23CbJXQMtX1aXYodYvLjB5xm
+ZGYSg2q8N+rY74S6ltuK+CMUHB7bKJ0uQvKxb7jrA48aoKcYzfl17Ml/V6RuAGkUKoKhKX8UnytQ
+wi6srBZEBn2RM/G5b4zxiOotESEl0ZIvoiY91nNlAxar7woa36eNCgnI0CPG/Tyd65baTCoSbkVs
+FsK9DDFQprz82v68QvXIWTEcDhL9lZSX5Y7SxYlOej2z/oymLMhkHAM+vyXITSNpWE2IlNKtSfVz
+4Lagt16nb/8SfiOluD4GC7c+csJkeVN/vt4/XA==
+, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=EZlZcxnzlcOFxU1#, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:01:33.149 D -                    ValidationAspect(266) [            ServerThreadPool-3] [ 1699811169431013033] : [Validation - Input] - CustomerMobileSCImpl#mobileCustFPLogin({loginId=herombl, sign=TGmZxIfXfvE6rU5DsPtIOA4UnXAP+a8PLX4TTtre0Drtzd8Nzoqm23CbJXQMtX1aXYodYvLjB5xm
+ZGYSg2q8N+rY74S6ltuK+CMUHB7bKJ0uQvKxb7jrA48aoKcYzfl17Ml/V6RuAGkUKoKhKX8UnytQ
+wi6srBZEBn2RM/G5b4zxiOotESEl0ZIvoiY91nNlAxar7woa36eNCgnI0CPG/Tyd65baTCoSbkVs
+FsK9DDFQprz82v68QvXIWTEcDhL9lZSX5Y7SxYlOej2z/oymLMhkHAM+vyXITSNpWE2IlNKtSfVz
+4Lagt16nb/8SfiOluD4GC7c+csJkeVN/vt4/XA==
+, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=EZlZcxnzlcOFxU1#, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:01:33.175 D -                 IDMLoginServiceImpl(457) [            ServerThreadPool-3] [ 1699811169431013033] : getLastLoginDate : 2022-06-20 00:00:09.427
+[8792] 00:01:33.176 D -                 IDMLoginServiceImpl(458) [            ServerThreadPool-3] [ 1699811169431013033] : validateUserIdle diffDays : 0
+[8792] 00:01:33.217 D -            CustomerMobileController(216) [            ServerThreadPool-3] [ 1699811169431013033] : 
 
 
 
 
 
-[6904] 21:40:02.407 D -            CustomerMobileController(215) [            ServerThreadPool-1] [-4586403923991179324] : session id    : 9ddd000f-c524-4756-a7e0-b6b5dc3fcb5e
-[6904] 21:40:02.407 D -            CustomerMobileController(216) [            ServerThreadPool-1] [-4586403923991179324] : custId      : WHYRETAIL|DEMO0999
-[6904] 21:40:02.407 D -            CustomerMobileController(217) [            ServerThreadPool-1] [-4586403923991179324] : loginMenuList : [MNU_R_GPCASH_M_OTP, MNU_R_GPCASH_F_FUND_BENEFICIARY]
-[6904] 21:40:02.407 D -            CustomerMobileController(218) [            ServerThreadPool-1] [-4586403923991179324] : 
+[8792] 00:01:33.217 D -            CustomerMobileController(217) [            ServerThreadPool-3] [ 1699811169431013033] : session id    : dac622b0-2038-4b94-9268-d584389d976f
+[8792] 00:01:33.217 D -            CustomerMobileController(218) [            ServerThreadPool-3] [ 1699811169431013033] : custId      : HEROMBL|DEMO6666
+[8792] 00:01:33.217 D -            CustomerMobileController(219) [            ServerThreadPool-3] [ 1699811169431013033] : loginMenuList : [MNU_R_GPCASH_F_BILL_PAYMENT, MNU_GPCASH_F_INFO, MNU_R_GPCASH_F_TD_WITHDRAW, MNU_R_GPCASH_F_TRX_STATUS, MNU_R_GPCASH_F_BAL_SUMMARY, MNU_R_GPCASH_F_EXCHANGE_RATE, MNU_R_GPCASH_F_FUND_BENEFICIARY, MNU_R_GPCASH_F_FUND_DOMESTIC, MNU_R_GPCASH_F_FUND_INT, MNU_R_GPCASH_F_PURCHASE, MNU_R_GPCASH_F_TRX_HISTORY, MNU_GPCASH_F_ACCOUNTS, MNU_GPCASH_F_FUND_TRF, MNU_R_GPCASH_F_FUND_INHOUSE, MNU_R_GPCASH_F_TD_PLACEMENT, MNU_GPCASH_F_BILL, MNU_GPCASH_F_TD, MNU_R_GPCASH_F_NON_FIN, MNU_GPCASH_MT_PARAMETER, MNU_R_GPCASH_F_CHG_PASSWD, MNU_R_GPCASH_F_USER_DASHBOARD, MNU_GPCASH_MT_HOST_ERROR_MAPPING, MNU_R_GPCASH_F_FUND_BENEFICIARY, MNU_R_GPCASH_M_OTP]
+[8792] 00:01:33.217 D -            CustomerMobileController(220) [            ServerThreadPool-3] [ 1699811169431013033] : 
 
 
 
 
 
-[6904] 21:40:02.408 D -                        QueueInvoker(201) [            ServerThreadPool-1] [-4586403923991179324] : Execution Time: 1350 ms
-[6904] 21:40:06.785 D -             CustomerMobileController(58) [          http-nio-8005-exec-8] [ -505619852679689832] : [preInvoke] - [9ddd000f-c524-4756-a7e0-b6b5dc3fcb5e] - CustomerMobileSC#activateDevice({otp=123456, fpAvailable=false, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, menuCode=MNU_R_GPCASH_M_OTP, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999})
-[6904] 21:40:06.792 D -                        QueueInvoker(126) [          http-nio-8005-exec-8] [ -505619852679689832] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#activateDevice({otp=123456, fpAvailable=false, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, menuCode=MNU_R_GPCASH_M_OTP, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999})
-[6904] 21:40:06.844 D -                        QueueInvoker(201) [            ServerThreadPool-4] [ -505619852679689832] : Execution Time: 51 ms
-[6904] 21:53:50.217 D -             CustomerMobileController(58) [          http-nio-8005-exec-1] [-6237701921574991557] : [preInvoke] - [-] - CustomerMobileSC#mobileCustLogin({loginId=whyretail, passwd=3dXnky+1+PimM3fre02FWfX1HwC5BhOoFO7+Mnsi9TI=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=OgJXlxzzSPhAeg6$, menuCode=null, appCode=GPCASHIB_R})
-[6904] 21:53:50.218 D -                        QueueInvoker(126) [          http-nio-8005-exec-1] [-6237701921574991557] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#mobileCustLogin({loginId=whyretail, passwd=3dXnky+1+PimM3fre02FWfX1HwC5BhOoFO7+Mnsi9TI=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=OgJXlxzzSPhAeg6$, menuCode=null, appCode=GPCASHIB_R})
-[6904] 21:53:50.220 D -                    ValidationAspect(266) [            ServerThreadPool-1] [-6237701921574991557] : [Validation - Input] - CustomerMobileSCImpl#mobileCustLogin({loginId=whyretail, passwd=3dXnky+1+PimM3fre02FWfX1HwC5BhOoFO7+Mnsi9TI=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=OgJXlxzzSPhAeg6$, menuCode=null, appCode=GPCASHIB_R})
-[6904] 21:53:50.570 D -                 IDMLoginServiceImpl(409) [            ServerThreadPool-1] [-6237701921574991557] : getLastLoginDate : 2020-08-03 21:40:01.885
-[6904] 21:53:50.570 D -                 IDMLoginServiceImpl(410) [            ServerThreadPool-1] [-6237701921574991557] : validateUserIdle diffDays : 0
-[6904] 21:53:50.572 D -                 IDMLoginServiceImpl(390) [            ServerThreadPool-1] [-6237701921574991557] : getLastChangePasswordDate : 2020-07-22 14:05:40.767
-[6904] 21:53:50.573 D -                 IDMLoginServiceImpl(391) [            ServerThreadPool-1] [-6237701921574991557] : validateUserPasswordExpired diffDays : 12
-[6904] 21:53:50.621 D -            CustomerMobileController(214) [            ServerThreadPool-1] [-6237701921574991557] : 
+[8792] 00:01:33.218 D -                        QueueInvoker(201) [            ServerThreadPool-3] [ 1699811169431013033] : Execution Time: 69 ms
+[8792] 00:02:42.711 D -             CustomerMobileController(59) [          http-nio-8005-exec-3] [ 6956499089499833817] : [preInvoke] - [-] - CustomerMobileSC#mobileCustFPLogin({loginId=herombl, sign=XGMevcKx9b3pQXj0xf4Ct2ENciWEO3370dxb/XfcF3XqevlFWTQn+Q98QTfHsq4F0Ukbxmd6Q/K+
+mRSVMbL84QbhTiK6Mhb6WtvUTef6qklDHEsdKlhtZwyN9V3GypZFBH3mcpIh0caI9GVdMHFEHgBS
+EVfGYobqnUwTK+pc6sk17IYp9ToHs4f+59AP0QumtAobu59gRvQ97IZwy7yEEfbMRka7ZzteavQU
+qzyW/CcdkuLsfMVVJDHAX/3weh6+WbGNKArcAQPwhv00ZnyUNJ/TknSkU2h1SPl6Zu7x60B9IA4L
+zgPUTX4seNH73ID3MT/xm/VRf0CB6K8e2duO8A==
+, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=GiuaHupVnNLyum6&, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:02:42.712 D -                        QueueInvoker(126) [          http-nio-8005-exec-3] [ 6956499089499833817] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#mobileCustFPLogin({loginId=herombl, sign=XGMevcKx9b3pQXj0xf4Ct2ENciWEO3370dxb/XfcF3XqevlFWTQn+Q98QTfHsq4F0Ukbxmd6Q/K+
+mRSVMbL84QbhTiK6Mhb6WtvUTef6qklDHEsdKlhtZwyN9V3GypZFBH3mcpIh0caI9GVdMHFEHgBS
+EVfGYobqnUwTK+pc6sk17IYp9ToHs4f+59AP0QumtAobu59gRvQ97IZwy7yEEfbMRka7ZzteavQU
+qzyW/CcdkuLsfMVVJDHAX/3weh6+WbGNKArcAQPwhv00ZnyUNJ/TknSkU2h1SPl6Zu7x60B9IA4L
+zgPUTX4seNH73ID3MT/xm/VRf0CB6K8e2duO8A==
+, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=GiuaHupVnNLyum6&, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:02:42.715 D -                    ValidationAspect(266) [            ServerThreadPool-1] [ 6956499089499833817] : [Validation - Input] - CustomerMobileSCImpl#mobileCustFPLogin({loginId=herombl, sign=XGMevcKx9b3pQXj0xf4Ct2ENciWEO3370dxb/XfcF3XqevlFWTQn+Q98QTfHsq4F0Ukbxmd6Q/K+
+mRSVMbL84QbhTiK6Mhb6WtvUTef6qklDHEsdKlhtZwyN9V3GypZFBH3mcpIh0caI9GVdMHFEHgBS
+EVfGYobqnUwTK+pc6sk17IYp9ToHs4f+59AP0QumtAobu59gRvQ97IZwy7yEEfbMRka7ZzteavQU
+qzyW/CcdkuLsfMVVJDHAX/3weh6+WbGNKArcAQPwhv00ZnyUNJ/TknSkU2h1SPl6Zu7x60B9IA4L
+zgPUTX4seNH73ID3MT/xm/VRf0CB6K8e2duO8A==
+, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=GiuaHupVnNLyum6&, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:02:42.790 D -                 IDMLoginServiceImpl(457) [            ServerThreadPool-1] [ 6956499089499833817] : getLastLoginDate : 2022-06-20 00:01:33.195
+[8792] 00:02:42.790 D -                 IDMLoginServiceImpl(458) [            ServerThreadPool-1] [ 6956499089499833817] : validateUserIdle diffDays : 0
+[8792] 00:02:42.831 D -            CustomerMobileController(216) [            ServerThreadPool-1] [ 6956499089499833817] : 
 
 
 
 
 
-[6904] 21:53:50.621 D -            CustomerMobileController(215) [            ServerThreadPool-1] [-6237701921574991557] : session id    : 4ccf3b3d-2250-47d4-86db-1c45c5611176
-[6904] 21:53:50.621 D -            CustomerMobileController(216) [            ServerThreadPool-1] [-6237701921574991557] : custId      : WHYRETAIL|DEMO0999
-[6904] 21:53:50.621 D -            CustomerMobileController(217) [            ServerThreadPool-1] [-6237701921574991557] : loginMenuList : [MNU_R_GPCASH_M_OTP, MNU_R_GPCASH_F_FUND_BENEFICIARY]
-[6904] 21:53:50.622 D -            CustomerMobileController(218) [            ServerThreadPool-1] [-6237701921574991557] : 
+[8792] 00:02:42.831 D -            CustomerMobileController(217) [            ServerThreadPool-1] [ 6956499089499833817] : session id    : f9ea72f4-3587-4114-833f-92eaf4564865
+[8792] 00:02:42.831 D -            CustomerMobileController(218) [            ServerThreadPool-1] [ 6956499089499833817] : custId      : HEROMBL|DEMO6666
+[8792] 00:02:42.831 D -            CustomerMobileController(219) [            ServerThreadPool-1] [ 6956499089499833817] : loginMenuList : [MNU_R_GPCASH_F_BILL_PAYMENT, MNU_GPCASH_F_INFO, MNU_R_GPCASH_F_TD_WITHDRAW, MNU_R_GPCASH_F_TRX_STATUS, MNU_R_GPCASH_F_BAL_SUMMARY, MNU_R_GPCASH_F_EXCHANGE_RATE, MNU_R_GPCASH_F_FUND_BENEFICIARY, MNU_R_GPCASH_F_FUND_DOMESTIC, MNU_R_GPCASH_F_FUND_INT, MNU_R_GPCASH_F_PURCHASE, MNU_R_GPCASH_F_TRX_HISTORY, MNU_GPCASH_F_ACCOUNTS, MNU_GPCASH_F_FUND_TRF, MNU_R_GPCASH_F_FUND_INHOUSE, MNU_R_GPCASH_F_TD_PLACEMENT, MNU_GPCASH_F_BILL, MNU_GPCASH_F_TD, MNU_R_GPCASH_F_NON_FIN, MNU_GPCASH_MT_PARAMETER, MNU_R_GPCASH_F_CHG_PASSWD, MNU_R_GPCASH_F_USER_DASHBOARD, MNU_GPCASH_MT_HOST_ERROR_MAPPING, MNU_R_GPCASH_F_FUND_BENEFICIARY, MNU_R_GPCASH_M_OTP]
+[8792] 00:02:42.832 D -            CustomerMobileController(220) [            ServerThreadPool-1] [ 6956499089499833817] : 
 
 
 
 
 
-[6904] 21:53:50.622 D -                        QueueInvoker(201) [            ServerThreadPool-1] [-6237701921574991557] : Execution Time: 403 ms
-[6904] 21:53:55.058 D -             CustomerMobileController(58) [          http-nio-8005-exec-4] [-1149062519977261306] : [preInvoke] - [4ccf3b3d-2250-47d4-86db-1c45c5611176] - CustomerMobileSC#activateDevice({otp=123456, fpAvailable=false, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, menuCode=MNU_R_GPCASH_M_OTP, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999})
-[6904] 21:53:55.059 D -                        QueueInvoker(126) [          http-nio-8005-exec-4] [-1149062519977261306] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#activateDevice({otp=123456, fpAvailable=false, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, menuCode=MNU_R_GPCASH_M_OTP, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999})
-[6904] 21:53:55.082 D -                        QueueInvoker(201) [            ServerThreadPool-2] [-1149062519977261306] : Execution Time: 23 ms
-[6904] 21:57:05.894 D -             CustomerMobileController(58) [         http-nio-8005-exec-10] [ 5969137002892771454] : [preInvoke] - [-] - CustomerMobileSC#mobileCustLogin({loginId=whyretail, passwd=xGKgLDM+yT+xLYriVHi8o6CD3rkK/L5vCbtXLkwPE+k=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=CoHTPNxYGmHiLS0#, menuCode=null, appCode=GPCASHIB_R})
-[6904] 21:57:06.116 D -                        QueueInvoker(126) [         http-nio-8005-exec-10] [ 5969137002892771454] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#mobileCustLogin({loginId=whyretail, passwd=xGKgLDM+yT+xLYriVHi8o6CD3rkK/L5vCbtXLkwPE+k=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=CoHTPNxYGmHiLS0#, menuCode=null, appCode=GPCASHIB_R})
-[6904] 21:57:06.120 D -                    ValidationAspect(266) [            ServerThreadPool-1] [ 5969137002892771454] : [Validation - Input] - CustomerMobileSCImpl#mobileCustLogin({loginId=whyretail, passwd=xGKgLDM+yT+xLYriVHi8o6CD3rkK/L5vCbtXLkwPE+k=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=CoHTPNxYGmHiLS0#, menuCode=null, appCode=GPCASHIB_R})
-[6904] 21:57:06.133 D -                 IDMLoginServiceImpl(409) [            ServerThreadPool-1] [ 5969137002892771454] : getLastLoginDate : 2020-08-03 21:53:50.59
-[6904] 21:57:06.134 D -                 IDMLoginServiceImpl(410) [            ServerThreadPool-1] [ 5969137002892771454] : validateUserIdle diffDays : 0
-[6904] 21:57:06.136 D -                 IDMLoginServiceImpl(390) [            ServerThreadPool-1] [ 5969137002892771454] : getLastChangePasswordDate : 2020-07-22 14:05:40.767
-[6904] 21:57:06.137 D -                 IDMLoginServiceImpl(391) [            ServerThreadPool-1] [ 5969137002892771454] : validateUserPasswordExpired diffDays : 12
-[6904] 21:57:06.797 D -            CustomerMobileController(214) [            ServerThreadPool-1] [ 5969137002892771454] : 
+[8792] 00:02:42.832 D -                        QueueInvoker(201) [            ServerThreadPool-1] [ 6956499089499833817] : Execution Time: 118 ms
+[8792] 00:03:38.167 D -             CustomerMobileController(59) [         http-nio-8005-exec-10] [-4793717484552895637] : [preInvoke] - [-] - CustomerMobileSC#mobileCustFPLogin({loginId=herombl, sign=llL9iVNqrNj7q5XAFnN0r6U5q1o7ZMee2GcnnsT157zYDoKPlJmRlbIdNE61o0MN+EpZ0BeqL3wj
+lC+pT+Mkf/WE14sMlYZnEbjCruBKEXDOTLkLDYD7q4roemhBE53yeMHnSZu0pREpwHeWbY8Vnlp0
+Wh4GyI9FnpRKSgXPmGye2lhp/q52Zx1yQR1OJLquV9IKcq6IkekWAvNjWKPBpKDEVGMqmgHvaQWI
+/uNkk/MXiHAWL4Gt1SDK9+L6brO9GODFgsAJqhGETWmlEp5Jjw5Jg8AadpzS+s9yHHTuXTMf6WWN
+1/D4TdsGs09BV95vj7wDNrxiL4rO4tBPX52xDA==
+, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=WEGBXyEtFMKzVo1&, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:03:38.169 D -                        QueueInvoker(126) [         http-nio-8005-exec-10] [-4793717484552895637] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#mobileCustFPLogin({loginId=herombl, sign=llL9iVNqrNj7q5XAFnN0r6U5q1o7ZMee2GcnnsT157zYDoKPlJmRlbIdNE61o0MN+EpZ0BeqL3wj
+lC+pT+Mkf/WE14sMlYZnEbjCruBKEXDOTLkLDYD7q4roemhBE53yeMHnSZu0pREpwHeWbY8Vnlp0
+Wh4GyI9FnpRKSgXPmGye2lhp/q52Zx1yQR1OJLquV9IKcq6IkekWAvNjWKPBpKDEVGMqmgHvaQWI
+/uNkk/MXiHAWL4Gt1SDK9+L6brO9GODFgsAJqhGETWmlEp5Jjw5Jg8AadpzS+s9yHHTuXTMf6WWN
+1/D4TdsGs09BV95vj7wDNrxiL4rO4tBPX52xDA==
+, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=WEGBXyEtFMKzVo1&, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:03:38.173 D -                    ValidationAspect(266) [            ServerThreadPool-5] [-4793717484552895637] : [Validation - Input] - CustomerMobileSCImpl#mobileCustFPLogin({loginId=herombl, sign=llL9iVNqrNj7q5XAFnN0r6U5q1o7ZMee2GcnnsT157zYDoKPlJmRlbIdNE61o0MN+EpZ0BeqL3wj
+lC+pT+Mkf/WE14sMlYZnEbjCruBKEXDOTLkLDYD7q4roemhBE53yeMHnSZu0pREpwHeWbY8Vnlp0
+Wh4GyI9FnpRKSgXPmGye2lhp/q52Zx1yQR1OJLquV9IKcq6IkekWAvNjWKPBpKDEVGMqmgHvaQWI
+/uNkk/MXiHAWL4Gt1SDK9+L6brO9GODFgsAJqhGETWmlEp5Jjw5Jg8AadpzS+s9yHHTuXTMf6WWN
+1/D4TdsGs09BV95vj7wDNrxiL4rO4tBPX52xDA==
+, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=WEGBXyEtFMKzVo1&, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:03:38.205 D -                 IDMLoginServiceImpl(457) [            ServerThreadPool-5] [-4793717484552895637] : getLastLoginDate : 2022-06-20 00:02:42.809
+[8792] 00:03:38.206 D -                 IDMLoginServiceImpl(458) [            ServerThreadPool-5] [-4793717484552895637] : validateUserIdle diffDays : 0
+[8792] 00:03:38.248 D -            CustomerMobileController(216) [            ServerThreadPool-5] [-4793717484552895637] : 
 
 
 
 
 
-[6904] 21:57:06.797 D -            CustomerMobileController(215) [            ServerThreadPool-1] [ 5969137002892771454] : session id    : 9d674a22-22f1-4e95-a89e-8f4a7efec293
-[6904] 21:57:06.798 D -            CustomerMobileController(216) [            ServerThreadPool-1] [ 5969137002892771454] : custId      : WHYRETAIL|DEMO0999
-[6904] 21:57:06.798 D -            CustomerMobileController(217) [            ServerThreadPool-1] [ 5969137002892771454] : loginMenuList : [MNU_R_GPCASH_M_OTP, MNU_R_GPCASH_F_FUND_BENEFICIARY]
-[6904] 21:57:06.798 D -            CustomerMobileController(218) [            ServerThreadPool-1] [ 5969137002892771454] : 
+[8792] 00:03:38.248 D -            CustomerMobileController(217) [            ServerThreadPool-5] [-4793717484552895637] : session id    : 6da581e4-bc2f-46fd-a24c-d9bbeaa58697
+[8792] 00:03:38.248 D -            CustomerMobileController(218) [            ServerThreadPool-5] [-4793717484552895637] : custId      : HEROMBL|DEMO6666
+[8792] 00:03:38.248 D -            CustomerMobileController(219) [            ServerThreadPool-5] [-4793717484552895637] : loginMenuList : [MNU_R_GPCASH_F_BILL_PAYMENT, MNU_GPCASH_F_INFO, MNU_R_GPCASH_F_TD_WITHDRAW, MNU_R_GPCASH_F_TRX_STATUS, MNU_R_GPCASH_F_BAL_SUMMARY, MNU_R_GPCASH_F_EXCHANGE_RATE, MNU_R_GPCASH_F_FUND_BENEFICIARY, MNU_R_GPCASH_F_FUND_DOMESTIC, MNU_R_GPCASH_F_FUND_INT, MNU_R_GPCASH_F_PURCHASE, MNU_R_GPCASH_F_TRX_HISTORY, MNU_GPCASH_F_ACCOUNTS, MNU_GPCASH_F_FUND_TRF, MNU_R_GPCASH_F_FUND_INHOUSE, MNU_R_GPCASH_F_TD_PLACEMENT, MNU_GPCASH_F_BILL, MNU_GPCASH_F_TD, MNU_R_GPCASH_F_NON_FIN, MNU_GPCASH_MT_PARAMETER, MNU_R_GPCASH_F_CHG_PASSWD, MNU_R_GPCASH_F_USER_DASHBOARD, MNU_GPCASH_MT_HOST_ERROR_MAPPING, MNU_R_GPCASH_F_FUND_BENEFICIARY, MNU_R_GPCASH_M_OTP]
+[8792] 00:03:38.248 D -            CustomerMobileController(220) [            ServerThreadPool-5] [-4793717484552895637] : 
 
 
 
 
 
-[6904] 21:57:06.799 D -                        QueueInvoker(201) [            ServerThreadPool-1] [ 5969137002892771454] : Execution Time: 681 ms
-[6904] 21:57:10.700 D -             CustomerMobileController(58) [          http-nio-8005-exec-3] [-5906196135343012537] : [preInvoke] - [9d674a22-22f1-4e95-a89e-8f4a7efec293] - CustomerMobileSC#activateDevice({otp=123456, fpAvailable=false, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, menuCode=MNU_R_GPCASH_M_OTP, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999})
-[6904] 21:57:10.703 D -                        QueueInvoker(126) [          http-nio-8005-exec-3] [-5906196135343012537] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#activateDevice({otp=123456, fpAvailable=false, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, menuCode=MNU_R_GPCASH_M_OTP, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999})
-[6904] 21:57:10.717 D -                        QueueInvoker(201) [            ServerThreadPool-5] [-5906196135343012537] : Execution Time: 14 ms
-[6904] 22:06:28.387 D -             CustomerMobileController(58) [          http-nio-8005-exec-6] [-6075108112233575032] : [preInvoke] - [-] - CustomerMobileSC#mobileCustLogin({loginId=whyretail, passwd=9cwDyRlhl+3H1zQ92jihmX1KBqb1mE0kwAOu8UZXkh0=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=ZBsNwXszxRSSMH7&, menuCode=null, appCode=GPCASHIB_R})
-[6904] 22:06:28.409 D -                        QueueInvoker(126) [          http-nio-8005-exec-6] [-6075108112233575032] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#mobileCustLogin({loginId=whyretail, passwd=9cwDyRlhl+3H1zQ92jihmX1KBqb1mE0kwAOu8UZXkh0=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=ZBsNwXszxRSSMH7&, menuCode=null, appCode=GPCASHIB_R})
-[6904] 22:06:28.413 D -                    ValidationAspect(266) [            ServerThreadPool-5] [-6075108112233575032] : [Validation - Input] - CustomerMobileSCImpl#mobileCustLogin({loginId=whyretail, passwd=9cwDyRlhl+3H1zQ92jihmX1KBqb1mE0kwAOu8UZXkh0=, loginIPAddress=192.168.1.3, userAgent=okhttp/3.6.0, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, key=ZBsNwXszxRSSMH7&, menuCode=null, appCode=GPCASHIB_R})
-[6904] 22:06:28.442 D -                 IDMLoginServiceImpl(409) [            ServerThreadPool-5] [-6075108112233575032] : getLastLoginDate : 2020-08-03 21:57:06.143
-[6904] 22:06:28.443 D -                 IDMLoginServiceImpl(410) [            ServerThreadPool-5] [-6075108112233575032] : validateUserIdle diffDays : 0
-[6904] 22:06:28.444 D -                 IDMLoginServiceImpl(390) [            ServerThreadPool-5] [-6075108112233575032] : getLastChangePasswordDate : 2020-07-22 14:05:40.767
-[6904] 22:06:28.444 D -                 IDMLoginServiceImpl(391) [            ServerThreadPool-5] [-6075108112233575032] : validateUserPasswordExpired diffDays : 12
-[6904] 22:06:28.510 D -            CustomerMobileController(214) [            ServerThreadPool-5] [-6075108112233575032] : 
+[8792] 00:03:38.249 D -                        QueueInvoker(201) [            ServerThreadPool-5] [-4793717484552895637] : Execution Time: 78 ms
+[8792] 00:06:26.232 D -             CustomerMobileController(59) [          http-nio-8005-exec-8] [-2310519827238534278] : [preInvoke] - [-] - CustomerMobileSC#mobileCustFPLogin({loginId=herombl, sign=gD6+I2aJzhJRHrb3PU/KfW07SU+QctBkip5JbztlVUrOhJ3aLExoJiRsyZKTQjKIPUakDtNAHfLX
+HNsB+EIos93QLlYq1pSm4pGXgk+GNxB43iRmRzWFzMIgq6ifFlOPZn7HWX0M3w2QpE5vuvDH/78M
+SKx4TQwp0Y+aZOyQjugoAtJHqnVXcan453NV5h7oJyt6U7rj9cYJuSS4ywcXtCl6P2H0QqTrfEHP
+tsA6v15xkLAlZzzd83XnwnNusyA6MwbWubYdzPIYNiqYKbIX9WYTLULmsOhs35ef4epgorBXKrwN
+Egg+kfYig520zGdJ2tIIBV25BwYdLpjdztXkTg==
+, loginHandlesLogout=true, loginHistoryId=[bc6817cd-fc58-4fdc-8a1a-720228fa9071], loginDate=2022-06-20 00:03:38.226, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=SwphyXJGwuIZsC1&, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:06:26.234 D -                        QueueInvoker(126) [          http-nio-8005-exec-8] [-2310519827238534278] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#mobileCustFPLogin({loginId=herombl, sign=gD6+I2aJzhJRHrb3PU/KfW07SU+QctBkip5JbztlVUrOhJ3aLExoJiRsyZKTQjKIPUakDtNAHfLX
+HNsB+EIos93QLlYq1pSm4pGXgk+GNxB43iRmRzWFzMIgq6ifFlOPZn7HWX0M3w2QpE5vuvDH/78M
+SKx4TQwp0Y+aZOyQjugoAtJHqnVXcan453NV5h7oJyt6U7rj9cYJuSS4ywcXtCl6P2H0QqTrfEHP
+tsA6v15xkLAlZzzd83XnwnNusyA6MwbWubYdzPIYNiqYKbIX9WYTLULmsOhs35ef4epgorBXKrwN
+Egg+kfYig520zGdJ2tIIBV25BwYdLpjdztXkTg==
+, loginHandlesLogout=true, loginHistoryId=[bc6817cd-fc58-4fdc-8a1a-720228fa9071], loginDate=2022-06-20 00:03:38.226, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=SwphyXJGwuIZsC1&, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:06:26.239 D -                    ValidationAspect(266) [            ServerThreadPool-4] [-2310519827238534278] : [Validation - Input] - CustomerMobileSCImpl#mobileCustFPLogin({loginId=herombl, sign=gD6+I2aJzhJRHrb3PU/KfW07SU+QctBkip5JbztlVUrOhJ3aLExoJiRsyZKTQjKIPUakDtNAHfLX
+HNsB+EIos93QLlYq1pSm4pGXgk+GNxB43iRmRzWFzMIgq6ifFlOPZn7HWX0M3w2QpE5vuvDH/78M
+SKx4TQwp0Y+aZOyQjugoAtJHqnVXcan453NV5h7oJyt6U7rj9cYJuSS4ywcXtCl6P2H0QqTrfEHP
+tsA6v15xkLAlZzzd83XnwnNusyA6MwbWubYdzPIYNiqYKbIX9WYTLULmsOhs35ef4epgorBXKrwN
+Egg+kfYig520zGdJ2tIIBV25BwYdLpjdztXkTg==
+, loginHandlesLogout=true, loginHistoryId=[bc6817cd-fc58-4fdc-8a1a-720228fa9071], loginDate=2022-06-20 00:03:38.226, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=SwphyXJGwuIZsC1&, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:06:26.301 D -                 IDMLoginServiceImpl(457) [            ServerThreadPool-4] [-2310519827238534278] : getLastLoginDate : 2022-06-20 00:03:38.226
+[8792] 00:06:26.301 D -                 IDMLoginServiceImpl(458) [            ServerThreadPool-4] [-2310519827238534278] : validateUserIdle diffDays : 0
+[8792] 00:06:26.343 D -            CustomerMobileController(216) [            ServerThreadPool-4] [-2310519827238534278] : 
 
 
 
 
 
-[6904] 22:06:28.510 D -            CustomerMobileController(215) [            ServerThreadPool-5] [-6075108112233575032] : session id    : fef1951d-050e-4d45-a18c-66c690662a8d
-[6904] 22:06:28.510 D -            CustomerMobileController(216) [            ServerThreadPool-5] [-6075108112233575032] : custId      : WHYRETAIL|DEMO0999
-[6904] 22:06:28.510 D -            CustomerMobileController(217) [            ServerThreadPool-5] [-6075108112233575032] : loginMenuList : [MNU_R_GPCASH_M_OTP, MNU_R_GPCASH_F_FUND_BENEFICIARY]
-[6904] 22:06:28.510 D -            CustomerMobileController(218) [            ServerThreadPool-5] [-6075108112233575032] : 
+[8792] 00:06:26.344 D -            CustomerMobileController(217) [            ServerThreadPool-4] [-2310519827238534278] : session id    : faab1f41-f10f-4076-b4be-bc1b4a09f5ac
+[8792] 00:06:26.344 D -            CustomerMobileController(218) [            ServerThreadPool-4] [-2310519827238534278] : custId      : HEROMBL|DEMO6666
+[8792] 00:06:26.344 D -            CustomerMobileController(219) [            ServerThreadPool-4] [-2310519827238534278] : loginMenuList : [MNU_R_GPCASH_F_BILL_PAYMENT, MNU_GPCASH_F_INFO, MNU_R_GPCASH_F_TD_WITHDRAW, MNU_R_GPCASH_F_TRX_STATUS, MNU_R_GPCASH_F_BAL_SUMMARY, MNU_R_GPCASH_F_EXCHANGE_RATE, MNU_R_GPCASH_F_FUND_BENEFICIARY, MNU_R_GPCASH_F_FUND_DOMESTIC, MNU_R_GPCASH_F_FUND_INT, MNU_R_GPCASH_F_PURCHASE, MNU_R_GPCASH_F_TRX_HISTORY, MNU_GPCASH_F_ACCOUNTS, MNU_GPCASH_F_FUND_TRF, MNU_R_GPCASH_F_FUND_INHOUSE, MNU_R_GPCASH_F_TD_PLACEMENT, MNU_GPCASH_F_BILL, MNU_GPCASH_F_TD, MNU_R_GPCASH_F_NON_FIN, MNU_GPCASH_MT_PARAMETER, MNU_R_GPCASH_F_CHG_PASSWD, MNU_R_GPCASH_F_USER_DASHBOARD, MNU_GPCASH_MT_HOST_ERROR_MAPPING, MNU_R_GPCASH_F_FUND_BENEFICIARY, MNU_R_GPCASH_M_OTP]
+[8792] 00:06:26.344 D -            CustomerMobileController(220) [            ServerThreadPool-4] [-2310519827238534278] : 
 
 
 
 
 
-[6904] 22:06:28.530 D -                        QueueInvoker(201) [            ServerThreadPool-5] [-6075108112233575032] : Execution Time: 120 ms
-[6904] 22:06:32.826 D -             CustomerMobileController(58) [          http-nio-8005-exec-3] [  249706239247273694] : [preInvoke] - [fef1951d-050e-4d45-a18c-66c690662a8d] - CustomerMobileSC#activateDevice({otp=123456, fpAvailable=false, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, menuCode=MNU_R_GPCASH_M_OTP, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999})
-[6904] 22:06:32.842 D -                        QueueInvoker(126) [          http-nio-8005-exec-3] [  249706239247273694] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#activateDevice({otp=123456, fpAvailable=false, device={id=358022021248283, name=SM-G9550, model=SM-N9005, osType=android, osVer=7.1.2, appVer=1.0.1, pushId=cjC7Z_qBoCs:APA91bE1A7wdFRgced7OJ4ADJ8QRWEAaeTnmsWqMQRCWTkDF3OfNvAYDjJZiDGBnRzHCCaCC6qkxhynP8VDO-nLtaZh_0YCYp5iO9AbdDkuHQUEoD7Admb6McE0Kr_SQao17d756sKWx}, menuCode=MNU_R_GPCASH_M_OTP, appCode=GPCASHIB_R, customerId=WHYRETAIL|DEMO0999})
-[6904] 22:06:32.856 D -                        QueueInvoker(201) [            ServerThreadPool-4] [  249706239247273694] : Execution Time: 13 ms
+[8792] 00:06:26.344 D -                        QueueInvoker(201) [            ServerThreadPool-4] [-2310519827238534278] : Execution Time: 107 ms
+[8792] 00:07:57.577 D -             CustomerMobileController(59) [          http-nio-8005-exec-6] [-1397816906946296753] : [preInvoke] - [-] - CustomerMobileSC#mobileCustFPLogin({loginId=herombl, sign=prB017F/kjP1yyNMa9NkwXq3QEZ0LLGWl2tFWa8/ZSbguKtqf4SmK9wIljkmfONi9Oty1+IKLjMl
+rxlbUq/xdXPySQAO7eD6m6QrbdDCxhPUHQzyWL+IH9hzkLQV4AQUEzIqIGNggoICuSuuosrB/0fe
+z6KFLlb2hq7Wiwojh4mHeqDcW6VnAALH0VxKRNuWvIv8VuElo2xZvItmbqR6ffc7f6Ycqp+P/yRy
+u3DLFetzFkW0CE9wjiQ+p2//WcYmULW5d/dBCFxhbM3PQjcW5L2/ESI+RXq6aXw02h8yGs9QDTwH
+hfZjSV4/RUzYhzo2tyv8SEOcaX1Ho8ZOpwQZdA==
+, loginHandlesLogout=true, loginHistoryId=[f6008bbf-ba6b-453a-9ecb-7ab9cf51a3a5], loginDate=2022-06-20 00:06:26.322, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=IbVsnzQomlsAis9$, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:07:57.578 D -                        QueueInvoker(126) [          http-nio-8005-exec-6] [-1397816906946296753] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#mobileCustFPLogin({loginId=herombl, sign=prB017F/kjP1yyNMa9NkwXq3QEZ0LLGWl2tFWa8/ZSbguKtqf4SmK9wIljkmfONi9Oty1+IKLjMl
+rxlbUq/xdXPySQAO7eD6m6QrbdDCxhPUHQzyWL+IH9hzkLQV4AQUEzIqIGNggoICuSuuosrB/0fe
+z6KFLlb2hq7Wiwojh4mHeqDcW6VnAALH0VxKRNuWvIv8VuElo2xZvItmbqR6ffc7f6Ycqp+P/yRy
+u3DLFetzFkW0CE9wjiQ+p2//WcYmULW5d/dBCFxhbM3PQjcW5L2/ESI+RXq6aXw02h8yGs9QDTwH
+hfZjSV4/RUzYhzo2tyv8SEOcaX1Ho8ZOpwQZdA==
+, loginHandlesLogout=true, loginHistoryId=[f6008bbf-ba6b-453a-9ecb-7ab9cf51a3a5], loginDate=2022-06-20 00:06:26.322, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=IbVsnzQomlsAis9$, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:07:57.579 D -                    ValidationAspect(266) [            ServerThreadPool-5] [-1397816906946296753] : [Validation - Input] - CustomerMobileSCImpl#mobileCustFPLogin({loginId=herombl, sign=prB017F/kjP1yyNMa9NkwXq3QEZ0LLGWl2tFWa8/ZSbguKtqf4SmK9wIljkmfONi9Oty1+IKLjMl
+rxlbUq/xdXPySQAO7eD6m6QrbdDCxhPUHQzyWL+IH9hzkLQV4AQUEzIqIGNggoICuSuuosrB/0fe
+z6KFLlb2hq7Wiwojh4mHeqDcW6VnAALH0VxKRNuWvIv8VuElo2xZvItmbqR6ffc7f6Ycqp+P/yRy
+u3DLFetzFkW0CE9wjiQ+p2//WcYmULW5d/dBCFxhbM3PQjcW5L2/ESI+RXq6aXw02h8yGs9QDTwH
+hfZjSV4/RUzYhzo2tyv8SEOcaX1Ho8ZOpwQZdA==
+, loginHandlesLogout=true, loginHistoryId=[f6008bbf-ba6b-453a-9ecb-7ab9cf51a3a5], loginDate=2022-06-20 00:06:26.322, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=IbVsnzQomlsAis9$, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:07:57.683 D -                 IDMLoginServiceImpl(457) [            ServerThreadPool-5] [-1397816906946296753] : getLastLoginDate : 2022-06-20 00:06:26.322
+[8792] 00:07:57.683 D -                 IDMLoginServiceImpl(458) [            ServerThreadPool-5] [-1397816906946296753] : validateUserIdle diffDays : 0
+[8792] 00:07:57.698 D -            CustomerMobileController(163) [            ServerThreadPool-5] [-1397816906946296753] : onException : com.gpt.component.common.exceptions.BusinessException: GPT-0100134
+[8792] 00:07:57.699 D -                        QueueInvoker(201) [            ServerThreadPool-5] [-1397816906946296753] : Execution Time: 120 ms
+[8792] 00:07:57.701 E -        GlobalDefaultExceptionHandler(47) [          http-nio-8005-exec-8] [-1397816906946296753] : GPT-0100134: User is still login
+com.gpt.component.common.exceptions.BusinessException: GPT-0100134
+	at com.gpt.component.idm.login.services.IDMLoginServiceImpl.validateUserStillLogin(IDMLoginServiceImpl.java:486)
+	at com.gpt.component.idm.login.services.IDMLoginServiceImpl.login(IDMLoginServiceImpl.java:210)
+	at com.gpt.component.idm.login.services.IDMLoginServiceImpl$$FastClassBySpringCGLIB$$1fba14d0.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.component.idm.login.services.IDMLoginServiceImpl$$EnhancerBySpringCGLIB$$89e242c0.login(<generated>)
+	at com.gpt.product.gpcash.retail.mobile.services.CustomerMobileServiceImpl.mobileCustFPLogin(CustomerMobileServiceImpl.java:407)
+	at com.gpt.product.gpcash.retail.mobile.services.CustomerMobileServiceImpl$$FastClassBySpringCGLIB$$eb0bd909.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.retail.mobile.services.CustomerMobileServiceImpl$$EnhancerBySpringCGLIB$$78b37b0b.mobileCustFPLogin(<generated>)
+	at com.gpt.product.gpcash.retail.mobile.services.CustomerMobileSCImpl.mobileCustFPLogin(CustomerMobileSCImpl.java:112)
+	at com.gpt.product.gpcash.retail.mobile.services.CustomerMobileSCImpl$$FastClassBySpringCGLIB$$7942e15c.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
+	at com.gpt.component.common.validation.ValidationAspect.validate(ValidationAspect.java:270)
+	at sun.reflect.GeneratedMethodAccessor141.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.gpt.product.gpcash.retail.mobile.services.CustomerMobileSCImpl$$EnhancerBySpringCGLIB$$1ab10536.mobileCustFPLogin(<generated>)
+	at sun.reflect.GeneratedMethodAccessor234.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:63)
+	at com.gpt.component.common.spring.Util.invokeSpringBean(Util.java:85)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:84)
+	at com.gpt.component.common.spring.listener.ServiceBeanInvokerListener.onMessage(ServiceBeanInvokerListener.java:25)
+	at com.gpt.component.common.invoker.queue.consumer.handler.QueueHandler.processMessage(QueueHandler.java:40)
+	at com.gpt.component.common.invoker.queue.consumer.QueueConsumer$Worker.run(QueueConsumer.java:212)
+[8792] 00:07:57.702 W -   ExceptionHandlerExceptionResolver(189) [          http-nio-8005-exec-8] [-1397816906946296753] : Resolved exception caused by Handler execution: com.gpt.component.common.exceptions.BusinessException: GPT-0100134
+[8792] 00:08:07.971 D -             CustomerMobileController(59) [          http-nio-8005-exec-2] [-7207547161555090829] : [preInvoke] - [-] - CustomerMobileSC#mobileCustFPLogin({loginId=herombl, sign=CninwWByb3azI1djRfO1u9QdfPcDnAmeq4JqR20c5kw1b8+5UXrdTsFq2Ji3/wdQaIaYw0gCqAyP
+fPIx6ISkMowsI1IcdGL6sCbpKz+EyZosrUUDlOmjpK25TcyHte3qkQgSUbxHANXVr/ij+ULhzT50
+KGsTaqUn2xe3950Fn6nguDmtgRpP5a1ZNZbQCNzqHEjotEabvXkiaVk8jQQPd+PgAEMzzWubroqf
+eOHqfvEmTVSV2xuAn8lRJERtsmCJ3iMCjZR/+YVd9ac/Akh+eGmMTj0U1GoFzltjdGGjEHtirbRj
+4Gk8POCLOs7ziofuCBwViMSH8k93sInkIWLQmw==
+, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=BMhcJQlqHKaTwV8#, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:08:07.972 D -                        QueueInvoker(126) [          http-nio-8005-exec-2] [-7207547161555090829] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#mobileCustFPLogin({loginId=herombl, sign=CninwWByb3azI1djRfO1u9QdfPcDnAmeq4JqR20c5kw1b8+5UXrdTsFq2Ji3/wdQaIaYw0gCqAyP
+fPIx6ISkMowsI1IcdGL6sCbpKz+EyZosrUUDlOmjpK25TcyHte3qkQgSUbxHANXVr/ij+ULhzT50
+KGsTaqUn2xe3950Fn6nguDmtgRpP5a1ZNZbQCNzqHEjotEabvXkiaVk8jQQPd+PgAEMzzWubroqf
+eOHqfvEmTVSV2xuAn8lRJERtsmCJ3iMCjZR/+YVd9ac/Akh+eGmMTj0U1GoFzltjdGGjEHtirbRj
+4Gk8POCLOs7ziofuCBwViMSH8k93sInkIWLQmw==
+, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=BMhcJQlqHKaTwV8#, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:08:07.973 D -                    ValidationAspect(266) [            ServerThreadPool-3] [-7207547161555090829] : [Validation - Input] - CustomerMobileSCImpl#mobileCustFPLogin({loginId=herombl, sign=CninwWByb3azI1djRfO1u9QdfPcDnAmeq4JqR20c5kw1b8+5UXrdTsFq2Ji3/wdQaIaYw0gCqAyP
+fPIx6ISkMowsI1IcdGL6sCbpKz+EyZosrUUDlOmjpK25TcyHte3qkQgSUbxHANXVr/ij+ULhzT50
+KGsTaqUn2xe3950Fn6nguDmtgRpP5a1ZNZbQCNzqHEjotEabvXkiaVk8jQQPd+PgAEMzzWubroqf
+eOHqfvEmTVSV2xuAn8lRJERtsmCJ3iMCjZR/+YVd9ac/Akh+eGmMTj0U1GoFzltjdGGjEHtirbRj
+4Gk8POCLOs7ziofuCBwViMSH8k93sInkIWLQmw==
+, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=BMhcJQlqHKaTwV8#, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:08:08.001 D -                 IDMLoginServiceImpl(457) [            ServerThreadPool-3] [-7207547161555090829] : getLastLoginDate : 2022-06-20 00:06:26.322
+[8792] 00:08:08.002 D -                 IDMLoginServiceImpl(458) [            ServerThreadPool-3] [-7207547161555090829] : validateUserIdle diffDays : 0
+[8792] 00:08:08.070 D -            CustomerMobileController(216) [            ServerThreadPool-3] [-7207547161555090829] : 
+
+
+
+
+
+[8792] 00:08:08.070 D -            CustomerMobileController(217) [            ServerThreadPool-3] [-7207547161555090829] : session id    : 122d69f9-1ef1-4c80-b5c7-bd1a4fbd87ee
+[8792] 00:08:08.070 D -            CustomerMobileController(218) [            ServerThreadPool-3] [-7207547161555090829] : custId      : HEROMBL|DEMO6666
+[8792] 00:08:08.070 D -            CustomerMobileController(219) [            ServerThreadPool-3] [-7207547161555090829] : loginMenuList : [MNU_R_GPCASH_F_BILL_PAYMENT, MNU_GPCASH_F_INFO, MNU_R_GPCASH_F_TD_WITHDRAW, MNU_R_GPCASH_F_TRX_STATUS, MNU_R_GPCASH_F_BAL_SUMMARY, MNU_R_GPCASH_F_EXCHANGE_RATE, MNU_R_GPCASH_F_FUND_BENEFICIARY, MNU_R_GPCASH_F_FUND_DOMESTIC, MNU_R_GPCASH_F_FUND_INT, MNU_R_GPCASH_F_PURCHASE, MNU_R_GPCASH_F_TRX_HISTORY, MNU_GPCASH_F_ACCOUNTS, MNU_GPCASH_F_FUND_TRF, MNU_R_GPCASH_F_FUND_INHOUSE, MNU_R_GPCASH_F_TD_PLACEMENT, MNU_GPCASH_F_BILL, MNU_GPCASH_F_TD, MNU_R_GPCASH_F_NON_FIN, MNU_GPCASH_MT_PARAMETER, MNU_R_GPCASH_F_CHG_PASSWD, MNU_R_GPCASH_F_USER_DASHBOARD, MNU_GPCASH_MT_HOST_ERROR_MAPPING, MNU_R_GPCASH_F_FUND_BENEFICIARY, MNU_R_GPCASH_M_OTP]
+[8792] 00:08:08.070 D -            CustomerMobileController(220) [            ServerThreadPool-3] [-7207547161555090829] : 
+
+
+
+
+
+[8792] 00:08:08.071 D -                        QueueInvoker(201) [            ServerThreadPool-3] [-7207547161555090829] : Execution Time: 99 ms
+[8792] 00:09:36.347 D -             CustomerMobileController(59) [         http-nio-8005-exec-10] [-2425068889449348763] : [preInvoke] - [-] - CustomerMobileSC#mobileCustFPLogin({loginId=herombl, sign=Dv5v1BJmglH8dqVAQyAZDYAPyPRxN2Xpj5yxq+reqLKH5MSYhqXeVJwsSGx02YwnHizLl/THUVTZ
+coEqq3TPh2Ne/WTsoKF6QLdeaYpJyUKFnxOWuyQUqRwre/ozIlHCk+loHo9WwMP7sq9aItC4vEY9
+wYwn5/3vjc+jJGRvN7vdd6jS7kjXzmXAxnBotzu52BG1L3vk61OLreBVfZN1YjC9UQe4VigPCC+k
+J68g1leOeStEQColcKfHaY369jDVH5IN7wMyMJaA6L80/YoGgbytr8gsGbj5CUZWvfbW17Oc3sIE
+jx3BNocVk1iOrzATOa9G2BQSfPd3nuNx5HMfLw==
+, loginHandlesLogout=true, loginHistoryId=[bba8aaa4-d992-4138-b277-ec39b7901ec6], loginDate=2022-06-20 00:08:08.039, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=GqFxKrnTZFgNkt4#, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:09:36.350 D -                        QueueInvoker(126) [         http-nio-8005-exec-10] [-2425068889449348763] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#mobileCustFPLogin({loginId=herombl, sign=Dv5v1BJmglH8dqVAQyAZDYAPyPRxN2Xpj5yxq+reqLKH5MSYhqXeVJwsSGx02YwnHizLl/THUVTZ
+coEqq3TPh2Ne/WTsoKF6QLdeaYpJyUKFnxOWuyQUqRwre/ozIlHCk+loHo9WwMP7sq9aItC4vEY9
+wYwn5/3vjc+jJGRvN7vdd6jS7kjXzmXAxnBotzu52BG1L3vk61OLreBVfZN1YjC9UQe4VigPCC+k
+J68g1leOeStEQColcKfHaY369jDVH5IN7wMyMJaA6L80/YoGgbytr8gsGbj5CUZWvfbW17Oc3sIE
+jx3BNocVk1iOrzATOa9G2BQSfPd3nuNx5HMfLw==
+, loginHandlesLogout=true, loginHistoryId=[bba8aaa4-d992-4138-b277-ec39b7901ec6], loginDate=2022-06-20 00:08:08.039, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=GqFxKrnTZFgNkt4#, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:09:36.353 D -                    ValidationAspect(266) [            ServerThreadPool-2] [-2425068889449348763] : [Validation - Input] - CustomerMobileSCImpl#mobileCustFPLogin({loginId=herombl, sign=Dv5v1BJmglH8dqVAQyAZDYAPyPRxN2Xpj5yxq+reqLKH5MSYhqXeVJwsSGx02YwnHizLl/THUVTZ
+coEqq3TPh2Ne/WTsoKF6QLdeaYpJyUKFnxOWuyQUqRwre/ozIlHCk+loHo9WwMP7sq9aItC4vEY9
+wYwn5/3vjc+jJGRvN7vdd6jS7kjXzmXAxnBotzu52BG1L3vk61OLreBVfZN1YjC9UQe4VigPCC+k
+J68g1leOeStEQColcKfHaY369jDVH5IN7wMyMJaA6L80/YoGgbytr8gsGbj5CUZWvfbW17Oc3sIE
+jx3BNocVk1iOrzATOa9G2BQSfPd3nuNx5HMfLw==
+, loginHandlesLogout=true, loginHistoryId=[bba8aaa4-d992-4138-b277-ec39b7901ec6], loginDate=2022-06-20 00:08:08.039, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=GqFxKrnTZFgNkt4#, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:09:36.413 D -                 IDMLoginServiceImpl(457) [            ServerThreadPool-2] [-2425068889449348763] : getLastLoginDate : 2022-06-20 00:08:08.039
+[8792] 00:09:36.413 D -                 IDMLoginServiceImpl(458) [            ServerThreadPool-2] [-2425068889449348763] : validateUserIdle diffDays : 0
+[8792] 00:09:36.510 D -            CustomerMobileController(216) [            ServerThreadPool-2] [-2425068889449348763] : 
+
+
+
+
+
+[8792] 00:09:36.510 D -            CustomerMobileController(217) [            ServerThreadPool-2] [-2425068889449348763] : session id    : de658540-fb6a-44bc-81f3-c0bf5ae3dba3
+[8792] 00:09:36.511 D -            CustomerMobileController(218) [            ServerThreadPool-2] [-2425068889449348763] : custId      : HEROMBL|DEMO6666
+[8792] 00:09:36.511 D -            CustomerMobileController(219) [            ServerThreadPool-2] [-2425068889449348763] : loginMenuList : [MNU_R_GPCASH_F_BILL_PAYMENT, MNU_GPCASH_F_INFO, MNU_R_GPCASH_F_TD_WITHDRAW, MNU_R_GPCASH_F_TRX_STATUS, MNU_R_GPCASH_F_BAL_SUMMARY, MNU_R_GPCASH_F_EXCHANGE_RATE, MNU_R_GPCASH_F_FUND_BENEFICIARY, MNU_R_GPCASH_F_FUND_DOMESTIC, MNU_R_GPCASH_F_FUND_INT, MNU_R_GPCASH_F_PURCHASE, MNU_R_GPCASH_F_TRX_HISTORY, MNU_GPCASH_F_ACCOUNTS, MNU_GPCASH_F_FUND_TRF, MNU_R_GPCASH_F_FUND_INHOUSE, MNU_R_GPCASH_F_TD_PLACEMENT, MNU_GPCASH_F_BILL, MNU_GPCASH_F_TD, MNU_R_GPCASH_F_NON_FIN, MNU_GPCASH_MT_PARAMETER, MNU_R_GPCASH_F_CHG_PASSWD, MNU_R_GPCASH_F_USER_DASHBOARD, MNU_GPCASH_MT_HOST_ERROR_MAPPING, MNU_R_GPCASH_F_FUND_BENEFICIARY, MNU_R_GPCASH_M_OTP]
+[8792] 00:09:36.511 D -            CustomerMobileController(220) [            ServerThreadPool-2] [-2425068889449348763] : 
+
+
+
+
+
+[8792] 00:09:36.511 D -                        QueueInvoker(201) [            ServerThreadPool-2] [-2425068889449348763] : Execution Time: 159 ms
+[8792] 00:10:03.948 D -             CustomerMobileController(59) [          http-nio-8005-exec-6] [-4631438869793124666] : [preInvoke] - [-] - CustomerMobileSC#mobileCustFPLogin({loginId=herombl, sign=ZkFZKMEq8L5tZHlnG4/aZU22bRNAvzPXbd6ZiUwVjRjG+MAVN3B7ObhT5UryaXBP0sp3xCTow5oa
++C9ffXJhKTTe52VF+n+b8AmAnc5KKPNVBn2ZrqKzhJSjCpeUob8zLDqVEN1ZCaZw13QO9OOiGrky
+GLPRyADiAItY6KhMxV5tnLrnxK+ovcdDFiNw35S7TpKNnyvzzXKVBX66+jrTD5jIQNYVa9Mbq4Gv
+SFWot/VsgmHpSmJblRYR5hIXaXNYhfk0mJd2VhkoQMvto03ExdGYBCKpqz+BLKeLkk9/3fApe2SK
+yCWcZzbTssCBrutNntmbhYWw4mWWYM3tYItG5Q==
+, loginHandlesLogout=true, loginHistoryId=[d987eb41-e5a0-4884-ad68-4c4c0af91bd9], loginDate=2022-06-20 00:09:36.436, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=HLffVSfJaAevgU0%, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:10:03.950 D -                        QueueInvoker(126) [          http-nio-8005-exec-6] [-4631438869793124666] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#mobileCustFPLogin({loginId=herombl, sign=ZkFZKMEq8L5tZHlnG4/aZU22bRNAvzPXbd6ZiUwVjRjG+MAVN3B7ObhT5UryaXBP0sp3xCTow5oa
++C9ffXJhKTTe52VF+n+b8AmAnc5KKPNVBn2ZrqKzhJSjCpeUob8zLDqVEN1ZCaZw13QO9OOiGrky
+GLPRyADiAItY6KhMxV5tnLrnxK+ovcdDFiNw35S7TpKNnyvzzXKVBX66+jrTD5jIQNYVa9Mbq4Gv
+SFWot/VsgmHpSmJblRYR5hIXaXNYhfk0mJd2VhkoQMvto03ExdGYBCKpqz+BLKeLkk9/3fApe2SK
+yCWcZzbTssCBrutNntmbhYWw4mWWYM3tYItG5Q==
+, loginHandlesLogout=true, loginHistoryId=[d987eb41-e5a0-4884-ad68-4c4c0af91bd9], loginDate=2022-06-20 00:09:36.436, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=HLffVSfJaAevgU0%, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:10:03.957 D -                    ValidationAspect(266) [            ServerThreadPool-6] [-4631438869793124666] : [Validation - Input] - CustomerMobileSCImpl#mobileCustFPLogin({loginId=herombl, sign=ZkFZKMEq8L5tZHlnG4/aZU22bRNAvzPXbd6ZiUwVjRjG+MAVN3B7ObhT5UryaXBP0sp3xCTow5oa
++C9ffXJhKTTe52VF+n+b8AmAnc5KKPNVBn2ZrqKzhJSjCpeUob8zLDqVEN1ZCaZw13QO9OOiGrky
+GLPRyADiAItY6KhMxV5tnLrnxK+ovcdDFiNw35S7TpKNnyvzzXKVBX66+jrTD5jIQNYVa9Mbq4Gv
+SFWot/VsgmHpSmJblRYR5hIXaXNYhfk0mJd2VhkoQMvto03ExdGYBCKpqz+BLKeLkk9/3fApe2SK
+yCWcZzbTssCBrutNntmbhYWw4mWWYM3tYItG5Q==
+, loginHandlesLogout=true, loginHistoryId=[d987eb41-e5a0-4884-ad68-4c4c0af91bd9], loginDate=2022-06-20 00:09:36.436, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=HLffVSfJaAevgU0%, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:10:04.006 D -                 IDMLoginServiceImpl(457) [            ServerThreadPool-6] [-4631438869793124666] : getLastLoginDate : 2022-06-20 00:09:36.436
+[8792] 00:10:04.007 D -                 IDMLoginServiceImpl(458) [            ServerThreadPool-6] [-4631438869793124666] : validateUserIdle diffDays : 0
+[8792] 00:10:04.049 D -            CustomerMobileController(216) [            ServerThreadPool-6] [-4631438869793124666] : 
+
+
+
+
+
+[8792] 00:10:04.049 D -            CustomerMobileController(217) [            ServerThreadPool-6] [-4631438869793124666] : session id    : 2fa45dc1-202f-46ab-9910-7c0f4cf2a87d
+[8792] 00:10:04.049 D -            CustomerMobileController(218) [            ServerThreadPool-6] [-4631438869793124666] : custId      : HEROMBL|DEMO6666
+[8792] 00:10:04.050 D -            CustomerMobileController(219) [            ServerThreadPool-6] [-4631438869793124666] : loginMenuList : [MNU_R_GPCASH_F_BILL_PAYMENT, MNU_GPCASH_F_INFO, MNU_R_GPCASH_F_TD_WITHDRAW, MNU_R_GPCASH_F_TRX_STATUS, MNU_R_GPCASH_F_BAL_SUMMARY, MNU_R_GPCASH_F_EXCHANGE_RATE, MNU_R_GPCASH_F_FUND_BENEFICIARY, MNU_R_GPCASH_F_FUND_DOMESTIC, MNU_R_GPCASH_F_FUND_INT, MNU_R_GPCASH_F_PURCHASE, MNU_R_GPCASH_F_TRX_HISTORY, MNU_GPCASH_F_ACCOUNTS, MNU_GPCASH_F_FUND_TRF, MNU_R_GPCASH_F_FUND_INHOUSE, MNU_R_GPCASH_F_TD_PLACEMENT, MNU_GPCASH_F_BILL, MNU_GPCASH_F_TD, MNU_R_GPCASH_F_NON_FIN, MNU_GPCASH_MT_PARAMETER, MNU_R_GPCASH_F_CHG_PASSWD, MNU_R_GPCASH_F_USER_DASHBOARD, MNU_GPCASH_MT_HOST_ERROR_MAPPING, MNU_R_GPCASH_F_FUND_BENEFICIARY, MNU_R_GPCASH_M_OTP]
+[8792] 00:10:04.050 D -            CustomerMobileController(220) [            ServerThreadPool-6] [-4631438869793124666] : 
+
+
+
+
+
+[8792] 00:10:04.050 D -                        QueueInvoker(201) [            ServerThreadPool-6] [-4631438869793124666] : Execution Time: 98 ms
+[8792] 00:10:31.675 D -             CustomerMobileController(59) [         http-nio-8005-exec-10] [-3782258879188807969] : [preInvoke] - [-] - CustomerMobileSC#mobileCustFPLogin({loginId=herombl, sign=rzKEdBAgHvoVVutMpaKlCswo6X7OMZXPMGkICvrLFU7EJTFYGPPU7YiTKzzo6MtF450wlVsdtkD0
+2TfTMD4cmEOkGfS3Oo1QE17UCOMgPrOJTlSVnI5I/gZHMeXEV0ubG/mR8thnYeKzzukv4nCN7Xxw
+B6S7Q0fUn8GPJrTtL/W2waYnr6HOA0lPfcTgUAxMLaD7egE1rafxX5BsH8lCgjl+FWWE8HLmiv+8
+LOMLhTuDD2EuZdfzIW5kenAvM7tgdUokONbH2+fapXccm+YFkrDt16SiAvKPjrX9KaxCWXZBKKNF
+TVQXTWJHlN0dqd/bhhEc6poTWS/6uo5UZG9FDg==
+, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=UvdlkfZkoQwisw4$, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:10:31.677 D -                        QueueInvoker(126) [         http-nio-8005-exec-10] [-3782258879188807969] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#mobileCustFPLogin({loginId=herombl, sign=rzKEdBAgHvoVVutMpaKlCswo6X7OMZXPMGkICvrLFU7EJTFYGPPU7YiTKzzo6MtF450wlVsdtkD0
+2TfTMD4cmEOkGfS3Oo1QE17UCOMgPrOJTlSVnI5I/gZHMeXEV0ubG/mR8thnYeKzzukv4nCN7Xxw
+B6S7Q0fUn8GPJrTtL/W2waYnr6HOA0lPfcTgUAxMLaD7egE1rafxX5BsH8lCgjl+FWWE8HLmiv+8
+LOMLhTuDD2EuZdfzIW5kenAvM7tgdUokONbH2+fapXccm+YFkrDt16SiAvKPjrX9KaxCWXZBKKNF
+TVQXTWJHlN0dqd/bhhEc6poTWS/6uo5UZG9FDg==
+, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=UvdlkfZkoQwisw4$, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:10:31.680 D -                    ValidationAspect(266) [            ServerThreadPool-4] [-3782258879188807969] : [Validation - Input] - CustomerMobileSCImpl#mobileCustFPLogin({loginId=herombl, sign=rzKEdBAgHvoVVutMpaKlCswo6X7OMZXPMGkICvrLFU7EJTFYGPPU7YiTKzzo6MtF450wlVsdtkD0
+2TfTMD4cmEOkGfS3Oo1QE17UCOMgPrOJTlSVnI5I/gZHMeXEV0ubG/mR8thnYeKzzukv4nCN7Xxw
+B6S7Q0fUn8GPJrTtL/W2waYnr6HOA0lPfcTgUAxMLaD7egE1rafxX5BsH8lCgjl+FWWE8HLmiv+8
+LOMLhTuDD2EuZdfzIW5kenAvM7tgdUokONbH2+fapXccm+YFkrDt16SiAvKPjrX9KaxCWXZBKKNF
+TVQXTWJHlN0dqd/bhhEc6poTWS/6uo5UZG9FDg==
+, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=UvdlkfZkoQwisw4$, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:10:31.728 D -                 IDMLoginServiceImpl(457) [            ServerThreadPool-4] [-3782258879188807969] : getLastLoginDate : 2022-06-20 00:10:04.028
+[8792] 00:10:31.729 D -                 IDMLoginServiceImpl(458) [            ServerThreadPool-4] [-3782258879188807969] : validateUserIdle diffDays : 0
+[8792] 00:10:31.782 D -            CustomerMobileController(216) [            ServerThreadPool-4] [-3782258879188807969] : 
+
+
+
+
+
+[8792] 00:10:31.782 D -            CustomerMobileController(217) [            ServerThreadPool-4] [-3782258879188807969] : session id    : eab3136b-a49a-4914-98ab-5e7db8993531
+[8792] 00:10:31.782 D -            CustomerMobileController(218) [            ServerThreadPool-4] [-3782258879188807969] : custId      : HEROMBL|DEMO6666
+[8792] 00:10:31.782 D -            CustomerMobileController(219) [            ServerThreadPool-4] [-3782258879188807969] : loginMenuList : [MNU_R_GPCASH_F_BILL_PAYMENT, MNU_GPCASH_F_INFO, MNU_R_GPCASH_F_TD_WITHDRAW, MNU_R_GPCASH_F_TRX_STATUS, MNU_R_GPCASH_F_BAL_SUMMARY, MNU_R_GPCASH_F_EXCHANGE_RATE, MNU_R_GPCASH_F_FUND_BENEFICIARY, MNU_R_GPCASH_F_FUND_DOMESTIC, MNU_R_GPCASH_F_FUND_INT, MNU_R_GPCASH_F_PURCHASE, MNU_R_GPCASH_F_TRX_HISTORY, MNU_GPCASH_F_ACCOUNTS, MNU_GPCASH_F_FUND_TRF, MNU_R_GPCASH_F_FUND_INHOUSE, MNU_R_GPCASH_F_TD_PLACEMENT, MNU_GPCASH_F_BILL, MNU_GPCASH_F_TD, MNU_R_GPCASH_F_NON_FIN, MNU_GPCASH_MT_PARAMETER, MNU_R_GPCASH_F_CHG_PASSWD, MNU_R_GPCASH_F_USER_DASHBOARD, MNU_GPCASH_MT_HOST_ERROR_MAPPING, MNU_R_GPCASH_F_FUND_BENEFICIARY, MNU_R_GPCASH_M_OTP]
+[8792] 00:10:31.782 D -            CustomerMobileController(220) [            ServerThreadPool-4] [-3782258879188807969] : 
+
+
+
+
+
+[8792] 00:10:31.783 D -                        QueueInvoker(201) [            ServerThreadPool-4] [-3782258879188807969] : Execution Time: 104 ms
+[8792] 00:17:50.746 D -             CustomerMobileController(59) [          http-nio-8005-exec-6] [ 7528598389929230785] : [preInvoke] - [-] - CustomerMobileSC#mobileCustFPLogin({loginId=herombl, sign=SUFErfSX8Py/xQASm7T0csCsQHDIUqIYn425eRC53EywsHjviURyJ/j/KPegPJfUOdmJE3gK1x+H
+dPo1Idd+w3pWymQ8SgafLrBqY29TnQbfcaKKU72Og55diCLEuDgdGDp62vW/Uy4d91v9i0VGaRA1
+DGIO/E5RUmjgVQeS/KjHlR1Mx+gefXRZNqTzB+YTR7c+8kOy6kNDLjDJFYzYoHgG2kvInElll5bD
+w9IVr1zIdjzbQHOUw0PNzGXPfipu3cZJpLBknsEjV1xsyWJT7CSf4otbW05I57zi6sf/fx0tFFQH
+GrNgWQQL/qR2Yg0vcZRt+M5bpSSqYvpsVNzuTA==
+, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=DKdFwstVlLdJHN5&, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:17:50.748 D -                        QueueInvoker(126) [          http-nio-8005-exec-6] [ 7528598389929230785] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#mobileCustFPLogin({loginId=herombl, sign=SUFErfSX8Py/xQASm7T0csCsQHDIUqIYn425eRC53EywsHjviURyJ/j/KPegPJfUOdmJE3gK1x+H
+dPo1Idd+w3pWymQ8SgafLrBqY29TnQbfcaKKU72Og55diCLEuDgdGDp62vW/Uy4d91v9i0VGaRA1
+DGIO/E5RUmjgVQeS/KjHlR1Mx+gefXRZNqTzB+YTR7c+8kOy6kNDLjDJFYzYoHgG2kvInElll5bD
+w9IVr1zIdjzbQHOUw0PNzGXPfipu3cZJpLBknsEjV1xsyWJT7CSf4otbW05I57zi6sf/fx0tFFQH
+GrNgWQQL/qR2Yg0vcZRt+M5bpSSqYvpsVNzuTA==
+, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=DKdFwstVlLdJHN5&, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:17:50.751 D -                    ValidationAspect(266) [            ServerThreadPool-4] [ 7528598389929230785] : [Validation - Input] - CustomerMobileSCImpl#mobileCustFPLogin({loginId=herombl, sign=SUFErfSX8Py/xQASm7T0csCsQHDIUqIYn425eRC53EywsHjviURyJ/j/KPegPJfUOdmJE3gK1x+H
+dPo1Idd+w3pWymQ8SgafLrBqY29TnQbfcaKKU72Og55diCLEuDgdGDp62vW/Uy4d91v9i0VGaRA1
+DGIO/E5RUmjgVQeS/KjHlR1Mx+gefXRZNqTzB+YTR7c+8kOy6kNDLjDJFYzYoHgG2kvInElll5bD
+w9IVr1zIdjzbQHOUw0PNzGXPfipu3cZJpLBknsEjV1xsyWJT7CSf4otbW05I57zi6sf/fx0tFFQH
+GrNgWQQL/qR2Yg0vcZRt+M5bpSSqYvpsVNzuTA==
+, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=DKdFwstVlLdJHN5&, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:17:50.789 D -                 IDMLoginServiceImpl(457) [            ServerThreadPool-4] [ 7528598389929230785] : getLastLoginDate : 2022-06-20 00:10:31.755
+[8792] 00:17:50.790 D -                 IDMLoginServiceImpl(458) [            ServerThreadPool-4] [ 7528598389929230785] : validateUserIdle diffDays : 0
+[8792] 00:17:50.843 D -            CustomerMobileController(216) [            ServerThreadPool-4] [ 7528598389929230785] : 
+
+
+
+
+
+[8792] 00:17:50.843 D -            CustomerMobileController(217) [            ServerThreadPool-4] [ 7528598389929230785] : session id    : e295da25-eba8-4952-bc9a-66d9544ac61d
+[8792] 00:17:50.844 D -            CustomerMobileController(218) [            ServerThreadPool-4] [ 7528598389929230785] : custId      : HEROMBL|DEMO6666
+[8792] 00:17:50.844 D -            CustomerMobileController(219) [            ServerThreadPool-4] [ 7528598389929230785] : loginMenuList : [MNU_R_GPCASH_F_BILL_PAYMENT, MNU_GPCASH_F_INFO, MNU_R_GPCASH_F_TD_WITHDRAW, MNU_R_GPCASH_F_TRX_STATUS, MNU_R_GPCASH_F_BAL_SUMMARY, MNU_R_GPCASH_F_EXCHANGE_RATE, MNU_R_GPCASH_F_FUND_BENEFICIARY, MNU_R_GPCASH_F_FUND_DOMESTIC, MNU_R_GPCASH_F_FUND_INT, MNU_R_GPCASH_F_PURCHASE, MNU_R_GPCASH_F_TRX_HISTORY, MNU_GPCASH_F_ACCOUNTS, MNU_GPCASH_F_FUND_TRF, MNU_R_GPCASH_F_FUND_INHOUSE, MNU_R_GPCASH_F_TD_PLACEMENT, MNU_GPCASH_F_BILL, MNU_GPCASH_F_TD, MNU_R_GPCASH_F_NON_FIN, MNU_GPCASH_MT_PARAMETER, MNU_R_GPCASH_F_CHG_PASSWD, MNU_R_GPCASH_F_USER_DASHBOARD, MNU_GPCASH_MT_HOST_ERROR_MAPPING, MNU_R_GPCASH_F_FUND_BENEFICIARY, MNU_R_GPCASH_M_OTP]
+[8792] 00:17:50.844 D -            CustomerMobileController(220) [            ServerThreadPool-4] [ 7528598389929230785] : 
+
+
+
+
+
+[8792] 00:17:50.845 D -                        QueueInvoker(201) [            ServerThreadPool-4] [ 7528598389929230785] : Execution Time: 95 ms
+[8792] 00:18:45.002 D -             CustomerMobileController(59) [          http-nio-8005-exec-3] [-4767077949175740191] : [preInvoke] - [-] - CustomerMobileSC#mobileCustLogin({loginId=herombl77, passwd=scJWnCh2sKi7pJLKFLfkdjiIo2pNqtMcLjRmgPjTAV8=, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=HfSkISTlUAFqjp2%, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:18:45.044 D -                        QueueInvoker(126) [          http-nio-8005-exec-3] [-4767077949175740191] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#mobileCustLogin({loginId=herombl77, passwd=scJWnCh2sKi7pJLKFLfkdjiIo2pNqtMcLjRmgPjTAV8=, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=HfSkISTlUAFqjp2%, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:18:45.049 D -                    ValidationAspect(266) [            ServerThreadPool-2] [-4767077949175740191] : [Validation - Input] - CustomerMobileSCImpl#mobileCustLogin({loginId=herombl77, passwd=scJWnCh2sKi7pJLKFLfkdjiIo2pNqtMcLjRmgPjTAV8=, loginIPAddress=192.168.0.100, userAgent=okhttp/3.6.0, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, key=HfSkISTlUAFqjp2%, menuCode=null, appCode=GPCASHIB_R})
+[8792] 00:18:45.099 D -                 IDMLoginServiceImpl(457) [            ServerThreadPool-2] [-4767077949175740191] : getLastLoginDate : 2022-06-15 17:14:41.34
+[8792] 00:18:45.100 D -                 IDMLoginServiceImpl(458) [            ServerThreadPool-2] [-4767077949175740191] : validateUserIdle diffDays : 4
+[8792] 00:18:45.141 D -            CustomerMobileController(216) [            ServerThreadPool-2] [-4767077949175740191] : 
+
+
+
+
+
+[8792] 00:18:45.141 D -            CustomerMobileController(217) [            ServerThreadPool-2] [-4767077949175740191] : session id    : ec3d5b03-92a8-4e67-b05f-2dfcbe59fdef
+[8792] 00:18:45.141 D -            CustomerMobileController(218) [            ServerThreadPool-2] [-4767077949175740191] : custId      : HEROMBL77|DEMO8888
+[8792] 00:18:45.141 D -            CustomerMobileController(219) [            ServerThreadPool-2] [-4767077949175740191] : loginMenuList : [MNU_R_GPCASH_M_OTP, MNU_R_GPCASH_F_FUND_BENEFICIARY]
+[8792] 00:18:45.141 D -            CustomerMobileController(220) [            ServerThreadPool-2] [-4767077949175740191] : 
+
+
+
+
+
+[8792] 00:18:45.142 D -                        QueueInvoker(201) [            ServerThreadPool-2] [-4767077949175740191] : Execution Time: 97 ms
+[8792] 00:18:48.453 D -             CustomerMobileController(59) [          http-nio-8005-exec-7] [ -553693086551621518] : [preInvoke] - [ec3d5b03-92a8-4e67-b05f-2dfcbe59fdef] - CustomerMobileSC#activateDevice({otp=123456, fpAvailable=true, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, menuCode=MNU_R_GPCASH_M_OTP, appCode=GPCASHIB_R, customerId=HEROMBL77|DEMO8888})
+[8792] 00:18:48.459 D -                        QueueInvoker(126) [          http-nio-8005-exec-7] [ -553693086551621518] : [AutoDiscoveryQueueInvoker] - CustomerMobileSC#activateDevice({otp=123456, fpAvailable=true, device={id=869720030146032, name=puuupuuu, model=Redmi Note 5, osType=android, osVer=9, appVer=1.1.2, pushId=eJN1_KY0kcM:APA91bGHOA_VFHKlZZRf219fsxbWzrxWTq28D3LGVzpz4x4vmybgCRAR1iylBuJ37AKEIYVEV4zPhIRxs34Z3PSJZX0cR1ogHJbLZb3E2k77xyu_GuMbtssAzm2g0zkJe08zBrez6pYs}, menuCode=MNU_R_GPCASH_M_OTP, appCode=GPCASHIB_R, customerId=HEROMBL77|DEMO8888})
+[8792] 00:18:48.513 D -                        QueueInvoker(201) [            ServerThreadPool-5] [ -553693086551621518] : Execution Time: 53 ms

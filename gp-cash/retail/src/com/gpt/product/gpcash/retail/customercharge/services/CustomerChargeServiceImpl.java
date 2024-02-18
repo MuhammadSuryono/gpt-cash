@@ -16,7 +16,10 @@ import org.springframework.transaction.annotation.Transactional;
 import com.gpt.component.common.exceptions.ApplicationException;
 import com.gpt.component.common.exceptions.BusinessException;
 import com.gpt.component.idm.app.model.IDMApplicationModel;
+import com.gpt.component.maintenance.exchangerate.model.ExchangeRateModel;
+import com.gpt.component.maintenance.exchangerate.repository.ExchangeRateRepository;
 import com.gpt.component.maintenance.parametermt.model.CurrencyModel;
+import com.gpt.component.maintenance.sysparam.services.SysParamService;
 import com.gpt.component.maintenance.utils.MaintenanceRepository;
 import com.gpt.component.pendingtask.services.PendingTaskService;
 import com.gpt.component.pendingtask.valueobject.PendingTaskVO;
@@ -47,6 +50,12 @@ public class CustomerChargeServiceImpl implements CustomerChargeService, ChargeP
 	@Autowired
 	private CustomerRepository customerRepo;
 
+	@Autowired
+	private ExchangeRateRepository exchangeRateRepo;
+	
+	@Autowired
+	private SysParamService sysParamService;
+	
 	@Override
 	public Map<String, Object> search(Map<String, Object> map) throws ApplicationException, BusinessException {
 		Map<String, Object> resultMap = new HashMap<>();
@@ -382,5 +391,179 @@ public class CustomerChargeServiceImpl implements CustomerChargeService, ChargeP
 		//update spesific customer charge
 		customerChargeRepo.updateChargesByChargePackageCode(chargeAmount, chargePackageCode, currencyCode, 
 				serviceChargeId);
+	}
+	
+	@Override
+	public Map<String, Object> getCustomerChargesEquivalent(String applicationCode, String transactionServiceCode,
+			String customerId,String soureAccCurrency) throws ApplicationException, BusinessException {
+		Map<String, Object> resultMap = new HashMap<>();
+		try {
+			Page<Object[]> result = customerChargeRepo.findChargesByCustomer(applicationCode, transactionServiceCode, customerId ,null);
+			
+			List<Map<String, Object>> chargeList = new ArrayList<>();
+			
+			BigDecimal totalCharge = new BigDecimal(0);
+			BigDecimal totalChargeEquivalentAmount = BigDecimal.ZERO;
+			String totalChargeCurrency = "";
+			
+			String localCurrency = sysParamService.getLocalCurrency();
+			Map<String, Object> rateMap = getLatestExchangeRate();
+			
+			for (Object[] model : result.getContent()) {
+				Map<String, Object> chargeMap = new HashMap<>();
+				chargeMap.put("id", model[0]);
+				chargeMap.put("serviceChargeName", model[4]);
+				chargeMap.put("currencyCode", model[5]);
+				chargeMap.put("currencyName", model[6]);
+				
+				//TODO need to change logic if implement multi currency charges
+				totalChargeCurrency = (String) model[5]; 
+				
+				BigDecimal value = (BigDecimal) model[7];
+				chargeMap.put("value", value.toPlainString());
+				BigDecimal valueEquivalentAmount = calculateAmountEquivalent(totalChargeCurrency, soureAccCurrency,localCurrency, value, rateMap);
+				chargeMap.put("valueEq", valueEquivalentAmount.toPlainString());
+				
+				chargeList.add(chargeMap);
+				
+				totalCharge = totalCharge.add(value);
+				totalChargeEquivalentAmount = totalChargeEquivalentAmount.add(valueEquivalentAmount);
+			}
+			
+			resultMap.put(ApplicationConstants.TRANS_CHARGE_LIST, chargeList);
+			resultMap.put(ApplicationConstants.TRANS_TOTAL_CHARGE, totalCharge.toPlainString());
+			resultMap.put(ApplicationConstants.TRANS_TOTAL_CHARGE_CURRENCY, totalChargeCurrency);
+			resultMap.put(ApplicationConstants.TRANS_TOTAL_CHARGE_EQ, totalChargeEquivalentAmount);
+		} catch (BusinessException e) {
+			throw e;
+		} catch (Exception e) {
+			throw new ApplicationException(e);
+		}
+		return resultMap;
+	}
+	
+	@Override
+	public Map<String, Object> getCustomerChargesPerRecordEquivalent(String applicationCode, String transactionServiceCode,
+			String customerId, Long records, String transactionCurrency) throws ApplicationException, BusinessException {
+		Map<String, Object> resultMap = new HashMap<>();
+		try {
+			Page<Object[]> result = customerChargeRepo.findChargesByCustomer(applicationCode, transactionServiceCode, customerId ,null);
+			
+			List<Map<String, Object>> chargeList = new ArrayList<>();
+			
+			BigDecimal totalCharge = new BigDecimal(0);
+			String totalChargeCurrency = "";
+			for (Object[] model : result.getContent()) {
+				Map<String, Object> chargeMap = new HashMap<>();
+				chargeMap.put("id", model[0]);
+				chargeMap.put("serviceChargeName", model[4]);
+				chargeMap.put("currencyCode", model[5]);
+				chargeMap.put("currencyName", model[6]);
+				
+				//TODO need to change logic if implement multi currency charges
+				totalChargeCurrency = (String) model[5]; 
+				
+				BigDecimal value = (BigDecimal) model[7];
+				chargeMap.put("value", value.toPlainString());
+				
+				BigDecimal totalPerType = value.multiply(new BigDecimal(records));
+				chargeMap.put("total", totalPerType.toPlainString());
+				chargeList.add(chargeMap);
+				
+				totalCharge = totalCharge.add(totalPerType);
+			}
+			
+			String localCurrency = sysParamService.getLocalCurrency();
+			Map<String, Object> rateMap = getLatestExchangeRate();
+			BigDecimal totalChargeEquivalentAmount = calculateAmountEquivalent(transactionCurrency, totalChargeCurrency, localCurrency, totalCharge, rateMap);
+			
+			resultMap.put(ApplicationConstants.TRANS_CHARGE_LIST, chargeList);
+			resultMap.put(ApplicationConstants.TRANS_TOTAL_CHARGE, totalCharge.toPlainString());
+			resultMap.put(ApplicationConstants.TRANS_TOTAL_CHARGE_CURRENCY, totalChargeCurrency);
+			resultMap.put(ApplicationConstants.TRANS_TOTAL_CHARGE_EQ, totalChargeEquivalentAmount);
+		} catch (BusinessException e) {
+			throw e;
+		} catch (Exception e) {
+			throw new ApplicationException(e);
+		}
+		return resultMap;
+	}
+	
+	private BigDecimal calculateAmountEquivalent(String transactionCurrency, String accountCurrency, String localCurrency, 
+			BigDecimal transactionAmount, Map<String, Object> rate) throws Exception {
+		
+		if (logger.isDebugEnabled()) {
+			logger.debug("transactionCurrency = " + transactionCurrency);
+			logger.debug("transactionAmount = " + transactionAmount);
+			logger.debug("accountCurrency = " + accountCurrency);
+			logger.debug("localCurrency" + localCurrency);
+		}
+		
+		BigDecimal trxAmountEquivalent = ApplicationConstants.ZERO;
+		BigDecimal sellRate = ApplicationConstants.ZERO;
+		BigDecimal buyRate = ApplicationConstants.ZERO;
+		BigDecimal currencyQuantity = new BigDecimal(1);
+		ExchangeRateModel exchangeRateFrom;
+		
+		if(!accountCurrency.equals(transactionCurrency)){
+			
+			if (!accountCurrency.equals(localCurrency) && !transactionCurrency.equals(localCurrency)) {
+				
+				exchangeRateFrom = getRate(transactionCurrency, rate);
+				sellRate = exchangeRateFrom.getTransactionSellRate();
+				
+				BigDecimal trxIntermmediate = transactionAmount.multiply(sellRate).divide(currencyQuantity, ApplicationConstants.ROUND_SCALE, ApplicationConstants.ROUND_MODE_UP);
+				
+				exchangeRateFrom = getRate(accountCurrency, rate);
+				buyRate = exchangeRateFrom.getTransactionBuyRate();
+				
+				trxAmountEquivalent = trxIntermmediate.divide(buyRate, ApplicationConstants.ROUND_SCALE, ApplicationConstants.ROUND_MODE_UP);
+				trxAmountEquivalent = trxAmountEquivalent.multiply(currencyQuantity);
+			} else {
+				
+				if (accountCurrency.equals(localCurrency)) {
+					
+					exchangeRateFrom = getRate(transactionCurrency, rate);
+					sellRate = exchangeRateFrom.getTransactionSellRate();
+					trxAmountEquivalent = transactionAmount.multiply(sellRate).divide(currencyQuantity, ApplicationConstants.ROUND_SCALE, ApplicationConstants.ROUND_MODE_UP);
+					
+				} else if (transactionCurrency.equals(localCurrency)) {
+					
+					exchangeRateFrom = getRate(accountCurrency, rate);
+					buyRate = exchangeRateFrom.getTransactionBuyRate();
+					trxAmountEquivalent = transactionAmount.multiply(currencyQuantity).divide(buyRate, ApplicationConstants.ROUND_SCALE, ApplicationConstants.ROUND_MODE_UP);
+				}
+			}
+		} else {
+			trxAmountEquivalent = transactionAmount;
+		}
+		
+		if (logger.isDebugEnabled()) {
+			logger.debug("transactionAmountEquivalent = " + trxAmountEquivalent);
+		}
+		
+		return trxAmountEquivalent;
+	}
+	
+	private Map<String, Object> getLatestExchangeRate() throws Exception {
+		Map<String, Object> returnMap = new HashMap<>();
+		ExchangeRateModel exchangeRate;
+		List<ExchangeRateModel> rateList = exchangeRateRepo.findByDeleteFlag(ApplicationConstants.NO);
+		
+		for (int i = 0; i < rateList.size(); i++) {
+			exchangeRate = rateList.get(i);
+			returnMap.put(exchangeRate.getCurrency().getCode(), exchangeRate);
+		}
+		
+		return returnMap;
+	}
+	
+	private ExchangeRateModel getRate(String currency, Map<String, Object> rate) throws BusinessException {
+		ExchangeRateModel returnRate = new ExchangeRateModel();
+		returnRate = (ExchangeRateModel) rate.get(currency);
+		if (returnRate == null) {
+			throw new BusinessException("Rate Not Found");
+		}
+		return returnRate;
 	}
 }

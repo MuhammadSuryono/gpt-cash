@@ -12,4 +12,8 @@ public interface PromoService extends WorkflowService {
 	
 	Map<String, Object> search(Map<String, Object> map) throws ApplicationException, BusinessException;
 	
+	Map<String, Object> upload(Map<String, Object> map) throws ApplicationException, BusinessException;
+	
+	Map<String, Object> searchNewsInfo(Map<String, Object> map) throws ApplicationException, BusinessException;
+	
 }

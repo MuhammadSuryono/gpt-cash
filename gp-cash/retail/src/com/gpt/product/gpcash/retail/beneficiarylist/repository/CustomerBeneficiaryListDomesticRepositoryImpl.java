@@ -65,6 +65,22 @@ public class CustomerBeneficiaryListDomesticRepositoryImpl extends CashRepositor
 		} else
 			predicate = customerIsEqual;
 		
+		if (ValueUtils.hasValue(paramMap.get("isOnline"))) {
+			Predicate isOnline = builder.equal(builder.upper(root.get("isBenOnline")), (String) paramMap.get("isOnline"));
+			if(predicate!=null)
+				predicate = builder.and(predicate, isOnline);
+			else
+				predicate = isOnline;
+		} else { // exclude Online
+//			Predicate isOnline = builder.isNull(root.get("isBenOnline"));
+			Predicate isOnline = builder.equal(builder.upper(root.get("isBenOnline")), ApplicationConstants.NO);
+			if(predicate!=null)
+				predicate = builder.and(predicate, isOnline);
+			else
+				predicate = isOnline;
+		}
+		
+		
 		Predicate isDeleted = builder.equal(builder.upper(root.get("deleteFlag")), ApplicationConstants.NO);
 		if(predicate!=null)
 			predicate = builder.and(predicate, isDeleted);

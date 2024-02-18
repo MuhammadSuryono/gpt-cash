@@ -180,6 +180,9 @@ public class BulkPaymentModel implements Serializable {
 	
 	@Column(name = "STATUS")
 	private String status;
+	
+	@Column(name = "IS_SUMMARY_OPT")
+	private String isSummaryOpt;
 
 	public String getReferenceNo() {
 		return referenceNo;
@@ -547,6 +550,14 @@ public class BulkPaymentModel implements Serializable {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public String getIsSummaryOpt() {
+		return isSummaryOpt;
+	}
+
+	public void setIsSummaryOpt(String isSummaryOpt) {
+		this.isSummaryOpt = isSummaryOpt;
 	}
 	
 }

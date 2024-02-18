@@ -190,6 +190,7 @@ public class CorporateUserDashboardSCImpl implements CorporateUserDashboardSC {
 
 	@Override
 	public Map<String, Object> getPromo(Map<String, Object> map) throws ApplicationException, BusinessException {
+		map.put("infoType", "PROMO");
 		return promoService.search(map);
 	}
 }

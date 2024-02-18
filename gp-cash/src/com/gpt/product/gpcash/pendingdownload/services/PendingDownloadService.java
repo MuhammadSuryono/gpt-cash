@@ -1,5 +1,6 @@
 package com.gpt.product.gpcash.pendingdownload.services;
 
+import java.util.List;
 import java.util.Map;
 
 import com.gpt.component.common.exceptions.ApplicationException;
@@ -21,4 +22,6 @@ public interface PendingDownloadService {
 	Map<String, Object> downloadReport(String pendingDownloadId, String downloadBy) throws ApplicationException;
 
 	void updateToNewRequest(String pendingDownloadId) throws ApplicationException;
+	
+	Map<String, Object> deletePendingDownload(List<String> pendingDownloadId, String downloadBy) throws ApplicationException, BusinessException;
 }

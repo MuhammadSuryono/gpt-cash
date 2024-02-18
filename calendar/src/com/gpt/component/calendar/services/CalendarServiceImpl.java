@@ -7,7 +7,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionSynchronizationAdapter;
@@ -19,6 +22,7 @@ import com.gpt.component.calendar.repository.CalendarRepository;
 import com.gpt.component.common.broadcast.Broadcaster;
 import com.gpt.component.common.exceptions.ApplicationException;
 import com.gpt.component.common.exceptions.BusinessException;
+import com.gpt.component.common.spring.Util;
 import com.gpt.component.common.utils.ValueUtils;
 import com.gpt.platform.cash.constants.ApplicationConstants;
 import com.gpt.platform.cash.utils.DateUtils;
@@ -31,6 +35,11 @@ public class CalendarServiceImpl implements CalendarService {
 	
 	@Autowired
 	private Broadcaster broadcaster;
+	
+	@Autowired
+	private ApplicationContext appCtx;
+	
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 	
 	@Override
 	public Map<String, Object> search(Map<String, Object> map) throws ApplicationException, BusinessException {
@@ -119,10 +128,29 @@ public class CalendarServiceImpl implements CalendarService {
 			cal.setTime(holidayDateFrom);
 			saveHoliday(dscp, holidayDateFrom, type, createdBy, currencyCode);
 			
+			//call Service untuk ambil semua domestic transaction future yang sudah di release dan ins datenya menjadi holiday
+			   //POC ban lampung tc007
+				try{
+					Util.invokeSpringBean(appCtx, "DomesticTransferSC", "saveTransactionHoliday", cal.getTime());
+				} catch (Throwable e) {
+					logger.error(e.getMessage(), e);
+				}
+				//
+				
 			while (cal.getTime().before(holidayDateTo)) {
 			    cal.add(Calendar.DATE, 1);
 			    saveHoliday(dscp, cal.getTime(), type, createdBy, currencyCode);
+			    
+			  //call Service untuk ambil semua domestic transaction future yang sudah di release dan ins datenya menjadi holiday
+			   //POC ban lampung tc007
+				try{
+					Util.invokeSpringBean(appCtx, "DomesticTransferSC", "saveTransactionHoliday", cal.getTime());
+				} catch (Throwable e) {
+					logger.error(e.getMessage(), e);
+				}
+				//
 			}
+	
 			
 			resetScheduler();
 		} catch (BusinessException e) {

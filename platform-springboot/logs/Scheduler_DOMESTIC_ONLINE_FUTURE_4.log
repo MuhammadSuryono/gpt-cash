@@ -1,5 +1,3 @@
-[14716] 16:00:03.892 D -                      SchedulerHelper(47) [           Scheduler_Worker-10] [-3397915950313157848] : [DOMESTIC_ONLINE_FUTURE_4] Scheduled Fire Time : Fri Feb 19 16:00:00 ICT 2021
-[14716] 16:00:03.892 D -                      SchedulerHelper(48) [           Scheduler_Worker-10] [-3397915950313157848] : [DOMESTIC_ONLINE_FUTURE_4] Next Fire Time      : Fri Feb 19 16:00:00 ICT 2021
-[14716] 16:00:08.644 D -        DomesticTransferServiceImpl(1975) [           Scheduler_Worker-10] [-3397915950313157848] : Future Online start : 2021-02-19 00:00:00.0
-[14716] 16:00:08.644 D -        DomesticTransferServiceImpl(1976) [           Scheduler_Worker-10] [-3397915950313157848] : Future Online end : 2021-02-19 13:00:00.0
-[14716] 16:00:10.183 D -                SchedulerServiceImpl(313) [           Scheduler_Worker-10] [-3397915950313157848] : [DOMESTIC_ONLINE_FUTURE_4] Next Fire Time (New): Sat Feb 20 16:00:00 ICT 2021
+[8792] 20:19:24.313 D -                      SchedulerHelper(47) [            Scheduler_Worker-3] [ 6948480833519896084] : [DOMESTIC_ONLINE_FUTURE_4] Scheduled Fire Time : Wed Jun 22 16:00:00 ICT 2022
+[8792] 20:19:24.314 D -                      SchedulerHelper(48) [            Scheduler_Worker-3] [ 6948480833519896084] : [DOMESTIC_ONLINE_FUTURE_4] Next Fire Time      : Mon Jun 27 16:00:00 ICT 2022
+[8792] 20:19:24.321 D -                SchedulerServiceImpl(313) [            Scheduler_Worker-3] [ 6948480833519896084] : [DOMESTIC_ONLINE_FUTURE_4] Next Fire Time (New): Mon Jun 27 16:00:00 ICT 2022

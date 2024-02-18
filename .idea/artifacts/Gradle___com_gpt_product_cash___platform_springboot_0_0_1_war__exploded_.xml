@@ -1,0 +1,260 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" external-system-id="GRADLE" name="Gradle : com.gpt.product.cash : platform-springboot-0.0.1.war (exploded)">
+    <output-path>$PROJECT_DIR$/platform-springboot/platform-springboot-war/build/libs/exploded/platform-springboot-0.0.1.war</output-path>
+    <properties id="gradle-properties">
+      <options external-project-path="$PROJECT_DIR$">
+        <buildTaskPath>:platform-springboot:platform-springboot-war:war_exploded</buildTaskPath>
+        <cleanTaskPath>:platform-springboot:platform-springboot-war:cleanWar_exploded</cleanTaskPath>
+        <manifest>TWFuaWZlc3QtVmVyc2lvbjogMS4wDQpJbXBsZW1lbnRhdGlvbi1UaXRsZTogR1BDYXNoDQpJbXBsZW1lbnRhdGlvbi1WZXJzaW9uOiAwLjAuMQ0KDQo=</manifest>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/platform-springboot/platform-springboot-war/build/libs/exploded/platform-springboot-0.0.1.war/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="cash.platform-springboot.platform-springboot-war.main/web/Web Gradle : platform-springboot-0.0.1.war" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="cash.platform-springboot.platform-springboot-war.main" />
+          <element id="dir-copy" path="$PROJECT_DIR$/platform-springboot/platform-springboot-war/build/resources/main" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="archive" name="com.gpt.product.cash-otp-0.0.1.jar">
+            <element id="module-output" name="cash.otp.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/otp/build/resources/main" />
+          </element>
+          <element id="archive" name="com.gpt.product.cash-cash-0.0.1.jar">
+            <element id="module-output" name="cash.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/build/resources/main" />
+          </element>
+          <element id="library" level="project" name="Gradle: com.gpt.component:common:1.0.4" />
+          <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-web:4.2.3.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-config:4.2.3.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.hibernate:hibernate-core:5.2.10.Final" />
+          <element id="library" level="project" name="Gradle: org.codehaus.jackson:jackson-mapper-asl:1.9.13" />
+          <element id="library" level="project" name="Gradle: com.netflix.hystrix:hystrix-core:1.5.18" />
+          <element id="library" level="project" name="Gradle: com.netflix.archaius:archaius-core:0.7.4" />
+          <element id="library" level="project" name="Gradle: de.ruedigermoeller:fst:2.54" />
+          <element id="library" level="project" name="Gradle: com.gpt.component:json:1.0.0" />
+          <element id="library" level="project" name="Gradle: com.gpt.component:encryption:1.0.0" />
+          <element id="library" level="project" name="Gradle: net.sf.jasperreports:jasperreports:6.4.3" />
+          <element id="library" level="project" name="Gradle: org.apache.poi:poi:3.17" />
+          <element id="library" level="project" name="Gradle: org.quartz-scheduler:quartz:2.3.0" />
+          <element id="library" level="project" name="Gradle: com.hazelcast:hazelcast-spring:3.9" />
+          <element id="library" level="project" name="Gradle: com.hazelcast:hazelcast-hibernate52:1.2.1" />
+          <element id="library" level="project" name="Gradle: org.springframework.data:spring-data-commons:1.13.8.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-core:4.2.3.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-webmvc:4.3.12.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-web:4.3.12.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-context:4.3.12.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-aop:4.3.12.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-beans:4.3.12.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-expression:4.3.12.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-core:4.3.12.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.aspectj:aspectjrt:1.8.11" />
+          <element id="library" level="project" name="Gradle: org.slf4j:jcl-over-slf4j:1.7.25" />
+          <element id="library" level="project" name="Gradle: ch.qos.logback:logback-classic:1.1.11" />
+          <element id="library" level="project" name="Gradle: org.slf4j:slf4j-api:1.7.25" />
+          <element id="library" level="project" name="Gradle: aopalliance:aopalliance:1.0" />
+          <element id="library" level="project" name="Gradle: org.hibernate.common:hibernate-commons-annotations:5.0.1.Final" />
+          <element id="library" level="project" name="Gradle: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final" />
+          <element id="library" level="project" name="Gradle: org.javassist:javassist:3.21.0-GA" />
+          <element id="library" level="project" name="Gradle: antlr:antlr:2.7.7" />
+          <element id="library" level="project" name="Gradle: org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:1.0.1.Final" />
+          <element id="library" level="project" name="Gradle: org.jboss:jandex:2.0.3.Final" />
+          <element id="library" level="project" name="Gradle: dom4j:dom4j:1.6.1" />
+          <element id="library" level="project" name="Gradle: org.codehaus.jackson:jackson-core-asl:1.9.13" />
+          <element id="library" level="project" name="Gradle: io.reactivex:rxjava:1.3.8" />
+          <element id="library" level="project" name="Gradle: org.hdrhistogram:HdrHistogram:2.1.9" />
+          <element id="library" level="project" name="Gradle: org.objenesis:objenesis:2.5.1" />
+          <element id="library" level="project" name="Gradle: javax.servlet:javax.servlet-api:3.1.0" />
+          <element id="library" level="project" name="Gradle: commons-digester:commons-digester:2.1" />
+          <element id="library" level="project" name="Gradle: commons-beanutils:commons-beanutils:1.9.3" />
+          <element id="library" level="project" name="Gradle: org.apache.commons:commons-lang3:3.5" />
+          <element id="library" level="project" name="Gradle: commons-codec:commons-codec:1.10" />
+          <element id="library" level="project" name="Gradle: org.codehaus.castor:castor-xml:1.3.3" />
+          <element id="library" level="project" name="Gradle: commons-collections:commons-collections:3.2.2" />
+          <element id="library" level="project" name="Gradle: org.codehaus.castor:castor-core:1.3.3" />
+          <element id="library" level="project" name="Gradle: commons-configuration:commons-configuration:1.8" />
+          <element id="library" level="project" name="Gradle: commons-logging:commons-logging:1.2" />
+          <element id="library" level="project" name="Gradle: com.lowagie:itext:2.1.7.js6" />
+          <element id="library" level="project" name="Gradle: org.jfree:jfreechart:1.0.19" />
+          <element id="library" level="project" name="Gradle: org.jfree:jcommon:1.0.23" />
+          <element id="library" level="project" name="Gradle: org.eclipse.jdt.core.compiler:ecj:4.4.2" />
+          <element id="library" level="project" name="Gradle: org.apache.lucene:lucene-analyzers-common:4.5.1" />
+          <element id="library" level="project" name="Gradle: org.apache.lucene:lucene-queryparser:4.5.1" />
+          <element id="library" level="project" name="Gradle: org.apache.lucene:lucene-queries:4.5.1" />
+          <element id="library" level="project" name="Gradle: org.apache.lucene:lucene-sandbox:4.5.1" />
+          <element id="library" level="project" name="Gradle: org.apache.lucene:lucene-core:4.5.1" />
+          <element id="library" level="project" name="Gradle: org.olap4j:olap4j:0.9.7.309-JS-3" />
+          <element id="library" level="project" name="Gradle: com.google.zxing:core:3.2.1" />
+          <element id="library" level="project" name="Gradle: com.ibm.icu:icu4j:57.1" />
+          <element id="library" level="project" name="Gradle: org.apache.commons:commons-collections4:4.1" />
+          <element id="library" level="project" name="Gradle: ch.qos.logback:logback-core:1.1.11" />
+          <element id="library" level="project" name="Gradle: org.bouncycastle:bcprov-jdk15on:1.52" />
+          <element id="library" level="project" name="Gradle: commons-lang:commons-lang:2.6" />
+          <element id="library" level="project" name="Gradle: javax.inject:javax.inject:1" />
+          <element id="library" level="project" name="Gradle: jakarta-regexp:jakarta-regexp:1.4" />
+          <element id="library" level="project" name="Gradle: com.google.code.findbugs:jsr305:3.0.1" />
+          <element id="archive" name="com.gpt.product.cash-billpayment-0.0.1.jar">
+            <element id="module-output" name="cash.gp-cash.corporate.transaction.billpayment.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/gp-cash/corporate/transaction/billpayment/build/resources/main" />
+          </element>
+          <element id="archive" name="com.gpt.product.cash-transaction-0.0.1.jar">
+            <element id="module-output" name="cash.gp-cash.corporate.transaction.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/gp-cash/corporate/transaction/build/resources/main" />
+          </element>
+          <element id="archive" name="com.gpt.product.cash-inquiry-0.0.1.jar">
+            <element id="module-output" name="cash.gp-cash.corporate.inquiry.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/gp-cash/corporate/inquiry/build/resources/main" />
+          </element>
+          <element id="archive" name="com.gpt.product.cash-corporate-0.0.1.jar">
+            <element id="module-output" name="cash.gp-cash.corporate.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/gp-cash/corporate/build/resources/main" />
+          </element>
+          <element id="archive" name="com.gpt.product.cash-cot-0.0.1.jar">
+            <element id="module-output" name="cash.gp-cash.cot.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/gp-cash/cot/build/resources/main" />
+          </element>
+          <element id="archive" name="com.gpt.product.cash-gp-cash-0.0.1.jar">
+            <element id="module-output" name="cash.gp-cash.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/gp-cash/build/resources/main" />
+          </element>
+          <element id="archive" name="com.gpt.product.cash-idm-maintenance-0.0.1.jar">
+            <element id="module-output" name="cash.idm-maintenance.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/idm-maintenance/build/resources/main" />
+          </element>
+          <element id="archive" name="com.gpt.product.cash-platform-cash-0.0.1.jar">
+            <element id="module-output" name="cash.platform-cash.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/platform-cash/build/resources/main" />
+          </element>
+          <element id="archive" name="com.gpt.product.cash-calendar-0.0.1.jar">
+            <element id="module-output" name="cash.calendar.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/calendar/build/resources/main" />
+          </element>
+          <element id="archive" name="com.gpt.product.cash-biller-0.0.1.jar">
+            <element id="module-output" name="cash.gp-cash.biller.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/gp-cash/biller/build/resources/main" />
+          </element>
+          <element id="archive" name="com.gpt.product.cash-cheque-0.0.1.jar">
+            <element id="module-output" name="cash.gp-cash.corporate.transaction.cheque.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/gp-cash/corporate/transaction/cheque/build/resources/main" />
+          </element>
+          <element id="archive" name="com.gpt.product.cash-report-0.0.1.jar">
+            <element id="module-output" name="cash.gp-cash.corporate.report.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/gp-cash/corporate/report/build/resources/main" />
+          </element>
+          <element id="archive" name="com.gpt.product.cash-directdebit-0.0.1.jar">
+            <element id="module-output" name="cash.gp-cash.corporate.transaction.directdebit.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/gp-cash/corporate/transaction/directdebit/build/resources/main" />
+          </element>
+          <element id="archive" name="com.gpt.product.cash-domestic-0.0.1.jar">
+            <element id="module-output" name="cash.gp-cash.corporate.transaction.domestic.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/gp-cash/corporate/transaction/domestic/build/resources/main" />
+          </element>
+          <element id="archive" name="com.gpt.product.cash-inhouse-0.0.1.jar">
+            <element id="module-output" name="cash.gp-cash.corporate.transaction.inhouse.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/gp-cash/corporate/transaction/inhouse/build/resources/main" />
+          </element>
+          <element id="archive" name="com.gpt.product.cash-liquidity-0.0.1.jar">
+            <element id="module-output" name="cash.gp-cash.corporate.transaction.liquidity.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/gp-cash/corporate/transaction/liquidity/build/resources/main" />
+          </element>
+          <element id="archive" name="com.gpt.product.cash-tax-0.0.1.jar">
+            <element id="module-output" name="cash.gp-cash.corporate.transaction.tax.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/gp-cash/corporate/transaction/tax/build/resources/main" />
+          </element>
+          <element id="archive" name="com.gpt.product.cash-timedeposit-0.0.1.jar">
+            <element id="module-output" name="cash.gp-cash.corporate.transaction.timedeposit.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/gp-cash/corporate/transaction/timedeposit/build/resources/main" />
+          </element>
+          <element id="archive" name="com.gpt.product.cash-va-0.0.1.jar">
+            <element id="module-output" name="cash.gp-cash.corporate.transaction.va.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/gp-cash/corporate/transaction/va/build/resources/main" />
+          </element>
+          <element id="archive" name="com.gpt.product.cash-mobile-0.0.1.jar">
+            <element id="module-output" name="cash.gp-cash.corporate.mobile.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/gp-cash/corporate/mobile/build/resources/main" />
+          </element>
+          <element id="archive" name="com.gpt.product.cash-web-ui-0.0.1.jar">
+            <element id="module-output" name="cash.gp-cash.corporate.web-ui.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/gp-cash/corporate/web-ui/build/resources/main" />
+          </element>
+          <element id="archive" name="com.gpt.product.cash-workflow-0.0.1.jar">
+            <element id="module-output" name="cash.gp-cash.corporate.workflow.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/gp-cash/corporate/workflow/build/resources/main" />
+          </element>
+          <element id="archive" name="com.gpt.product.cash-timedeposit-retail-0.0.1.jar">
+            <element id="module-output" name="cash.gp-cash.retail.transaction-retail.timedeposit-retail.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/gp-cash/retail/transaction-retail/timedeposit-retail/build/resources/main" />
+          </element>
+          <element id="archive" name="com.gpt.product.cash-transaction-retail-0.0.1.jar">
+            <element id="module-output" name="cash.gp-cash.retail.transaction-retail.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/gp-cash/retail/transaction-retail/build/resources/main" />
+          </element>
+          <element id="archive" name="com.gpt.product.cash-inquiry-retail-0.0.1.jar">
+            <element id="module-output" name="cash.gp-cash.retail.inquiry-retail.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/gp-cash/retail/inquiry-retail/build/resources/main" />
+          </element>
+          <element id="archive" name="com.gpt.product.cash-retail-0.0.1.jar">
+            <element id="module-output" name="cash.gp-cash.retail.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/gp-cash/retail/build/resources/main" />
+          </element>
+          <element id="archive" name="com.gpt.product.cash-mobile-retail-0.0.1.jar">
+            <element id="module-output" name="cash.gp-cash.retail.mobile-retail.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/gp-cash/retail/mobile-retail/build/resources/main" />
+          </element>
+          <element id="archive" name="com.gpt.product.cash-scheduler-0.0.1.jar">
+            <element id="module-output" name="cash.scheduler.main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/scheduler/build/resources/main" />
+          </element>
+          <element id="library" level="project" name="Gradle: org.springframework.session:spring-session:1.3.1.1.GPT_RELEASE" />
+          <element id="library" level="project" name="Gradle: de.codecentric:spring-boot-admin-starter-client:1.5.4" />
+          <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-web:1.5.8.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-data-jpa:1.5.8.RELEASE" />
+          <element id="library" level="project" name="Gradle: com.netflix.hystrix:hystrix-metrics-event-stream:1.5.12" />
+          <element id="library" level="project" name="Gradle: org.springframework.data:spring-data-jpa:1.11.8.RELEASE" />
+          <element id="library" level="project" name="Gradle: com.querydsl:querydsl-jpa:4.1.4" />
+          <element id="library" level="project" name="Gradle: org.hibernate:hibernate-entitymanager:5.2.10.Final" />
+          <element id="library" level="project" name="Gradle: com.netflix.hystrix:hystrix-serialization:1.5.12" />
+          <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-aop:1.5.8.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-jdbc:1.5.8.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-actuator:1.5.8.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter:1.5.8.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-orm:4.3.12.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-context-support:4.3.12.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-actuator:1.5.8.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-autoconfigure:1.5.8.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot:1.5.8.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-jdbc:4.3.12.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-tx:4.3.12.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.hibernate:hibernate-validator:5.3.5.Final" />
+          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.module:jackson-module-afterburner:2.8.10" />
+          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.8.10" />
+          <element id="library" level="project" name="Gradle: javax.transaction:javax.transaction-api:1.2" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-aspects:4.3.12.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.jolokia:jolokia-core:1.3.7" />
+          <element id="library" level="project" name="Gradle: com.googlecode.json-simple:json-simple:1.1.1" />
+          <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-logging:1.5.8.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.slf4j:jul-to-slf4j:1.7.25" />
+          <element id="library" level="project" name="Gradle: org.slf4j:log4j-over-slf4j:1.7.25" />
+          <element id="library" level="project" name="Gradle: com.querydsl:querydsl-core:4.1.4" />
+          <element id="library" level="project" name="Gradle: org.jboss.logging:jboss-logging:3.3.1.Final" />
+          <element id="library" level="project" name="Gradle: com.fasterxml:classmate:1.3.4" />
+          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.8.10" />
+          <element id="library" level="project" name="Gradle: com.hazelcast:hazelcast:3.9" />
+          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.8.0" />
+          <element id="library" level="project" name="Gradle: org.yaml:snakeyaml:1.17" />
+          <element id="library" level="project" name="Gradle: javax.validation:validation-api:1.1.0.Final" />
+          <element id="library" level="project" name="Gradle: org.aspectj:aspectjweaver:1.8.11" />
+          <element id="library" level="project" name="Gradle: net.bytebuddy:byte-buddy:1.6.6" />
+          <element id="library" level="project" name="Gradle: junit:junit:4.12" />
+          <element id="library" level="project" name="Gradle: com.google.guava:guava:18.0" />
+          <element id="library" level="project" name="Gradle: com.mysema.commons:mysema-commons-lang:0.2.4" />
+          <element id="library" level="project" name="Gradle: org.hamcrest:hamcrest-core:1.3" />
+          <element id="library" level="project" name="Gradle: com.infradna.tool:bridge-method-annotation:1.13" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

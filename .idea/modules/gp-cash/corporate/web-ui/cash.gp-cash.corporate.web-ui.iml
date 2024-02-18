@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":gp-cash:corporate:web-ui" external.linked.project.path="$MODULE_DIR$/../../../../../gp-cash/corporate/web-ui" external.root.project.path="$MODULE_DIR$/../../../../.." external.system.id="GRADLE" external.system.module.group="com.gpt.product.cash" external.system.module.version="0.0.1" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../../../gp-cash/corporate/web-ui">
+      <excludeFolder url="file://$MODULE_DIR$/../../../../../gp-cash/corporate/web-ui/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../../../gp-cash/corporate/web-ui/build" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="SonarLintModuleSettings">
+    <option name="uniqueId" value="4eb24820-604b-4110-ba76-fc6392ba3997" />
+  </component>
+</module>
